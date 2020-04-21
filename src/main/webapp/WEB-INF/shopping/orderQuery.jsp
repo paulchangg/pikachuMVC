@@ -80,8 +80,8 @@
             <!--此頁面可呈現8筆 用第1筆為主-->
             
             <td>
-            	<span id="Orderinquary_ordid">${anOrderBean.ordid}</span></br>
-             		<a  href='<c:url value='orderDetail.do?memberId=${LoginOK.m_id}&orderNo=${anOrderBean.ordid}' />'>
+            	<span id="Orderinquary_ordid">${anOrderBean.ordid}</span><br>
+             		<a  href='<c:url value='/shopping/orderDetail?memberId=${LoginOK.m_id}&orderNo=${anOrderBean.ordid}' />'>
 				    	看完整內容
 			    	</a>
 			</td>

@@ -56,7 +56,7 @@
             </div>
             <br>
             <div class="d-flex justify-content-end" >
-              <a href="listProduct/DisplayPageProducts">
+              <a href="shopping/listProduct">
                 <i class="fa fa-shopping-cart" id="shoppingcart">shopping cart</i>
               </a>
             </div>

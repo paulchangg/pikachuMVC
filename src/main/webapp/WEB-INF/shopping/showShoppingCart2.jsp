@@ -59,7 +59,7 @@
              <div class="col-12 return"> <!--返回區塊-->
              <a href="<c:url value='../index.jsp' />"><button type="button" class="btn btn-warning">回首頁</button></a>
              <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
-             <a href="<c:url value='../orderProcess/orderList.do' />"><button type="button" class="btn btn-warning">訂單查詢</button></a>
+             <a href="<c:url value='/shopping/orderList' />"><button type="button" class="btn btn-warning">訂單查詢</button></a>
          </div>
        </div>
       

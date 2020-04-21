@@ -35,7 +35,7 @@ import com.pikachuMVC.model.MemberBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
-				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
+				@WebInitParam(name = "mustLogin1", value = "/shopping/*"), 
 				@WebInitParam(name = "mustLogin2", value = "/member/member_edit"), 
 				@WebInitParam(name = "mustLogin3", value = "/member/member_center"), 
 				@WebInitParam(name = "mustLogin4", value = "/member/member_inquary"), 

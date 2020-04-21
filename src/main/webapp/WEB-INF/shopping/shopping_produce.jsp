@@ -86,7 +86,7 @@
                   <div class="col-10 sidderr2 "><!--中間商品-->
                       <div class="col-12 producebox">
                           <div class="col-8 produceimg"><!--這裡1個id是要連資料庫商品的圖片-->
-                             <img src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${product_INFO.p_id}"  class="img-fluid"  id="shoppingproduce_img">
+                             <img src="<c:url value='/shopping/getPicture/${product_INFO.p_id}' />"  class="img-fluid"  id="shoppingproduce_img">
                           </div>
                            <div class="col-4 produceitem"><!--中間商品--><!--這裡5個id是要連資料庫商品一切資料-->
                               <p>商品名稱:<span id="shoppingproduce_name">${product_INFO.p_name}</span></p>
@@ -94,7 +94,7 @@
                               <p>點數:<span id="shoppingproduce_bouns">${product_INFO.p_bns}點</span></p>
                               <p>剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
                              	    購買數量<p>
-                          <FORM  action="<c:url value='/listProduct/BuyProduct.do' />" method="POST">
+                          <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">
                                 <input id="shoppinproduce_min" name="qty1" type="button" value="-" />  <!--按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉-->
                                 <input id="shoppinproduce_quantity" name="qty" type="text" value="1" />
                                 <input id="shoppinproduce_add" name="qty1" type="button" value="+" />
