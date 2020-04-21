@@ -1,0 +1,92 @@
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#cradeitsearchmine_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+       display: inline-block;
+}
+
+
+/*這裡為顯信用卡介紹的小區塊*/
+.credittitle{
+    text-align: center;
+    height: 3rem;
+    background-color: aliceblue;
+    font-size: 25px;
+    margin-bottom: 2%;
+}
+
+/*尾巴*/
+.footer{
+    background-color:#FFF7A9;
+    height: 5rem;
+    text-align: center;
+}
+
+
+/*中間信用卡區塊*/
+.contentcenter{
+    float: left;
+}
+
+/*信用卡區塊內表格*/
+.onecard{
+    margin-top: 2%;
+    height: 8rem;
+}
+
+/*信用卡區塊內詳細資料*/
+.creditinner{
+    float: left;
+}
+
+
+/*歡迎使用按鈕點及找出信用卡*/
+.searchbtnareatotal{
+    background-color: linen;
+    margin: auto;
+    border-radius: 5px;
+    height: 15rem;
+    font-size: 20px;
+}
+
+/*歡迎使用按鈕點及找出信用卡*/
+.searchbtnarea{
+    float: left;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+
+/*我的信用卡共幾張文字區塊*/
+.outword{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 2%;
+
+}
+
+/* 預設隱藏所有的步驟 */
+.step{
+    display: none;
+}
+
+/* 只有目前的步驟要顯示出來 */
+.active{
+ display: block;
+}
+

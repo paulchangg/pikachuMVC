@@ -1,0 +1,109 @@
+.container{
+    background-color: #A4E3FF;
+}
+
+.hot{
+    height: 3em;
+}
+.center{
+    height: 22em;
+}
+
+.footer{
+   
+    height: 8em;
+    background-color: #FFF7A9;
+    clear: both;
+}
+
+/*輪播圖片顯示區*/
+.carousel-inner{
+  height: 22em;
+}
+
+.hot{
+    text-align:center
+}
+
+/*選單*/
+.sider{
+    height: 55em;
+}
+
+/*左邊選單*/
+.sidderr{
+    float: left;
+    height: 50em;
+}
+
+/*--中間商品--*/
+.sidderr2{
+
+    float: left;
+    height: 50em;
+    align-items: center;
+}
+
+.sreach{
+    text-align: right;
+}
+
+/*搜尋欄位位置*/
+.input-group{
+
+   margin-left: auto;
+}
+
+/*中間商品圖*/
+.card{
+    text-align: center;
+}
+
+/*中間商品呈現位置*/
+.return{
+    align-items: center;
+}
+
+/*中間商品呈現位置*/
+.return ul{
+    margin: auto;
+}
+
+
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#shopping_navContent ul{    
+ margin:auto;
+}
+
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+    display: inline-block;
+}
+
+
+/*關鍵字區塊高度設定*/
+#shopping_totalsearch{
+height: 3em;
+
+}
+
+/*關鍵字搜尋欄位置*/
+#shopping_searcharea {
+     margin: auto;
+}
+
+/*價格列方式*/
+#shopping_dropdown{
+    float: right;
+}

@@ -1,0 +1,51 @@
+
+/* 網頁底部區塊*/
+.footer{
+   
+    height: 8em;
+    background-color: #FFF7A9;
+    clear: both;
+}
+
+/* 返回區塊*/
+.return{
+    float: left;
+    text-align: center;
+}
+
+
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#shopping_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+       display: inline-block;
+}
+
+
+/*線上購物清單這個區塊*/
+.stepimg{
+    text-align: center;
+    height: 9em;
+
+}
+
+
+/*整個大區塊*/
+.container{
+    background-color: #EAE5DA;
+}

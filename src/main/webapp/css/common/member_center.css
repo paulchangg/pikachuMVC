@@ -1,0 +1,339 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+@import '/css/reset.css';
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: initial;
+}
+  
+  .flex-container {
+    margin: 0 13%;  /* 全版置中 */
+    text-align: center;    
+    display: block;
+    /* display: -webkit-flex; */
+    display: flex;  
+    /* -webkit-flex-flow: row wrap; */
+    flex-flow: row wrap;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  
+  .flex-container {
+    margin: 0 13%;  /* 全版置中 */
+    text-align: center;    
+    display: block;
+    /* display: -webkit-flex; */
+    display: flex;  
+    /* -webkit-flex-flow: row wrap; */
+    flex-flow: row wrap;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  
+  .flex-container > * {
+    flex: 1 80%;
+  }
+  
+  /* 分辨區塊位置 */
+  
+  .top_nav {background:#E8DFE1;}
+  .index_slider{background-color: lightblue;}
+  .site_footer {background: #F7EDE2;}
+  
+  
+  /*頭區塊*/
+  .header{
+    height: 9rem;
+    margin-top: 3%;
+  }
+
+  /* 尾巴位置 */
+  .site_footer{
+    text-align: center!important;
+    padding: 4rem!important;
+    margin-top: 3%;
+    font-size: 18px;
+  }
+  
+ /*導覽列*/
+
+.top_navi {
+  padding: 0.8em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 40px;
+  color: #E8DFE1;
+  position:relative;
+  padding-bottom: -2px;
+
+}
+
+.top_navi a {
+  color: #584B53;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.top_navi nav{
+  position:absolute;
+  top:0;
+  /* left:0; */
+  background: #E8DFE1;
+  width:100%;
+}
+
+/* 欄位大小 */
+.top_navi nav a{
+  padding:10px 60px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.top_navi nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgb(209, 107, 6)
+}
+
+.content_nav {
+  padding: 3em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  /* background-color: #efefef; */
+  font-size: 23px;
+  color: #AFAFAE;
+  border-radius: 5px;
+  position:relative;
+}
+
+.content_nav a {
+  color: #584B53;
+  text-decoration: none;
+}
+
+.content_nav nav{
+  position:absolute;
+  top:0 auto;
+  /* left:0; */
+  background: rgb(255, 255, 255);
+  width:100%;
+}
+
+/* 欄位大小 */
+.content_nav nav a{
+  padding:10px 50px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.content_nav nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgba(79, 127, 190, 0.733)
+}
+
+.bottom_content{
+  padding-top: 80px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+
+
+/*會員中心標題區塊*/
+.membercenter{
+    background-color:#f4f4f4;
+    height:6rem;
+    text-align: center;
+}
+
+.membercenter h2{
+   font-size: 20px;
+   margin-top: 2%;
+}
+
+
+/*中間整體區塊*/
+.warp-center{
+    margin-top: 2%;
+}
+
+
+/*個人動態整體區塊*/
+.personal{
+  border-radius: 30px;
+  background-color:#CDE4F1;
+}
+.personal h3{
+  padding: 2%;
+  font-size: 25px;
+}
+
+/*個人動態內的圖像*/
+.human{
+  background-color: seashell;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  float: left;
+
+}
+
+/*個人動態內的文字區塊*/
+.personaltext{
+   width:30rem;
+   margin-left:35%;
+   font-size: 20px;
+
+}
+.personaltext ul{
+   height: 10rem;
+   width: 25rem;
+   margin: auto;
+   text-align: left;
+   line-height: 3rem;
+   
+}
+
+/*交友活動區塊*/
+.friend{
+  background-color:#E6FFD4;
+  border-radius: 30px;
+  font-size: 20px;
+  line-height: 2rem;
+  margin-left: 9%;
+}
+
+.friend h3{
+    padding: 2%;
+    font-size: 25px;
+}
+
+/*我的信用卡配對標題*/
+.cridecart{
+    margin-top: 3%;
+    font-size: 20px;
+    margin-bottom: 4%;
+}
+
+
+/*信用卡標題+內容區塊*/
+.onearea{
+  background-color: #FFBCBC;
+  margin-bottom: 2%;
+  border-radius: 30px;
+}
+
+.onearea h3{
+  font-size: 25px;
+  border-radius: 20px;
+  padding: 1%;
+}
+
+/*增加信用卡才會產生的div*/
+.addcredit{
+  width: 25rem;
+  margin: 3%;
+  margin: auto;
+}
+
+/*innerHTML信用卡圖檔*/
+.addimg{
+  width: 200px;
+  height: 125px;
+  margin-bottom: 2%;
+}
+
+
+/*刪除按鈕樣式*/
+#center_del{
+  border:0;
+  background-color:#FF596A;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
+  font-size: 22px;
+}
+
+#center_del:hover{
+  color:#ED6E7B;
+  background-color:#fff;
+  border:2px #ED6E7B solid;
+}
+
+
+
+
+/*訂單資訊*/
+.container{
+  background-color:#FFFF8F;
+  border-radius: 30px;
+  font-size: 20px;
+  line-height: 2rem;
+  margin: auto;
+}
+
+.container h3{
+  padding: 2%;
+  font-size: 25px;
+}
+
+
+/*會員資料*/
+.memberdata{
+  background-color:#F5E1FF;
+  border-radius: 30px;
+  font-size: 20px;
+  line-height: 3rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin: auto;
+}
+
+.memberdata h3{
+  padding: 2%;
+  font-size: 25px;
+}
+
+
+/*增加信用卡按鈕樣式*/
+#center_Button2{
+  border:0;
+  background-color:#FFF;
+  color:#FF596A;
+  border-radius:5px;
+  cursor:pointer;
+  font-size: 16px;
+}
+
+
+#Button2:hover{
+  color:#ED6E7B;
+  background-color:#fff;
+  border:2px #ED6E7B solid;
+}
+
+/*3張文字強調*/
+.threenumber{
+  font-size: 25px;
+}
+
+/*剛開始產生頁面的區塊*/
+.loadingone{
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+}
+
+/*比卡丘圖片*/
+.aniimage{
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 60rem;
+  height: 40rem;
+  margin-top: -15px;
+  margin-left: -15px;
+}

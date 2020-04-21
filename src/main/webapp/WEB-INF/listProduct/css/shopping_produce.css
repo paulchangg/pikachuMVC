@@ -1,0 +1,127 @@
+
+/* 輪播圖區塊高度*/
+.center{
+    height: 22em;
+}
+
+/* 網頁底部區塊*/
+.footer{
+   
+    height: 8em;
+    background-color: #FFCF6F;
+    clear: both;
+}
+
+
+/* 輪播圖設置圖像高度*/
+.carousel-inner{
+    height: 22em;
+  }
+
+ /* 側邊選單高度區塊*/ 
+.sider{
+    height: 42em;
+
+}
+
+ /* 中間商品區塊*/ 
+.sidderr2{
+
+    float: left;
+    height: 40em;
+    align-items: center;
+}
+
+ /* 中間商品區塊*/ 
+.producebox{
+    float: left;
+    height: 40em;
+}
+
+ /* 中間商品區塊的商品圖*/ 
+.produceimg{
+   float: left;
+}
+
+ /* 中間商品區塊的商品資料*/ 
+.produceitem{
+    float: left;
+    line-height: 20px;
+}
+
+ /* 中間商品購物追蹤三個按鈕*/ 
+.threebutton{
+    float: left;
+}
+
+/* 中間商品購物追蹤三個按鈕*/ 
+.threebutton>button
+{
+    line-height: 10px;
+}
+
+/* 中間商品詳描述區塊*/ 
+.navtotal{
+    float: left;
+}
+
+
+ /*返回區塊*/ 
+.return{
+    float: left;
+    text-align: center;
+}
+
+
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#shopping_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+   .wrap li{
+       display: inline-block;
+       
+   }
+/*這是側邊選單要靠向左*/
+   #shoppingproduce_btn{
+       float: left;
+   }
+
+   /*這是數量選項的寬度與樣式*/
+
+   .qtyitem {
+    width: 40px;
+    height: 35px;
+    text-align: center;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+  }
+  
+     /*這是數量選項的寬度與樣式*/
+  input.qtyplus {
+    width: 25px;
+    height: 35px;
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+  }
+     /*這是數量選項的寬度與樣式*/
+  input.qtyminus {
+    width: 25px;
+    height: 35px;
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+  }
