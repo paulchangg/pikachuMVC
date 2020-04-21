@@ -1,0 +1,106 @@
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#shopping_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+       display: inline-block;
+}
+
+
+/*訂單查詢區塊*/
+.ordertitle{
+    text-align: center;
+    height: 3rem;
+    margin-bottom: 2%;
+    background-color: #FFF7A9;
+
+}
+
+/*這裡為訂單詳細狀態區*/
+.ordertable{
+    margin: auto;
+}
+
+
+/*這裡為訂單詳細狀態區的表格*/
+.ordertable table{
+    margin: auto;
+    width: 1000px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.center1{
+    height:30px;
+    width: 400px;
+    float: left;
+    margin: 5px 30% 20px 30%;  
+    background-color:#f4f4f4;
+    
+}
+
+.center2{
+    background-color:#f4f4f4;
+    width: 600px;
+    margin: auto 30% auto 30%;
+    float: left;
+    text-align: center;
+}
+
+.under{
+
+    height:200x;
+    width: 650px;
+    margin: auto 30% auto 30%;
+    float: left;
+}
+
+
+.footerbutton{
+    margin:auto;
+    float: left;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer{
+    background-color:#F7E7CE ;
+    height: 120px;
+    width: 100%;
+    clear: both;
+}
+
+
+

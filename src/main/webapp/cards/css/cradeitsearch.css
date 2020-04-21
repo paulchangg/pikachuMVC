@@ -1,0 +1,140 @@
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#cradeitsearch_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+       display: inline-block;
+}
+
+
+/*這裡為顯信用卡介紹的小區塊*/
+.credittitle{
+    text-align: center;
+    height: 3rem;
+    background-color: aliceblue;
+    font-size: 15px;
+
+}
+
+/*輪播圖片顯示區*/
+.carousel-inner{
+    height: 15rem;
+  }
+
+/*這裡為信用卡選單區塊*/
+.creditbtnarea{
+    background-color: #FFF7A9;
+    margin-bottom: 1%;
+   
+}
+
+
+/*298項搜尋結果*/
+.titelresult{
+    float: left;
+    text-align: right;
+    font-size: 18px;
+}
+
+/*精選推薦按鈕*/
+#cradeitsearch_btnone{
+
+    float: left;
+    text-align:left;
+}
+
+/*下拉式選單產生捲軸*/
+#cradeitsearch_siderinn{
+    height: 200px;
+    overflow: auto;
+}
+
+/*找出最丘的信用卡區塊*/
+.searchbtn{
+    text-align: center;
+}
+
+
+
+/*這裡為信用卡中間區塊*/
+.creditcenter{
+    background-color: #F4FFFB;
+}
+
+/*這裡為信用卡側邊選單*/
+.creditsider{
+    background-color: white;
+    float: left;
+}
+
+
+/*中間信用卡區塊*/
+.contentcenter{
+    float: left;
+}
+
+/*信用卡區塊內表格*/
+.onecard{
+    margin-top: 2%;
+    height: 8rem;
+}
+
+/*信用卡區塊內詳細資料*/
+.creditinner{
+    float: left;
+}
+
+
+/*尾巴*/
+.footer{
+    background-color:#FFF7A9;
+    height: 5rem;
+    text-align: center;
+    margin-top: 2%;
+}
+
+
+/*以下為銀行篩選器*/
+.btn-box {
+    display:inline-block;
+    vertical-align:middle;
+    width: 40px;
+    height: 20px;
+    border-radius:100px;
+    background-color: #ccc;
+    box-shadow: 0px 3px 0px  #7A817A inset;
+  }
+  .btn-box .btn {
+    display:inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    background-color: #fff;
+    margin-left: 0;/*動畫從ml為0開始*/
+    transition: .5s;
+    box-shadow:1px 2px 5px #7A817A;
+  }
+  .checkbox {
+    position:absolute;
+    opacity:0;
+  }
+  .checkbox:checked + .btn-box {
+    background-color: #47FF54;
+  }
+  .checkbox:checked + .btn-box .btn {
+    margin-left: 20px;
+  }
