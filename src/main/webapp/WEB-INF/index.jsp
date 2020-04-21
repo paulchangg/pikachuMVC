@@ -32,12 +32,12 @@
               <div class="col-4">
                 <c:choose>
 					<c:when test="${empty LoginOK}">								
-						<a href="member/member_login.jsp"> 
+						<a href="member/member_login"> 
 							<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
 						</a>								
 					</c:when>
 					<c:otherwise>								
-						<a href="member/member_logout.jsp"> 
+						<a href="member/member_logout"> 
 							<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
 						</a>								
 					</c:otherwise>
@@ -79,7 +79,7 @@
       <section class="top_navi">
         <nav>
           <a href="#" class="aboutus">關於我們</a>
-          <a href="member/member_center.jsp" class="memberarea">會員中心</a>
+          <a href="member/member_center" class="memberarea">會員中心</a>
           <a href="#" class="friendshipforum">論壇交友</a>
           <a href="#" class="mall">商城</a>
         </nav>

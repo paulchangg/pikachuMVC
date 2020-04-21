@@ -36,12 +36,17 @@ crossorigin="anonymous" />
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
-						 <div class="col-4">
+						 <div class="col-3">
 							 <a href="member_login.jsp">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
-						<div class="col-4"> 
+						<div class="col-3"> 
+							 <a href="member_logout">
+							  <i class="fa fa-question-circle" id="qanda">會員登出</i>
+							</a>
+					   </div>
+						<div class="col-3"> 
 							 <a href="#">
 							  <i class="fa fa-question-circle" id="qanda">Q & A</i>
 							</a>
@@ -87,7 +92,7 @@ crossorigin="anonymous" />
 					<img src="../images/common/membephoto_0.png" width="160" height="160">			
 				</c:when>
 				<c:otherwise>
-					<img src='${pageContext.request.contextPath}/init/getMemberImage?id=${LoginOK.m_id}' width="160" height="160">	
+					<img src='<c:url value="/init/getMemberImage?id=${LoginOK.m_id}" />' width="160" height="160">	
 				</c:otherwise>
 			</c:choose>
 			<div class="photo">
@@ -187,16 +192,15 @@ crossorigin="anonymous" />
 				      <p><font color="red" size="-1">${MsgMap.pwError}</font></p> 
 				<label>輸入新密碼:</label> <input type="password" name=newpassword required>
 				      <p><font color="red" size="-1">${MsgMap.newPwError}</font></p>
-				<label>新密碼確認:</label><input type="password" name=newpassword2 required>
-				      <span></span>
-				<input type="submit" value="變更密碼" id="membereedit_changeBtn">
+				<label>新密碼確認:</label> <input type="password" name=newpassword2 required>		
+				<p> <input type="submit" value="變更密碼" id="membereedit_changeBtn">
 			</form>
 		</div>
       </div>
 
 	 	<!--返回區塊-->
 		 <div class="footerbutton">
-			<a href="member_center.jsp"><input type="button" value="返回" id="Button2"></a>
+			<a href="member_center"><input type="button" value="返回" id="Button2"></a>
 		</div>
 	
 	   <!--尾巴區塊-->

@@ -39,7 +39,7 @@
 
 		<section class="top_navi">
 			<nav>
-				<a href="#">關於我們</a> <a href="member_center.jsp">會員中心</a> <a
+				<a href="#">關於我們</a> <a href="member_center">會員中心</a> <a
 					href="#">論壇交友</a> <a href="#">商城</a> <a href="#">資訊網</a>
 			</nav>
 		</section>
@@ -128,7 +128,7 @@
 					<button type="button" class="btn btn-outline-danger" id="forgetbtn">
 						忘記密碼<i class='bx bx-question-mark'></i>
 					</button>
-					<a href="member_register.jsp" class="btn pure">還不是會員??快去註冊>></a>
+					<a href="member_register" class="btn pure">還不是會員??快去註冊>></a>
 				</div>
 				<div class="col-1 ">
 					<img src="../images/common/login_歡迎回來.png" class="loginthtree">

@@ -135,7 +135,7 @@ startbtn.addEventListener("click",function(){
 
 let bt = document.getElementById('Button2');
 bt.addEventListener('click', () => {
-    var url = "/pikachu/member/forgetPW.do";
+    var url = "forgetPW.do";
     var data = {
       email: $("#forget_email").val(),
     };
@@ -148,7 +148,7 @@ bt.addEventListener('click', () => {
           // isAllowToSubmit = true;
           $('#forget_email_error_msg').html("<Font color='green' size='-3'>驗證信已寄送成功</Font>");
           
-          window.location.replace("/pikachu/member/member_login.jsp");
+          window.location.replace("/pikachuMVC/member/member_login");
         } else {
           // isAllowToSubmit = false; 
           $('#forget_email_error_msg').html("<Font color='red' size='-3'>這個使用者好像不存在喔！</Font>");

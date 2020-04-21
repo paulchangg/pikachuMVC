@@ -96,7 +96,6 @@ public class MemberDaoImpl implements MemberDao {
 		String hql = "UPDATE MemberBean m SET m.m_password = :pw WHERE m.m_mail = :email";
 		Session session = factory.getCurrentSession();
 		result = session.createQuery(hql).setParameter("pw", newPW).setParameter("email", email).executeUpdate();
-		
 		return result;
 	}
 	//確認email是否存在

@@ -27,12 +27,17 @@ crossorigin="anonymous"/>
 		     </div>
 		     <div class="col-4">     <!---------左上角超連結區塊----------->
 			      <div class="row justify-content-end">
-				       <div class="col-4">
-					       <a href="http://127.0.0.1:5500/web/login.html">
+				       <div class="col-3">
+					       <a href="#">
 							<i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 				          </a>
 			          </div>
-			          <div class="col-4"> 
+			          <div class="col-3"> 
+							 <a href="member_logout">
+							  <i class="fa fa-question-circle" id="qanda">會員登出</i>
+							</a>
+					   </div>
+			          <div class="col-3"> 
 		                   <a href="#">
 			                <i class="fa fa-question-circle" id="qanda">Q & A</i>
 		                  </a>
@@ -102,7 +107,7 @@ crossorigin="anonymous"/>
 	 	<!--返回區塊-->
 	<div class="footerbutton">
 	
-		<a href="member_center.jsp"><input type="button" value="返回" id="Button2"></a>
+		<a href="member_center"><input type="button" value="返回" id="Button2"></a>
 	</div>
 	
 	   <!--尾巴區塊-->

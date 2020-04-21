@@ -14,19 +14,19 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
 crossorigin="anonymous"
 />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/common/member_register.css"/>
-<link rel="stylesheet" href="../css/common/wickedcss.min.css"/>
+<link rel="stylesheet" href='<c:url value="/css/common/member_register.css" />'/>
+<link rel="stylesheet" href='<c:url value="/css/common/wickedcss.min.css" />'/>
 
 </head>
 <body>
   <div class="flex-container">
 	  <div class="header">
 		  <div class="logoimg">
-			  <img src="../images/common/logo.png" width="180px" height="100px">
+			  <img src="<c:url value="/images/common/logo.png" />" width="180px" height="100px">
 		  </div>
 		  <div class="toparea">
 			  <span class="toptext">您現在的身分為訪客 已有會員帳號了嗎?快來 
-				  <a href="member_login.jsp" style="color: #776C5B;">
+				  <a href="member_login" style="color: #776C5B;">
 				  <i class="fa fa-user-circle" id="memberlogin">登入</i>
 			     </a>
 			 </span>
@@ -92,8 +92,8 @@ crossorigin="anonymous"
                           <tr>
 						      <th><label class="required">性別</label><p>Gender</p></th> <!-----性別----->
 					          <td>
-							     <input type="radio" name="gender" value="male">&nbsp;男
-							     <input type="radio" name="gender" value="female" >&nbsp;女
+							     <input type="radio" name="gender" value="male" ${gender1}>&nbsp;男
+							     <input type="radio" name="gender" value="female" ${gender2}>&nbsp;女
 							     <font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
 						     </td>
 					     </tr>	  
@@ -133,10 +133,10 @@ crossorigin="anonymous"
 			 </div>
 			 
 			 <div class="col-4 centerimg">
-				 <img src="../images/common/register_皮卡丘.png" width="500px" height="450px" class="pulse">
+				 <img src="<c:url value="/images/common/register_皮卡丘.png" />" width="500px" height="450px" class="pulse">
 			 </div>
 		 </div>
-	           <img src="../images/common/regist註冊寫字.png" class="handimg">
+	           <img src="<c:url value="/images/common/regist註冊寫字.png" />" class="handimg">
 	           
       <!-- 尾巴---------------------------------------->
 	  <div class="site_footer">
@@ -163,7 +163,7 @@ src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 crossorigin="anonymous"
 ></script>
-<script src="../js/member_register.js">
+<script src="<c:url value="/js/member_register.js" />">
 </script>
 </body>
 </html>

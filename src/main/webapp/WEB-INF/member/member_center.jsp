@@ -35,7 +35,7 @@ crossorigin="anonymous" />
 							</a>
 						</div>
 						<div class="col-3"> 
-							 <a href="member/member_logout.jsp">
+							 <a href="member_logout">
 							  <i class="fa fa-question-circle" id="qanda">會員登出</i>
 							</a>
 					   </div>
@@ -129,8 +129,8 @@ crossorigin="anonymous" />
 		   <div class="col-5 memberdata"><!--會員資料-->
 			   <h3>會員資料</h3>
 			     <ul>
-				    <li><i class='bx bxs-comment-edit'></i><a href="member_edit.jsp" target="blank">修改</a></li>
-		     	    <li><i class='bx bx-show-alt'></i><a href="member_inquary.jsp" target="blank">查看</a></li>
+				    <li><i class='bx bxs-comment-edit'></i><a href="member_edit" target="blank">修改</a></li>
+		     	    <li><i class='bx bx-show-alt'></i><a href="member_inquary" target="blank">查看</a></li>
 		        </ul>
 		   </div>
 	     </div>

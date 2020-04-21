@@ -27,6 +27,6 @@
  
 ${ logoutBean.logout }
 
-<c:redirect url="/index.jsp"/>
+<c:redirect url="/index"/>
 </body> 
 </html>
