@@ -1,0 +1,137 @@
+package com.pikachuMVC.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.pikachuMVC.dao.MemberDao;
+import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.service.MemberService;
+
+import init.SendEmail;
+
+@Service
+public class MemberServiceImpl implements MemberService {
+	@Autowired
+	MemberDao dao;
+
+	@Override
+	@Transactional
+	public int saveMember(MemberBean mb) {
+		int count = 0;
+		dao.saveMember(mb);
+		count++;
+		return count;
+	}
+
+	@Override
+	@Transactional
+	public boolean idExists(String id) {
+		boolean result;
+		result = dao.idExists(id);
+		return result;
+	}
+
+	@Override
+	@Transactional
+	public MemberBean queryMember(String id) {
+		MemberBean mb = null;
+		mb = dao.queryMember(id);
+		return mb;
+	}
+
+	@Override
+	@Transactional
+	public MemberBean checkIdPassword(String userId, String password) {
+		MemberBean mb = null;
+		mb = dao.checkIdPassword(userId, password);
+		return mb;
+	}
+
+	@Override
+	@Transactional
+	public int updatePassword(String email, String newPW) {
+		int r = 0;
+		r = dao.updatePassword(email, newPW);
+		return r;
+	}
+
+	@Override
+	@Transactional
+	public boolean emailExists(String email) {
+		boolean result;
+		result = dao.emailExists(email);
+		return result;
+	}
+
+//	@Override
+//	public boolean sendMail(String email, String newPW) {
+//		boolean r = false;
+//		String host = "smtp.gmail.com";
+//		int port = 587;
+//		String from = "ntutjava013.2@gmail.com";
+//		String to = email;
+//		final String username = "ntutjava013.2@gmail.com";
+//		final String password = "Do!ng123";
+//
+//		Properties props = new Properties();
+//		props.put("mail.smtp.host", host);
+//		props.put("mail.smtp.auth", "true");
+//		props.put("mail.smtp.starttls.enable", "true");
+//		props.put("mail.smtp.port", port);
+//		javax.mail.Session session = javax.mail.Session.getInstance(props, new Authenticator() {
+//			protected PasswordAuthentication getPasswordAuthentication() {
+//				return new PasswordAuthentication(username, password);
+//			}
+//		});
+//
+//		try {
+//
+//			Message message = new MimeMessage(session);
+//			message.setFrom(new InternetAddress(from));
+//			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+//			message.setSubject("PIKACHU : update passowrd successfully");
+//			message.setText("This is your new password : [ " + newPW + " ] !!!");
+//
+//			Transport transport = session.getTransport("smtp");
+//			transport.connect(host, port, username, password);
+//
+//			Transport.send(message);
+//
+//			System.out.println("寄送email結束.");
+//			r = true;
+//		} catch (MessagingException e) {
+//			throw new RuntimeException(e);
+//		}
+//		
+//		return r;
+//	}
+
+	@Override
+	public void sendMail(String email, String newPW) {
+		SendEmail se = new SendEmail(email, newPW);
+		se.start();
+	}
+
+	@Override
+	@Transactional
+	public void changePassword(MemberBean mb) {
+		dao.changePassword(mb);
+
+	}
+
+	@Override
+	@Transactional
+	public void updateM_img(MemberBean mb) {
+		dao.updateM_img(mb);
+	}
+
+	@Override
+	@Transactional
+	public void updateMember(MemberBean mb) {
+		dao.updateMember(mb);
+		return;
+
+	}
+
+}
