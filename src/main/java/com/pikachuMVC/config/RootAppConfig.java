@@ -29,11 +29,11 @@ public class RootAppConfig {
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		ds.setJdbcUrl("jdbc:mysql:///pikachuTestDB"
+		ds.setJdbcUrl("jdbc:mysql:///pikachudb"
 				+ "?useSSL=true&useUnicode=yes&characterEncoding=UTF8"
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");
-		ds.setPassword("22651330");
+		ds.setPassword("404631060");
 		ds.setInitialPoolSize(5);
 		ds.setMaxPoolSize(8);
 		return ds;
