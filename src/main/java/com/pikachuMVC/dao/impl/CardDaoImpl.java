@@ -208,7 +208,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 	
 		String line = "";
 		int count = 0;
-		File file = new File("C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\card0405.csv");
+		File file = new File("C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\card0414.csv");
 		try (FileInputStream fis = new FileInputStream(file);
 				InputStreamReader isr = new InputStreamReader(fis, "BIG5");
 				BufferedReader br = new BufferedReader(isr);) {
