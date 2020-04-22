@@ -1,5 +1,7 @@
 package com.pikachuMVC.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +80,14 @@ public class CardServiceImpl implements CardService {
 		bean = dao.getCard(c_id);
 		return bean;
 
+	}
+
+	@Override
+	@Transactional
+	public List<CardBean> getCards() {
+		List<CardBean> list = new ArrayList<CardBean>();
+		list = dao.getCards();
+		return list;
 	}
 
 }

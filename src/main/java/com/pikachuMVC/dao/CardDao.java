@@ -1,5 +1,6 @@
 package com.pikachuMVC.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.pikachuMVC.model.CardBean;
@@ -30,5 +31,9 @@ public interface CardDao {
 	public Map<Integer, CardBean> getFgPageCards(int pageNo);
 	
 	public CardBean getCard(int c_id);
+
+	public List<CardBean> getCards();
+	
+	public void insertCards();
 	
 }

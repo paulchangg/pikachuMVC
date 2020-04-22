@@ -92,8 +92,8 @@ crossorigin="anonymous"
                           <tr>
 						      <th><label class="required">性別</label><p>Gender</p></th> <!-----性別----->
 					          <td>
-							     <input type="radio" name="gender" value="male" ${gender1}>&nbsp;男
-							     <input type="radio" name="gender" value="female" ${gender2}>&nbsp;女
+							     <input type="radio" name="gender" value="male" >&nbsp;男
+							     <input type="radio" name="gender" value="female" >&nbsp;女
 							     <font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
 						     </td>
 					     </tr>	  

@@ -1,5 +1,6 @@
 package com.pikachuMVC.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.pikachuMVC.model.CardBean;
@@ -32,4 +33,6 @@ public interface CardService {
 	public Map<Integer, CardBean> getFgPageCards(int pageNo);
 	
 	public CardBean getCard(int c_id);
+	
+	public List<CardBean> getCards();
 }

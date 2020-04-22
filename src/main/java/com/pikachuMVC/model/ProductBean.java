@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class ProductBean {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer p_id;
 	private String p_name;
 	private String p_desc;
@@ -32,7 +32,7 @@ public class ProductBean {
 	private String p_img_name;
 	private Integer p_bns;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_product", catalog = "pikachuTestDB",
+	@JoinTable(name = "member_product", catalog = "pikachuDB",
 			   joinColumns ={
 					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
 			   },

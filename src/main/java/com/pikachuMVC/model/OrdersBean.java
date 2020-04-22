@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyToOne;
 // 本類別存放訂單資料
 @Entity
 @Table(name = "orders")
@@ -23,7 +25,7 @@ public class OrdersBean {
 	private String m_id; 
 	private Date orderdate; 
 	private Double total;
-	@OneToMany(mappedBy="ordersBean", cascade=CascadeType.ALL )
+	@OneToMany(mappedBy="ordersBean", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<OrderItemBean> items = new LinkedHashSet<>();
 	
 	public OrdersBean() {

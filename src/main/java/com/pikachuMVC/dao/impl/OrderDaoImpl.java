@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pikachuMVC.dao.OrderDao;
@@ -19,6 +20,8 @@ public class OrderDaoImpl implements OrderDao{
 	private int recordsPerPage = init.GlobalService.RECORDS_PER_PAGE - 2;
 	private String memberId = null;
 	private int totalPages;
+	
+	@Autowired
 	SessionFactory factory;
 	int orderNo = 0;
 
@@ -45,12 +48,12 @@ public class OrderDaoImpl implements OrderDao{
 	}
 
 	@Override
-	@Transactional 
 	public OrdersBean getOrder(int ordid) {
+		System.out.println(ordid);
 		OrdersBean ob = null;
         Session session = factory.getCurrentSession();
         ob = session.get(OrdersBean.class, ordid);
-        Hibernate.initialize(ob);
+        ob.getItems();
         return ob;
 	}
 	
