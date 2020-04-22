@@ -34,6 +34,10 @@ public class MemberBean {
 	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
 	Set<ProductBean> products = new LinkedHashSet<>();
 	
+
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+	Set<CardBean> cards = new LinkedHashSet<>();
+	
 	public MemberBean() {
 		super();
 	}
@@ -54,7 +58,103 @@ public class MemberBean {
 		this.city = city;
 		this.education = education;
 	}
-	
+
+	public String getM_id() {
+		return m_id;
+	}
+
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+
+	public String getM_password() {
+		return m_password;
+	}
+
+	public void setM_password(String m_password) {
+		this.m_password = m_password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone_num() {
+		return phone_num;
+	}
+
+	public void setPhone_num(String phone_num) {
+		this.phone_num = phone_num;
+	}
+
+	public String getM_mail() {
+		return m_mail;
+	}
+
+	public void setM_mail(String m_mail) {
+		this.m_mail = m_mail;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Blob getM_img() {
+		return m_img;
+	}
+
+	public void setM_img(Blob m_img) {
+		this.m_img = m_img;
+	}
+
+	public String getIncome() {
+		return income;
+	}
+
+	public void setIncome(String income) {
+		this.income = income;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
 	public Set<ProductBean> getProducts() {
 		return products;
 	}
@@ -62,78 +162,13 @@ public class MemberBean {
 	public void setProducts(Set<ProductBean> products) {
 		this.products = products;
 	}
-	
-	public String getM_id() {
-		return m_id;
+
+	public Set<CardBean> getCards() {
+		return cards;
 	}
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
-	}
-	public String getM_password() {
-		return m_password;
-	}
-	public void setM_password(String m_password) {
-		this.m_password = m_password;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPhone_num() {
-		return phone_num;
-	}
-	public void setPhone_num(String phone_num) {
-		this.phone_num = phone_num;
-	}
-	public String getM_mail() {
-		return m_mail;
-	}
-	public void setM_mail(String m_mail) {
-		this.m_mail = m_mail;
-	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public Blob getM_img() {
-		return m_img;
-	}
-	public void setM_img(Blob m_img) {
-		this.m_img = m_img;
-	}
-	public String getIncome() {
-		return income;
-	}
-	public void setIncome(String income) {
-		this.income = income;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getEducation() {
-		return education;
-	}
-	public void setEducation(String education) {
-		this.education = education;
+
+	public void setCards(Set<CardBean> cards) {
+		this.cards = cards;
 	}
 
 	@Override
@@ -163,9 +198,14 @@ public class MemberBean {
 		builder.append(city);
 		builder.append(", education=");
 		builder.append(education);
+		builder.append(", products=");
+		builder.append(products);
+		builder.append(", cards=");
+		builder.append(cards);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	
 	

@@ -2,11 +2,18 @@ package com.pikachuMVC.model;
 
 import java.io.Serializable;
 import java.sql.Blob;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -15,6 +22,7 @@ import javax.persistence.Table;
 @Table(name = "cards")
 
 public class CardBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public CardBean() {
 		super();
 	}
@@ -55,7 +63,16 @@ public class CardBean implements Serializable{
 	private String		cashfb_n 		;
 	private Integer		annual_income ;
 	private String		c_type 		  ;
-	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "member_card", catalog = "pikachuDB",
+			   joinColumns ={
+					   @JoinColumn(name = "c_id", nullable = false, updatable = false)
+			   },
+			   inverseJoinColumns = {
+					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
+			   }
+			   )
+	Set<MemberBean> members = new LinkedHashSet<>();
 	public Integer getC_id() {
 		return c_id;
 	}
@@ -266,6 +283,15 @@ public class CardBean implements Serializable{
 	public void setC_type(String c_type) {
 		this.c_type = c_type;
 	}
+	public Set<MemberBean> getMembers() {
+		return members;
+	}
+	public void setMembers(Set<MemberBean> members) {
+		this.members = members;
+	}
+	
+	
+	
 
 	
 	
