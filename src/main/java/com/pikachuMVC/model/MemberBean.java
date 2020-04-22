@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ public class MemberBean {
 	String m_password;
 	String name;
 	String phone_num;
+	@Column(unique = true)
 	String m_mail;
 	String nickname;
 	Date birthday;

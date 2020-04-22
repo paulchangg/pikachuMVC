@@ -107,24 +107,36 @@ public class MemberController {
 	}
 
 	@PostMapping("/member/register.do")
-	public String register(@RequestParam("account") String account, @RequestParam("password") String password,
-			@RequestParam("name") String name, @RequestParam("email") String email,
-			@RequestParam("gender") String gender, @RequestParam("phone_num") String phone_num,
-			@RequestParam("birthday") String birthday, Model model, HttpSession session) {
+	public String register(HttpServletRequest request, HttpSession session) {
 		final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%!^'\"]).{8,})";
 		final String EMAIL_PATTERN = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 		final String PHONE_PATTERN = "[0-9]{10}";
 
 		Pattern pattern = null;
 		Matcher matcher = null;
-
+		String account = "";
+		String password = "";
+		String name = "";
+		String email = "";
+		String gender = "";
+		String phone_num = "";
+		String birthday = "";
+		
+		account = request.getParameter("account");
+		password = request.getParameter("password");
+		name = request.getParameter("name");
+		email = request.getParameter("email");
+		gender = request.getParameter("gender");
+		phone_num = request.getParameter("phone_num");
+		birthday = request.getParameter("birthday");
+		
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		// 準備存放註冊成功之訊息的Map物件
 		Map<String, String> msgOK = new HashMap<String, String>();
 		// 註冊成功後將用response.sendRedirect()導向新的畫面，所以需要
 		// session物件來存放共用資料。
 
-		model.addAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
+		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
 		session.setAttribute("MsgOK", msgOK); // 顯示正常訊息
 
 		if (account == null || account.trim().length() == 0) {
@@ -170,15 +182,7 @@ public class MemberController {
 		}
 
 		if (!errorMsg.isEmpty()) {
-			switch (gender) {
-			case "male":
-				model.addAttribute("gender1", "checked");
-				break;
-
-			default:
-				model.addAttribute("gender2", "checked");
-				break;
-			}
+			
 			return "member/member_register";
 		}
 

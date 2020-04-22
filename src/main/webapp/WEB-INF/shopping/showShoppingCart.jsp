@@ -13,7 +13,7 @@
 <script type="text/javascript">
 function confirmDelete(n) {
 	if (confirm("確定刪除此項商品 ? ") ) {
-		document.forms[0].action="<c:url value='/_04_ShoppingCart/UpdateItem.do?cmd=DEL&bookId=" + n +"' />" ;
+		document.forms[0].action="<c:url value='/shopping/UpdateItem?cmd=DEL&bookId=" + n +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} else {
@@ -37,7 +37,7 @@ function modify(key, qty, index) {
 		return ; 
 	}
 	if (confirm("確定將此商品的數量由" + qty + " 改為 " + newQty + " ? ") ) {
-		document.forms[0].action="<c:url value='/_04_ShoppingCart/UpdateItem.do?cmd=MOD&bookId=" + key + "&newQty=" + newQty +"' />" ;
+		document.forms[0].action="<c:url value='/shopping/UpdateItem?cmd=MOD&bookId=" + key + "&newQty=" + newQty +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} else {
@@ -133,7 +133,7 @@ function Abort() {
                 <tbody>
                 <c:forEach varStatus="vs" var="anEntry" items="${ShoppingCart.content}">
                   <tr>
-                     <td><a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page"><img src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${anEntry.value.p_id}" width="100px" id="shoppingcart_img">
+                     <td><a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page"><img src="<c:url value='/shopping/getPicture/${anEntry.value.p_id}' />" width="100px" id="shoppingcart_img">
                         ${anEntry.value.p_name} </a>
                      </td>
                      <td>原價<sapn id="shoppingcart_orp">${anEntry.value.price}</sapn>元
@@ -164,9 +164,9 @@ function Abort() {
        </div>
         <div class="col-12 return"> <!--返回區塊-->
        
-        <form action="<c:url value='../_04_ShoppingCart/ProcessOrder.do' />" method="POST" >
+        <form action="<c:url value='/shopping/ProcessOrder' />" method="POST" >
         	  <Input type='hidden' name='finalDecision' value='Order'>
-        	  <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
+        	  <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
         	  <Input type='submit' class="btn btn-warning" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
 		</form>
         </div>

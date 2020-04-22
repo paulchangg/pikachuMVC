@@ -28,7 +28,7 @@
                     <ul>
                         <li class=""><a class="nav-link" href="#">會員登入</a></li>
                         <li class=""><a class="nav-link" href="#">Q&A</a></li>
-                        <li class=""><a class="nav-link" href="../shoppingCart/showShoppingCart.jsp">Shopping CART</a></li>
+                        <li class=""><a class="nav-link" href="ShoppingCart">Shopping CART</a></li>
                     </ul>
                </div>
         </div>
@@ -129,9 +129,9 @@
                       <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                          <div class="col-md-6 col-lg-3 mb-2"> <!--商品1-->
                               <div class="card">               <!--這個id是要連結到這個商品的頁面-->
-                                  <a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shopping_page"><img class="card-img-top" src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${entry.value.p_id}" alt="歡樂旅遊劵不要對我尖叫"></a>
+                                  <a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shopping_page"><img class="card-img-top" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />" alt="歡樂旅遊劵不要對我尖叫"></a>
                                   <div class="card-body">
-                       			  	<FORM  action="<c:url value='/listProduct/BuyProduct.do' />" method="POST">
+                       			  	<FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">
                                       <h5 class="card-title"><span id="shopping_producename">${entry.value.p_name}</span></h5>
                                       <p class="card-text">售價<span id="shopping_price">${entry.value.price}</span></p>
                                        <Input type='hidden' name='qty' value='1'>
