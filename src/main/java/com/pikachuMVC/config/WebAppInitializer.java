@@ -2,7 +2,9 @@ package com.pikachuMVC.config;
 
 import javax.servlet.Filter;
 
+import org.springframework.orm.hibernate5.support.OpenSessionInViewFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -26,9 +28,15 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
 	@Override
 	protected Filter[] getServletFilters() {
-		CharacterEncodingFilter  filter1 = new CharacterEncodingFilter();
-		filter1.setEncoding("UTF-8");
-		filter1.setForceEncoding(true);
-		return new Filter[] {filter1};
+		HiddenHttpMethodFilter hhmf = new HiddenHttpMethodFilter();
+		CharacterEncodingFilter  cef = new CharacterEncodingFilter();
+		cef.setEncoding("UTF-8");
+		OpenSessionInViewFilter osif = new OpenSessionInViewFilter();
+		
+		return new Filter[] {
+				hhmf,cef,osif
+		};
 	}
+	
+	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,22 +60,12 @@ public class OrderServiceImpl implements OrderService {
 //		return bean;
 //	}
 
-// 本方法將由控制 Lazy Loading 的過濾器之doFilter()方法間接呼叫，所以不可以在此方法內執行與交易
-// 有關的方法
+
 	@Override
 	@Transactional
 	public OrdersBean getOrder(int orderNo) {
 		OrdersBean bean = null;
-		// Session session = factory.getCurrentSession();
-		// Transaction tx = null;
-		// try {
-		// tx = session.beginTransaction();
 		bean = odao.getOrder(orderNo);
-		// tx.commit();
-		// } catch (Exception e) {
-		// if (tx != null) tx.rollback();
-		// throw new RuntimeException(e);
-		// }
 		return bean;
 	}
 
