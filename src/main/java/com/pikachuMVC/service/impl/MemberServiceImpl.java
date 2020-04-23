@@ -130,8 +130,13 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	public void updateMember(MemberBean mb) {
 		dao.updateMember(mb);
-		return;
 
+	}
+
+	@Override
+	@Transactional
+	public void saveOrUpdate(MemberBean mb) {
+		dao.saveOrUpdate(mb);
 	}
 
 }

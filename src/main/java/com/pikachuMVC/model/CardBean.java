@@ -63,13 +63,13 @@ public class CardBean implements Serializable{
 	private String		cashfb_n 		;
 	private Integer		annual_income ;
 	private String		c_type 		  ;
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "member_card", catalog = "pikachuDB",
 			   joinColumns ={
-					   @JoinColumn(name = "c_id", nullable = false, updatable = false)
+					   @JoinColumn(name = "c_id", nullable = false, updatable = true)
 			   },
 			   inverseJoinColumns = {
-					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
+					   @JoinColumn(name = "m_id", nullable = false, updatable = true)
 			   }
 			   )
 	Set<MemberBean> members = new LinkedHashSet<>();
@@ -288,6 +288,84 @@ public class CardBean implements Serializable{
 	}
 	public void setMembers(Set<MemberBean> members) {
 		this.members = members;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("CardBean [c_id=");
+		builder.append(c_id);
+		builder.append(", c_name=");
+		builder.append(c_name);
+		builder.append(", bank=");
+		builder.append(bank);
+		builder.append(", annlfee=");
+		builder.append(annlfee);
+		builder.append(", c_img=");
+		builder.append(c_img);
+		builder.append(", fcb=");
+		builder.append(fcb);
+		builder.append(", dcb=");
+		builder.append(dcb);
+		builder.append(", fcb_n=");
+		builder.append(fcb_n);
+		builder.append(", dcb_n=");
+		builder.append(dcb_n);
+		builder.append(", fma=");
+		builder.append(fma);
+		builder.append(", dma=");
+		builder.append(dma);
+		builder.append(", fma_n=");
+		builder.append(fma_n);
+		builder.append(", dma_n=");
+		builder.append(dma_n);
+		builder.append(", refuel_cb=");
+		builder.append(refuel_cb);
+		builder.append(", refuel_dis=");
+		builder.append(refuel_dis);
+		builder.append(", refuel_cb_n=");
+		builder.append(refuel_cb_n);
+		builder.append(", refuel_dis_n=");
+		builder.append(refuel_dis_n);
+		builder.append(", wkdmoviedis=");
+		builder.append(wkdmoviedis);
+		builder.append(", moviedis=");
+		builder.append(moviedis);
+		builder.append(", wkdmoviedis_n=");
+		builder.append(wkdmoviedis_n);
+		builder.append(", moviedis_n=");
+		builder.append(moviedis_n);
+		builder.append(", ditigalfb=");
+		builder.append(ditigalfb);
+		builder.append(", onlinefb=");
+		builder.append(onlinefb);
+		builder.append(", ditigalfb_n=");
+		builder.append(ditigalfb_n);
+		builder.append(", onlinefb_n=");
+		builder.append(onlinefb_n);
+		builder.append(", zeroins=");
+		builder.append(zeroins);
+		builder.append(", minins=");
+		builder.append(minins);
+		builder.append(", zeroins_n=");
+		builder.append(zeroins_n);
+		builder.append(", minins_n=");
+		builder.append(minins_n);
+		builder.append(", mileagefb=");
+		builder.append(mileagefb);
+		builder.append(", cashfb=");
+		builder.append(cashfb);
+		builder.append(", mileagefb_n=");
+		builder.append(mileagefb_n);
+		builder.append(", cashfb_n=");
+		builder.append(cashfb_n);
+		builder.append(", annual_income=");
+		builder.append(annual_income);
+		builder.append(", c_type=");
+		builder.append(c_type);
+		builder.append(", members=");
+		builder.append(members);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 	

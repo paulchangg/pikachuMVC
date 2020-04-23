@@ -17,4 +17,5 @@ public interface MemberService {
 	public void sendMail(String email, String newPW);
 	public void updateM_img(MemberBean mb);
 	public void updateMember(MemberBean mb);
+	public void saveOrUpdate(MemberBean mb);
 }

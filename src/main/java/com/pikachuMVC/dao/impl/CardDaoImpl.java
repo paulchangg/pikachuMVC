@@ -372,6 +372,34 @@ public class CardDaoImpl implements Serializable, CardDao {
 		
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<String> getAllBank() {
+		String hql = "SELECT DISTINCT c.bank FROM CardBean c";
+		List<String> list = factory.getCurrentSession()
+				.createQuery(hql)
+				.getResultList();
+		return list;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<CardBean> getCardsByBank(String bank) {
+		String hql = "FROM CardBean c WHERE c.bank = :bank";
+		List<CardBean> list = factory.getCurrentSession()
+				.createQuery(hql)
+				.setParameter("bank", bank)
+				.getResultList();
+		return list;
+	}
+
+	@Override
+	public CardBean getCard(String c_name) {
+		String hql = "FROM CardBean c WHERE c.c_name = :c_name";
+		CardBean bean = (CardBean) factory.getCurrentSession().createQuery(hql).setParameter("c_name", c_name).getSingleResult();
+		return bean;
+	}
+
 
 	
 }

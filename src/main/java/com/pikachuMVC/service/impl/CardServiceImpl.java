@@ -114,4 +114,27 @@ public class CardServiceImpl implements CardService {
 		return map;
 	}
 
+	@Override
+	@Transactional
+	public List<String> getAllBank() {
+		List<String> list = null;
+		list = dao.getAllBank();
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public List<CardBean> getCardsByBank(String bank) {
+		List<CardBean> list = null;
+		list = dao.getCardsByBank(bank);
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public CardBean getCard(String c_name) {
+		CardBean bean = dao.getCard(c_name);
+		return bean;
+	}
+
 }

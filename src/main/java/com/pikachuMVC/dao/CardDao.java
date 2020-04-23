@@ -42,4 +42,10 @@ public interface CardDao {
 	
 	public void insertCards();
 	
+	public List<String> getAllBank();
+	
+	public List<CardBean> getCardsByBank(String bank);
+	
+	public CardBean getCard(String c_name);
+	
 }

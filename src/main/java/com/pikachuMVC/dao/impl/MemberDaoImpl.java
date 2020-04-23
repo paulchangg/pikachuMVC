@@ -159,4 +159,15 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
+	@Override
+	public void saveOrUpdate(MemberBean mb) {
+		Session session = factory.getCurrentSession();
+		
+		session.saveOrUpdate(mb);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + mb.getM_id() + "::" + mb.getCards().size());
+		
+	}
+	
+	
+
 }
