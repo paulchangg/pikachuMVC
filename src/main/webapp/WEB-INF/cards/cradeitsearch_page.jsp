@@ -106,7 +106,7 @@
        <!--這裡為中間區塊-->
       <div class="col-12 creditcenter">
            <div class="searchbtn">找出最丘的信用卡gogogo-->
-            <a href="<c:url value="cradeitsearch_minecredit.jsp"/>">
+            <a href="<c:url value="/cards/cradeitsearch_minecredit"/>">
               <%-- <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_minecredit.jsp"> --%> <input type="button" value="最適合我的信用卡"> </a>           
             </div>
           <div class="col-3 creditsider"> <!--為側邊選單共34間銀行機構-->                
