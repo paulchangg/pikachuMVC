@@ -74,20 +74,17 @@
                    </button>
                    <!--這裡為下拉式選單區塊-->
                     <div class="dropdown-menu"  id="cradeitsearch_siderinn">
-                        <a class="dropdown-item" href="#">精選推薦</a>
-                        <a class="dropdown-item" href="#">全部</a>
-                        <a class="dropdown-item" href="#">限時優惠</a>
-                        <a class="dropdown-item" href="#">現金回饋</a>
-                        <a class="dropdown-item" href="#">哩程回饋</a>
-                        <a class="dropdown-item" href="#">加油卡優惠</a>
-                        <a class="dropdown-item" href="#">電影優惠</a>
-                        <a class="dropdown-item" href="#">分期零利率優惠</a>
-                        <a class="dropdown-item" href="#">網路購物</a>
-                        <a class="dropdown-item" href="#">信用卡首刷禮</a>
-                        <a class="dropdown-item" href="#">繳保費優惠</a>
-                        <a class="dropdown-item" href="#">亞洲萬里通</a>
-                        <a class="dropdown-item" href="#">繳稅優惠</a>
-                        <a class="dropdown-item" href="#">紅利點數</a>
+               
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=all">全部</a>
+                      
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=cb">現金回饋</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=ml">哩程回饋</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=oil">加油卡優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=mv">電影優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=zi">分期零利率優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=os">網路購物</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=fg">信用卡首刷禮</a>
+                        
                      </div>
                </div>
           </div>
