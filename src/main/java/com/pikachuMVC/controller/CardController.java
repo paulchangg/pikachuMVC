@@ -3,6 +3,7 @@ package com.pikachuMVC.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pikachuMVC.dao.CardDao;
 import com.pikachuMVC.model.CardBean;
@@ -112,26 +115,35 @@ public String CbPageCardsServlet(HttpServletRequest request) {
 }
 
 @PostMapping("*.do")
-public String ModalSearch(HttpServletRequest request) {
+public String ModalSearch(HttpServletRequest request) throws UnsupportedEncodingException {
+	
+	System.out.println("----------------------------------");
 	//取得modal選單查詢的條件
-	String ops1 = request.getParameter("opt1");
-	String ops2 = request.getParameter("opt2");
-	String ops3 = request.getParameter("opt3");
+	
+	String ops1="";
+	String ops2="";
+	String ops3="";
+	ops1 = request.getParameter("opt1");
+	ops2 = request.getParameter("opt2");
+	ops3 = request.getParameter("opt3");
 	String sal =  request.getParameter("sal");
+	
 	
 	//組合查詢條件
 	List<String> op = new ArrayList<>();
 	op.add(ops1);
 	op.add(ops2);
 	op.add(ops3);
+	
 	String al = "";
 	for(String s :op) {
-		if(s.indexOf("請選擇") == -1) {
+		if(s.indexOf("c.") != -1) {
 			al=al +" and " +s; 
 		}			
 	}
 	//成為一個完整的hql
 	String ql = "From CardBean c WHERE " + sal + al;
+	System.out.println(ql);
 	
 	Map<Integer, CardBean> CardMap = service.getModalBean(ql);
 	request.setAttribute("products_DPP", CardMap);
@@ -141,6 +153,7 @@ public String ModalSearch(HttpServletRequest request) {
 }
 
 @GetMapping("/RetrieveCardImg")	
+@ResponseBody
 public byte[] RetrieveCardImg(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 	
 	OutputStream os = null;
@@ -196,5 +209,8 @@ public byte[] RetrieveCardImg(HttpServletRequest request, HttpServletResponse re
 		
 		return bytes;
 }
-
+@GetMapping("/cradeitsearch_minecredit")
+public String trans() {
+	return "cards/cradeitsearch_minecredit";
+}
 }
