@@ -44,7 +44,7 @@
 				</c:choose>
               </div>
               <div class="col-4"> 
-                <a href="#">
+                <a href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">
                   <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
                 </a>
               </div>

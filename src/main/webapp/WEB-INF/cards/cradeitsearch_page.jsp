@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="cards/css/cradeitsearch_page.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="cards/css/bootstrap.min.css">
+    <link href="css/cradeitsearch_page.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>信用卡比較</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
                  <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">信用卡</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡</a></li>
             </ul>
          </div>
        </nav>
@@ -69,26 +69,22 @@
         <!--這裡為信用卡選單區塊-->
        <div class="col-12 creditbtnarea"> 
             <div class="col-8 btnareaone"> <!--信用卡分類連結共14個-->
-                <span id="cradeitsearchpage_number">298</span>項搜尋結果
+                <span id="cradeitsearchpage_number">${cardCounts}項搜尋結果</span>
+               
                    <div class="col-10 dropdown" id="cradeitsearchpage_btnone">
                       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                          <span id="">精選推薦<span>
                       </button>
                         <div class="dropdown-menu" id="cradeitsearchpage_btninn">
-                          <a class="dropdown-item" href="#" id="">全部</a>
-                          <a class="dropdown-item" href="cradeitsearch.html">精選推薦</a>
-                          <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb" id="">現金回饋</a>
-                          <a class="dropdown-item" href="#" id="">限時優惠</a>
-                          <a class="dropdown-item" href="#" id="">加油卡優惠</a>
-                          <a class="dropdown-item" href="#" id="">哩程回饋</a>
-                          <a class="dropdown-item" href="#" id="">分期零利率優惠</a>
-                          <a class="dropdown-item" href="#" id="">電影優惠</a>
-                          <a class="dropdown-item" href="#" id="">信用卡首刷禮</a>
-                          <a class="dropdown-item" href="#" id="">網路購物</a>
-                          <a class="dropdown-item" href="#" id="">亞洲萬里通</a>
-                          <a class="dropdown-item" href="#" id="">繳保費優惠</a>
-                          <a class="dropdown-item" href="#" id="">紅利點數</a>
-                          <a class="dropdown-item" href="#" id="">繳稅優惠</a>
+                        
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=all">全部</a>      
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=cb">現金回饋</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=ml">哩程回饋</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=oil">加油卡優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=mv">電影優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=zi">分期零利率優惠</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=os">網路購物</a>
+                        <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=fg">信用卡首刷禮</a>
                        </div>
                     </div>
                </div>
@@ -106,248 +102,249 @@
                  </div>  
            </div>
       </div>
-      
+     
        <!--這裡為中間區塊-->
       <div class="col-12 creditcenter">
            <div class="searchbtn">找出最丘的信用卡gogogo-->
-              <a href=""> <input type="button" value="最適合我的信用卡"> </a>           
+            <a href="<c:url value="cradeitsearch_minecredit.jsp"/>">
+              <%-- <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_minecredit.jsp"> --%> <input type="button" value="最適合我的信用卡"> </a>           
             </div>
           <div class="col-3 creditsider"> <!--為側邊選單共34間銀行機構-->                
             按需要機構/銀行篩選
              <div>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="021">
+              <input type="checkbox" name="bank" class="checkbox" value="花旗銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">花旗銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="052">
+              <input type="checkbox" name="bank" class="checkbox" value="匯豐銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">匯豐銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="021">
+              <input type="checkbox" name="bank" class="checkbox" value="渣打銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">渣打銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="810">
+              <input type="checkbox" name="bank" class="checkbox" value="星展銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">星展銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="048">
+              <input type="checkbox" name="bank" class="checkbox" value="王道銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">王道銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="103">
+              <input type="checkbox" name="bank" class="checkbox" value="新光銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">新光銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="822">
+              <input type="checkbox" name="bank" class="checkbox" value="中國信託">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">中國銀行</span>
+              <span class="text">中國信託</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="013">
+              <input type="checkbox" name="bank" class="checkbox" value="國泰世華">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">國泰銀行</span>
+              <span class="text">國泰世華</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="808">
+              <input type="checkbox" name="bank" class="checkbox" value="玉山銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">玉山銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="812">
+              <input type="checkbox" name="bank" class="checkbox" value="台新銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">台新銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="803">
+              <input type="checkbox" name="bank" class="checkbox" value="聯邦銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">聯邦銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="024">
+              <input type="checkbox" name="bank" class="checkbox" value="美國運通">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">美國運通</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="805">
+              <input type="checkbox" name="bank" class="checkbox" value="遠東商銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">遠東商銀</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="050">
+              <input type="checkbox" name="bank" class="checkbox" value="臺灣企銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台灣企銀</span>
+              <span class="text">臺灣企銀</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="009">
+              <input type="checkbox" name="bank" class="checkbox" value="彰化銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">彰化銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="807">
+              <input type="checkbox" name="bank" class="checkbox" value="永豐銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">永豐銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="102">
+              <input type="checkbox" name="bank" class="checkbox" value="華泰銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">華泰銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="008">
+              <input type="checkbox" name="bank" class="checkbox" value="華南銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">華南銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="012">
+              <input type="checkbox" name="bank" class="checkbox" value="台北富邦">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">台北富邦</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="007">
+              <input type="checkbox" name="bank" class="checkbox" value="第一銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">第一銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="016">
+              <input type="checkbox" name="bank" class="checkbox" value="高雄銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">高雄銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="816">
+              <input type="checkbox" name="bank" class="checkbox" value="安泰銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">安泰銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="006">
+              <input type="checkbox" name="bank" class="checkbox" value="合作金庫">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">合作銀行</span>
+              <span class="text">合作金庫</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="017">
+              <input type="checkbox" name="bank" class="checkbox" value="兆豐銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">兆豐銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="809">
+              <input type="checkbox" name="bank" class="checkbox" value="凱基銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">凱基銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="960">
+              <input type="checkbox" name="bank" class="checkbox" value="台灣樂天">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">台灣樂天</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="004">
+              <input type="checkbox" name="bank" class="checkbox" value="臺灣銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台灣銀行</span>
+              <span class="text">臺灣銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="053">
+              <input type="checkbox" name="bank" class="checkbox" value="台中商銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台中銀行</span>
+              <span class="text">台中商銀</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="815">
+              <input type="checkbox" name="bank" class="checkbox" value="日盛銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">日盛銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="806">
+              <input type="checkbox" name="bank" class="checkbox" value="元大銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">元大銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="005">
+              <input type="checkbox" name="bank" class="checkbox" value="土地銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">土地銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="147">
+              <input type="checkbox" name="bank" class="checkbox" value="三信銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">三信銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="011">
+              <input type="checkbox" name="bank" class="checkbox" value="上海商銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
               <span class="text">上海商銀</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="108">
+              <input type="checkbox" name="bank" class="checkbox" value="陽信銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
@@ -358,12 +355,16 @@
           
           <div class="col-8 contentcenter"><!--為中間顯示區塊-->    
           
+          
+          
+          <c:choose> 
+          <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
-                <div class="onecard">
-                   <span id="">${entry.value.c_name}</span> <!--這裡為信用卡第2張請以第1張為主-->
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -381,35 +382,289 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn">
+                       
+                       <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>
+                       	詳細資訊</a>
+                       	</div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
+                </c:when>
+                
+                
+                <c:when test="${qt == 'ml'}"> <!--第2種：哩程回饋-->
+          		<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.fma}</span></div>
+                                <div>國外消費累積哩程</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.dma}</span></div>
+                               <div>國內消費累積哩程</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>
+                
+          <c:when test="${qt == 'oil'}">  <!--第3種：加油回饋-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.refuel_cb}</span></div>
+                                <div>加油現金回饋</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.refuel_dis}</span></div>
+                               <div>加油優惠</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>
+                
+          <c:when test="${qt == 'mv'}">  <!--第4種：電影優惠-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.wkdmoviedis}</span></div>
+                                <div>週未電影折扣</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.moviedis}</span></div>
+                               <div>平日電影折扣</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>                                
+
+          <c:when test="${qt == 'os'}">  <!--第5種：網購回饋-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.ditigalfb}</span></div>
+                               <div>數位通路回饋上限</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.fcb}</span></div>
+                                <div>國外消費現金回饋</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.onlinefb}</span></div>
+                               <div>網購回饋</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>                
+
+          <c:when test="${qt == 'zi'}">  <!--第6種：分期零利率-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.zeroins}</span></div>
+                                <div>最高分期數</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.minins}</span></div>
+                               <div>最底可分期金額</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>                
+
+          <c:when test="${qt == 'fg'}">  <!--第7種：首刷-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.mileagefb}</span></div>
+                                <div>首刷哩程回饋</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.cashfb}</span></div>
+                               <div>首刷(類)現金回饋</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>                
+
+          <c:when test="${qt == 'all'}">  <!--第8種：全部-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                <div class="onecard"  name="${entry.value.bank}">
+                   <span id="">${entry.value.c_name}</span> <!--卡名-->
+                    <div class="row">
+                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                      </div>
+                       <div class="col credittext">
+                            <div class="col-4 creditinner"><!--年費-->   
+                               <div><span >${entry.value.annlfee}</span></div>
+                               <div>年費</div>
+                           </div>
+                            <div class="col-4 creditinner"><!--國外消費-->   
+                                <div><span >${entry.value.fcb}</span></div>
+                                <div>國外消費現金回饋</div>
+                                <div></div>
+                           </div> 
+                            <div class="col-4 creditinner"><!--國內消費--> 
+                               <div><span >${entry.value.dcb}</span></div>
+                               <div>國內消費現金回饋</div>
+                               <div></div>
+                           </div>
+                       </div>   
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                  </div>
+                </div>
+                </c:forEach> 
+                </c:when>                
+                
+                
+                </c:choose>
+                
         </div>
         
      </div>
- 
-    
-     <!--底部分頁 一頁最多呈現8筆如果超過8筆以下為分頁連結-->
-     <div class="col-12 return">
-      <ul class="pagination pagination-sm">
-          <li class="page-item"> <a class="page-link" href="#" aria-label="Previous">
-             <span aria-hidden="true">&laquo;</span> </a></li>
-          <li class="page-item"><a class="page-link" href="#" id="cradeitsearchpage_pag1">1</a></li>
-          <li class="page-item"><a class="page-link" href="#" id="cradeitsearchpage_pag2">2</a></li>
-          <li class="page-item"><a class="page-link" href="#" id="cradeitsearchpage_pag3">3</a></li>
-          <li class="page-item"><a class="page-link" href="#" aria-label="Next">
-             <span aria-hidden="true">&raquo;</span></a>
-      </ul>
-    </div>
 
-      
            <!--這裡為尾巴--> 
         <div class="col-12 footer">底部位置</div>
     </div>
  </div>
- <script src="cards/js/jquery-3.4.1.js"></script>
- <script src="cards/js/popper.min.js"></script>
- <script src="cards/js/bootstrap.min.js"></script>
+ <script src="js/jquery-3.4.1.js"></script>
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ 
+ <script>
+
+var checkValue = document.getElementsByName("bank");//上網查使用checkbox用這個方式取得
+
+for(var i=0;i<checkValue.length;i++){
+  checkValue[i].addEventListener("click",show,false);  
+};
+
+function show(){
+  
+ let checkarray=[]; 
+  
+  for(let i=0;i<checkValue.length;i++){
+     if(checkValue[i].checked)  
+      {
+        checkarray.push(checkValue[i].value);  
+      }
+        
+  } 
+   
+  let cdiv = document.getElementsByClassName("onecard");
+  let cnt = 0;      
+  if (checkarray.length == 0) {  //如果全部都沒勾選，就全顯示
+    for (let x = 0; x < cdiv.length; x++) {
+      cdiv[x].style.display = 'block';
+      cnt++;
+    }
+  } else {                       //不是全部沒勾(即有任一勾選)
+    for (let x = 0; x < cdiv.length; x++) {
+
+      if (checkarray.indexOf(cdiv[x].getAttribute('name')) != -1) {   //!= -1 代表有在陣列裡
+        cdiv[x].style.display = 'block';
+        cnt++;
+      } else {
+        cdiv[x].style.display = 'none'; 
+      }  
+    }
+  }
+  console.log(cnt);
+  let cntcard = document.getElementById('cradeitsearchpage_number');
+  cntcard.innerText =cnt + "項搜尋結果";
+  }
+
+
+</script>
+ 
+ 
+ 
 </body> 
 </html>    

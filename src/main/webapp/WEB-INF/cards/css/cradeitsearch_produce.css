@@ -1,0 +1,87 @@
+/*皮卡丘商標位置區塊*/
+.logarea{
+    text-align: center;
+    background-color: #FFF7A9;
+}
+
+/*這是導覽頁選項*/
+.navbar{
+    background-color: aliceblue;
+}
+
+/*這是導覽頁選項移到中間*/
+#cradeitsearchproduce_navContent ul{    
+    margin:auto;
+   }
+   
+/*這是導覽頁項目要呈現水平排列*/
+.wrap li{
+       display: inline-block;
+}
+
+
+/*這裡為顯信用卡介紹的小區塊*/
+.credittitle{
+    text-align: center;
+    height: 3rem;
+    background-color: aliceblue;
+    font-size: 25px;
+    margin-bottom: 2%;
+}
+
+/*尾巴*/
+.footer{
+    background-color:#FFF7A9;
+    height: 5rem;
+    text-align: center;
+}
+
+/*這裡為信用卡介紹上半部*/
+.creaditarea{
+   /*background-color: lawngreen;*/
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1%;
+    
+}
+
+/*這裡為信用卡介紹上半部內的文字*/
+.textarea{
+    background-color:aliceblue;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+/*這裡為信用卡介紹的下半部*/
+.creditareatext{
+   
+    margin: auto;
+}
+
+/*首刷禮表格*/
+.tablestyle{
+width: 250px;
+
+    
+}
+
+/*首刷禮表格*/
+.tablestyle td{
+    border: solid;
+  
+}
+
+/*這裡為謹慎理財區塊*/
+.managermoney{
+    margin: auto;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+/*這裡再次提示使用比較的按鈕區塊*/
+.butagain{
+   background-color: aliceblue;
+   margin: auto;
+   text-align: center;
+   margin-bottom: 5%;
+}

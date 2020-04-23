@@ -33,6 +33,7 @@ public class RootAppConfig {
 				+ "?useSSL=true&useUnicode=yes&characterEncoding=UTF8"
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");
+//		ds.setPassword("404631060");
 		ds.setPassword("404631060");
 		ds.setInitialPoolSize(5);
 		ds.setMaxPoolSize(8);
