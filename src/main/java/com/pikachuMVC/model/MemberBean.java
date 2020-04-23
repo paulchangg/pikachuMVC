@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +36,7 @@ public class MemberBean {
 	Set<ProductBean> products = new LinkedHashSet<>();
 	
 
-	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "members")
 	Set<CardBean> cards = new LinkedHashSet<>();
 	
 	public MemberBean() {

@@ -19,57 +19,57 @@ public class CardServiceImpl implements CardService {
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getCbPageCards(int pageNo) {
+	public Map<Integer, CardBean> getCbPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getCbPageCards(pageNo);
+		map = dao.getCbPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getMlPageCards(int pageNo) {
+	public Map<Integer, CardBean> getMlPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getMlPageCards(pageNo);
+		map = dao.getMlPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getOilPageCards(int pageNo) {
+	public Map<Integer, CardBean> getOilPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getOilPageCards(pageNo);
+		map = dao.getOilPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getMvPageCards(int pageNo) {
+	public Map<Integer, CardBean> getMvPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getMvPageCards(pageNo);
+		map = dao.getMvPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getOsPageCards(int pageNo) {
+	public Map<Integer, CardBean> getOsPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getOsPageCards(pageNo);
+		map = dao.getOsPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getZiPageCards(int pageNo) {
+	public Map<Integer, CardBean> getZiPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getZiPageCards(pageNo);
+		map = dao.getZiPageCards();
 		return map;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, CardBean> getFgPageCards(int pageNo) {
+	public Map<Integer, CardBean> getFgPageCards() {
 		Map<Integer, CardBean> map = null;
-		map = dao.getFgPageCards(pageNo);
+		map = dao.getFgPageCards();
 		return map;
 	}
 
@@ -88,6 +88,53 @@ public class CardServiceImpl implements CardService {
 		List<CardBean> list = new ArrayList<CardBean>();
 		list = dao.getCards();
 		return list;
+	}
+
+	@Override
+	@Transactional
+	public Map<Integer, CardBean> getAllCards() {
+		Map<Integer, CardBean> map = null;
+		map = dao.getAllCards();
+		return map;
+	}
+
+	@Override
+	@Transactional
+	public Map<Integer, CardBean> getModalBean(String hql) {
+		Map<Integer, CardBean> map = null;
+		map = dao.getModalBean(hql);
+		return map;
+	}
+
+	@Override
+	@Transactional
+	public Map<Integer, CardBean> getRandomBean() {
+		Map<Integer, CardBean> map = null;
+		map = dao.getRandomBean();
+		return map;
+	}
+
+	@Override
+	@Transactional
+	public List<String> getAllBank() {
+		List<String> list = null;
+		list = dao.getAllBank();
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public List<CardBean> getCardsByBank(String bank) {
+		List<CardBean> list = null;
+		list = dao.getCardsByBank(bank);
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public CardBean getCard(String c_name) {
+		CardBean bean = dao.getCard(c_name);
+		return bean;
 	}
 
 }

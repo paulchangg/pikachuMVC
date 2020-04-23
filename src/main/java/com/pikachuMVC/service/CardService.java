@@ -5,34 +5,42 @@ import java.util.Map;
 
 import com.pikachuMVC.model.CardBean;
 
-
-
 public interface CardService {
-     
-	
-	
-	//查詢現金回饋
-	public Map<Integer, CardBean> getCbPageCards(int pageNo);
-	
-	//哩程回饋
-	public Map<Integer, CardBean> getMlPageCards(int pageNo);
-	
-	//加油優惠
-	public Map<Integer, CardBean> getOilPageCards(int pageNo);
-	
-	//電影優惠
-	public Map<Integer, CardBean> getMvPageCards(int pageNo);
-	
-	//網購回饋
-	public Map<Integer, CardBean> getOsPageCards(int pageNo);
-	
-	//分期零利率
-	public Map<Integer, CardBean> getZiPageCards(int pageNo);
-	
-	//信用卡首刷禮
-	public Map<Integer, CardBean> getFgPageCards(int pageNo);
-	
+
+	// 查詢現金回饋
+	public Map<Integer, CardBean> getCbPageCards();
+
+	// 哩程回饋
+	public Map<Integer, CardBean> getMlPageCards();
+
+	// 加油優惠
+	public Map<Integer, CardBean> getOilPageCards();
+
+	// 電影優惠
+	public Map<Integer, CardBean> getMvPageCards();
+
+	// 網購回饋
+	public Map<Integer, CardBean> getOsPageCards();
+
+	// 分期零利率
+	public Map<Integer, CardBean> getZiPageCards();
+
+	// 信用卡首刷禮
+	public Map<Integer, CardBean> getFgPageCards();
+
+	public Map<Integer, CardBean> getAllCards();
+
 	public CardBean getCard(int c_id);
-	
+
+	public Map<Integer, CardBean> getModalBean(String hql);
+
+	public Map<Integer, CardBean> getRandomBean();
+
 	public List<CardBean> getCards();
+
+	public List<String> getAllBank();
+
+	public List<CardBean> getCardsByBank(String bank);
+	
+	public CardBean getCard(String c_name);
 }

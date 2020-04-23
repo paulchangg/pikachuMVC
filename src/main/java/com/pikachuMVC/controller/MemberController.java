@@ -9,8 +9,11 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,11 +27,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.service.CardService;
 import com.pikachuMVC.service.MemberService;
 
 import init.GlobalService;
@@ -38,6 +45,9 @@ public class MemberController {
 
 	@Autowired
 	MemberService service;
+
+	@Autowired
+	CardService cardservice;
 
 	@Autowired
 	ServletContext sc;
@@ -88,8 +98,10 @@ public class MemberController {
 
 	@GetMapping("/member/member_center")
 	public String center() {
+
 		return "member/member_center";
 	}
+	
 
 	@GetMapping("/member/member_edit")
 	public String edit() {
@@ -121,7 +133,7 @@ public class MemberController {
 		String gender = "";
 		String phone_num = "";
 		String birthday = "";
-		
+
 		account = request.getParameter("account");
 		password = request.getParameter("password");
 		name = request.getParameter("name");
@@ -129,7 +141,7 @@ public class MemberController {
 		gender = request.getParameter("gender");
 		phone_num = request.getParameter("phone_num");
 		birthday = request.getParameter("birthday");
-		
+
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		// 準備存放註冊成功之訊息的Map物件
 		Map<String, String> msgOK = new HashMap<String, String>();
@@ -182,7 +194,7 @@ public class MemberController {
 		}
 
 		if (!errorMsg.isEmpty()) {
-			
+
 			return "member/member_register";
 		}
 
@@ -466,32 +478,73 @@ public class MemberController {
 	public void checkEmail(HttpServletRequest request, HttpServletResponse response) {
 		String email = request.getParameter("email");
 		response.setContentType("application/json; charset=UTF-8");
-		try (
-				PrintWriter out = response.getWriter();
-			) {
+		try (PrintWriter out = response.getWriter();) {
 			if (email == null || email.trim().length() == 0) {
 				out.println(false);
-				
+
 			} else {
 				if (service.emailExists(email)) {
 					String newPW = GlobalService.getRandomPassword();
 					service.updatePassword(email, GlobalService.getMD5Endocing(GlobalService.encryptString(newPW)));
-					
+
 					service.sendMail(email, newPW);
 					out.println(true);
 					out.close();
-					
+
 				} else {
 					out.println(false);
-					
+
 				}
-				
+
 			}
 			out.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	@PostMapping("/member/getCardList.do")
+	@ResponseBody
+	public void getCardlist(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String bank = request.getParameter("bank");
+		List<CardBean> list = cardservice.getCardsByBank(bank);
+		List<String> cardname = new ArrayList<String>();
+		for(CardBean c : list) {
+			cardname.add(c.getC_name());
+		}
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String cardJson = new Gson().toJson(cardname);
+		out.write(cardJson);
+		out.flush();
+
+	}
+	
+	@PostMapping("/member/addCard.do")
+	@ResponseBody
+	public void addCard(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+		String cardname = request.getParameter("cardname");
+		CardBean cb = cardservice.getCard(cardname);
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		
+		service.addMyCard(cb, mId);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String cardJson = new Gson().toJson(cb);
+		System.out.println(cardJson);
+		out.write(cardJson);
+		out.flush();
+		
+		
+	}
+
+	@ModelAttribute("banks")
+	public List<String> getAllBank() {
+		List<String> list = cardservice.getAllBank();
+		return list;
 	}
 
 }

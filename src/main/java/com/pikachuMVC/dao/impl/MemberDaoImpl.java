@@ -1,6 +1,7 @@
 package com.pikachuMVC.dao.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.NoResultException;
 
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pikachuMVC.dao.MemberDao;
+import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
 
 
@@ -158,5 +160,54 @@ public class MemberDaoImpl implements MemberDao {
 		member.setCity(mb.getCity());
 		
 	}
+
+	@Override
+	public void saveOrUpdate(MemberBean mb) {
+		Session session = factory.getCurrentSession();
+		
+		session.saveOrUpdate(mb);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + mb.getM_id() + "::" + mb.getCards().size());
+		
+	}
+
+	@Override
+	public void addMyCard(CardBean cb, String m_id) {	
+		MemberBean mbean;
+		CardBean cbean;
+		Session session = factory.getCurrentSession();
+		
+		mbean = session.get(MemberBean.class, m_id);
+		cbean = session.get(CardBean.class, cb.getC_id());
+		
+		Set<CardBean> cards = mbean.getCards();
+		cards.add(cbean);
+		mbean.setCards(cards);
+		
+		Set<MemberBean> members = cbean.getMembers();
+		members.add(mbean);
+		cbean.setMembers(members);		
+		
+	}
+
+	@Override
+	public void rmMyCard(CardBean cb, String m_id) {
+		MemberBean mbean;
+		CardBean cbean;
+		Session session = factory.getCurrentSession();
+		
+		mbean = session.get(MemberBean.class, m_id);
+		cbean = session.get(CardBean.class, cb.getC_id());
+		
+		Set<CardBean> cards = mbean.getCards();
+		cards.remove(cbean);
+		mbean.setCards(cards);
+		
+		Set<MemberBean> members = cbean.getMembers();
+		members.remove(mbean);
+		cbean.setMembers(members);		
+		
+	}
+	
+	
 
 }

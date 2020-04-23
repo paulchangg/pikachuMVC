@@ -1,5 +1,6 @@
 package com.pikachuMVC.dao;
 
+import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
 
 
@@ -23,5 +24,12 @@ public interface MemberDao {
 	public void updateM_img(MemberBean mb);
 
 	public void updateMember(MemberBean mb);
+	
+	public void saveOrUpdate(MemberBean mb);
+	
+	public void addMyCard(CardBean cb, String m_id);
+	
+	public void rmMyCard(CardBean cb, String m_id);
+
 
 }
