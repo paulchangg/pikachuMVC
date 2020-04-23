@@ -27,7 +27,9 @@ public class HomeController {
 	@GetMapping({ "/", "/index" })
 	public String home() {
 		if (list.size() == 0) {
-			dao.insertCards();
+			if (service.getCards().size() == 0) {
+				dao.insertCards();
+			}
 			list = service.getCards();
 		}
 
