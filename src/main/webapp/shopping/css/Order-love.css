@@ -120,21 +120,79 @@ body{
 }
 
 
+/*購物商城標題區塊*/
+.ordertitle{
+    background-color:#f4f4f4;
+    height:6rem;
+    text-align: center;
+}
 
-/* 返回區塊*/
-.return{
+.ordertitle h2{
+   font-size: 20px;
+   margin-top: 2%;
+}
+
+
+/*顯示追蹤清單內容*/
+
+.Ordercontent{
+    margin-top: 2%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+/*顯示追蹤清單的表格內容*/
+
+.Ordercontent table{
+    margin: auto;
+    background-color: #FCEEE0;
+    font-size: 20px;
+    padding: 5px;
+}
+
+/*這裡為說明區*/
+.Orderunder{
+    margin-bottom: 2%;
+    font-size: 18px;
+}
+
+
+.Orderundertwo{
+    margin: auto;
+    width: 40rem;
+}
+
+
+.Orderunder li{
+    list-style: none;
+    text-align: left;
+}
+
+
+
+/*這裡返回區塊*/
+.footerbutton{
+    margin:auto;
     float: left;
+    height: 50px;
+    width: 100%;
     text-align: center;
 }
 
 
-
-/*線上購物圖片這個區塊*/
-.stepimg{
-    text-align: center;
-    height: 15rem;
-}
-
-.tablearea{
-    margin-top: 3%;
-}
+/*返回樣式*/
+.backbtn{
+    border:0;
+    background-color:#776C5B;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+  
+  .backbtn:hover{
+    color:#776C5B;
+    background-color:#fff;
+    border:2px #776C5B solid;
+  }

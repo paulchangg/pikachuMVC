@@ -1,109 +1,184 @@
-.container{
-    background-color: #A4E3FF;
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: initial;
+}
+  
+.flex-container {
+    margin: 0 5%;  /* 全版置中 */
+    text-align: center;    
+    display: block;
+    /* display: -webkit-flex; */
+    display: flex;  
+    /* -webkit-flex-flow: row wrap; */
+    flex-flow: row wrap;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.flex-container > * {
+    flex: 1 80%;
+}
+  
+/* 分辨區塊位置 */
+  
+  .top_nav {background:#E8DFE1;}
+  .index_slider{background-color: lightblue;}
+  .site_footer {background: #F7EDE2;}
+  
+  
+/*頭區塊*/
+  .header{
+    height: 9rem;
+    margin-top: 3%;
+  }
+
+/* 尾巴位置 */
+  .site_footer{
+    text-align: center!important;
+    padding: 4rem!important;
+    margin-top: 3%;
+    font-size: 18px;
+  }
+  
+/*導覽列*/
+
+.top_navi {
+  padding: 0.8em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 40px;
+  color: #E8DFE1;
+  position:relative;
+  padding-bottom: -2px;
+
 }
 
-.hot{
-    height: 3em;
-}
-.center{
-    height: 22em;
+.top_navi a {
+  color: #584B53;
+  text-decoration: none;
+  font-size: 20px;
 }
 
-.footer{
-   
-    height: 8em;
-    background-color: #FFF7A9;
-    clear: both;
+.top_navi nav{
+  position:absolute;
+  top:0;
+  /* left:0; */
+  background: #E8DFE1;
+  width:100%;
+}
+
+/* 欄位大小 */
+.top_navi nav a{
+  padding:10px 60px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.top_navi nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgb(209, 107, 6)
+}
+
+.content_nav {
+  padding: 3em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  /* background-color: #efefef; */
+  font-size: 23px;
+  color: #AFAFAE;
+  border-radius: 5px;
+  position:relative;
+}
+
+.content_nav a {
+  color: #584B53;
+  text-decoration: none;
+}
+
+.content_nav nav{
+  position:absolute;
+  top:0 auto;
+  /* left:0; */
+  background: rgb(255, 255, 255);
+  width:100%;
+}
+
+/* 欄位大小 */
+.content_nav nav a{
+  padding:10px 50px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.content_nav nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgba(79, 127, 190, 0.733)
+}
+
+.bottom_content{
+  padding-top: 80px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+
+.hottitle h2{
+  font-size: 25px;
+  background-color: springgreen;
+  margin-top: 2%;
+}
+
+
+/*購物商城標題區塊*/
+.shopping{
+    background-color:#f4f4f4;
+    height:6rem;
+    text-align: center;
+}
+
+.shopping h2{
+   font-size: 20px;
+   margin-top: 2%;
+}
+
+
+.sidderrone p{
+  margin-top: 5%;
+  
 }
 
 /*輪播圖片顯示區*/
 .carousel-inner{
-  height: 22em;
-}
-
-.hot{
-    text-align:center
-}
-
-/*選單*/
-.sider{
-    height: 55em;
-}
-
-/*左邊選單*/
-.sidderr{
-    float: left;
-    height: 50em;
-}
-
-/*--中間商品--*/
-.sidderr2{
-
-    float: left;
-    height: 50em;
-    align-items: center;
-}
-
-.sreach{
-    text-align: right;
-}
-
-/*搜尋欄位位置*/
-.input-group{
-
-   margin-left: auto;
-}
-
-/*中間商品圖*/
-.card{
-    text-align: center;
-}
-
-/*中間商品呈現位置*/
-.return{
-    align-items: center;
-}
-
-/*中間商品呈現位置*/
-.return ul{
-    margin: auto;
+  height: 30rem;
 }
 
 
-/*皮卡丘商標位置區塊*/
-.logarea{
-    text-align: center;
-    background-color: #FFF7A9;
+
+
+/*側攔連結樣式*/
+.sidderBtn{
+  border:0;
+  background-color:#776C5B;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-size: 23px;
+  margin-bottom: 20px;
 }
 
-/*這是導覽頁選項*/
-.navbar{
-    background-color: aliceblue;
+.sidderBtn:hover{
+  color:#776C5B;
+  background-color:#fff;
+  border:2px #776C5B solid;
 }
 
-/*這是導覽頁選項移到中間*/
-#shopping_navContent ul{    
- margin:auto;
-}
+/*分頁*/
+.pagination{
 
-/*這是導覽頁項目要呈現水平排列*/
-.wrap li{
-    display: inline-block;
-}
-
-
-/*關鍵字區塊高度設定*/
-#shopping_totalsearch{
-height: 3em;
-
-}
-
-/*關鍵字搜尋欄位置*/
-#shopping_searcharea {
-     margin: auto;
-}
-
-/*價格列方式*/
-#shopping_dropdown{
-    float: right;
+  width: 10rem;
+  margin: auto;
 }

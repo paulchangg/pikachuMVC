@@ -23,7 +23,7 @@ public class OrdersBean {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ordid; 
 	private String m_id; 
-	private Date orderdate; 
+	private String orderdate; 
 	private Double total;
 	@OneToMany(mappedBy="ordersBean", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<OrderItemBean> items = new LinkedHashSet<>();
@@ -33,7 +33,7 @@ public class OrdersBean {
 	}
 	
 	
-	public OrdersBean(Integer ordid, String m_id, Date orderdate, Double total, Set<OrderItemBean> items) {
+	public OrdersBean(Integer ordid, String m_id, String orderdate, Double total, Set<OrderItemBean> items) {
 		super();
 		this.ordid = ordid;
 		this.m_id = m_id;
@@ -68,10 +68,10 @@ public class OrdersBean {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
-	public Date getOrderdate() {
+	public String getOrderdate() {
 		return orderdate;
 	}
-	public void setOrderdate(Date orderdate) {
+	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
 	public Double getTotal() {

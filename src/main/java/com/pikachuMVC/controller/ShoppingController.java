@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -16,7 +17,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -38,7 +38,6 @@ import com.pikachuMVC.model.ProductBean;
 import com.pikachuMVC.model.ShoppingCart;
 import com.pikachuMVC.service.OrderService;
 import com.pikachuMVC.service.ProductService;
-import com.pikachuMVC.service.impl.OrderServiceImpl;
 
 @Controller
 @RequestMapping("/shopping")
@@ -191,8 +190,8 @@ public ShoppingController() {}
 		
 		ProductBean pb = service.getSelectBook(id);
 		request.setAttribute("totalPages", service.getTotalPages());
-		request.setAttribute("modeState", modeState);
 		request.setAttribute("mode", mode);
+		session.setAttribute("modeState", modeState);
 		session.setAttribute("product_INFO", pb);
 		session.setAttribute("pageNo", String.valueOf(pageNo));
 		session.setAttribute("products_DPP", productMap);
@@ -277,13 +276,13 @@ public ShoppingController() {}
 		String memberId = mb.getM_id();   						// 取出會員代號
 		double totalAmount = Math.round(sc.getSubtotal());  	// 計算訂單總金額 
 		String shippingAddress = request.getParameter("ShippingAddress");  // 出貨地址
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date today = new Date();   									// 新增訂單的時間
 		// 新建訂單物件。OrderBean:封裝一筆訂單資料的容器，包含訂單主檔與訂單明細檔的資料。目前只存放訂單主檔的資料。
-		
 		// 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
 		
 		Map<Integer, OrderItemBean> content = sc.getContent();
-		OrdersBean ob = new OrdersBean(null,memberId,today,totalAmount,null);		
+		OrdersBean ob = new OrdersBean(null,memberId,sdf.format(today),totalAmount,null);		
 		Set<OrderItemBean> items = new LinkedHashSet<>();
 		Set<Integer> set = content.keySet();
 		for(Integer i : set) {
@@ -337,6 +336,40 @@ public ShoppingController() {}
 		OrdersBean ob = orderService.getOrder(no);
 		request.setAttribute("OrderBean", ob);   // 將OrderBean物件暫存到請求物件內
 		return "/shopping/orderItem";
+	}
+	
+	@PostMapping("/addtrackproduct")
+	public String addTrackproduct(HttpServletRequest request, Model model, HttpSession session) {
+		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		
+		String productIdStr 	= request.getParameter("productId");
+		int productId          = Integer.parseInt(productIdStr.trim());
+		
+
+
+		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
+		ProductBean bean = productMap.get(productId);
+		
+		
+		service.saveTrackProduct(mb, productId);
+		
+		return "redirect:/shopping/listProduct?mode=show&productId="+bean.getP_id();
+	}
+	
+	@GetMapping("/listtrackproduct")
+	public String listTrackproduct(HttpServletRequest request, Model model, HttpSession session) {
+		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		
+		
+		
+		Set<ProductBean> beans = service.listTrackProduct(mb) ;
+		
+		session.setAttribute("trackProduct", beans);
+		
+		
+		return	"/shopping/track";
 	}
 	
 	@GetMapping("/ShoppingCart")

@@ -119,22 +119,30 @@ body{
   color:rgba(79, 127, 190, 0.733)
 }
 
+/*中間整體區塊*/
+.ordercneter{
+    font-size: 20px;
+}
 
 
-/* 返回區塊*/
 .return{
-    float: left;
-    text-align: center;
-}
-
-
-
-/*線上購物圖片這個區塊*/
-.stepimg{
-    text-align: center;
-    height: 15rem;
-}
-
-.tablearea{
     margin-top: 3%;
 }
+
+
+/*按鈕樣式*/
+.returnBtn{
+    border:0;
+    background-color:#776C5B;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+  
+  .returnBtn:hover{
+    color:#776C5B;
+    background-color:#fff;
+    border:2px #776C5B solid;
+  }

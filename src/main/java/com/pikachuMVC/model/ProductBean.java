@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class ProductBean {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer p_id;
 	private String p_name;
 	private String p_desc;

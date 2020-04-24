@@ -1,3 +1,10 @@
+$(document).ready(function(){
+    $(".test").click(function(){
+        alert("已加入購物車按鈕");
+    })
+}
+)
+
 $(function(){
 	var t = $("#shoppinproduce_quantity");
 	$("#shoppinproduce_add").click(function(){
