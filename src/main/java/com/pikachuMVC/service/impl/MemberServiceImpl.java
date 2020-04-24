@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.MemberDao;
+import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.service.MemberService;
 
@@ -137,6 +138,18 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	public void saveOrUpdate(MemberBean mb) {
 		dao.saveOrUpdate(mb);
+	}
+
+	@Override
+	@Transactional
+	public void addMyCard(CardBean cb, String m_id) {
+		dao.addMyCard(cb, m_id);
+	}
+
+	@Override
+	@Transactional
+	public void rmMyCard(CardBean cb, String m_id) {
+		dao.rmMyCard(cb, m_id);
 	}
 
 }

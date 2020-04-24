@@ -1,5 +1,4 @@
-
-  /*第一階段選項內容*/
+/*第一階段選項內容*/
 //   var colleges=['匯豐銀行','渣打銀行','星展銀行','王道銀行','新光銀行','中國信託','國泰世華','玉山銀行','台新銀行','花旗銀行',
 //   '聯邦銀行','美國通運','遠東商銀','台灣企銀','彰化銀行','永豐銀行','華泰銀行','華南銀行','台北富邦','第一銀行',
 //   '高雄銀行','安泰銀行','合作金庫','兆豐銀行','凱基銀行','台灣樂天','台灣銀行','台中銀行','日盛銀行','元大銀行',
@@ -11,15 +10,13 @@
 //    {
 //    inner=inner+'<option value='+i+'>'+colleges[i]+'</option>';
 //    }
-   // collegeSelect.innerHTML=inner;
-   //innerHTML每次載入會清空前一個內容所以前面要設定空字串
-
-   
+// collegeSelect.innerHTML=inner;
+//innerHTML每次載入會清空前一個內容所以前面要設定空字串
 
 // var sectors=new Array();
 // sectors[0]=['現金回饋御璽卡'];
-// sectors[1]=['現金回饋御璽卡','昇利卡(現金回饋)','優先理財無限卡','TheShoppingCard分期卡','昇利卡(紅利回饋)'];	
-// sectors[2]=['炫晶御璽卡 ',' everyday鈦金卡 ',' 豐盛無限卡 ',' 飛行鈦金卡 ',' 飛行世界卡'];	
+// sectors[1]=['現金回饋御璽卡','昇利卡(現金回饋)','優先理財無限卡','TheShoppingCard分期卡','昇利卡(紅利回饋)'];
+// sectors[2]=['炫晶御璽卡 ',' everyday鈦金卡 ',' 豐盛無限卡 ',' 飛行鈦金卡 ',' 飛行世界卡'];
 // sectors[3]=['cama caf?聯名卡 ',' FunNow聯名卡 ',' 公益認同卡 ','簽帳金融卡 '];
 // sectors[4]=['寰宇現金回饋卡 ',' 新光三越聯名卡 ',' 魔法少女一卡通鈦金卡 ',' 悠遊聯名卡 ',' 日本航空聯名卡 ',' 新光加油卡 ',' 義大世界聯名卡','分期7卡 ','美麗華百樂卡'];
 // sectors[5]=['LINEPay卡雙幣商務卡','中信商旅鈦金卡','現金回饋鈦金卡','TAIPEI101夜光聯名卡','GlobalMall聯名卡','寰遊美國運通卡','中信兄弟聯名卡','Yahoo聯名卡','秀泰聯名卡','中華電信聯名白金卡','蘭城新月廣場聯名卡','南紡購物中心聯名卡','享想生活卡',
@@ -27,7 +24,7 @@
 // sectors[6]=['現金回饋御璽卡','享購鈦金卡','國泰人壽聯名卡','蝦皮購物聯名卡','KOKO COMBO icash聯名卡','KOKO icash聯名卡','台塑聯名卡','COSTCO聯名卡','長榮聯名御璽卡','亞洲萬里通聯名里享卡','亞洲萬里通聯名白金卡','遠東SOGO悠遊聯名卡','長榮聯名極致御璽卡','亞洲萬里通聯名鈦商卡','eTag 聯名卡',
 //             '雙幣卡','鈦金商務卡','尊榮御璽卡','長榮聯名無限卡','亞洲萬里通聯名世界卡','長榮聯名極致無限卡','世界卡','白金卡'];
 // sectors[7]=['玉山Pi拍兔Debit卡',' 雙幣信用卡','U Bear信用卡','漢神巨蛋聯名卡','玉山世界卡','幸運鈦金卡','幸運PLUS鈦金卡','家樂福悠遊聯名卡','家樂福icash聯名卡','eTag悠遊聯名卡','iCash聯名卡','商務御璽卡','佐登妮絲聯名卡','悠遊聯名卡','山隆優油卡','中友百貨悠遊聯名卡','全國電子聯名卡','寶雅悠遊聯名卡','新東陽悠遊聯名卡',
-//             'NISSAN悠遊聯名卡','賀寶芙悠遊聯名卡','麗寶悠遊聯名卡','Pi 拍錢包信用卡','南山悠遊聯名卡','愛心卡','ATT4Fun 悠遊聯名卡','耐斯廣場NP聯名卡','統領百貨悠遊聯名卡','華歌爾悠遊聯名卡','玉山Only卡','弘安藥粧聯名卡','臺北南山廣場聯名卡','大江聯名卡','蘭城新月聯名卡','啄木鳥悠遊聯名卡', ];           
+//             'NISSAN悠遊聯名卡','賀寶芙悠遊聯名卡','麗寶悠遊聯名卡','Pi 拍錢包信用卡','南山悠遊聯名卡','愛心卡','ATT4Fun 悠遊聯名卡','耐斯廣場NP聯名卡','統領百貨悠遊聯名卡','華歌爾悠遊聯名卡','玉山Only卡','弘安藥粧聯名卡','臺北南山廣場聯名卡','大江聯名卡','蘭城新月聯名卡','啄木鳥悠遊聯名卡', ];
 // sectors[8]=['FlyGo卡','商務卡','台新街口聯名卡','@GoGo iCash御璽卡','遠傳friDay聯名卡','亞洲無限卡','環球無限卡','昇恆昌聯名卡','燦坤生活聯名卡','三商美邦人壽聯名卡','太陽卡','玫瑰卡','ETC聯名卡','賓士smart聯名卡','全家Fish悠遊聯名卡','新光三越聯名卡',
 //             '大潤發/大買家聯名卡','國泰航空鈦金卡','PayEasy聯名卡','幸福加值卡','國泰航空翱翔鈦金卡','國泰航空世界卡'];
 // sectors[9]=['現金回饋PLUS卡','PChome Prime聯名卡','紅利悠遊卡','新世代花旗饗樂生活悠遊卡','寰旅世界悠遊卡','Citi Prestige'];
@@ -63,8 +60,6 @@
 // sectors[32]=['簡單卡','小小兵Bello回饋卡','TeresaCard','小小兵BeeDo分期卡'];
 // sectors[33]=['曜晶卡','一卡通聯名鈦金卡','享利白金卡'];
 
-
-
 // var sectorSelect=document.getElementById("sector-list");//第二階段選單
 
 // function changeBank(index){    //第一階段的選單
@@ -76,26 +71,18 @@
 //        sectorSelect.innerHTML=Sinner;
 //    }
 
-   // changeBank(document.getElementById("college-list").selectedIndex); //呼叫方法
-
-
-
-
-
-
+// changeBank(document.getElementById("college-list").selectedIndex); //呼叫方法
 
 /*增加區塊的方法*/
 // var addBtn=document.getElementById('center_Button2');
 // addBtn.addEventListener("click",addWay);
-
 
 /*增加按鈕*/
 // function addWay(){
 //    var addDiv=document.getElementById('center_Box'); //父層級區塊
 //    var oneDiv=document.createElement('div');//增加節點
 //    oneDiv.setAttribute('class','addcredit');//增加class屬性,在css設定好寬度
-//    oneDiv.innerHTML="<img src='花旗信用卡.png' class='addimg'><p>信用卡名稱"+sectorSelect.innerHTML+"</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>"; //組成html字串 
-  
+//    oneDiv.innerHTML="<img src='花旗信用卡.png' class='addimg'><p>信用卡名稱"+sectorSelect.innerHTML+"</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>"; //組成html字串
 
 //    var divs=addDiv.getElementsByTagName("div")//取得父層級裡面所有為div標籤
 
@@ -108,7 +95,6 @@
 //    }
 // }
 
-
 /*刪除按鈕*/
 // function delWay(e){
 //    var addDiv=document.getElementById('center_Box'); //父層級區塊
@@ -119,65 +105,75 @@
 // }
 
 /*load畫面方法*/
-$(document).ready(function(){
-   setTimeout(function(){
-     $(".loadingone").fadeOut(500);
-   },2000)
+$(document).ready(function () {
+  setTimeout(function () {
+    $(".loadingone").fadeOut(500);
+  }, 2000);
 });
 
-
-let selectBank = document.getElementById('selectBank');
-
-
-
-
+let selectBank = document.getElementById("selectBank");
 
 function getCard() {
-   let lastcard = document.getElementById('selectCard');
-   while (lastcard.firstChild) {
-      lastcard.removeChild(lastcard.lastChild);
-    }
-   var url = "getCardList.do";
-   var data = { 
-      "bank": $("#selectBank").val() 
-   };
+  let lastcard = document.getElementById("selectCard");
+  while (lastcard.firstChild) {
+    lastcard.removeChild(lastcard.lastChild);
+  }
+  var url = "getCardList.do";
+  var data = {
+    bank: $("#selectBank").val(),
+  };
 
-    $.post(
-      url,
-      data,
-      function (data, textStatus, jqXHR) {
-         let carddiv =  document.getElementById('selectCard');
-         for(let i = 0;i < data.length;i++){
-            let card = document.createElement('option');
-            card.className = "card";
-            card.value = data[i];
-            card.label = data[i].substr(5);
-            carddiv.appendChild(card);
-         }
-      },
-      "json"
-    );
+  $.post(
+    url,
+    data,
+    function (data, textStatus, jqXHR) {
+      let carddiv = document.getElementById("selectCard");
+      for (let i = 0; i < data.length; i++) {
+        let card = document.createElement("option");
+        card.className = "card";
+        card.value = data[i];
+        card.label = data[i].substr(5);
+        carddiv.appendChild(card);
+      }
+    },
+    "json"
+  );
 }
 
-function addCard(){
+function addCard() {
    var url = "addCard.do";
-   var data = { 
-      "cardname" : $('#selectCard').val()
+   var data = {
+      cardname: $("#selectCard").val(),
    };
-
-    $.post(
-      url,
-      data,
-      function (data, textStatus, jqXHR) {
-         $.each( data, function( key, val ) {
-            console.log("key:" + key + "--value" + val);
-          });
-
-         
-      },
-      "json"
-    );
-
-    $.postJson
+   var cname;
    
+  $.post(
+    url,
+    data,
+    function (data, textStatus, jqXHR) {
+      cname = data.c_name;
+      console.log(cname);
+
+      var center_Box = document.getElementById("center_Box");
+      var cardDiv = document.createElement("div");
+      cardDiv.setAttribute("class", "addcredit");
+      cardDiv.innerHTML = `<img src='' class='addimg'><p>信用卡名稱:${cname}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;
+
+      var divs = center_Box.getElementsByTagName("div");
+      if (divs.length < 3) {
+        center_Box.appendChild(cardDiv);
+      } else {
+        alert("已超過3張無法新增");
+      }
+    },
+    "json"
+  );
+}
+
+function delWay(e) {
+//   var center_Box = document.getElementById("center_Box"); //父層級區塊
+//   var divs = center_Box.getElementsByTagName("div"); //取得父層級裡面所有標籤為div
+//   if (divs.length > 0) {
+//     center_Box.removeChild(e.target.parentNode); //移除父區塊裡面的div
+//   }
 }

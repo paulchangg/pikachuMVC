@@ -525,17 +525,11 @@ public class MemberController {
 	@PostMapping("/member/addCard.do")
 	@ResponseBody
 	public void addCard(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
-		System.out.println("=======================================");
 		String cardname = request.getParameter("cardname");
-		System.out.println("11111111111" + cardname);
-		
-		MemberBean mb = service.queryMember(((MemberBean) session.getAttribute("LoginOK")).getM_id());
 		CardBean cb = cardservice.getCard(cardname);
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
 		
-		Set<CardBean> cset = mb.getCards();
-		cset.add(cb);
-		mb.setCards(cset);
-		service.saveOrUpdate(mb);
+		service.addMyCard(cb, mId);
 		
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
