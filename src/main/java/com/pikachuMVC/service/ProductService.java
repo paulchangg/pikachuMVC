@@ -1,5 +1,6 @@
 package com.pikachuMVC.service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public interface ProductService {
 	
 	public long getRecordCounts();
 	
+	List<ProductBean> getProducts();
 	
 	public int getTotalPages();
 }

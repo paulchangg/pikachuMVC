@@ -55,7 +55,7 @@
 		<!-- 導覽列--------------------------->
 	   <section class="top_navi">
 		   <nav>
-			    <a href="<c:url value="/shopping/orderList" />" >查詢訂單</a>
+			   <a href="<c:url value="/shopping/orderList" />" >查詢訂單</a>
 		       <a href="<c:url value="/shopping/listtrackproduct" />" >追蹤商品</a>
 			   <a href="#" >關於我們</a>
 			   <a href="<c:url value="/member/member_center" />">會員中心</a>
@@ -113,7 +113,6 @@
                   <div class="col-4 produceitem"><!--中間商品--><!--這裡5個id是要連資料庫商品一切資料-->
                       <p>商品名稱:<span id="shoppingproduce_name">${product_INFO.p_name}</span></p>
                       <p>價格:<span id="shoppingproduce_price">${product_INFO.price}元</span></p>
-                      <p>點數:<span id="shoppingproduce_bouns">${product_INFO.p_bns}點</span></p>
                       <p>剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
                       <p>購買數量</p>
                     <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">

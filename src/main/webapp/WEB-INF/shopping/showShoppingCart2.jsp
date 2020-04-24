@@ -51,7 +51,7 @@
        <section class="top_navi"><!--導覽列-->
         <nav>
             <a href="<c:url value="/shopping/orderList" />" >查詢訂單</a>
-		       <a href="<c:url value="/shopping/listtrackproduct" />" >追蹤商品</a>
+		     <a href="<c:url value="/shopping/listtrackproduct" />" >追蹤商品</a>
 			   <a href="#" >關於我們</a>
 			   <a href="<c:url value="/member/member_center" />">會員中心</a>
 			   <a href="#">論壇交友</a>

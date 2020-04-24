@@ -1,6 +1,8 @@
 package com.pikachuMVC.service.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -82,6 +84,14 @@ public class ProductServiceImpl implements Serializable, ProductService {
 		Set<ProductBean> beans = null;
 		beans = dao.listTrackProduct(member);
 		return beans;
+	}
+	
+	@Override
+	@Transactional
+	public List<ProductBean> getProducts() {
+		List<ProductBean> list = new ArrayList<ProductBean>();
+		list = dao.getProducts();
+		return list;
 	}
 
 }

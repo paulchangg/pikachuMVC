@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.pikachuMVC.dao.CardDao;
+import com.pikachuMVC.dao.ProductDao;
 import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.ProductBean;
 import com.pikachuMVC.service.CardService;
+import com.pikachuMVC.service.ProductService;
 
 @Controller
 public class HomeController {
@@ -21,8 +24,15 @@ public class HomeController {
 
 	@Autowired
 	CardDao dao;
+	
+	@Autowired
+	ProductDao productDao;
+	
+	@Autowired
+	ProductService productService;
 
 	private List<CardBean> list = new ArrayList<CardBean>();
+	private List<ProductBean> productList = new ArrayList();
 
 	@GetMapping({ "/", "/index" })
 	public String home() {
@@ -32,6 +42,15 @@ public class HomeController {
 			}
 			list = service.getCards();
 		}
+		
+		if (productList.size() == 0) {
+			if (productService.getProducts().size() == 0) {
+				productDao.insertProducts();
+			}
+			productList = productService.getProducts();
+		}
+		
+		
 
 		return "index";
 	}

@@ -30,14 +30,14 @@ public class ProductBean {
 	private Integer stock;
 	private Blob p_img;
 	private String p_img_name;
-	private Integer p_bns;
+	private String p_category;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "member_product", catalog = "pikachuDB",
 			   joinColumns ={
 					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
 			   },
 			   inverseJoinColumns = {
-					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
+					   @JoinColumn(name = "m_id", nullable = false, updatable = false)
 			   }
 			   )
 	Set<MemberBean> members = new LinkedHashSet<>();
@@ -46,7 +46,7 @@ public class ProductBean {
 	
 	
 	public ProductBean(Integer p_id, String p_name, String p_desc, Double price, Integer stock, Blob p_img
-			, String p_img_name ,Integer p_bns) {
+			, String p_img_name ,String p_category) {
 		super();
 		this.p_id = p_id;
 		this.p_name = p_name;
@@ -55,7 +55,7 @@ public class ProductBean {
 		this.stock = stock;
 		this.p_img = p_img;
 		this.p_img_name = p_img_name;
-		this.p_bns = p_bns;
+		this.p_category = p_category;
 	}
 
 	
@@ -148,15 +148,19 @@ public class ProductBean {
 	}
 
 
-	public Integer getP_bns() {
-		return p_bns;
+
+	public String getP_category() {
+		return p_category;
 	}
 
 
-	public void setP_bns(Integer p_bns) {
-		this.p_bns = p_bns;
+
+	public void setP_category(String p_category) {
+		this.p_category = p_category;
 	}
 
+
+	
 	
 
 }

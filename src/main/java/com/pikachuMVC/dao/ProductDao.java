@@ -1,5 +1,6 @@
 package com.pikachuMVC.dao;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,4 +25,8 @@ public interface ProductDao {
 	Set<ProductBean> listTrackProduct(MemberBean member);
 	
 	public int getTotalPages();
+	
+	List<ProductBean> getProducts();
+	
+	void insertProducts();
 }
