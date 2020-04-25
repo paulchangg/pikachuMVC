@@ -226,5 +226,25 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		return list;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<String> getProducts_name(String p_name) {
+		List<String> list = new ArrayList<String>();
+		List<String> list1 = new ArrayList<String>();
+		String hql = "SELECT p_name FROM ProductBean c";
+		Session session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		System.out.println(p_name);
+		for(String n : list) {
+			if( n.indexOf(p_name) == -1 ) {
+			
+			}else {
+				System.out.println(n);
+				list1.add(n);
+			}
+		}
+		return list1;
+	}
+
 
 }

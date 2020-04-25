@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -30,7 +31,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.OrderItemBean;
 import com.pikachuMVC.model.OrdersBean;
@@ -370,6 +373,27 @@ public ShoppingController() {}
 		
 		
 		return	"/shopping/track";
+	}
+	
+	@GetMapping("/queryProduct")
+	@ResponseBody
+	public void queryProduct(HttpServletResponse response,HttpServletRequest request) {
+		System.out.println("4777777777777777777777777777777");
+		String p_name = request.getParameter("p");
+		System.out.println(p_name);
+		response.setContentType("application/json; charset=utf-8");
+		try(
+				PrintWriter out = response.getWriter();
+		){
+			List<String> list = service.getProducts_name(p_name);
+			System.out.println(list.get(0));
+			String categoriesJson = new Gson().toJson(list);
+			System.out.println(list.get(0));
+			out.write(categoriesJson);
+			out.flush();
+		}catch(Exception e) {
+			
+		}
 	}
 	
 	@GetMapping("/ShoppingCart")

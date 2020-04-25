@@ -167,10 +167,7 @@
        </div>
 	            
              <!--這裡返回訂單查詢頁面按鈕區塊-->
-             <div class="footerbutton">
-                <a href="../member/member_center.jsp">
-                <input type="button" value="返回" class="fobutton"></a>
-            </div>
+            
     
            <!--這裡為底部區塊-->
            <div class="site_footer"> <!--尾巴區塊-->

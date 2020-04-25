@@ -139,7 +139,7 @@ crossorigin="anonymous" />
 				      </c:choose>
 				   </div>
 			        <div class="col-4 input-group"><!--搜尋關鍵字id-->
-						 <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字">
+						 <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()">
 						<div class="input-group-append">
 						   <button class="btn btn-default" type="submit">搜尋</button>
 					   </div>
@@ -250,5 +250,28 @@ crossorigin="anonymous"></script>
 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 crossorigin="anonymous"></script>
 <script src="js/shopping.js"></script>
+<script type="text/javascript">
+function a() {
+	// SELECT標籤
+	var words = document.getElementById("shopping_keywords");
+	var xhr = new XMLHttpRequest();
+	var url = "queryProduct?q=" + words.value;
+	console.log(words.value)
+	xhr.open("GET", url, true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		// 向伺服器提出的請求已經收到回應
+		if (xhr.readyState === 4) {
+			// 伺服器回應成功
+			if (xhr.status === 200) {
+				var books = JSON.parse(xhr.responseText);
+				cosole.log(books);
+			}
+		}
+	}	
+	
+}
+
+</script>
 </body>
 </html>

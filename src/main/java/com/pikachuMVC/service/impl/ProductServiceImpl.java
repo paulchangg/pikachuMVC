@@ -94,4 +94,12 @@ public class ProductServiceImpl implements Serializable, ProductService {
 		return list;
 	}
 
+	@Override
+	@Transactional
+	public List<String> getProducts_name(String p_name) {
+		List<String> list = new ArrayList<String>();
+		list = dao.getProducts_name(p_name);
+		return list;
+	}
+
 }

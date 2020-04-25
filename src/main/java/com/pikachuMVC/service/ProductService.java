@@ -27,6 +27,8 @@ public interface ProductService {
 	
 	List<ProductBean> getProducts();
 	
+	List<String> getProducts_name(String p_name);
+	
 	public int getTotalPages();
 }
 
