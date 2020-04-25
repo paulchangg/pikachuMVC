@@ -111,9 +111,25 @@ $(document).ready(function () {
   }, 2000);
 });
 
+
+
+
+
 let selectBank = document.getElementById("selectBank");
 
 function getCard() {
+	
+	//取得會員增加的卡片所有div 
+	let cdiv = document.getElementsByClassName('addcredit');
+	//把div的卡名放入比較陣列
+	let checkarray = [];
+	console.log(cdiv.length);
+	for(let x = 0; x < cdiv.length ; x++){	  
+	    let	 y = cdiv[x].getAttribute("name");
+		checkarray.push(y);	
+	}
+//	console.log(checkarray);
+	
   let lastcard = document.getElementById("selectCard");
   while (lastcard.firstChild) {
     lastcard.removeChild(lastcard.lastChild);
@@ -133,14 +149,36 @@ function getCard() {
         card.className = "card";
         card.value = data[i];
         card.label = data[i].substr(5);
-        carddiv.appendChild(card);
+        //如果跟卡名一樣就不加
+        if(checkarray.indexOf(card.value)  != -1){
+        	continue;
+        }else{
+        	carddiv.appendChild(card);	
+        }
+                
       }
     },
     "json"
   );
+
 }
 
+  
 function addCard() {
+	let se =document.getElementById('selectCard');
+	let ops =document.getElementsByClassName('card');
+	//取得目前所選的值
+	let y = se.value;
+	//點完加卡片 就讓它消失
+    for(let x =0;x<ops.length;x++){
+    	
+        if(ops[x].value === y){
+           
+            ops[x].style.display = 'none';
+        }    
+    }
+	
+
    var url = "addCard.do";
    var data = {
       cardname: $("#selectCard").val(),
@@ -152,11 +190,13 @@ function addCard() {
     data,
     function (data, textStatus, jqXHR) {
       cname = data.c_name;
-      console.log(cname);
+//      console.log(cname);
 
       var center_Box = document.getElementById("center_Box");
       var cardDiv = document.createElement("div");
       cardDiv.setAttribute("class", "addcredit");
+      cardDiv.setAttribute("value", cname);
+      cardDiv.setAttribute("name", cname);
       cardDiv.innerHTML = `<img src='' class='addimg'><p>信用卡名稱:${cname}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;
 
       var divs = center_Box.getElementsByTagName("div");
@@ -171,6 +211,8 @@ function addCard() {
 }
 
 function delWay(e) {
+	  let cd = document.getElementsByClassName("card");
+	  console.log(cd.length);
 //   var center_Box = document.getElementById("center_Box"); //父層級區塊
 //   var divs = center_Box.getElementsByTagName("div"); //取得父層級裡面所有標籤為div
 //   if (divs.length > 0) {
