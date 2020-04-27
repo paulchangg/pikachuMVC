@@ -1,5 +1,6 @@
 package com.pikachuMVC.model;
 
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "product")
-public class ProductBean {
+public class ProductBean implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

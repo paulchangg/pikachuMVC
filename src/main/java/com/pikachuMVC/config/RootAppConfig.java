@@ -35,6 +35,7 @@ public class RootAppConfig {
 		ds.setUser("root");
 		ds.setPassword("404631060");
 //		ds.setPassword("22651330");
+//		ds.setPassword("songsql");
 		ds.setInitialPoolSize(5);
 		ds.setMaxPoolSize(8);
 		return ds;

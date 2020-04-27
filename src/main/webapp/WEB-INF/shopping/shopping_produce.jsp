@@ -155,7 +155,7 @@
        </div>
 
         <div class="return"> <!--返回區塊-->
-            <a href="<c:url value='/listProduct/DisplayPageProducts' />"><button type="button" class="returnBtn">返回商城</button></a>
+            <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="returnBtn">返回商城</button></a>
         </div>
 	 
 	   <div class="site_footer"> <!--尾巴區塊-->
