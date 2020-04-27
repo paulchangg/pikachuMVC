@@ -159,9 +159,8 @@
 						</select></label>
 						<label><input type="button" value="增加信用卡" class="btn btn-outline-danger" id="center_Button2" onclick="addCard()"></label>
 					</div>
-					<div class="row" id="center_Box">
- <!-- 						我的信用卡區塊  全部寫在JS裡面的第96行innerHTML中..選單的值不知如何送回以及取出 -->
-					</div>
+					<!-- 						我的信用卡區塊  全部寫在JS裡面的第96行innerHTML中..選單的值不知如何送回以及取出 -->
+					<div class="row" id="center_Box"></div>
 				</div>
 				<div class="col-5 container">
 					<!--訂單資訊-->

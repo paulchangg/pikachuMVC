@@ -109,6 +109,48 @@ $(document).ready(function () {
   setTimeout(function () {
     $(".loadingone").fadeOut(500);
   }, 2000);
+
+  let url = 'getMemberCards.do';
+  let data;
+
+  $.post(
+    url,
+    data,
+    function (data, textStatus, jqXHR) {
+      let center_Box = document.getElementById("center_Box");
+      
+      // 後端加完信用卡會回傳該會員目前所擁有的卡片map ， 利用foreach把卡片全部再寫入center-box
+      for(let key in data){
+        if(data.hasOwnProperty(key)){
+          console.log(key + ':' + data[key]);
+          let cardDiv = document.createElement("div");
+          cardDiv.setAttribute("class", "addcredit");
+          cardDiv.setAttribute("value", data[key]);
+          cardDiv.setAttribute("name", data[key]);
+          // cardDiv.innerHTML = `<img src='/pikachuMVC/cards/RetrieveCardImg?id=${key}' class='addimg'><p>${data[key]}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;
+          let cImg = document.createElement('img');
+            cImg.src = `/pikachuMVC/cards/RetrieveCardImg?id=${key}`;
+            cImg.class = 'addimg';
+
+            let cName = document.createElement('p');
+            cName.innerHTML = `${data[key]}`;
+            
+            let delBtn = document.createElement('button');
+            delBtn.innerHTML = '刪除';
+            delBtn.id = 'center_del';
+            delBtn.addEventListener('click',delWay);
+
+            cardDiv.appendChild(cImg);
+            cardDiv.appendChild(cName);
+            cardDiv.appendChild(delBtn);
+
+          center_Box.appendChild(cardDiv); 
+        }
+      }
+    },
+    "json"
+  );
+
 });
 
 
@@ -165,57 +207,103 @@ function getCard() {
 
   
 function addCard() {
-	let se =document.getElementById('selectCard');
-	let ops =document.getElementsByClassName('card');
-	//取得目前所選的值
-	let y = se.value;
-	//點完加卡片 就讓它消失
-    for(let x =0;x<ops.length;x++){
-    	
-        if(ops[x].value === y){
-           
-            ops[x].style.display = 'none';
-        }    
-    }
-	
 
-   var url = "addCard.do";
-   var data = {
-      cardname: $("#selectCard").val(),
-   };
-   var cname;
-   
-  $.post(
-    url,
-    data,
-    function (data, textStatus, jqXHR) {
-      cname = data.c_name;
-//      console.log(cname);
+  let cardDiv = document.getElementById("center_Box");
 
-      var center_Box = document.getElementById("center_Box");
-      var cardDiv = document.createElement("div");
-      cardDiv.setAttribute("class", "addcredit");
-      cardDiv.setAttribute("value", cname);
-      cardDiv.setAttribute("name", cname);
-      cardDiv.innerHTML = `<img src='' class='addimg'><p>信用卡名稱:${cname}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;
-
-      var divs = center_Box.getElementsByTagName("div");
-      if (divs.length < 3) {
-        center_Box.appendChild(cardDiv);
-      } else {
-        alert("已超過3張無法新增");
+  //判斷卡片是否超過三張
+  if(cardDiv.childNodes.length < 3){
+    let se =document.getElementById('selectCard');
+    let ops =document.getElementsByClassName('card');
+    //取得目前所選的值
+    let y = se.value;
+    //點完加卡片 就讓它消失
+      for(let x =0;x<ops.length;x++){
+        
+          if(ops[x].value === y){
+             
+              ops[x].style.display = 'none';
+          }    
       }
-    },
-    "json"
-  );
+    
+      //殺掉center-box裡的所有卡片 
+     while (cardDiv.firstChild) {
+       cardDiv.removeChild(cardDiv.lastChild);
+     }
+  
+     var url = "addCard.do";
+     var data = {
+        cardname: $("#selectCard").val(),
+     };
+     
+    $.post(
+      url,
+      data,
+      function (data, textStatus, jqXHR) {
+        let center_Box = document.getElementById("center_Box");
+        
+        // 後端加完信用卡會回傳該會員目前所擁有的卡片map ， 利用foreach把卡片全部再寫入center-box
+        for(let key in data){
+          if(data.hasOwnProperty(key)){
+            console.log(key + ':' + data[key]);
+            var cardDiv = document.createElement("div");
+            cardDiv.setAttribute("class", "addcredit");
+            cardDiv.setAttribute("value", data[key]);
+            cardDiv.setAttribute("name", data[key]);
+            // cardDiv.innerHTML = `<img src='/pikachuMVC/cards/RetrieveCardImg?id=${key}' class='addimg'><p>${data[key]}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;
+            
+            let cImg = document.createElement('img');
+            cImg.src = `/pikachuMVC/cards/RetrieveCardImg?id=${key}`;
+            cImg.class = 'addimg';
+
+            let cName = document.createElement('p');
+            cName.innerHTML = `${data[key]}`;
+            
+            let delBtn = document.createElement('button');
+            delBtn.innerHTML = '刪除';
+            delBtn.id = 'center_del';
+            delBtn.addEventListener('click',delWay);
+
+            cardDiv.appendChild(cImg);
+            cardDiv.appendChild(cName);
+            cardDiv.appendChild(delBtn);
+
+
+            var divs = center_Box.getElementsByTagName("div");
+            if (divs.length < 3) {
+              center_Box.appendChild(cardDiv);
+            } else {
+              alert("已超過3張無法新增");
+            }
+          }
+        }
+      },
+      "json"
+    );
+
+  }else {
+    alert("已超過3張無法新增");
+  }
+
+
 }
 
 function delWay(e) {
-	  let cd = document.getElementsByClassName("card");
-	  console.log(cd.length);
-//   var center_Box = document.getElementById("center_Box"); //父層級區塊
-//   var divs = center_Box.getElementsByTagName("div"); //取得父層級裡面所有標籤為div
-//   if (divs.length > 0) {
-//     center_Box.removeChild(e.target.parentNode); //移除父區塊裡面的div
-//   }
+  let center_Box = document.getElementById("center_Box");
+  let preDelDiv = this.parentNode;
+
+    let url = 'delMemberCard.do';
+    let data = {
+      // cardname: this.parentNode.getAttribute('value'), 
+      cardname: preDelDiv.getAttribute('value'), 
+    };
+
+    // console.log('!!!!!!!!!!!!!!!!' + this.parentNode.getAttribute('value'));
+    console.log('!!!!!!!!!!!!!!!!' + preDelDiv.getAttribute('value'));
+    $.post(url,data,function(data, textStatus, jqXHR){
+      if(data == true){
+        preDelDiv.setAttribute("style","display:none");
+        center_Box.removeChild(preDelDiv);
+      }
+    },"json");
+
 }

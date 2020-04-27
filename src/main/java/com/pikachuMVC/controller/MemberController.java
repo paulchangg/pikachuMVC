@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -531,13 +532,59 @@ public class MemberController {
 		
 		service.addMyCard(cb, mId);
 		
+		
+		Set<CardBean> cset = service.queryMember(mId).getCards();
+		Map<Integer,String> cmap = new LinkedHashMap<Integer, String>();
+		
+		for(CardBean c : cset) {
+			cmap.put(c.getC_id(), c.getC_name());
+		}
+		
+		
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		String cardJson = new Gson().toJson(cb);
+		String cardJson = new Gson().toJson(cmap);
 		System.out.println(cardJson);
 		out.write(cardJson);
 		out.flush();
 		
+		
+	}
+	
+	//設計得不好，有空回來把addCard 跟 getMemberCards 兩個service重複的拆開
+	@PostMapping("/member/getMemberCards.do")
+	@ResponseBody
+	public void getMemberCards(HttpServletResponse response, HttpSession session) throws IOException {
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		Set<CardBean> cset = service.queryMember(mId).getCards();
+		Map<Integer,String> cmap = new LinkedHashMap<Integer, String>();
+		
+		for(CardBean c : cset) {
+			cmap.put(c.getC_id(), c.getC_name());
+		}
+		
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String cardJson = new Gson().toJson(cmap);
+		System.out.println(cardJson);
+		out.write(cardJson);
+		out.flush();
+	}
+	
+	@PostMapping("/member/delMemberCard.do")
+	public void delMemberCard(HttpServletRequest request,HttpServletResponse response, HttpSession session) throws IOException {
+		String cardname = request.getParameter("cardname");
+		
+		CardBean cb = cardservice.getCard(cardname);
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		
+		service.rmMyCard(cb, mId);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(true);
+		out.flush();
 		
 	}
 
