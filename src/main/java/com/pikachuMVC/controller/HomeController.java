@@ -32,7 +32,7 @@ public class HomeController {
 	ProductService productService;
 
 	private List<CardBean> list = new ArrayList<CardBean>();
-	private List<ProductBean> productList = new ArrayList();
+	private List<ProductBean> productList = new ArrayList<ProductBean>();
 
 	@GetMapping({ "/", "/index" })
 	public String home() {

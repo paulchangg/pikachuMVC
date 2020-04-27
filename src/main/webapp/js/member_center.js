@@ -287,18 +287,16 @@ function addCard() {
 
 }
 
+//刪除卡片
 function delWay(e) {
   let center_Box = document.getElementById("center_Box");
   let preDelDiv = this.parentNode;
 
     let url = 'delMemberCard.do';
     let data = {
-      // cardname: this.parentNode.getAttribute('value'), 
       cardname: preDelDiv.getAttribute('value'), 
     };
-
-    // console.log('!!!!!!!!!!!!!!!!' + this.parentNode.getAttribute('value'));
-    console.log('!!!!!!!!!!!!!!!!' + preDelDiv.getAttribute('value'));
+    // console.log('!!!!!!!!!!!!!!!!' + preDelDiv.getAttribute('value'));
     $.post(url,data,function(data, textStatus, jqXHR){
       if(data == true){
         preDelDiv.setAttribute("style","display:none");
