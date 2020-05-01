@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.pikachuMVC.dao.MemberDao;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.model.PreFriend;
 
 
 
@@ -166,7 +167,6 @@ public class MemberDaoImpl implements MemberDao {
 		Session session = factory.getCurrentSession();
 		
 		session.saveOrUpdate(mb);
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + mb.getM_id() + "::" + mb.getCards().size());
 		
 	}
 
@@ -207,6 +207,66 @@ public class MemberDaoImpl implements MemberDao {
 		cbean.setMembers(members);		
 		
 	}
+
+	@Override
+	public void addPreFriend(String mId, PreFriend pf) {
+		MemberBean mbean;
+		Session session = factory.getCurrentSession();
+		
+		mbean = session.get(MemberBean.class, mId);
+		pf.setMb(mbean);
+		Set<PreFriend> pfset = mbean.getPreFriends();
+		pfset.add(pf);
+		mbean.setPreFriends(pfset);	
+
+	}
+	
+	@Override
+	public void rmPreFriend(String fId, String mId) {
+		Session session = factory.getCurrentSession();
+		String hql = "DELETE FROM PreFriend pf WHERE pf.m_id = :fId AND pf.fId = :mId";
+		session.createQuery(hql).setParameter("fId", fId).setParameter("mId", mId).executeUpdate();
+		
+	}
+
+	@Override
+	public void addFriend(String mId, String fId) {
+		MemberBean mbean;
+		MemberBean fbean;
+		
+		Session session = factory.getCurrentSession();
+		mbean = session.get(MemberBean.class, mId);
+		fbean = session.get(MemberBean.class, fId);
+		
+		Set<MemberBean> mset = mbean.getFriends();
+		mset.add(fbean);
+		mbean.setFriends(mset);
+		
+		Set<MemberBean> fset = fbean.getFriends();
+		fset.add(mbean);
+		fbean.setFriends(fset);
+	}
+
+	@Override
+	public boolean pair(String fId, String mId) {
+		Session session = factory.getCurrentSession();
+		boolean exist = false;
+		String hql = "FROM PreFriend pf WHERE pf.m_id = :fId AND pf.fId = :mId";
+		
+		
+		try {
+			session.createQuery(hql).setParameter("fId", fId).setParameter("mId", mId).getSingleResult();
+			exist = true;
+		} catch (NonUniqueResultException n) {
+			exist = true;
+		} catch (NoResultException e) {
+			exist = false;
+		}
+
+		return exist;
+		
+	}
+
 	
 	
 

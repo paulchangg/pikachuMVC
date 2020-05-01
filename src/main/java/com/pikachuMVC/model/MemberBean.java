@@ -10,27 +10,42 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
 
 
 @Entity
 @Table(name="members")
 public class MemberBean {
 	@Id
+	@Expose
 	String m_id;
 	String m_password;
+	@Expose
 	String name;
 	String phone_num;
 	@Column(unique = true)
 	String m_mail;
+	@Expose
 	String nickname;
 	Date birthday;
+	@Expose
 	String gender;
 	Blob m_img;
+	@Expose
 	String income;
+	@Expose
 	String city;
+	@Expose
 	String education;
+	
+	@OneToMany(mappedBy = "mb",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	Set<PreFriend> preFriends;
 	
 	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
 	Set<ProductBean> products = new LinkedHashSet<>();
@@ -38,6 +53,17 @@ public class MemberBean {
 
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "members")
 	Set<CardBean> cards = new LinkedHashSet<>();
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "friends", catalog = "pikachuDB",
+			   joinColumns ={
+					   @JoinColumn(name = "m_id", nullable = false, updatable = false)
+			   },
+			   inverseJoinColumns = {
+					   @JoinColumn(name = "friend_id", nullable = false, updatable = false)
+			   }
+			   )
+	Set<MemberBean> friends = new LinkedHashSet<MemberBean>();
 	
 	public MemberBean() {
 		super();
@@ -156,6 +182,14 @@ public class MemberBean {
 		this.education = education;
 	}
 
+	public Set<PreFriend> getPreFriends() {
+		return preFriends;
+	}
+
+	public void setPreFriends(Set<PreFriend> preFriends) {
+		this.preFriends = preFriends;
+	}
+
 	public Set<ProductBean> getProducts() {
 		return products;
 	}
@@ -172,44 +206,71 @@ public class MemberBean {
 		this.cards = cards;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("MemberBean [m_id=");
-		builder.append(m_id);
-		builder.append(", m_password=");
-		builder.append(m_password);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", phone_num=");
-		builder.append(phone_num);
-		builder.append(", m_mail=");
-		builder.append(m_mail);
-		builder.append(", nickname=");
-		builder.append(nickname);
-		builder.append(", birthday=");
-		builder.append(birthday);
-		builder.append(", gender=");
-		builder.append(gender);
-		builder.append(", m_img=");
-		builder.append(m_img);
-		builder.append(", income=");
-		builder.append(income);
-		builder.append(", city=");
-		builder.append(city);
-		builder.append(", education=");
-		builder.append(education);
-		builder.append(", products=");
-		builder.append(products);
-		builder.append(", cards=");
-		builder.append(cards);
-		builder.append("]");
-		return builder.toString();
+	public Set<MemberBean> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(Set<MemberBean> friends) {
+		this.friends = friends;
 	}
 	
 	
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof MemberBean) {
+			MemberBean mb = (MemberBean) obj;
+			return this.m_id.equals(mb.m_id);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return m_id.hashCode();
+	}
 	
 	
+
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("MemberBean [m_id=");
+//		builder.append(m_id);
+//		builder.append(", m_password=");
+//		builder.append(m_password);
+//		builder.append(", name=");
+//		builder.append(name);
+//		builder.append(", phone_num=");
+//		builder.append(phone_num);
+//		builder.append(", m_mail=");
+//		builder.append(m_mail);
+//		builder.append(", nickname=");
+//		builder.append(nickname);
+//		builder.append(", birthday=");
+//		builder.append(birthday);
+//		builder.append(", gender=");
+//		builder.append(gender);
+//		builder.append(", m_img=");
+//		builder.append(m_img);
+//		builder.append(", income=");
+//		builder.append(income);
+//		builder.append(", city=");
+//		builder.append(city);
+//		builder.append(", education=");
+//		builder.append(education);
+//		builder.append(", preFriends=");
+//		builder.append(preFriends);
+//		builder.append(", products=");
+//		builder.append(products);
+//		builder.append(", cards=");
+//		builder.append(cards);
+//		builder.append(", friends=");
+//		builder.append(friends);
+//		builder.append("]");
+//		return builder.toString();
+//	}
+
 	
 	
 }

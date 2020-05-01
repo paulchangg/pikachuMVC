@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pikachuMVC.dao.MemberDao;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.model.PreFriend;
 import com.pikachuMVC.service.MemberService;
 
 import init.SendEmail;
@@ -150,6 +151,32 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	public void rmMyCard(CardBean cb, String m_id) {
 		dao.rmMyCard(cb, m_id);
+	}
+
+	@Override
+	@Transactional
+	public void addPreFriend(String mId, PreFriend pf) {
+		dao.addPreFriend(mId, pf);
+		
+	}
+
+	@Override
+	@Transactional
+	public void addFriend(String mId, String fId) {
+		dao.addFriend(mId, fId);
+		
+	}
+
+	@Override
+	@Transactional
+	public boolean pair(String mId, String fId) {
+		return dao.pair(mId, fId);
+	}
+
+	@Override
+	@Transactional
+	public void rmPreFriend(String fId, String mId) {
+		dao.rmPreFriend(fId, mId);
 	}
 
 }

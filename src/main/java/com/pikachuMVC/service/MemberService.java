@@ -3,6 +3,7 @@ package com.pikachuMVC.service;
 
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.model.PreFriend;
 
 
 
@@ -21,4 +22,8 @@ public interface MemberService {
 	public void saveOrUpdate(MemberBean mb);
 	public void addMyCard(CardBean cb, String m_id);
 	public void rmMyCard(CardBean cb, String m_id);
+	public void addPreFriend(String mId,PreFriend pf);
+	public void rmPreFriend(String fId, String mId);
+	public void addFriend(String mId,String fId);
+	public boolean pair(String mId,String fId);
 }
