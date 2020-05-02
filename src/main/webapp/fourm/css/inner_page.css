@@ -1,0 +1,294 @@
+@import "./reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 兩側背景色 */
+body {
+  background: rgb(184, 178, 178);
+  line-height: 1.15;
+  font-family: "Noto Sans TC", sans-serif;
+  height: auto;
+  min-width: calc(752px);
+  grid-column: mainLeft / mainRight;
+  height: 3000px;
+}
+.container-fluid {
+  width: 100%;
+}
+
+/* 白色部分頁面設定 */
+page {
+  background: white;
+  display: block;
+  margin: 0 auto; /* 置中 */
+  margin-top: 1%;
+  margin-bottom: 1%;
+  /* box-shadow: 0 0 0.5cm rgba(0,0,0,0.5); */
+}
+
+page[size="A4"] {
+  width: 21cm;
+  height: 30.7cm;
+}
+
+@media print {
+  body,
+  page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+.post_block {
+  /* text-align: center!important; */
+  padding-top: 3%;
+  height: 100px;
+  width: 100%;
+  /* background-color: rgb(243, 202, 202); */
+}
+
+.inline_block {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 22px 50px;
+  /* background-color: lightseagreen; */
+}
+
+/* 大頭圖像 */
+.comment-avatar {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  z-index: 99;
+  float: left;
+  /* border: 3px solid #FFF; */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.comment-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.content_block {
+  padding: 50px 60px;
+}
+
+.content_block_a {
+  font-size: 14px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.post_Time {
+  color: rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.content_block_b {
+  padding: 20px 0px 40px;
+}
+
+.article_content_block {
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.label_line {
+  display: block;
+}
+
+.ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subject_block {
+  display: inline-block;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
+.li {
+  text-align: -webkit-match-parent;
+}
+
+.a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.subject {
+  height: 32px;
+  font-weight: 500;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 16px;
+  background: rgb(239, 239, 239);
+  padding: 0px 16px;
+}
+
+.comment-box {
+  width: 100%;
+  /* float: right; */
+  position: relative;
+  padding: 20px 50px 30px 50px;
+}
+
+.comment-box .comment-line {
+  background: #fcfcfc;
+  /* border-bottom: 1px solid #E5E5E5; */
+  overflow: hidden;
+}
+
+/* 內文愛心及收藏等設定 */
+.comment-box .comment-line i {
+  float: right;
+  margin-left: 14px;
+  /* position: relative; */
+  top: 2px;
+  color: #a6a6a6;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+/* 游標移到愛心等欄位，改變顏色 */
+.comment-box .comment-line i:hover {
+  color: #4a8ea8;
+}
+
+.total_reply {
+  color: rgba(43, 37, 37, 0.35);
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  padding: 2px 0px;
+}
+
+.reply_content_a {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 18px;
+  position: relative;
+  padding: 16px 0px;
+  /* border-bottom: 1px solid rgb(233, 233, 233); */
+}
+
+.reply_content_b {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.reply_content_f {
+  display: flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  color: rgba(0, 0, 0, 0.35);
+  padding-top: 3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 點擊愛心 */
+:root {
+  --pink: #ec4989;
+  --dark-pink: #a12355;
+  --light-grey: #f3f3f3;
+  --dark-grey: #cecece;
+  --button-width: 50px;
+  --button-height: 28px;
+  --heart-size: 13px;
+}
+
+.button {
+  width: var(--button-width);
+  height: var(--button-height);
+  border-radius: 15px;
+  background: var(--light-grey);
+  box-shadow: var(--dark-grey) 0 7px 0 0;
+  border: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease-in;
+}
+.button:active {
+  background: var(--pink);
+  box-shadow: var(--dark-pink) 0 5px 0 0;
+  transform: translateY(10px);
+}
+
+.heart {
+  width: var(--heart-size);
+  height: var(--heart-size);
+  transform: rotate(45deg);
+  background: var(--dark-grey);
+  top: 5px;
+  position: relative;
+  display: flex;
+  transition: 0.2s ease-in;
+}
+.button:hover > .heart {
+  background: var(--pink);
+}
+.button:active > .heart {
+  background: white;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  position: absolute;
+}
+.heart::before {
+  left: -50%;
+}
+.heart::after {
+  top: -50%;
+}
+
+.res_content_block {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 15px;
+  word-break: break-all;
+  border-bottom: cadetblue;
+}
+
+.articleimage {
+  display: block;
+  cursor: zoom-in;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 60vh;
+  /* position: absolute; */
+  top: 0px;
+  left: 0px;
+}

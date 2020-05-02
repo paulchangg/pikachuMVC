@@ -1,0 +1,351 @@
+@import "./reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+  /* height:100%; */
+  margin: 0 5% 0 5%;
+  /* flex: 1 90%; */
+}
+
+body {
+  /* margin: 0 1%; */
+  /* min-height: 100%; */
+  position: relative;
+  /* box-sizing: content-box; */
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+/* 最上方列 */
+.top-navigation {
+  height: 100px;
+  padding: 20px -1px;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.navigation__logo {
+  width: 200px;
+  margin-top: auto;
+  /* padding: 0px 0px 0px 10px; */
+  align-content: center;
+}
+
+/* 以下導覽列 */
+div.header {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  /* padding: 0px 0px 1px 0px; */
+  /* background-color: #a6a9b1; */
+  height: 40px;
+}
+
+.nav-bar {
+  background: #e8dfe1;
+  height: 37px;
+  padding: 0.15em 0 2em;
+  justify-content: space-evenly;
+  font-weight: bold;
+  /* background-color: #efefef; */
+  font-size: 18px;
+  color: #e8dfe1;
+  position: relative;
+}
+
+.nav-bar a {
+  color: #584b53;
+  text-decoration: none;
+}
+
+/* 欄位大小 */
+.nav-bar a {
+  padding: 8px 15px;
+  font-size-adjust: initial;
+  display: inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.nav-bar a:hover {
+  background: rgb(245, 223, 226);
+  color: rgb(209, 107, 6);
+}
+
+.card-group {
+  height: 100%;
+  max-width: 100%;
+}
+
+
+.second_line {
+  background: #c4ddcb;
+  margin: 1px 0 10px 0;
+  height: 30px;
+  padding: 0.15em 0 1em;
+  font-weight: bold;
+}
+
+
+/* 左側列表 */
+div.leftNav {
+  width: 200px;
+  height: 350px;
+  max-width: 20%;
+  margin: 40px 50px 330px 10px;
+  padding: 30px 0px;
+  /* border: 1px solid #c8cfe1;    框線範圍 */
+  background-color: #fff;
+  float: left;
+}
+  
+  /* 框框大小 */
+  .comments-container {
+    margin: 10px auto 15px;
+    width: 768px;
+  }
+  
+  /* 大頭貼 */
+  .comments-list .comment-avatar {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    z-index: 99;
+    float: left;
+    /* border: 3px solid #FFF; */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .comments-list .comment-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 卡片框框內文相關設定 */
+  .comments-list .comment-box {
+    width: 85%;
+    float: right;
+    position: relative;
+    padding-bottom: 15px;
+    /* -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+   box-shadow: 0 1px 1px rgba(0,0,0,0.15); */
+  }
+  
+  .comment-box .comment-head {
+    background: #fcfcfc;
+    padding: 13px 1px;
+    /* border-bottom: 1px solid #E5E5E5; */
+    overflow: hidden;
+    /* 以下框線 */
+    /* -webkit-border-radius: 4px 4px 0 0; */
+    /* -moz-border-radius: 4px 4px 0 0; */
+    /* border-radius: 4px 4px 0 0; */
+  }
+  
+  /* 內文右側愛心及收藏等設定 */
+  .comment-box .comment-head i {
+    float: right;
+    margin-left: 14px;
+    position: relative;
+    top: 2px;
+    color: #a6a6a6;
+    cursor: pointer;
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+  
+  /* 游標移到按鈕改變顏色 */
+.col-5 i:hover {
+  color: #4a8ea8;
+}
+  
+  /* 第一行 發文者id樣式 */
+  .comment-box .article_m_id {
+    color: #283035;
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  /* 第一行 發文日期樣式 */
+  .comment-box .comment-head span {
+    float: left;
+    color: #999;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+  
+  /* 第二行 文章標題樣式 */
+  .comment-box .article_title {
+    background: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    color: #595959;
+    /* -webkit-border-radius: 0 0 4px 4px;
+   -moz-border-radius: 0 0 4px 4px;
+   border-radius: 0 0 4px 4px; */
+  }
+  
+  .comment-box .article_content {
+    font-size: 14px;
+    color: #595959;
+  }
+
+
+  
+/* 跳出頁面視窗 */
+.modal-content{
+  width: 700px;
+}
+
+#msform {
+	width: 580px;
+	margin: 8px auto;
+	/* text-align: center; */
+	position: relative;
+}
+
+#memberid_img {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;   /* icon上移 */
+  left: 5px;
+  /* z-index: 1; */
+  max-width: 90px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;   /* 欄位高度 */
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+
+/*headings*/
+.fs-title {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: rgb(103, 104, 105);
+  margin-bottom: 15px;
+  margin-top: 12px;
+}
+
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/* 標籤 */
+ #labels {
+  list-style: none;
+  margin: 10;
+  overflow: hidden; 
+  padding: 10;
+}
+
+
+.center li {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 20px 0 20px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.center li::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  height: 6px;
+  left: 5px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.center li::after {
+  background: #fff;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.center li:hover {
+  background-color: #8fb0d1;
+  color: white;
+}
+
+.center li:hover::after {
+   border-left-color: #2f80d1; 
+}
+
+
+/* 底部 */
+div.footer {
+  clear: both;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
+  height: 60px;
+  text-align: center !important;
+  padding: 4rem !important;
+  background: #f7ede2;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* 置頂按鈕 */
+.w3-black,
+.w3-hover-black:hover {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+
+.w3-margin {
+  margin: 16px !important;
+}
+
+.w3-btn,
+.w3-button {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.gotop {
+  margin-right: 18px !important;
+  margin-top: auto;
+}

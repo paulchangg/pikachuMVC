@@ -41,6 +41,19 @@ public class ForumBean {
 		this.activitys = activitys;
 	}
 
+	
+
+
+	public Set<LaunchActivityBean> getActivitys() {
+		return activitys;
+	}
+
+
+
+	public void setActivitys(Set<LaunchActivityBean> activitys) {
+		this.activitys = activitys;
+	}
+
 
 
 	public Integer getF_id() {
