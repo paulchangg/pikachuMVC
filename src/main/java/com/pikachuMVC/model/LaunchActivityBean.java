@@ -8,13 +8,17 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "launch_activity")
@@ -25,8 +29,9 @@ public class LaunchActivityBean {
 	//文章Id
 	private Integer article_Id;
 
-	//會員Id
-	private String m_id;
+	
+	private String member_id;
+	
 	
 	//文章title
 	@Column(length = 65535,columnDefinition="Text")
@@ -43,11 +48,13 @@ public class LaunchActivityBean {
 	private String subject;
 	
 	//發文時間
-	private Date post_time;
+	private String post_time;
 	
 	//此文章的觀看數
 	private Integer allWatch;
 	
+	//上傳圖片名稱
+	private String articleImage_Name;
 	
 	
 	//  此文章屬於哪個看板     一對多的   多方
@@ -56,30 +63,156 @@ public class LaunchActivityBean {
 	private ForumBean forumBean;
 	
 	// 此文章有哪些回應文章      一對多的   一方
-	@OneToMany(mappedBy = "launchActivityBean",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "launchActivityBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<ResponserBean> activitys = new LinkedHashSet();
+	
+	
+	//會員ID
+	@ManyToOne
+	@JoinColumn(name = "m_id")
+	private MemberBean memberBean;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "member_activity", catalog = "pikachuDB",
+	   joinColumns ={
+			   @JoinColumn(name = "activity_id", nullable = false, updatable = false)
+	   },
+	   inverseJoinColumns = {
+			   @JoinColumn(name = "m_id", nullable = false, updatable = false)
+	   }
+	   )
+	private Set<MemberBean> memberBeans = new LinkedHashSet();
 	
 	public LaunchActivityBean() {};
 	
 	
-	public LaunchActivityBean(Integer article_Id, String m_id, String article_title, String article_content,
-			Blob articleImage, String subject, Date post_time, Integer allWatch, ForumBean forumBean,
-			Set<ResponserBean> activitys) {
+	
+
+	
+
+
+	public LaunchActivityBean(Integer article_Id, MemberBean memberBean, String article_title, String article_content,
+			Blob articleImage, String subject, String post_time, Integer allWatch, String articleImage_Name,
+			ForumBean forumBean, Set<ResponserBean> activitys,String member_id) {
 		super();
 		this.article_Id = article_Id;
-		this.m_id = m_id;
+		this.memberBean = memberBean;
 		this.article_title = article_title;
 		this.article_content = article_content;
 		this.articleImage = articleImage;
 		this.subject = subject;
 		this.post_time = post_time;
 		this.allWatch = allWatch;
+		this.articleImage_Name = articleImage_Name;
 		this.forumBean = forumBean;
 		this.activitys = activitys;
+		this.member_id = member_id;
+	}
+
+
+	
+	
+
+
+
+	public Set<MemberBean> getMemberBeans() {
+		return memberBeans;
 	}
 
 
 
+
+
+
+
+	public void setMemberBeans(Set<MemberBean> memberBeans) {
+		this.memberBeans = memberBeans;
+	}
+
+
+
+
+
+
+
+	public String getMember_id() {
+		return member_id;
+	}
+
+
+
+
+
+
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
+
+
+
+
+
+
+	public MemberBean getMemberBean() {
+		return memberBean;
+	}
+
+
+
+
+
+
+
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
+	}
+
+
+
+
+
+
+
+	public String getArticleImage_Name() {
+		return articleImage_Name;
+	}
+
+
+
+
+
+
+
+	public void setArticleImage_Name(String articleImage_Name) {
+		this.articleImage_Name = articleImage_Name;
+	}
+
+
+
+
+
+
+
+	public String getPost_time() {
+		return post_time;
+	}
+
+
+	public void setPost_time(String post_time) {
+		this.post_time = post_time;
+	}
+
+
+	public Set<ResponserBean> getActivitys() {
+		return activitys;
+	}
+
+
+	public void setActivitys(Set<ResponserBean> activitys) {
+		this.activitys = activitys;
+	}
 
 
 	public Integer getArticle_Id() {
@@ -90,13 +223,7 @@ public class LaunchActivityBean {
 		this.article_Id = article_Id;
 	}
 
-	public String getM_id() {
-		return m_id;
-	}
-
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
-	}
+	
 
 	public String getArticle_title() {
 		return article_title;

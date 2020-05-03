@@ -65,6 +65,12 @@ public class MemberBean {
 			   )
 	Set<MemberBean> friends = new LinkedHashSet<MemberBean>();
 	
+	@OneToMany(mappedBy = "memberBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	Set<LaunchActivityBean> launchActivity = new LinkedHashSet<LaunchActivityBean>();
+	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "memberBeans")
+	Set<LaunchActivityBean> trackLaunchActivity = new LinkedHashSet<LaunchActivityBean>();
+	
 	public MemberBean() {
 		super();
 	}
@@ -84,6 +90,24 @@ public class MemberBean {
 		this.income = income;
 		this.city = city;
 		this.education = education;
+	}
+	
+	
+
+	public Set<LaunchActivityBean> getLaunchActivity() {
+		return launchActivity;
+	}
+
+	public void setLaunchActivity(Set<LaunchActivityBean> launchActivity) {
+		this.launchActivity = launchActivity;
+	}
+
+	public Set<LaunchActivityBean> getTrackLaunchActivity() {
+		return trackLaunchActivity;
+	}
+
+	public void setTrackLaunchActivity(Set<LaunchActivityBean> trackLaunchActivity) {
+		this.trackLaunchActivity = trackLaunchActivity;
 	}
 
 	public String getM_id() {

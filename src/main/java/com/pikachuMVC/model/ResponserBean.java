@@ -21,6 +21,8 @@ public class ResponserBean {
 	private String m_id;
 	
 	
+	private Integer articleId;
+	
 	//回應內容
 	private String res_content;
 	
@@ -30,17 +32,62 @@ public class ResponserBean {
 	private LaunchActivityBean launchActivityBean;
 	
 	
+	private String res_post_time;
+	
+	
 	public ResponserBean() {}
 	
 	
 
-	public ResponserBean(Integer res_id, String m_id, String res_content, LaunchActivityBean launchActivityBean) {
+	
+	
+	
+
+	public ResponserBean(Integer res_id, String m_id, Integer articleId, String res_content,
+			LaunchActivityBean launchActivityBean,String res_post_time) {
 		super();
 		this.res_id = res_id;
 		this.m_id = m_id;
+		this.articleId = articleId;
 		this.res_content = res_content;
 		this.launchActivityBean = launchActivityBean;
+		this.res_post_time = res_post_time;
 	}
+
+
+	
+	
+	public String getRes_post_time() {
+		return res_post_time;
+	}
+
+
+
+
+
+
+
+	public void setRes_post_time(String res_post_time) {
+		this.res_post_time = res_post_time;
+	}
+
+
+
+
+
+
+
+	public Integer getArticleId() {
+		return articleId;
+	}
+
+
+
+	public void setArticleId(Integer articleId) {
+		this.articleId = articleId;
+	}
+
+
 
 	public Integer getRes_id() {
 		return res_id;
