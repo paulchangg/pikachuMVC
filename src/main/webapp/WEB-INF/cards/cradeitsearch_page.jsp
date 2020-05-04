@@ -8,12 +8,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>比卡丘-比比看誰的信用卡功能最丘new</title>
+    <title>信用卡比較首頁</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/cradeitsearch_page.css" />
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script> <!--要放前面-->
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script><!--要放前面-->
+   
   </head>
   <body>
     <!-- 上方標題logo列---超連結待補---->
@@ -27,8 +30,8 @@
          </div>
          <div class="row justify-content-around">
            <div class="col-sm">
-             <a href="index copy.html">
-                <img src="重新縮圖.png" alt="logo" style="height: 230px;" />
+             <a href="">
+                <img src="../image/重新縮圖.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
@@ -73,10 +76,10 @@
        <!-- 輪播圖  -->
      <div class="swiper-container" id="swiper_Name">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告01.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告04.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告03.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告02.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告01.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告04.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告03.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告02.jpg)"></div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -694,13 +697,10 @@
       <button type="button" class="btn btn-secondary">To the top</button>
       </div>
     </div>
- <script src="https://unpkg.com/swiper/js/swiper.js"></script>
- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
- <script src="js/cradeitsearch_page.js"></script>
  <script src="js/jquery-3.4.1.js"></script>
  <script src="js/popper.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
- 
+ <script src="js/cradeitsearch_page.js"></script>
  <script>
 
 var checkValue = document.getElementsByName("bank");//上網查使用checkbox用這個方式取得
