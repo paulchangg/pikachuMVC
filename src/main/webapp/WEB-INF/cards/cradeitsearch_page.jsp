@@ -31,7 +31,7 @@
          <div class="row justify-content-around">
            <div class="col-sm">
              <a href="">
-                <img src="../image/重新縮圖.png" alt="logo" style="height: 230px;" />
+                <img src="../cards/image/重新縮圖.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
@@ -76,10 +76,10 @@
        <!-- 輪播圖  -->
      <div class="swiper-container" id="swiper_Name">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告01.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告04.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告03.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(../image/信用卡優惠廣告02.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../cards/image/信用卡優惠廣告01.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../cards/image/信用卡優惠廣告02.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../cards/image/信用卡優惠廣告03.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(../cards/image/信用卡優惠廣告04.jpg)"></div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -745,7 +745,32 @@ function show(){
   }
 
 </script>
- 
+ <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'cube',  /*效果*/
+      loop:true,   /*是否循環*/
+      autoplay:{
+        disableOnInteraction:false, /*false為碰到就會自動切換不會停止*/
+      },
+      
+      cubeEffect: {
+        shadow: true,  
+        slideShadows: true, /*當滑動時顯示陰影*/
+        shadowOffset: 20,   /*陰影偏移*/
+        shadowScale: 0.94,  /*陰影比例*/
+        
+      },
+      pagination: {
+        el: '#swiper_Name .swiper-pagination', //分頁物件
+      },
+   
+      navigation: {
+                nextEl: '#swiper_Name .swiper-button-next',
+                prevEl: '#swiper_Name .swiper-button-prev',
+            },
+
+    });
+</script>
  
 </body> 
 </html>    
