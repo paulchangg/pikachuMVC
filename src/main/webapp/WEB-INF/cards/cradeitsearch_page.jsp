@@ -3,79 +3,100 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>   
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/cradeitsearch_page.css" rel="stylesheet" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>比卡丘-比比看誰的信用卡功能最丘new</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>信用卡比較</title>
-</head>
-<body>
-  <div class="container">
-    <div class="row ">
-        <div class="col-12 p-3 logarea"><!--這裡開始為上方,呈現商標log位置-->
-            皮卡丘商標位置
-       </div>
-       
-       <nav class="col-12 navbar sticky-top navbar-expand-lg "><!--這裡開始為導覽頁-->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navConetnt">
-           <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="cradeitsearchpage_navContent">
-             <ul class="navbar-nav ">
-                 <li class="nav-item active"><a class="nav-link" href="#">關於我們</a></li>
-                 <li class="nav-item"><a class="nav-link" href="#">會員專區</a></li>
-                 <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
-                 <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡</a></li>
-            </ul>
+    <link rel="stylesheet" href="css/cradeitsearch_page.css" />
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+  </head>
+  <body>
+    <!-- 上方標題logo列---超連結待補---->
+    <div class="container-fluid" style="height: 190px;">
+       <div class="row">
+          <div class="col-sm">
+             <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+             <p style="font-size: small;">
+               快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+             </p>
          </div>
-       </nav>
-
-       <div class="col-12 center "><!--輪播圖區塊包覆的開始-->
-         <div id="advarea" class="carousel slide" data-ride="carousel">
-             <ol class="carousel-indicators"><!--導引連結區-->
-                <li data-target="#advarea" data-slide-to="0" class="active"></li> <!--廣告數量,位置由0開始計算-->
-                <li data-target="#advarea" data-slide-to="1"></li>
-                <li data-target="#advarea" data-slide-to="2"></li>
-             </ol>
-             <div class="carousel-inner" ><!--輪播圖片顯示區-->
-                 <div class="carousel-item active"><!--輪播圖片項目區-->
-                    <img class="d-block w-100" src="image/信用卡優惠廣告01.jpg" height="300px" alt="Photo1">
-                 </div>
-                 <div class="carousel-item">
-                   <img class="d-block w-100" src="image/信用卡優惠廣告02.png" height="300px" alt="Photo2">
-                 </div>
-                 <div class="carousel-item">
-                   <img class="d-block w-100 " src="image/信用卡優惠廣告03.jpg" height="300px" alt="Photo3">
-                  </div>
-             </div>
-               <a class="carousel-control-prev" href="#advarea" role="button" data-slide="prev"><!--向前切換-->
-                <span class="carousel-control-prev-icon"></span>
+         <div class="row justify-content-around">
+           <div class="col-sm">
+             <a href="index copy.html">
+                <img src="重新縮圖.png" alt="logo" style="height: 230px;" />
+             </a>
+          </div>
+        </div>
+        <!-- 右上區塊 -->
+        <div class="col-sm">
+           <ul class="nav justify-content-end" style="font-size: 17px;">
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="memberlogin">會員登出</a>
+             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="qanda">Q & A</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="shoppingcart">
+                <i class="fas fa-shopping-cart"></i>
               </a>
-               <a class="carousel-control-next" href="#advarea" role="button" data-slide="next"><!--向後切換-->
-                <span class="carousel-control-next-icon"></span>
-              </a>
-         </div>
+            </li>
+          </ul>
+        </div>
        </div>
+  
 
-       <!--這裡為顯信用卡介紹的小區塊-->
-       <div class="col-12 credittitle"><span id="cradeitsearchpage_title">全部信用卡<span></div>
+      <div class="et-hero-tabs">
+      <!-- 要改放圖片的話再修正 -->
+        <img src="" style="height: 70px; width: 1367px;" />
 
-        <!--這裡為信用卡選單區塊-->
-       <div class="col-12 creditbtnarea"> 
-            <div class="col-8 btnareaone"> <!--信用卡分類連結共14個-->
+      <!-- 導覽列  超連結待補 -->
+         <div class="et-hero-tabs-container">
+           <a class="et-hero-tab" href="#aboutus">關於我們</a>
+           <a class="et-hero-tab" href="#memberarea">會員中心</a>
+           <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
+           <a class="et-hero-tab" href="#mall">商城</a>
+           <a class="et-hero-tab" href="#infoweb">資訊網</a>
+           <span class="et-hero-tab-slider"></span>
+        </div>
+     </div>
+
+
+       <!-- 輪播圖  -->
+     <div class="swiper-container" id="swiper_Name">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告01.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告04.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告03.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(信用卡優惠廣告02.jpg)"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+         <!-- Add button -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+   </div>
+
+
+       <main class="main"><!--主要區塊-->
+
+          <!--這裡為信用卡選單區塊-->
+          <div class="row creditbtnarea"> 
+            <div class="col-3 offset-1 btnareaone"> <!--信用卡搜尋結果-->
                 <span id="cradeitsearchpage_number">${cardCounts}項搜尋結果</span>
-               
-                   <div class="col-10 dropdown" id="cradeitsearchpage_btnone">
-                      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                         <span id="">精選推薦<span>
+                   <div class="dropdown" id="cradeitsearchpage_btnone">
+                      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownbtn">
+                         <span id="dropdownspan">精選推薦<span>
                       </button>
-                        <div class="dropdown-menu" id="cradeitsearchpage_btninn">
+                        <div class="dropdown-menu" id="cradeitsearchpage_btninn"> <!--下拉式選單-->
                         
                         <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=all">全部</a>      
                         <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=cb">現金回饋</a>
@@ -86,60 +107,48 @@
                         <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=os">網路購物</a>
                         <a class="dropdown-item" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=fg">信用卡首刷禮</a>
                        </div>
-                    </div>
-               </div>
-           <div class="col-4 btnareatwo" ><!--信用卡排序方式-->
-                 <div class="col-9 btnareatext">排序方式</div>
-                 <div class="dropdown">
-                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                       年費
-                     </button>
-                    <div class="dropdown-menu">
-                       <a class="dropdown-item" href="#" id="">年費</a>
-                       <a class="dropdown-item" href="#" id="">國內消費現金回饋</a>
-                       <a class="dropdown-item" href="#" id="">國外消費現金回饋</a>
-                    </div>
-                 </div>  
-           </div>
-      </div>
-     
-       <!--這裡為中間區塊-->
-      <div class="col-12 creditcenter">
-           <div class="searchbtn">找出最丘的信用卡gogogo-->
-            <a href="<c:url value="/cards/cradeitsearch_minecredit"/>">
-              <%-- <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_minecredit.jsp"> --%> <input type="button" value="最適合我的信用卡"> </a>           
+                  </div>
             </div>
-          <div class="col-3 creditsider"> <!--為側邊選單共34間銀行機構-->                
-            按需要機構/銀行篩選
-             <div>
-            <label>
-              <input type="checkbox" name="bank" class="checkbox" value="花旗銀行">
-              <span class="btn-box">
-                <span class="btn"></span>      
-              </span>
-              <span class="text">花旗銀行</span>
-            </label></br>
-            <label >
-              <input type="checkbox" name="bank" class="checkbox" value="匯豐銀行">
-              <span class="btn-box">
-                <span class="btn"></span>      
-              </span>
-              <span class="text">匯豐銀行</span>
-            </label></br>
-            <label>
-              <input type="checkbox" name="bank" class="checkbox" value="渣打銀行">
-              <span class="btn-box">
-                <span class="btn"></span>      
-              </span>
-              <span class="text">渣打銀行</span>
-            </label></br>
-            <label >
-              <input type="checkbox" name="bank" class="checkbox" value="星展銀行">
-              <span class="btn-box">
-                <span class="btn"></span>      
-              </span>
-              <span class="text">星展銀行</span>
-            </label></br>
+          </div>
+          
+          <!--這裡為信用卡中間區塊-->
+          <div class="row justify-content-around">
+              <div class="col-12 searchbtn">60秒內找到屬於我的信用卡<i class='bx bxs-chevrons-right'></i>
+                 <a href="<c:url value="/cards/cradeitsearch_minecredit"/>">
+                  <%-- <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_minecredit.jsp"> --%> <button class="button" style="vertical-align:middle" id="mycreditbtn"><span>點我</span></button></a> 
+             </div>
+
+              <div class="col-2 creditsider"> <!--為側邊選單共34間銀行機構-->                
+                <div class="creditsidertext">按需要機構/銀行篩選</div>
+                  <div>
+                 <label>
+                    <input type="checkbox" name="bank" class="checkbox" value="花旗銀行">
+                       <span class="btn-box">
+                          <span class="btn"></span>      
+                      </span>
+                     <span class="text">花旗銀行</span>
+                </label></br>
+                <label >
+                  <input type="checkbox" name="bank" class="checkbox" value="匯豐銀行">
+                  <span class="btn-box">
+                    <span class="btn"></span>      
+                  </span>
+                 <span class="text">匯豐銀行</span>
+                </label></br>
+                <label>
+                  <input type="checkbox" name="bank" class="checkbox" value="渣打銀行">
+                  <span class="btn-box">
+                      <span class="btn"></span>      
+                  </span>
+                  <span class="text">渣打銀行</span>
+               </label></br>
+               <label >
+                 <input type="checkbox" name="bank" class="checkbox" value="星展銀行">
+                  <span class="btn-box">
+                     <span class="btn"></span>      
+                  </span>
+                  <span class="text">星展銀行</span>
+               </label></br>
             <label>
               <input type="checkbox" name="bank" class="checkbox" value="王道銀行">
               <span class="btn-box">
@@ -350,21 +359,28 @@
               </span>
               <span class="text">陽信銀行</span>
             </label></br>
+                 </div>
              </div>
-          </div>
-          
-          <div class="col-8 contentcenter"><!--為中間顯示區塊-->    
-          
-          
-          
-          <c:choose> 
-          <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
-                <div class="onecard"  name="${entry.value.bank}">
-                   <span id="">${entry.value.c_name}</span> <!--卡名-->
-                    <div class="row">
+            
+             <div class="col-9 contentcenter"><!--為中間顯示區塊--> 
+              
+               <c:choose> 
+               <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
+
+               <div class="box"> <!--特效區塊需要當外層-->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                      <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                  </svg>
+
+                  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                  <div class="onecard"  name="${entry.value.bank}">
+                    <span id="">${entry.value.c_name}</span> <!--卡名-->
+                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -382,24 +398,32 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn">
-                       
-                       <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>
-                       	詳細資訊</a>
-                       	</div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><!--商品連結頁面--> 
+                         <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>
+                           詳細資訊
+                        </a>
+                      </div>
                   </div>
-                </div>
+                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>
                 
                 
                 <c:when test="${qt == 'ml'}"> <!--第2種：哩程回饋-->
-          		<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
-                <div class="onecard"  name="${entry.value.bank}">
-                   <span id="">${entry.value.c_name}</span> <!--卡名-->
-                    <div class="row">
-                       <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                <div class="box"> <!--特效區塊需要當外層-->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                     <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                     <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                     <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                     <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                 </svg>
+          		  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                  <div class="onecard"  name="${entry.value.bank}">
+                     <span id="">${entry.value.c_name}</span> <!--卡名-->
+                     <div class="row">
+                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -420,16 +444,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>
                 
-          <c:when test="${qt == 'oil'}">  <!--第3種：加油回饋-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+             <c:when test="${qt == 'oil'}">  <!--第3種：加油回饋-->
+             <div class="box"> <!--特效區塊需要當外層-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                   <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                   <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                   <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                   <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                </svg>
+               <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -450,16 +482,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
-                </c:forEach> 
-                </c:when>
+              </div>
+              </c:forEach> 
+              </c:when>
                 
           <c:when test="${qt == 'mv'}">  <!--第4種：電影優惠-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          <div class="box"> <!--特效區塊需要當外層-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+            </svg>
+            <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -480,16 +520,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
-                </c:forEach> 
-                </c:when>                                
+              </div>
+            </c:forEach> 
+           </c:when>                                
 
           <c:when test="${qt == 'os'}">  <!--第5種：網購回饋-->
+          <div class="box"> <!--特效區塊需要當外層-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+            </svg>
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -510,16 +558,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>                
 
           <c:when test="${qt == 'zi'}">  <!--第6種：分期零利率-->
+          <div class="box"> <!--特效區塊需要當外層-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+            </svg>
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -540,16 +596,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>                
 
           <c:when test="${qt == 'fg'}">  <!--第7種：首刷-->
+          <div class="box"> <!--特效區塊需要當外層-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+            </svg>
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -570,16 +634,24 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>                
 
           <c:when test="${qt == 'all'}">  <!--第8種：全部-->
+          <div class="box"> <!--特效區塊需要當外層-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+            </svg>
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
                        <div class="col-2 creditimg"><!--信用卡商品圖-->    
-                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}"  width="110px" height="90px">
+                          <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${entry.value.c_id}" width="160px" height="110px">
                       </div>
                        <div class="col credittext">
                             <div class="col-4 creditinner"><!--年費-->   
@@ -600,20 +672,31 @@
                        <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
+              </div>
                 </c:forEach> 
                 </c:when>                
                 
                 
                 </c:choose>
-                
-        </div>
-        
-     </div>
 
-           <!--這裡為尾巴--> 
-        <div class="col-12 footer">底部位置</div>
+
+
+                  </div>
+          </div>
+       </main>
+
+    <!-- 回到置頂------>
+       <div id="backtop" class="gotop">
+      <h5>
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      </h5>
+      <br />
+      <button type="button" class="btn btn-secondary">To the top</button>
+      </div>
     </div>
- </div>
+ <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+ <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+ <script src="js/cradeitsearch_page.js"></script>
  <script src="js/jquery-3.4.1.js"></script>
  <script src="js/popper.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
@@ -661,9 +744,7 @@ function show(){
   cntcard.innerText =cnt + "項搜尋結果";
   }
 
-
 </script>
- 
  
  
 </body> 
