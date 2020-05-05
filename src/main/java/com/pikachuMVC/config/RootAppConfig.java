@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -34,8 +33,8 @@ public class RootAppConfig {
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");
 
-//		ds.setPassword("404631060");
-		ds.setPassword("22651330");
+		ds.setPassword("404631060");
+//		ds.setPassword("22651330");
 //		ds.setPassword("songsql");
 //		ds.setPassword("ruby123");	
 		ds.setInitialPoolSize(5);
