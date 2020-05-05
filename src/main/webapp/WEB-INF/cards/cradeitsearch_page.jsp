@@ -45,7 +45,7 @@
               <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="qanda">Q & A</a>
+                   <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="shoppingcart">

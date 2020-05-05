@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我的信用卡</title>
      <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/cradeitsearch_mine2.css" />
+     <link rel="stylesheet" href="css/cradeitsearch_mine.css" />
      <link rel="stylesheet" href="css/wickedcss.min.css">
+     <script src="js/cradeitsearch_page.js"></script>
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
@@ -28,7 +29,7 @@
          <div class="row justify-content-around">
            <div class="col-sm">
              <a href="index copy.html">
-                <img src="/image/重新縮圖.png" alt="logo" style="height: 230px;" />
+                <img src="../cards/image/重新縮圖.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
@@ -69,8 +70,8 @@
          
       <!--我的信用卡區塊-->
       <div class="col-8 searchbtnareatotal">
-         <img src="/image/比卡丘黃色沒電波.png" class="fadeIn yellowimg">
-          <img src="/image/電波.png" class="yellowimgee">
+         <img src="../cards/image/比卡丘黃色沒電波.png" class="fadeIn yellowimg">
+          <img src="../cards/image/電波.png" class="yellowimgee">
            <div class="searchtext">
               <p>想知道最適合自己的信用卡是哪張嗎?<br>
                讓比卡丘協助幫你找出最適合的<br>信用卡<i class='bx bx-credit-card-front bx-tada' ></i></p>
@@ -137,15 +138,15 @@
                 <div class="step step1 active">
                   <!--開始-->
                   <p>請回答以下問題讓比卡丘快速找出最適合您的信用卡</p>
-                  <img src="/image/對話框1.png" class="modalimgone">
-                  <img src="/image/會動的比卡丘2.gif" class="modalimgtwo">
+                  <img src="../cards/image/對話框1.png" class="modalimgone">
+                  <img src="../cards/image/會動的比卡丘2.gif" class="modalimgtwo">
                </div>
 
                <div class="step step2">
                  <p>Q1:比卡丘想知道您的生日<i class='bx bx-calendar' >?</i></p>
                  <input type="date" name="bday" id='bday'>
-                  <img src="/image/未滿20對話框.png" class="modalimgthree">
-                  <img src="/image/會動的比卡丘2.gif" class="modalimgfour">
+                  <img src="../cards/image/未滿20對話框.png" class="modalimgthree">
+                  <img src="../cards/image/會動的比卡丘2.gif" class="modalimgfour">
               </div>
 
                <div class="step step3" style="font-size: 25px;">
@@ -154,16 +155,16 @@
                  <i class='bx bx-male' ></i>男
                  <input type="radio" id="test" value="female" name="gender">
                  <i class='bx bx-female' ></i>女</br>
-                 <img src="/image/猜猜看對話框.png" class="modalimgone">
-                 <img src="/image/會動的比卡丘2.gif" class="modalimgtwo">
+                 <img src="../cards/image/猜猜看對話框.png" class="modalimgone">
+                 <img src="../cards/image/會動的比卡丘2.gif" class="modalimgtwo">
                </div>
 
                <div class="step step4">
                <p>Q3:比卡丘想知道您之前是否有辦過信用卡<i class='bx bxs-credit-card-front'></i>?</p>
                <input type="radio" value="" name="" checked="true">是
                <input type="radio" value="" name="">否</br>
-               <img src="/image/小白對話框.png" class="modalimgone">
-              <img src="/image/會動的比卡丘2.gif" class="modalimgtwo">
+               <img src="../cards/image/小白對話框.png" class="modalimgone">
+              <img src="../cards/image/會動的比卡丘2.gif" class="modalimgtwo">
               </div>
 
 
@@ -173,8 +174,8 @@
             <input type="radio" value="c.annual_income &lt;= 600000 AND c.annual_income &gt; 0" name="sal" checked="true">40-60萬
             <input type="radio" value="c.annual_income BETWEEN 600000 AND 2000000 OR c.annual_income = 0" name="sal">60-200萬
             <input type="radio" value="c.annual_income &gt;= 2000000 OR c.annual_income = 0" name="sal">200萬以上</br>
-            <img src="/image/年收入對話框.png" class="modalimgone">
-            <img src="/image/會動的比卡丘2.gif" class="modalimgtwo">
+            <img src="../cards/image/年收入對話框.png" class="modalimgone">
+            <img src="../cards/image/會動的比卡丘2.gif" class="modalimgtwo">
             </div>
 
             <div class="step step6">
@@ -204,8 +205,8 @@
                <option name="option" value="c.moviedis LIKE '%折'">電影娛樂</option>
                   </select>
 
-                  <img src="/image/最後一題2.png" class="modalimgfinal">
-                  <img src="/image/會動的比卡丘2.gif" class="modalimgfinal">
+                  <img src="../cards/image/最後一題2.png" class="modalimgfinal">
+                  <img src="../cards//image/會動的比卡丘2.gif" class="modalimgfinal">
            </div>
           </form>
         </div>
@@ -235,7 +236,6 @@
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/index_modal.js"></script>
     <script src="js/crseitsearch_min.js"></script>
  </body>
 </html>
