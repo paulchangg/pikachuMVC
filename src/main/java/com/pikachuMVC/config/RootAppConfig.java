@@ -33,13 +33,9 @@ public class RootAppConfig {
 				+ "?useSSL=true&useUnicode=yes&characterEncoding=UTF8"
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");
-<<<<<<< HEAD
+
 //		ds.setPassword("404631060");
 		ds.setPassword("22651330");
-=======
-		ds.setPassword("404631060");
-//		ds.setPassword("22651330");
->>>>>>> 0c36dd122780529fb2aa88d10fc6d753606d4f57
 //		ds.setPassword("songsql");
 //		ds.setPassword("ruby123");	
 		ds.setInitialPoolSize(5);
