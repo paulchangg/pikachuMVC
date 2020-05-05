@@ -32,23 +32,41 @@ public class FriendsController {
 	
 	
 	@GetMapping("/f1")
-	public String oxFriend(HttpSession session) {
-//		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
-//		MemberBean mb = memberService.queryMember(mId);
-//		if(mb.getNickname() == null || mb.getNickname().trim().length() == 0 ||
-//			mb.getIncome() == null || mb.getIncome().trim().length() == 0 ||
-//			mb.getEducation() == null || mb.getEducation().trim().length() == 0 ||
-//			mb.getCity() == null || mb.getCity().trim().length() == 0 
-//				) {
-//			return "redirect:/member/member_edit";
-//		}
-		
+	public String oxFriend() {
 		return "friends/f1";
 	}
 	
 	@GetMapping("/f2")
-	public String getFriendList(HttpSession session) {
+	public String getFriendList() {
 		return "friends/f2";
+	}
+	
+	@GetMapping("/Chat")
+	public String chat() {
+		return "friends/Chat";
+	}
+	
+	@GetMapping("/chat.do")
+	public void chat(HttpSession session,HttpServletResponse response,HttpServletRequest request) throws IOException {
+		String fId = request.getParameter("f");
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		
+		//id較大的放前面
+		String roomName = null;
+		int rs = mId.compareTo(fId);
+		if(rs > 0) {
+			roomName = mId + "_" + fId;
+		} else if(rs < 0){
+			roomName = fId + "_" + mId;
+		}
+		
+		session.setAttribute("roomName", roomName);
+		session.setAttribute("mId", mId);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(true);
+		out.flush();
 	}
 	
 	//回傳推薦好友清單

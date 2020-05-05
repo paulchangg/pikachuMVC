@@ -41,5 +41,18 @@ function doFirst(){
 }
 
 function chat(){
+    let fId = this.parentNode.parentNode.id
+    let url = 'chat.do';
+    let data = {
+        f: fId
+    };
 
+    $.get(url, data,
+        function (data, textStatus, jqXHR) {
+            if(data){
+                window.location.href = '/pikachuMVC/friends/Chat';
+            }
+        },
+        "json"
+    );
 }
