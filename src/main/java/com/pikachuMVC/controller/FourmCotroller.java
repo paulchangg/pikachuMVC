@@ -72,9 +72,7 @@ public class FourmCotroller {
 		
 		List<LaunchActivityBean> beans = service.listFourm();
 		
-		Map<Integer,Integer> responserCount = new HashMap<Integer, Integer>();
-		
-		
+		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
 		List<String> article_content = new ArrayList<String>();
 		
@@ -91,7 +89,7 @@ public class FourmCotroller {
 		
 		
 		for(LaunchActivityBean b : beans) {
-			responserCount.put(b.getArticle_Id(), b.getActivitys().size());
+			responserCount1.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
 				article_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
 			}else {
@@ -108,7 +106,7 @@ public class FourmCotroller {
 		
 		session.setAttribute("article_content", article_content);
 		
-		session.setAttribute("responserCount", responserCount);
+		session.setAttribute("responserCount", responserCount1);
 		
 		session.setAttribute("LaunchActivityBean", beans);
 		
@@ -158,11 +156,14 @@ public class FourmCotroller {
 			
 			service.addFourm(forum, bean);
 			
+			dir.delete();
+			
+			
 			return "redirect:/fourm/listforum";
 
 			}
 		
-		return "forum\\ForumServlet";
+		return "forum/ForumServlet";
 	}
 	
 	@GetMapping("/getPicture/{articletId}")
@@ -313,5 +314,10 @@ public class FourmCotroller {
 		return "redirect:/fourm/listforum";
 	}
 	
+	@GetMapping("/allboards")
+	public String listBoards() {
+		
+		return "fourm/allboards";
+	}
 	
 }
