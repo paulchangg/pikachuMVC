@@ -369,7 +369,8 @@
               
                <c:choose> 
                <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
-
+ 				<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+ 				
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                       <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -378,7 +379,7 @@
                       <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
                   </svg>
 
-                  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                 
                   <div class="onecard"  name="${entry.value.bank}">
                     <span id="">${entry.value.c_name}</span> <!--卡名-->
                      <div class="row">
