@@ -7,10 +7,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>信用卡詳細資訊</title>
-     <link rel="stylesheet" href="css/bootstrap.min.css">
      <link href="css/cradeitsearch_produce.css" rel="stylesheet" type="text/css">
-     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/wickedcss.min.css">
+     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
     <div class="container-fluid" style="height: 190px;">
@@ -24,7 +24,7 @@
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
              <a href="index copy.html">
-                <img src="/image/重新縮圖.png" alt="logo" style="height: 230px;" />
+                <img src="../cards/image/重新縮圖.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
@@ -101,7 +101,7 @@
              <div class="tab-content my-2 mx-2">
                   <div class="tab-pane fade show active" id="cradeitsearchproduce_gift">
                      <div class="gifttext">    <!--首刷禮-->
-                      <img src="/image/首刷禮.jpg">
+                      <img src="../cards/image/首刷禮.jpg">
                      </div>
                   </div>
                   <div class="tab-pane fade" id="cradeitsearchproduce_dis"> <!--優惠介紹-->
