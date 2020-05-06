@@ -51,10 +51,75 @@
 
       //  當目前步驟爲最後步驟的下一步，就送出表單囉
       if (stepIdx === endStepIdx + 1) {
-        $('#myModal').modal('hide');
+        $('#cradeitsearchmine_myModal').modal('hide');
+        
+        var mm = document.getElementById("mm");
+        while (mm.firstChild) {
+        	mm.removeChild(mm.lastChild);
+          }
         // 送出表單
-        $('#my-form').submit()
-
+        $.ajax({
+            url: '/pikachuMVC/cards/cradeitsearch_minecredit',                        // url位置
+            type: 'post',                   // post/get
+            data: { opt1: $('#opt1').val() ,
+            		opt2: $('#opt2').val() ,
+            		opt3: $('#opt3').val() ,
+            		sal: $("input[name='sal']:checked").val()
+            },       // 輸入的資料
+            dataType: "json",
+//            error:function (xhr, ajaxOptions, thrownError){      // 錯誤後執行的函數
+//                $("body").append(xhr.status);
+//                $("body").append(xhr.responseText );
+//
+//               alert(thrownError);
+//              } ,         
+            success: function (reponse) {                    // 成功後要執行的函數
+            	let content="";
+            	
+            	let cb = Object.values(reponse);
+            	
+            	console.log(cb);
+            	
+            	for(let i=0;i<cb.length;i++){
+            		
+           content +=' <div class="box">'+
+            		 '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">'+
+                     '<line class="top" x1="0" y1="0" x2="1300" y2="0"/> '  + 
+                     '<line class="left" x1="0" y1="400" x2="0" y2="-1300"/>' +
+                     '<line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>' +
+                     '<line class="right" x1="1090" y1="0" x2="1090" y2="160"/>' +
+                     '</svg>' +
+                     '<div class="onecard"  name="'+cb[i].bank+'">' +
+                     '<span id="">' +cb[i].c_name +  '</span>' + 
+                     '<div class="row">'+
+                     '<div class="col-2 creditimg">' + 
+                     '<img src="/pikachuMVC/cards/RetrieveCardImg?id='+cb[i].c_id+ '"width="160px" height="110px">'+               
+                     '</div>'+
+                     '<div class="col credittext">' + 
+                     '<div class="col-4 creditinner">' +   
+                     '<div><span >'+cb[i].annlfee+'</span></div>'+
+                     '<div>年費</div>' + 
+                     '</div>'+
+                     '<div class="col-4 creditinner">'+
+                     '<div><span>'+cb[i].fcb+'%</span></div>'+
+                     '<div>國外消費現金回饋</div>'+ 
+                     '<div></div>'+
+                     '</div>'+
+                     '<div class="col-4 creditinner">'+
+                     '<div><span >'+cb[i].dcb+'%</span></div>'+
+                     '<div>國內消費現金回饋</div>'+
+                     '<div></div>'+
+                     '</div>'+
+                     '</div>'+
+                     '<div class="col-2 creditbtn"><a href="/pikachuMVC/cards/cradeitsearch_produce?id='+cb[i].c_id+'"class="btn btn-primary" id=>詳細資訊</a></div>'+
+                     '</div>'+
+                     '</div>'+
+                     '</div>' ;            
+            		}
+            	
+            	mm.innerHTML = content;
+           		}
+        }); 
       }
     }
 
@@ -107,7 +172,8 @@
     // 當點擊按鈕時執行 ...
     var startbtn=document.getElementById('cradeitsearchmine_btn');
     startbtn.addEventListener("click",function(){
-     
+    	currentStepIdx = 1;
+    	switchTo(currentStepIdx);
       $('#cradeitsearchmine_myModal').modal('show');
     },false)
 

@@ -227,7 +227,7 @@ public void ajaxModel(HttpServletRequest request, HttpServletResponse response) 
 	ops3 = request.getParameter("opt3");
 	String sal =  request.getParameter("sal");
 	
-	
+	System.out.println("------------------getpara-----------");
 	//組合查詢條件
 	List<String> op = new ArrayList<>();
 	op.add(ops1);
@@ -251,7 +251,8 @@ public void ajaxModel(HttpServletRequest request, HttpServletResponse response) 
 	String cardJson = new Gson().toJson(CardMap);
 	out.write(cardJson);
 	out.flush();
-
+System.out.println(cardJson);
+	
 }
 
 

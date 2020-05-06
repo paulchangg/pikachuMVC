@@ -33,12 +33,13 @@ import com.pikachuMVC.model.MemberBean;
 // 所有需要登入才能使用的資源都以『前置路徑的對應關係』定義在本過濾器的起始參數。經由過濾器的init()
 // 方法讀入，放入List型別的實例變數 url 內。
 @WebFilter(
-//		urlPatterns = { "/*" }, 
+		urlPatterns = { "/*" }, 
 		initParams = { 
 				@WebInitParam(name = "mustLogin1", value = "/shopping/*"), 
 				@WebInitParam(name = "mustLogin2", value = "/member/member_edit"), 
 				@WebInitParam(name = "mustLogin3", value = "/member/member_center"), 
 				@WebInitParam(name = "mustLogin4", value = "/member/member_inquary"), 
+				@WebInitParam(name = "mustLogin5", value = "/friends/*"), 
 //				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
