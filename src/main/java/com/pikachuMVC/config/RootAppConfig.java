@@ -35,9 +35,11 @@ public class RootAppConfig {
 
 //		ds.setPassword("404631060");
 //		ds.setPassword("22651330");
+
 		ds.setPassword("songsql");
 
 //		ds.setPassword("ruby123");	
+
 		ds.setInitialPoolSize(5);
 		ds.setMaxPoolSize(8);
 		return ds;
@@ -66,7 +68,7 @@ public class RootAppConfig {
 	private Properties additionalProperties() {
 		Properties properties=new Properties();
 		properties.put("hibernate.dialect", org.hibernate.dialect.MySQL8Dialect.class);
-		properties.put("hibernate.show_sql", Boolean.TRUE);
+		properties.put("hibernate.show_sql", Boolean.FALSE);
 		properties.put("hibernate.format_sql", Boolean.TRUE);
 		properties.put("default_batch_fetch_size", 10);
 		properties.put("hibernate.hbm2ddl.auto", "update");

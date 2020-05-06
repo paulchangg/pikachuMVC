@@ -322,7 +322,7 @@ public class FourmCotroller {
 	
 	@GetMapping("/listforum/{fourmName}")
 	public String listDifferentforum(@PathVariable String fourmName,HttpServletRequest request,HttpSession session) {
-		System.out.println(fourmName);
+		
 		
 		MemberBean m = (MemberBean)session.getAttribute("LoginOK");
 		
@@ -353,7 +353,7 @@ public class FourmCotroller {
 		
 		
 		for(LaunchActivityBean b : beans) {
-			System.out.println(b.getActivitys().size());
+			
 			responserCount1.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
 				article_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
