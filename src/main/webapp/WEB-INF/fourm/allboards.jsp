@@ -158,7 +158,7 @@
                       id="creditcards"
                     >
                       <a
-                        href="article_board_credit card.html"
+                        href="<c:url value='/fourm/listforum/信用卡' />"
                         style="text-decoration: none; color: black;"
                         >信用卡</a
                       >
@@ -167,7 +167,7 @@
                   <li class="list-group-item">
                     <button type="button" class="btn btn-light" id="food">
                       <a
-                        href="article_board_food.html"
+                        href="<c:url value='/fourm/listforum/美食' />"
                         style="text-decoration: none; color: black;"
                         >美食</a
                       >
@@ -176,7 +176,7 @@
                   <li class="list-group-item">
                     <button type="button" class="btn btn-light" id="emotion">
                       <a
-                        href="article_board.html"
+                        href="<c:url value='/fourm/listforum/感情' />"
                         style="text-decoration: none; color: black;"
                         >感情</a
                       >
