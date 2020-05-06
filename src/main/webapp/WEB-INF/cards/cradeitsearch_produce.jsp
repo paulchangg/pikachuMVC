@@ -68,7 +68,7 @@
        
         <div class="row imgareatext"><!-- 信用卡上半部 -->
             <div class="col-8 imagecared"><!-- 信用卡圖片 -->                        
-              <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${bean.c_id}" id="cradeitsearchproduce_img"  width="350px" height="240px"> <!--這id連資料庫-->
+              <img src="${pageContext.servletContext.contextPath}/cards/RetrieveCardImg?id=${bean.c_id}" id="cradeitsearchproduce_img"  width="300px" height="180px"> <!--這id連資料庫-->
             </div>
             <div class="col-12 creditname">
                <span id="cradeitsearchproduce_title">${bean.c_name}</span> <!--信用卡名稱-->

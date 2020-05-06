@@ -93,7 +93,7 @@ body {
 
 
 /*.onecard:hover {
-  background-image: url(../cards/image/比卡丘問號.png);
+  background-image: url(/image/比卡丘問號.png);
   background-size: 80px;
   background-position:70rem bottom;
   transition-delay: 0s;
