@@ -100,6 +100,7 @@ public class FourmDaoImpl implements FourmDao{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ResponserBean> getArticleResponse(int launchActivityID) {
 		
@@ -189,6 +190,21 @@ public class FourmDaoImpl implements FourmDao{
 		
 		memberBean.getLaunchActivity().remove(launchActivityBean);
 		
+	}
+
+	@Override
+	public Set<LaunchActivityBean> listDifFourm(String fourm) {
+		
+		Session session = factory.getCurrentSession();
+		
+		String hql = "FROM ForumBean r WHERE r.fname = :fname ";
+		
+		ForumBean bean = (ForumBean)session.createQuery(hql)
+								.setParameter("fname", fourm)
+								.getSingleResult();
+		
+		
+		return bean.getActivitys();
 	}
 
 	

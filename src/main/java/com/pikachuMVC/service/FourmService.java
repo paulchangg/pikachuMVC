@@ -26,4 +26,6 @@ public interface FourmService {
 	
 	void deleteTrackActivity(int article_id,String m_id);
 	
+	Set<LaunchActivityBean> listDifFourm(String fourm);
+	
 }

@@ -149,7 +149,7 @@ public class FourmCotroller {
 			bean = new LaunchActivityBean(null, mb, article_title,text, img, null, sdf.format(today), 0, fileName, null,null,mb.getM_id());
 			
 			try {
-				forum = Integer.valueOf(text);
+				forum = Integer.valueOf(select_fourm);
 			}catch(Exception e) {
 				forum = 1;
 			}
@@ -320,4 +320,68 @@ public class FourmCotroller {
 		return "fourm/allboards";
 	}
 	
+	@GetMapping("/listforum/{fourmName}")
+	public String listDifferentforum(@PathVariable String fourmName,HttpServletRequest request,HttpSession session) {
+		
+		
+		MemberBean m = (MemberBean)session.getAttribute("LoginOK");
+		
+		MemberBean mb = memberService.queryMember(m.getM_id());
+		
+		Set<LaunchActivityBean> trackBeans = mb.getTrackLaunchActivity();
+		
+		List<Integer> trackArticle_responserCount = new ArrayList<Integer>();
+		
+		List<String> trackArticle_content = new ArrayList<String>();
+		
+		Set<LaunchActivityBean> beans = service.listDifFourm(fourmName);
+		
+		List<Integer> responserCount1 = new ArrayList<Integer>();
+		
+		List<String> article_content = new ArrayList<String>();
+		
+		
+		for(  LaunchActivityBean b : trackBeans) {
+			trackArticle_responserCount.add(b.getActivitys().size());
+			if(b.getArticle_content().length() < 10) {
+				trackArticle_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
+			}else {
+				trackArticle_content.add(b.getArticle_content().substring(0,10));
+			}
+		}
+		
+		
+		
+		for(LaunchActivityBean b : beans) {
+			
+			responserCount1.add(b.getActivitys().size());
+			if(b.getArticle_content().length() < 10) {
+				article_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
+			}else {
+				article_content.add(b.getArticle_content().substring(0,10));
+			}		
+		}
+		
+		
+		session.setAttribute("trackBeans", trackBeans);
+		
+		session.setAttribute("trackArticle_responserCount", trackArticle_responserCount);
+
+		session.setAttribute("trackArticle_content", trackArticle_content);
+		
+		session.setAttribute("article_content_love", article_content);
+		
+		session.setAttribute("responserCount_love", responserCount1);
+		
+		session.setAttribute("LaunchActivityBean_love", beans);
+		
+		session.setAttribute("fourmName", fourmName);
+		
+		return "redirect:/fourm/article_board";
+	}
+	
+	@GetMapping("/article_board")
+	public String article_board() {
+		return "fourm/article_board";
+	}
 }

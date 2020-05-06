@@ -12,7 +12,6 @@
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/cradeitsearch_mine.css" />
      <link rel="stylesheet" href="css/wickedcss.min.css">
-     <script src="js/cradeitsearch_page.js"></script>
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
@@ -81,6 +80,7 @@
 
 
        <main class="col-8 main"><!--結果呈現區塊-->
+              <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                       <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -88,7 +88,6 @@
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1090" y1="0" x2="1090" y2="160"/>
                   </svg>
-                  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                     <div class="onecard"  name="${entry.value.bank}">
                        <span id="">${entry.value.c_name}</span> <!--卡名-->
                         <div class="row">
@@ -115,8 +114,8 @@
                            <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                       </div>
                     </div>
-                    </c:forEach> 
                  </div>
+              </c:forEach> 
        </main>
 
 
@@ -145,7 +144,7 @@
                <div class="step step2">
                  <p>Q1:比卡丘想知道您的生日<i class='bx bx-calendar' >?</i></p>
                  <input type="date" name="bday" id='bday'>
-                  <img src="../cards/image/未滿20對話框.png" class="modalimgthree">
+                  <img src="../cards/image/生日對話框.png" class="modalimgthree">
                   <img src="../cards/image/會動的比卡丘2.gif" class="modalimgfour">
               </div>
 
@@ -237,6 +236,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/crseitsearch_min.js"></script>
+     <script src="js/cradeitsearch_page.js"></script>
  </body>
 </html>
 

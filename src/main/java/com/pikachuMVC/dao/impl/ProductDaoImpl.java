@@ -174,13 +174,15 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		String line = "";
 		int count = 0;
 		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
+//		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\product.txt");
 //		File file = new File("D:\\ttt\\product.txt");
+//		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
 
 		try (FileInputStream fis = new FileInputStream(file);
 				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 				BufferedReader br = new BufferedReader(isr);) {
 			while ((line = br.readLine()) != null) {
-				
+				System.out.println(line);
 				String[] token = line.split("<");
 				ProductBean cb = new ProductBean();
 				cb.setP_name(token[0]);
@@ -193,7 +195,8 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		
 				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
 //				String imgname = "D:\\ttt\\" + token[4];
-//				String imgname = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
+//				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\productImgs\\" + token[4];
+//				String imgname = "D:\\spring\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用
 
 				Blob c_img = GlobalService.fileToBlob(imgname);
@@ -203,13 +206,14 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 				
 				cb.setP_category(token[6]);
 
-
+				
 				session.save(cb);
-
+				
 				System.out.println("新增一筆Product紀錄");
 			}
 			System.out.println("Product資料新增成功");
 		} catch (Exception e) {
+			e.getStackTrace();
 			System.err.println("新建Product表格時發生IO例外: " + e.getMessage());
 		}
 

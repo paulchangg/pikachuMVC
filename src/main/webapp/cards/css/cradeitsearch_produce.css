@@ -1,87 +1,265 @@
-/*皮卡丘商標位置區塊*/
-.logarea{
-    text-align: center;
-    background-color: #FFF7A9;
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
 }
 
-/*這是導覽頁選項*/
-.navbar{
-    background-color: aliceblue;
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
 }
 
-/*這是導覽頁選項移到中間*/
-#cradeitsearchproduce_navContent ul{    
-    margin:auto;
-   }
-   
-/*這是導覽頁項目要呈現水平排列*/
-.wrap li{
-       display: inline-block;
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
+}
+
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
 }
 
 
-/*這裡為顯信用卡介紹的小區塊*/
+/*特效樣式*/
+.box {
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px #2c3e50;
+  transition: background 0.4s 0.5s;
+  text-align: center;
+  /*background-color: #35A7FF;區塊背景顏色*/
+ 
+}
+
+
+/*.onecard:hover {
+  background-image: url(/image/比卡丘問號.png);
+  background-size: 80px;
+  background-position:70rem bottom;
+  transition-delay: 0s;
+  background-repeat: no-repeat;
+}*/
+
+.box svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box svg line {
+  stroke-width: 3;
+  stroke: #35A7FF;
+  fill: none;
+  transition: all .8s ease-in-out;
+}
+
+
+.box:hover svg line {
+  transition-delay: 0.1s;
+}
+
+.box svg line.top,
+.box svg line.bottom {
+  stroke-dasharray: 100 0; 
+}
+
+.box svg line.right,
+.box svg line.left {
+  stroke-dasharray: 100 0;
+}
+
+.box:hover svg line.top {
+  transform: translateX(-1200px);
+}
+
+.box:hover svg line.bottom {
+  transform: translateX(1200px);
+}
+
+.box:hover svg line.left {
+  transform: translateY(400px);
+}
+
+.box:hover svg line.right {
+  transform: translateY(-400px);
+}
+
+
+/*詳細資訊按鈕*/
+.creditbtn{
+  font-size: 18px;
+  margin-top: 1%;
+}
+
+.creditbtn a{
+  width: 110px;
+}
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 10px;
+  font-size: 10px;
+  background-color: #90be6d;
+}
+
+
+/*這裡為詳細資訊的區塊*/
 .credittitle{
     text-align: center;
     height: 3rem;
-    background-color: aliceblue;
     font-size: 25px;
-    margin-bottom: 2%;
+    margin-top: 1%;
 }
 
-/*尾巴*/
-.footer{
-    background-color:#FFF7A9;
-    height: 5rem;
+
+/*這裡為信用卡上半部整個區塊*/
+.imgareatext{
+    justify-content: center;
     text-align: center;
 }
 
-/*這裡為信用卡介紹上半部*/
-.creaditarea{
-   /*background-color: lawngreen;*/
-    text-align: center;
-    margin: auto;
-    margin-bottom: 1%;
+/*這裡為信用卡上圖片區塊*/
+.imagecared{
+    margin-top: 2%;
+    height: 16rem;
+    background-image: url(../image/背景.jpg);
+    background-repeat: no-repeat;
+    background-size:  contain;
     
 }
+
 
 /*這裡為信用卡介紹上半部內的文字*/
 .textarea{
-    background-color:aliceblue;
     justify-content: center;
-    margin-bottom: 2%;
+    height: 8rem;
+    margin-bottom: 1%;
+    margin-top: 1%;
 }
+
+
+/*申請按鈕*/
+.voiceBtn{
+    border:0;
+    background-color:#35A7FF;
+    color:#fff;
+    cursor:pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 300px;
+    height:45px;
+  }
+  
+  .voiceBtn:hove1r{
+    color:#35A7FF;
+    background-color:#fff;
+    border:2px #35A7FF solid;
+  }
+
+
 
 /*這裡為信用卡介紹的下半部*/
 .creditareatext{
-   
     margin: auto;
+    text-align: center;
 }
 
-/*首刷禮表格*/
-.tablestyle{
-width: 250px;
-
-    
-}
-
-/*首刷禮表格*/
-.tablestyle td{
-    border: solid;
-  
-}
 
 /*這裡為謹慎理財區塊*/
 .managermoney{
     margin: auto;
     margin-bottom: 1%;
     text-align: center;
+    margin-top: 5%;
 }
 
 /*這裡再次提示使用比較的按鈕區塊*/
 .butagain{
-   background-color: aliceblue;
    margin: auto;
    text-align: center;
+   margin-top: 2%;
    margin-bottom: 5%;
+   background-color: #FFE066;
+   height: 6rem;
+   padding: 10px;
 }
+
+/*按鈕樣式*/
+.searchbtn{
+    border:0;
+    background-color:#fff;
+    color:#FFE066;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 30px;
+    margin-bottom: 20px;
+    width: 50px;
+  }
+  
+  .searchbtn:hover{
+    color:#fff;
+    background-color:#FFE066;
+    border:2px #FFE066 solid;
+  }

@@ -152,7 +152,7 @@ crossorigin="anonymous" />
 					<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
 					   <div class="col-md-6 col-lg-4 mb-2"> <!--商品1-->
 							<div class="card">               <!--這個id是要連結到這個商品的頁面-->
-								<a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shopping_page"><img class="card-img-top" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />" alt="歡樂旅遊劵不要對我尖叫"></a>
+								<a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shopping_page"><img style="width:452.08px;height: 300.55px;" class="card-img-top" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />" alt="歡樂旅遊劵不要對我尖叫"></a>
 								 <div class="card-body">
 								 	   <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">
 									      <h5 class="card-title"><span id="shopping_producename">${entry.value.p_name}</span></h5>

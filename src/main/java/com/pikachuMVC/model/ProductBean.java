@@ -22,10 +22,16 @@ import javax.persistence.Table;
 @Table(name = "product")
 public class ProductBean implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer p_id;
 	private String p_name;
+	
+	@Column(length = 65535,columnDefinition="Text")
 	private String p_desc;
 	private Double price;
 	private Integer stock;
