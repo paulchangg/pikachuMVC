@@ -191,14 +191,16 @@ public ShoppingController() {}
 			productMap = service.getProduct(pageNo);
 		}
 		
-		ProductBean pb = service.getSelectBook(id);
+		
 		request.setAttribute("totalPages", service.getTotalPages());
 		request.setAttribute("mode", mode);
 		session.setAttribute("modeState", modeState);
-		session.setAttribute("product_INFO", pb);
+		
 		session.setAttribute("pageNo", String.valueOf(pageNo));
 		session.setAttribute("products_DPP", productMap);
 		if( mode == "show") {
+			ProductBean pb = service.getSelectBook(id);
+			session.setAttribute("product_INFO", pb);
 			return "shopping/shopping_produce";
 		}else {
 			return "shopping/shopping";			
