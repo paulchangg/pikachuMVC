@@ -5,75 +5,77 @@
 
 /* 版面高度設置 */
 html {
-  /* height:100%; */
   margin: 0 5% 0 5%;
-  /* flex: 1 90%; */
 }
 
 body {
-  /* margin: 0 1%; */
-  /* min-height: 100%; */
-  position: relative;
-  /* box-sizing: content-box; */
   font-family: "Noto Sans TC", sans-serif;
 }
 
-/* 最上方列 */
-.top-navigation {
-  height: 100px;
-  padding: 20px -1px;
-  margin: 0 auto;
-  max-width: 1280px;
+/* 導覽列上面那塊 */
+.et-hero-tabs{
   display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-.navigation__logo {
-  width: 200px;
-  margin-top: auto;
-  /* padding: 0px 0px 0px 10px; */
-  align-content: center;
-}
-
-/* 以下導覽列 */
-div.header {
-  color: #fff;
-  font-size: 24px;
-  text-align: center;
-  /* padding: 0px 0px 1px 0px; */
-  /* background-color: #a6a9b1; */
-  height: 40px;
-}
-
-.nav-bar {
-  background: #e8dfe1;
-  height: 37px;
-  padding: 0.15em 0 3px;
-  justify-content: space-evenly;
-  font-weight: bold;
-  /* background-color: #efefef; */
-  font-size: 18px;
-  color: #e8dfe1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
   position: relative;
+  text-align: center;
+  padding: 0 2em;
 }
 
-.nav-bar a {
-  color: #584b53;
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
   text-decoration: none;
 }
 
-/* 欄位大小 */
-.nav-bar a {
-  padding: 8px 15px;
-  font-size-adjust: initial;
-  display: inline-block;
-}
-
-/* 游標靠近時更改顯示 */
-.nav-bar a:hover {
-  background: rgb(245, 223, 226);
-  color: rgb(209, 107, 6);
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
 }
 
 .card-group {
@@ -95,8 +97,8 @@ div.leftNav {
 
 .second_line {
   background: #c4ddcb;
-  margin: 10px 0 10px 0;
-  height: 30px;
+  margin: 3px 0 10px 0;
+  height: 40px;
   padding: 0.15em 0 3px;
   font-weight: bold;
 }
@@ -134,21 +136,6 @@ ul {
   color: #4a8ea8;
 }
 
-/* 底部 */
-div.footer {
-  clear: both;
-  width: 100%;
-  /* position: absolute; */
-  bottom: 0;
-  height: 60px;
-  text-align: center !important;
-  padding: 4rem !important;
-  background: #f7ede2;
-  font-size: 13px;
-  margin-top: 10px;
-}
-
-
 /* 跳出頁面視窗 */
 .modal-content{
   width: 700px;
@@ -158,7 +145,8 @@ div.footer {
 	width: 580px;
 	margin: 8px auto;
 	/* text-align: center; */
-	position: relative;
+  position: relative;
+  justify-content: left;
 }
 
 #memberid_img {
@@ -207,7 +195,6 @@ div.footer {
   overflow: hidden; 
   padding: 10;
 }
- 
 
 .center li {
   background: #eee;
@@ -246,32 +233,18 @@ div.footer {
 
 .center li:hover {
   background-color: #8fb0d1;
-  color: white;
+  color:#2f80d1;
 }
 
 .center li:hover::after {
    border-left-color: #2f80d1; 
 }
 
-/* 置頂按鈕 */
-.w3-black,
-.w3-hover-black:hover {
-  color: #fff !important;
-  background-color: #000 !important;
-}
-
-.w3-margin {
-  margin: 16px !important;
-}
-
-.w3-btn,
-.w3-button {
-  display: inline-block;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
+/* 底部 */
 .gotop {
-  margin-right: 18px !important;
-  margin-top: auto;
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 10px;
+  font-size: 13px;
+  background: #90be6d;
 }

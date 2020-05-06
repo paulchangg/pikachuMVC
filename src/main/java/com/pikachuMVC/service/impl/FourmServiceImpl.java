@@ -81,6 +81,13 @@ public class FourmServiceImpl implements FourmService {
 		
 	}
 
+	@Override
+	@Transactional
+	public Set<LaunchActivityBean> listDifFourm(String fourm) {
+		Set<LaunchActivityBean> beans = dao.listDifFourm(fourm);
+		return beans;
+	}
+
 	
 	
 	

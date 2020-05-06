@@ -8,18 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文章頁面</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="css/inner_page.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- <script src="js/inner_page.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js"></script>
+    <script src="js/forum.js"></script>
   </head>
 
   <body>
     <page size="A4">
       <div class="post_block">
-        <!-- title 發文者頭像id區塊----發文日期---->
+        <!-- title 發文者頭像id區塊---發文日期--->
         <div class="inline_block">
           <!-- 會員頭像 -->
           <div class="comment-avatar">
@@ -30,39 +41,44 @@
             />
           </div>
           <!-- 發文者id -->
-          <a class="article_m_id" href="#" style="padding: 0 0 0 20px;"
-            >${launchActivityBean.member_id}</a
-          >
-          <!-- 叉叉關閉視窗------->
-          <div class="close_bt" style="padding: 0 0 0 73%;">
-            <button type="button" class="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+          <p class="article_m_id" style="padding: 0 0 0 17px;">${launchActivityBean.member_id}</p>
+          <div style="padding-left: 360px;"></div>
+          <a href='<c:url value='/fourm/listforum'  />'>
+            <button type="button" class="btn btn-info btn-sm">
+              回論壇首頁
+              <br /><i class="fas fa-home"></i>
             </button>
-          </div>
+           </a>
         </div>
       </div>
 
-      <!-- 內文區塊----->
+      <!-- 內文區塊---->
       <article class="content_block">
         <!-- 文章標題---->
-        <p class="article_title" style="font-size: 20px;">${launchActivityBean.article_title}</p>
+        <p class="article_title" style="font-size: 20px; padding-bottom: 10px;">
+          值得擁有之卡片特集
+        </p>
 
         <!-- 主題,發布時間----超連結待補---->
         <div class="content_block_a">
-          <div class="subject" style="padding-right: 10px;">
+          <div class="subject" style="padding: 0 10px; height: 25px;">
             <a href="article_board_credit card.html" id="creditcards">信用卡</a>
           </div>
-          <div class="post_Time">${launchActivityBean.post_time}</div>
+          <div class="post_Time" style="padding-left: 10px;">${launchActivityBean.post_time}</div>
         </div>
 
         <!-- 文章內文--->
         <div class="content_block_b">
-          <div class="article_content_block">
+          <div class="article_content_block" >
             <span class="article_content">${launchActivityBean.article_content}</span>
             <!-- 照片區塊 -->
             <div class="photo_block">
               <!-- 照片 -->
-              <img class="articleimage" src="${pageContext.request.contextPath}/fourm/getPicture/${launchActivityBean.article_Id}" />
+              <img
+                class="articleimage"
+                src="${pageContext.request.contextPath}/fourm/getPicture/${launchActivityBean.article_Id}"
+                style="max-height: 270px;"
+              />
             </div>
           </div>
           <!-- 中間主題分類標籤 -->
@@ -70,8 +86,8 @@
             <ul class="label_line">
               <li class="subject_block">
                 <a href="article_board_credit card.html">
-                  <!-- 主題分類   -->
-                  <div class="subject">
+                  <!-- 主題分類  -->
+                  <div class="subject" style="height: 25px;">
                     <div>信用卡</div>
                   </div>
                 </a>
@@ -79,7 +95,7 @@
               <li class="subject_block">
                 <a href="#">
                   <!-- 主題分類   -->
-                  <div class="subject">
+                  <div class="subject" style="height: 25px;">
                     <div>讚</div>
                   </div>
                 </a>
@@ -89,90 +105,180 @@
         </div>
       </article>
 
-      <!-- 分隔----->
+      <!-- 分隔--->
       <div></div>
 
-      <!-- 回應總數, 人氣總數 ---->
+      <!-- 回應總數, 人氣總數 --->
       <div class="comment-box">
         <div class="comment-line">
-          <span
+          <!-- icon們 -->
+          <div
+            class="col-6 px-0"
             style="
+              padding-left: -1;
               font-weight: initial;
               font-size: 14px;
-              color: rgb(177, 172, 172);
+              text-align: end;
             "
-            >回應</span
           >
-          <span
-            class="total_reply"
-            style="
-              font-weight: initial;
-              font-size: 14px;
-              color: rgb(177, 172, 172);
-            "
-            >${responserCount1}</span
-          >
-
-           <!-- icon們 -->
-           <div
-           class="col-5 px-0"
-           style="
-             font-weight: initial;
-             font-size: 14px;
-             text-align: end;
-           "
-         >
-           <!-- 觀看次數  -->
-           <button
-             type="button"
-             class="btn btn-link"
-             style="color: rgb(177, 172, 172);"
-           >
-             <i class="fas fa-eye"></i>
-           </button>
-           <span>${launchActivityBean.allWatch}</span>
-           <!-- 收藏 -->
-           <button
-             type="button"
-             class="btn btn-link"
-             style="color: rgb(177, 172, 172);"
-           >
-             <i class="fas fa-archive"></i>
-           </button>
-           <!-- 修改 -->
-           <button
-             type="button"
-             class="btn btn-link"
-             style="color: rgb(177, 172, 172);"
-           >
-             <i class="fas fa-edit"></i>
-           </button>
-           <!-- 刪除 -->
-           <button
-             type="button"
-             class="btn btn-link"
-             style="color: rgb(177, 172, 172);"
-           >
-             <i class="far fa-trash-alt"></i>
-           </button>
-         </div>
+            <span
+              style="
+                font-weight: initial;
+                font-size: 14px;
+                color: rgb(177, 172, 172);
+              "
+              >回應</span
+            >
+            <span
+              class="total_reply"
+              style="
+                font-weight: initial;
+                font-size: 14px;
+                color: rgb(177, 172, 172);
+              "
+              >${responserCount1}</span
+            >
+            <!-- 觀看次數  -->
+            <button
+              type="button"
+              class="btn btn-link"
+              style="color: rgb(177, 172, 172);"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+            <span>${launchActivityBean.allWatch}</span>
+            <!-- 收藏 -->
+            <button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#collect"
+              style="color: rgb(177, 172, 172);"
+            >
+              <i class="fas fa-archive"></i>
+            </button>
+            <!-- 收藏 Modal 跳出頁面 -->
+            <div
+              class="modal fade"
+              id="collect"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="collectTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title"
+                      id="collectTitle"
+                      style="font-size: 18px; color: rgb(78, 73, 73);"
+                    >
+                      此文章已加入收藏
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      data-dismiss="modal"
+                    >
+                      關閉
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      取消收藏
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 修改 -->
+            <button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#revise"
+              style="color: rgb(177, 172, 172);"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            <!-- 刪除 -->
+            <button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#delete"
+              style="color: rgb(177, 172, 172);"
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+            <!-- 刪除 Modal 跳出頁面 -->
+            <div
+              class="modal fade"
+              id="delete"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="deleteTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title"
+                      id="deleteTitle"
+                      style="font-size: 18px; color: rgb(78, 73, 73);"
+                    >
+                      確定要刪除此文章嗎？
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      data-dismiss="modal"
+                    >
+                      關閉
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      確定刪除
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
       <!-- 假廣告圖-->
       <div class="advertising">
         <img
-          src="./images/ad_photo/kebuke.jpg"
-          style="height: 150px; width: 793px;"
+          src="images/ad_photo/kebuke.jpg"
+          style="width: 100%; height: 150px;"
         />
       </div>
-
       <!-- 回文區塊-------->
-      <div class="reply_zone" style="margin-top: 0px; padding: 40px 0px 36px;">
+      <div class="reply_zone" style="margin-top: 0px; padding: 5px 0px 36px;">
         <section>
           <!-- 總共回覆貼文數---->
-          <div class="total_reply_zone" style="padding: 0px 60px;">
-            <div class="total_reply">共2則回覆</div>
+          <div class="total_reply_zone" style="padding: 10px 60px;">
+            <div class="total_reply">共${responserCount1}則回覆</div>
           </div>
           <!-- 回文框框----->
           <div
@@ -180,7 +286,7 @@
             style="padding: 0px 60px; background-color: white;"
           >
             <div style="padding-top: 0px;">
-                  <!-- 第二個回文區塊 -->
+<!-- 第二個回文區塊 -->
                   <c:forEach varStatus="stVar"  var="entry"  items="${responserBeans}">
                   <div data-index="0">
                     <div data-post-engagement="true" class="reply_content_a">
@@ -240,12 +346,9 @@
                     </div>
                   </div>
                   </c:forEach>
-               
             </div>
           </div>
         </section>
-
-        
         <!-- 立即回覆區---->
         <form  method="post" action="<c:url value="/fourm/reponseActivity" />"  enctype="multipart/form-data">
         <div class="input-group mb-3">
@@ -276,8 +379,113 @@
         </div>
         </form>
       </div>
-    </page>
+      <!-- 修改 Modal 跳出頁面 -->
+      <div
+        class="modal fade"
+        id="revise"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="reviseTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- 叉叉按鈕 -->
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-  
+            <div class="modal-body">
+              <!-- 內容 -->
+              <form id="msform">
+                <!-- 發文者頭像 -->
+                <div class="container">
+                  <img
+                    src="./images/id_photo/memberphoto_6.png"
+                    alt="profile-sample5"
+                    id="memberid_img"
+                  />
+                  <span style="font-size: 0.6em; color: #3e8bbe;">發文者</span
+                  ><span id="article_m_id" style="font-size: 0.8em;"
+                    >豬血糕不要香菜</span
+                  >
+                </div>
+                <hr />
+                <div class="bd-highlight" style="font-size: small;">
+                  發文看板
+                  <!-- 發文看板選擇 -->
+                  <select id="select_area">
+                    <option value="請選擇">請選擇</option>
+                    <option value="creditcards">信用卡</option>
+                    <option value="food">美食</option>
+                    <option value="emotion">感情</option>
+                  </select>
+                </div>
+
+                <h1 class="fs-title">文章標題</h1>
+                <input type="text" name="article_title" placeholder="標題" />
+                <!-- 輸入內文 -->
+                <h1 class="fs-title">文章內文</h1>
+                <p class="text">
+                  <textarea
+                    name="text"
+                    class="validate[required,length[6,300]] feedback-input"
+                    id="article_content"
+                    placeholder="內文"
+                    style="height: 300px;"
+                  ></textarea>
+                </p>
+
+                <!-- 上傳圖片的按鈕 -->
+                <h1 class="fs-title">文章照片</h1>
+                <div class="articleimage" style="padding-bottom: 5px;">
+                  <input id="input-b6" name="input-b6[]" type="file" multiple />
+                </div>
+                <!-- 文章標籤選擇 標籤意思跟主題一樣-->
+                <legend
+                  style="
+                    font-size: 13px;
+                    padding-bottom: 7px;
+                    padding-top: 15px;
+                  "
+                >
+                  標籤選擇
+                </legend>
+                <div id="checkline">
+                  <ul id="labels" class="center">
+                    <li><input class="subject" type="checkbox" />信用卡</li>
+                    <li><input class="subject" type="checkbox" />美食</li>
+                    <li><input class="subject" type="checkbox" />感情</li>
+                    <li><input class="subject" type="checkbox" />讚</li>
+                    <li><input class="subject" type="checkbox" />我就爛</li>
+                    <li><input class="subject" type="checkbox" />口袋空空</li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+            <!-- 底部按鈕 -->
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btn-sm"
+                data-dismiss="modal"
+              >
+                返回
+              </button>
+              <button type="button" class="btn btn-primary btn-sm">
+                送出
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </page>
   </body>
 </html>

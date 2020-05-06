@@ -294,7 +294,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 				if (count < 2) {
 					continue;
 				}
-				System.out.println("line=" + line);
+//				System.out.println("line=" + line);
 
 				String[] token = line.split("<");
 

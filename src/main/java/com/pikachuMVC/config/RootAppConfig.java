@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -33,10 +32,11 @@ public class RootAppConfig {
 				+ "?useSSL=true&useUnicode=yes&characterEncoding=UTF8"
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");
+
 //		ds.setPassword("404631060");
-//		ds.setPassword("22651330");
+		ds.setPassword("22651330");
 //		ds.setPassword("songsql");
-		ds.setPassword("ruby123");	
+//		ds.setPassword("ruby123");	
 		ds.setInitialPoolSize(5);
 		ds.setMaxPoolSize(8);
 		return ds;
@@ -65,7 +65,7 @@ public class RootAppConfig {
 	private Properties additionalProperties() {
 		Properties properties=new Properties();
 		properties.put("hibernate.dialect", org.hibernate.dialect.MySQL8Dialect.class);
-		properties.put("hibernate.show_sql", Boolean.TRUE);
+		properties.put("hibernate.show_sql", Boolean.FALSE);
 		properties.put("hibernate.format_sql", Boolean.TRUE);
 		properties.put("default_batch_fetch_size", 10);
 		properties.put("hibernate.hbm2ddl.auto", "update");
