@@ -153,6 +153,6 @@
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/index_modal.js"></script> 
+    <script src="js/cradeitsearch_page.js"></script>
  </body>
 </html>

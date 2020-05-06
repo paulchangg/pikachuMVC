@@ -186,6 +186,9 @@ body {
 .imagecared{
     margin-top: 2%;
     height: 16rem;
+    background-image: url(../cards/image/背景.jpg);
+    background-repeat: no-repeat;
+    background-size:  contain;
 }
 
 
