@@ -12,7 +12,6 @@
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/cradeitsearch_mine.css" />
      <link rel="stylesheet" href="css/wickedcss.min.css">
-     <script src="js/cradeitsearch_page.js"></script>
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
@@ -237,6 +236,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/crseitsearch_min.js"></script>
+     <script src="js/cradeitsearch_page.js"></script>
  </body>
 </html>
 
