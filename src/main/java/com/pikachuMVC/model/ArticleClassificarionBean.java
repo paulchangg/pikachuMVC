@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "forum_name")
-public class ForumBean {
+@Table(name = "Article_classificarionBean")
+public class ArticleClassificarionBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,14 +27,14 @@ public class ForumBean {
 	
 	
 	//一個看板內有什麼文章       一對多的  一方
-	@OneToMany(mappedBy="forumBean", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-	Set<LaunchActivityBean> activitys = new LinkedHashSet();
+	@OneToMany(mappedBy="articleClassificarionBean", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	Set<ArticleBean> activitys = new LinkedHashSet();
 	
-	public ForumBean() {}
+	public ArticleClassificarionBean() {}
 
 	
 
-	public ForumBean(Integer f_id, String fname, Set<LaunchActivityBean> activitys) {
+	public ArticleClassificarionBean(Integer f_id, String fname, Set<ArticleBean> activitys) {
 		super();
 		this.f_id = f_id;
 		this.fname = fname;
@@ -44,13 +44,13 @@ public class ForumBean {
 	
 
 
-	public Set<LaunchActivityBean> getActivitys() {
+	public Set<ArticleBean> getActivitys() {
 		return activitys;
 	}
 
 
 
-	public void setActivitys(Set<LaunchActivityBean> activitys) {
+	public void setActivitys(Set<ArticleBean> activitys) {
 		this.activitys = activitys;
 	}
 

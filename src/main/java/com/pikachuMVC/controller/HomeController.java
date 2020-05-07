@@ -8,13 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.pikachuMVC.dao.CardDao;
-import com.pikachuMVC.dao.FourmDao;
+import com.pikachuMVC.dao.ArticleDao;
 import com.pikachuMVC.dao.ProductDao;
 import com.pikachuMVC.model.CardBean;
-import com.pikachuMVC.model.ForumBean;
+import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ProductBean;
 import com.pikachuMVC.service.CardService;
-import com.pikachuMVC.service.FourmService;
+import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.ProductService;
 
 @Controller
@@ -35,14 +35,14 @@ public class HomeController {
 	ProductService productService;
 	
 	@Autowired
-	FourmDao fourmDao;
+	ArticleDao articleDao;
 	
 	@Autowired
-	FourmService fourmService;
+	ArticleService articleService;
 
 	private List<CardBean> list = new ArrayList<CardBean>();
 	private List<ProductBean> productList = new ArrayList<ProductBean>();
-	private List<ForumBean> fourmList = new ArrayList<ForumBean>();
+	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 
 	@GetMapping({ "/", "/index" })
 	public String home() {
@@ -61,10 +61,10 @@ public class HomeController {
 		}
 		
 		if (fourmList.size() == 0) {
-			if (fourmService.getforumBean().size() == 0) {
-				fourmDao.insertFourm();;
+			if (articleService.getforumBean().size() == 0) {
+				articleDao.insertFourm();;
 			}
-			fourmList = fourmService.getforumBean();
+			fourmList = articleService.getforumBean();
 		}
 		
 		

@@ -66,10 +66,10 @@ public class MemberBean {
 	Set<MemberBean> friends = new LinkedHashSet<MemberBean>();
 	
 	@OneToMany(mappedBy = "memberBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	Set<LaunchActivityBean> launchActivity = new LinkedHashSet<LaunchActivityBean>();
+	Set<ArticleBean> launchActivity = new LinkedHashSet<ArticleBean>();
 	
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "memberBeans")
-	Set<LaunchActivityBean> trackLaunchActivity = new LinkedHashSet<LaunchActivityBean>();
+	Set<ArticleBean> trackLaunchActivity = new LinkedHashSet<ArticleBean>();
 	
 	public MemberBean() {
 		super();
@@ -94,19 +94,19 @@ public class MemberBean {
 	
 	
 
-	public Set<LaunchActivityBean> getLaunchActivity() {
+	public Set<ArticleBean> getLaunchActivity() {
 		return launchActivity;
 	}
 
-	public void setLaunchActivity(Set<LaunchActivityBean> launchActivity) {
+	public void setLaunchActivity(Set<ArticleBean> launchActivity) {
 		this.launchActivity = launchActivity;
 	}
 
-	public Set<LaunchActivityBean> getTrackLaunchActivity() {
+	public Set<ArticleBean> getTrackLaunchActivity() {
 		return trackLaunchActivity;
 	}
 
-	public void setTrackLaunchActivity(Set<LaunchActivityBean> trackLaunchActivity) {
+	public void setTrackLaunchActivity(Set<ArticleBean> trackLaunchActivity) {
 		this.trackLaunchActivity = trackLaunchActivity;
 	}
 

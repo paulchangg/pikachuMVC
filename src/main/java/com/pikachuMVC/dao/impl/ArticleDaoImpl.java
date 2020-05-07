@@ -7,87 +7,82 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pikachuMVC.dao.FourmDao;
-import com.pikachuMVC.model.ForumBean;
-import com.pikachuMVC.model.LaunchActivityBean;
+import com.pikachuMVC.dao.ArticleDao;
+import com.pikachuMVC.model.ArticleClassificarionBean;
+import com.pikachuMVC.model.ArticleBean;
 import com.pikachuMVC.model.MemberBean;
-import com.pikachuMVC.model.Responser_foumBean;
+import com.pikachuMVC.model.ArticleResponserBean;
 
-@Service
-public class FourmDaoImpl implements FourmDao{
+@Repository
+public class ArticleDaoImpl implements ArticleDao{
 	
 	
 	@Autowired
     SessionFactory factory;
 
 	@Override
-	public void addFourm(int fourm,LaunchActivityBean launchActivity) {
+	public void addFourm(int fourm,ArticleBean launchActivity) {
 		
 		Session session = factory.getCurrentSession();
 		
-		ForumBean forumBean  = session.get(ForumBean.class,fourm);
+		ArticleClassificarionBean articleClassificarionBean  = session.get(ArticleClassificarionBean.class,fourm);
 		
 		MemberBean memberbean  = session.get(MemberBean.class, launchActivity.getMemberBean().getM_id());
 		
 		launchActivity.setMemberBean(memberbean);
 		
-		launchActivity.setSubject(forumBean.getFname());
+		launchActivity.setSubject(articleClassificarionBean.getFname());
 		
-		launchActivity.setForumBean(forumBean);
+		launchActivity.setForumBean(articleClassificarionBean);
 		
-		Set<LaunchActivityBean> beans = new LinkedHashSet();
+		Set<ArticleBean> beans = new LinkedHashSet();
 		
 		beans.add(launchActivity);
 		
-		forumBean.setActivitys(beans);
+		articleClassificarionBean.setActivitys(beans);
 		
 		memberbean.getLaunchActivity().add(launchActivity);
 		
 		
 		session.save(launchActivity);
-		session.save(forumBean);
+		session.save(articleClassificarionBean);
 		session.save(memberbean);
 		
 		
 	}
 
 	@Override
-	public List<LaunchActivityBean> listFourm() {
+	public List<ArticleBean> listFourm() {
 		
-//		Session session = factory.getCurrentSession();
-//		
-//		String hql = "FROM LaunchActivityBean";
-//		
-//		List<LaunchActivityBean> beans = session.createQuery(hql)
-//										.getResultList();
 		
-		return factory.getCurrentSession().createQuery("FROM LaunchActivityBean").getResultList();
+		return factory.getCurrentSession().createQuery("FROM ArticleBean").getResultList();
 	}
 
 	@Override
-	public LaunchActivityBean getSelectLaunchActivity(int launchActivityID) {
+	public ArticleBean getSelectLaunchActivity(int launchActivityID) {
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM LaunchActivityBean l where article_Id = :article_Id";
+		String hql = "FROM ArticleBean l where l.article_Id = :article_Id";
 		
-		LaunchActivityBean bean = (LaunchActivityBean)session.createQuery(hql)
+		ArticleBean bean = (ArticleBean)session.createQuery(hql)
 															 .setParameter("article_Id", launchActivityID)
 															 .getSingleResult();
 		return bean;
 	}
 
 	@Override
-	public void saveResponse(Responser_foumBean responser) {
+	public void saveResponse(ArticleResponserBean responser) {
 		
-		Set<Responser_foumBean> activitys = new LinkedHashSet();
+		Set<ArticleResponserBean> activitys = new LinkedHashSet();
 		
 		Session session = factory.getCurrentSession();
 		
-		LaunchActivityBean bean = session.get(LaunchActivityBean.class, responser.getArticleId());
+		ArticleBean bean = session.get(ArticleBean.class, responser.getArticleId());
 		
 		activitys = bean.getActivitys();
 		activitys.add(responser);
@@ -103,15 +98,15 @@ public class FourmDaoImpl implements FourmDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Responser_foumBean> getArticleResponse(int launchActivityID) {
+	public List<ArticleResponserBean> getArticleResponse(int launchActivityID) {
 		
 		
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM Responser_foumBean r WHERE r.articleId = :articleId ORDER BY r.res_id";
+		String hql = "FROM ArticleResponserBean r WHERE r.articleId = :articleId ORDER BY r.res_id";
 		
-		List<Responser_foumBean> beans	=session.createQuery(hql)
+		List<ArticleResponserBean> beans	=session.createQuery(hql)
 								   			.setParameter("articleId", launchActivityID)
 								   			.getResultList();
 		
@@ -125,7 +120,7 @@ public class FourmDaoImpl implements FourmDao{
 		
 		Session session = factory.getCurrentSession();
 		
-		LaunchActivityBean bean = session.get(LaunchActivityBean.class, launchActivityID);
+		ArticleBean bean = session.get(ArticleBean.class, launchActivityID);
 		
 		int count = bean.getAllWatch();
 		
@@ -143,7 +138,7 @@ public class FourmDaoImpl implements FourmDao{
 		
 		String hql1 = "DELETE FROM Responser_foumBean WHERE articleId = :articleId";
 		
-		String hql = "DELETE FROM LaunchActivityBean WHERE article_Id = :article_Id";
+		String hql = "DELETE FROM ArticleBean WHERE article_Id = :article_Id";
 		
 		session.createQuery(hql1)
 				.setParameter("articleId", launchActivityID)
@@ -159,21 +154,21 @@ public class FourmDaoImpl implements FourmDao{
 	public void saveTrackActivity(int article_id, String m_id) {
 		Session session = factory.getCurrentSession();
 		
-		LaunchActivityBean launchActivityBean = session.get(LaunchActivityBean.class, article_id);
+		ArticleBean articleBean = session.get(ArticleBean.class, article_id);
 		
 		MemberBean memberBean = session.get(MemberBean.class, m_id);
 		
-		Set<LaunchActivityBean> launchActivityBeans = memberBean.getLaunchActivity();
+		Set<ArticleBean> articleBeans = memberBean.getLaunchActivity();
 		
-		Set<MemberBean> memberBeans = launchActivityBean.getMemberBeans();
+		Set<MemberBean> memberBeans = articleBean.getMemberBeans();
 		
-		launchActivityBeans.add(launchActivityBean);
+		articleBeans.add(articleBean);
 		
 		memberBeans.add(memberBean);
 		
-		memberBean.setLaunchActivity(launchActivityBeans);
+		memberBean.setLaunchActivity(articleBeans);
 		
-		launchActivityBean.setMemberBeans(memberBeans);
+		articleBean.setMemberBeans(memberBeans);
 		
 		
 		
@@ -183,24 +178,24 @@ public class FourmDaoImpl implements FourmDao{
 	public void deleteTrackActivity(int article_id, String m_id) {
 		Session session = factory.getCurrentSession();
 		
-		LaunchActivityBean launchActivityBean = session.get(LaunchActivityBean.class, article_id);
+		ArticleBean articleBean = session.get(ArticleBean.class, article_id);
 		
 		MemberBean memberBean = session.get(MemberBean.class, m_id);
 		
-		launchActivityBean.getMemberBeans().remove(memberBean);
+		articleBean.getMemberBeans().remove(memberBean);
 		
-		memberBean.getLaunchActivity().remove(launchActivityBean);
+		memberBean.getLaunchActivity().remove(articleBean);
 		
 	}
 
 	@Override
-	public Set<LaunchActivityBean> listDifFourm(String fourm) {
+	public Set<ArticleBean> listDifFourm(String fourm) {
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM ForumBean r WHERE r.fname = :fname ";
+		String hql = "FROM ArticleClassificarionBean r WHERE r.fname = :fname ";
 		
-		ForumBean bean = (ForumBean)session.createQuery(hql)
+		ArticleClassificarionBean bean = (ArticleClassificarionBean)session.createQuery(hql)
 								.setParameter("fname", fourm)
 								.getSingleResult();
 		
@@ -209,14 +204,14 @@ public class FourmDaoImpl implements FourmDao{
 	}
 
 	@Override
-	public List<ForumBean> getforumBean() {
+	public List<ArticleClassificarionBean> getforumBean() {
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM ForumBean";
+		String hql = "FROM ArticleClassificarionBean";
 		
-		List<ForumBean> beans = session.createQuery(hql)
-									   .getResultList();
+		List<ArticleClassificarionBean> beans = session.createQuery(hql)
+									   					.getResultList();
 		return beans;
 	}
 
@@ -226,9 +221,9 @@ public class FourmDaoImpl implements FourmDao{
 		
 		Session session = factory.getCurrentSession();
 		
-		ForumBean bean = new ForumBean(null,"信用卡",null);
-		ForumBean bean1 = new ForumBean(null,"美食",null);
-		ForumBean bean2 = new ForumBean(null,"感情",null);
+		ArticleClassificarionBean bean = new ArticleClassificarionBean(null,"信用卡",null);
+		ArticleClassificarionBean bean1 = new ArticleClassificarionBean(null,"美食",null);
+		ArticleClassificarionBean bean2 = new ArticleClassificarionBean(null,"感情",null);
 		
 		session.save(bean);
 		session.save(bean1);
