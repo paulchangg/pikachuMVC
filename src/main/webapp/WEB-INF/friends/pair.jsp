@@ -57,7 +57,7 @@ pageEncoding="UTF-8"%>
               <a class="nav-link" href="#" id="qanda">Q & A</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="shoppingcart">
+              <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
                 <i class="fas fa-shopping-cart"></i>
               </a>
             </li>

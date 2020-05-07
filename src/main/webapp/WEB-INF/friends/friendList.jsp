@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,7 +41,11 @@ pageEncoding="UTF-8"%>
         <div class="row justify-content-around">
           <div class="col-sm">
             <a href="index copy.html">
-              <img src="../articleForum/images/logo2.png" alt="logo" style="height: 230px;" />
+              <img
+                src="../articleForum/images/logo2.png"
+                alt="logo"
+                style="height: 230px;"
+              />
             </a>
           </div>
         </div>
@@ -49,16 +53,30 @@ pageEncoding="UTF-8"%>
         <div class="col-sm">
           <ul class="nav justify-content-end" style="font-size: 17px;">
             <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
+              <a
+                class="nav-link"
+                href='<c:url value="/member/member_logout" />'
+                id="member_logout"
+                >會員登出</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/member/member_center" />' id="member_center">會員中心</a>
+              <a
+                class="nav-link"
+                href='<c:url value="/member/member_center" />'
+                id="member_center"
+                >會員中心</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="qanda">Q & A</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="shoppingcart">
+              <a
+                class="nav-link"
+                href='<c:url value="/shopping/listProduct" />'
+                id="shoppingcart"
+              >
                 <i class="fas fa-shopping-cart"></i>
               </a>
             </li>
@@ -75,9 +93,15 @@ pageEncoding="UTF-8"%>
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
         <a class="et-hero-tab" href="#aboutus">關於我們</a>
-        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
-        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'
+          >信用卡比較</a
+        >
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'
+          >論壇交友</a
+        >
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'
+          >商城</a
+        >
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -114,7 +138,10 @@ pageEncoding="UTF-8"%>
     <div class="container" style="padding-bottom: 25px; margin-left: 150px;">
       <div class="row">
         <div class="col">
-          <img src="../articleForum/images/cellphone.jpg" style="width: 80px; height: 60px;" />
+          <img
+            src="../articleForum/images/cellphone.jpg"
+            style="width: 80px; height: 60px;"
+          />
           <span class="badge badge-warning" style="font-size: 20px;"
             >好友列表</span
           >
@@ -170,7 +197,8 @@ pageEncoding="UTF-8"%>
         <div style="width: 50px;"></div>
         <!-- 中央好友列表 -->
         <div class="col-7">
-          <div id="friendList" 
+          <div
+            id="friendList"
             style="
               height: 600px;
               background-image: url('../articleForum/images/比卡丘馬力歐-1.png');
@@ -189,11 +217,6 @@ pageEncoding="UTF-8"%>
             style="width: 180px; height: 600px;"
           />
         </div>
-      
-      
-      
-      
-      
       </div>
     </div>
 
