@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文章頁面</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<c:url value="/articleForum/css/bootstrap.min.css"/>" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
       media="all"
@@ -43,7 +43,7 @@
           <!-- 發文者id -->
           <p class="article_m_id" style="padding: 0 0 0 17px;">${launchActivityBean.member_id}</p>
           <div style="padding-left: 360px;"></div>
-          <a href='<c:url value='/fourm/listforum'  />'>
+          <a href='<c:url value='/articleForum/listforum'  />'>
             <button type="button" class="btn btn-info btn-sm">
               回論壇首頁
               <br /><i class="fas fa-home"></i>
@@ -76,7 +76,7 @@
               <!-- 照片 -->
               <img
                 class="articleimage"
-                src="${pageContext.request.contextPath}/fourm/getPicture/${launchActivityBean.article_Id}"
+                src="${pageContext.request.contextPath}/articleForum/getPicture/${launchActivityBean.article_Id}"
                 style="max-height: 270px;"
               />
             </div>
@@ -350,7 +350,7 @@
           </div>
         </section>
         <!-- 立即回覆區---->
-        <form  method="post" action="<c:url value="/fourm/reponseActivity" />"  enctype="multipart/form-data">
+        <form  method="post" action="<c:url value="/articleForum/reponseActivity" />"  enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input
             type="text"

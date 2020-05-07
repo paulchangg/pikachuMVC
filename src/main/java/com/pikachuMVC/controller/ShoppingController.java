@@ -439,8 +439,21 @@ public ShoppingController() {}
 					
 	}
 	
-//	@GetMapping("/listProduct/{}")
-	
+	@GetMapping("/listProduct/{category}")
+	public String category(@PathVariable String category, HttpSession session) {
+		
+		List<ProductBean> beans = service.getCategoryProducts(category);
+		
+		Map<Integer,ProductBean> productsMap = null;
+		
+		for(ProductBean b : beans) {
+			productsMap.put(b.getP_id(), b);
+		}
+		
+		session.setAttribute("products_DPP", productsMap);
+		
+		return "shopping/shopping";
+	}
 	
 
 }

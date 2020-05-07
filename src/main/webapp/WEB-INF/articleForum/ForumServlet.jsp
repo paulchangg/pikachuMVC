@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -8,24 +8,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>論壇forum</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<c:url value="/articleForum/css/bootstrap.min.css"/>" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
       media="all"
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="css/forum.css" />
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/articleForum/css/forum.css"/>" />
+    <script src="<c:url value="/articleForum/js/jquery-3.4.1.js"/>"></script>
+    <script src=" <c:url value="/articleForum/js/popper.min.js"/>"></script>
+    <script src="<c:url value="/articleForum/js/bootstrap.min.js"/>"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js"
       type="text/javascript"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js"></script>
-    <script src="js/forum.js"></script>
+    <script src="<c:url value="/articleForum/js/forum.js"/>"></script>
   </head>
 
   <body>
@@ -41,7 +41,7 @@
         <div class="row justify-content-around">
           <div class="col-sm">
             <a href="index copy.html">
-              <img src="images/logo2.png" alt="logo" style="height: 230px;" />
+              <img src="<c:url value="/articleForum/images/logo2.png"/>" alt="logo" style="height: 230px;" />
             </a>
           </div>
         </div>
@@ -87,7 +87,7 @@
     <div class="card-group">
       <div class="card">
         <img
-          src="images/slider/slide_pic1.jpg"
+          src="<c:url value="/articleForum/images/slider/slide_pic1.jpg"/>"
           class="card-img-top"
           alt="..."
           height="340px"
@@ -107,9 +107,10 @@
           </p>
         </div>
       </div>
+      
       <div class="card">
         <img
-          src="images/slider/slide_pic2.jpg"
+          src="<c:url value="/articleForum/images/slider/slide_pic2.jpg"/>"
           class="card-img-top"
           alt="..."
         />
@@ -130,7 +131,7 @@
       </div>
       <div class="card">
         <img
-          src="images/slider/slide_pic4.jpg"
+          src="<c:url value="/articleForum/images/slider/slide_pic4.jpg"/>"
           class="card-img-top"
           alt="..."
         />
@@ -203,7 +204,7 @@
 
               <div class="modal-body">
                 <!-- 內容 -->
-                <form id="msform" action="<c:url value="/fourm/listforum" />" method="post" enctype="multipart/form-data">
+                <form id="msform" action="<c:url value="/articleForum/listforum" />" method="post" enctype="multipart/form-data">
                   <!-- 發文者頭像 -->
                   <div class="container">
                     <img
@@ -262,7 +263,7 @@
                       padding-top: 15px;
                     "
                   >
-                    標籤選擇
+                    	標籤選擇
                   </legend>
                   <div id="checkline">
                     <ul id="labels" class="center">
@@ -315,7 +316,7 @@
                       id="creditcards"
                     >
                       <a
-                        href="<c:url value='/fourm/listforum/信用卡' />"
+                        href="<c:url value='/articleForum/listforum/信用卡' />"
                         style="text-decoration: none; color: black;"
                         >信用卡</a
                       >
@@ -324,7 +325,7 @@
                   <li class="list-group-item">
                     <button type="button" class="btn btn-light" id="food">
                       <a
-                        href="<c:url value='/fourm/listforum/美食' />"
+                        href="<c:url value='/articleForum/listforum/美食' />"
                         style="text-decoration: none; color: black;"
                         >美食</a
                       >
@@ -333,10 +334,9 @@
                   <li class="list-group-item">
                     <button type="button" class="btn btn-light" id="emotion">
                       <a
-                        href="<c:url value='/fourm/listforum/感情' />"
+                        href="<c:url value='/articleForum/listforum/感情' />"
                         style="text-decoration: none; color: black;"
-                        >感情</a
-                      >
+                       >感情</a>
                     </button>
                   </li>
                 </ul>
@@ -352,8 +352,8 @@
               </a>
           </div>
           <!-- 假廣告圖 -->
-            <img src="images/ad_photo/burgerking.jpg" style="width: 200px; padding-top: 70px;padding-right: 10px;">
-            <img src="images/ad_photo/uniqlo.jpg" style="width: 200px; padding-top: 35px;padding-right: 10px;">
+            <img src="<c:url value="/articleForum/images/ad_photo/burgerking.jpg"/>" style="width: 200px; padding-top: 70px;padding-right: 10px;">
+            <img src="<c:url value="/articleForum/images/ad_photo/uniqlo.jpg"/>" style="width: 200px; padding-top: 35px;padding-right: 10px;">
         </div>
        
         <!-- 右側論壇 -->
@@ -462,7 +462,7 @@
                             </button>
                             <span>${entry.allWatch}</span>
                             <!-- 收藏 -->
-                            <form style="margin:0px; display:inline" method="post"    action="<c:url value='/fourm/track/${entry.article_Id}/${LoginOK.m_id}' />">
+                            <form style="margin:0px; display:inline" method="post"    action="<c:url value='/articleForum/track/${entry.article_Id}/${LoginOK.m_id}' />">
                             	<button
                              	 type="submit"
                              	 class="btn btn-link"
@@ -500,7 +500,7 @@
                       </div>
                       <!-- 連結到文章頁面  等首頁改好我再試試也改成互動式視窗-->
                       <div class="my-3">
-                        <a href='<c:url value='/fourm/reponseActivity/${entry.article_Id}' />' id="">${entry.article_title}</a>
+                        <a href='<c:url value='/articleForum/reponseActivity/${entry.article_Id}' />' id="">${entry.article_title}</a>
                       </div>
                       <!-- 文章內容的前幾個字 -->
                       <div class="article_content my-3">
@@ -536,7 +536,7 @@
                     >
                       <img
                         class="articleimage"
-                        src='${pageContext.request.contextPath}/fourm/getPicture/${entry.article_Id}'
+                        src='${pageContext.request.contextPath}/articleForum/getPicture/${entry.article_Id}'
                         style="max-width: 100%; max-height: 100%;"
                       />
                     </div>
@@ -630,7 +630,7 @@
                             	 </button>
                             </c:if>
                             <!-- 刪除 -->
-                            <form style="margin:0px; display:inline" method="post"    action="<c:url value='/fourm/deleteTrack/${entry10.article_Id}/${entry10.member_id}' />">
+                            <form style="margin:0px; display:inline" method="post"    action="<c:url value='/articleForum/deleteTrack/${entry10.article_Id}/${entry10.member_id}' />">
                             	<button
                               		type="submit"
                               		class="btn btn-link"
@@ -644,7 +644,7 @@
                       </div>
                       <!-- 連結到文章頁面 -->
                       <div class="my-3">
-                        <a href="<c:url value='/fourm/reponseActivity/${entry10.article_Id}' />" id="">${entry10.article_title}</a>
+                        <a href="<c:url value='/articleForum/reponseActivity/${entry10.article_Id}' />" id="">${entry10.article_title}</a>
                       </div>
                       <!-- 文章內容的前幾個字 -->
                       <div class="article_content my-3">
@@ -680,7 +680,7 @@
                     >
                       <img
                         class="articleimage"
-                        src="${pageContext.request.contextPath}/fourm/getPicture/${entry10.article_Id}"
+                        src="${pageContext.request.contextPath}/articleForum/getPicture/${entry10.article_Id}"
                         style="max-width: 100%; max-height: 100%;"
                       />
                     </div>
@@ -719,7 +719,7 @@
 
                   <div class="modal-body">
                     <!-- 內容 -->
-                    <form id="msform" action="<c:url value="/fourm/listforum" />" method="post" enctype="multipart/form-data">
+                    <form id="msform" action="<c:url value="/articleForum/listforum" />" method="post" enctype="multipart/form-data">
                       <!-- 發文者頭像 -->
                       <div class="container">
                         <img

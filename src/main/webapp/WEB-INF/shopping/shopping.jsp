@@ -103,10 +103,10 @@ crossorigin="anonymous" />
 
 	 <div class="row sider">
 		   <div class="col-2 sidderrone"><!--左邊選單-->
-			  <p><a href=""> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
+			  <p><a href='<c:url value='/shopping/listProduct'/>'> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
+			  <p><a href="<c:url value='/shopping/listProduct/吃貨歡樂劵'/>"> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
+			  <p><a href="<c:url value='/shopping/listProduct/放鬆娛樂劵'/>"> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
+			  <p><a href="<c:url value='/shopping/listProduct/外出旅遊券'/>"> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
 		   </div>
 		   <div class="col-10 sidderr2 "><!--中間商品-->
 			   <div class="row sreach" id="shopping_totalsearch">
