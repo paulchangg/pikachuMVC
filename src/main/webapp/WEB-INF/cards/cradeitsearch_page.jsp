@@ -41,8 +41,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+              <li class="nav-item">
+              <a class="nav-link" href="#" id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
             </li>
             <li class="nav-item">
                    <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
@@ -64,7 +64,7 @@
       <!-- 導覽列  超連結待補 -->
          <div class="et-hero-tabs-container">
            <a class="et-hero-tab" href="#aboutus">關於我們</a>
-           <a class="et-hero-tab" href="#memberarea">會員中心</a>
+           <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
            <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
            <a class="et-hero-tab" href="#mall">商城</a>
            <a class="et-hero-tab" href="#infoweb">資訊網</a>

@@ -7,50 +7,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pikachuMVC.dao.FourmDao;
-import com.pikachuMVC.model.LaunchActivityBean;
-import com.pikachuMVC.model.ResponserBean;
-import com.pikachuMVC.service.FourmService;
+import com.pikachuMVC.dao.ArticleDao;
+import com.pikachuMVC.model.ArticleClassificarionBean;
+import com.pikachuMVC.model.ArticleBean;
+import com.pikachuMVC.model.ArticleResponserBean;
+import com.pikachuMVC.service.ArticleService;
 
 @Service
-public class FourmServiceImpl implements FourmService {
+public class ArticleServiceImpl implements ArticleService {
 	
 	@Autowired
-	FourmDao dao;
+	ArticleDao dao;
 
 	@Override
 	@Transactional
-	public void addFourm(int fourm,LaunchActivityBean launchActivity) {
+	public void addFourm(int fourm,ArticleBean launchActivity) {
 		dao.addFourm(fourm, launchActivity);
 	}
 
 	@Override
 	@Transactional
-	public List<LaunchActivityBean> listFourm() {
-		List<LaunchActivityBean> beans = null;
+	public List<ArticleBean> listFourm() {
+		List<ArticleBean> beans = null;
 		beans = dao.listFourm();
 		return beans;
 	}
 
 	@Override
 	@Transactional
-	public LaunchActivityBean getSelectLaunchActivity(int launchActivityID) {
-		LaunchActivityBean bean = null;
+	public ArticleBean getSelectLaunchActivity(int launchActivityID) {
+		ArticleBean bean = null;
 		bean = dao.getSelectLaunchActivity(launchActivityID);
 		return bean;
 	}
 
 	@Override
 	@Transactional
-	public void saveResponse(ResponserBean responser) {
+	public void saveResponse(ArticleResponserBean responser) {
 		dao.saveResponse(responser);
 		
 	}
 
 	@Override
 	@Transactional
-	public List<ResponserBean> getArticleResponse(int launchActivityID) {
-		List<ResponserBean> beans = null;
+	public List<ArticleResponserBean> getArticleResponse(int launchActivityID) {
+		List<ArticleResponserBean> beans = null;
 		beans = dao.getArticleResponse(launchActivityID);
 		return beans;
 	}
@@ -83,9 +84,15 @@ public class FourmServiceImpl implements FourmService {
 
 	@Override
 	@Transactional
-	public Set<LaunchActivityBean> listDifFourm(String fourm) {
-		Set<LaunchActivityBean> beans = dao.listDifFourm(fourm);
+	public Set<ArticleBean> listDifFourm(String fourm) {
+		Set<ArticleBean> beans = dao.listDifFourm(fourm);
 		return beans;
+	}
+
+	@Override
+	@Transactional
+	public List<ArticleClassificarionBean> getforumBean() {
+		return dao.getforumBean();
 	}
 
 	

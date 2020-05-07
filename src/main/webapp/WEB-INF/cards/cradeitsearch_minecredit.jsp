@@ -38,12 +38,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
              </li>
+             
             <li class="nav-item">
               <a class="nav-link" href="#" id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#" id="shoppingcart">
                 <i class="fas fa-shopping-cart"></i>
@@ -78,15 +80,11 @@
             </div>
       </div>
 
-<<<<<<< HEAD
+
  			
        			<main id=mm class="col-8 main"><!--結果呈現區塊-->
        		   <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
-=======
 
-       <main class="col-8 main"><!--結果呈現區塊-->
-              <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
->>>>>>> f8b708029145d0ff86c9a9cdcb6c342e7ee2ea75
                <div class="box"> <!--特效區塊需要當外層-->
               
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -95,10 +93,7 @@
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1090" y1="0" x2="1090" y2="160"/>
                   </svg>
-<<<<<<< HEAD
-                 
-=======
->>>>>>> f8b708029145d0ff86c9a9cdcb6c342e7ee2ea75
+
                     <div class="onecard"  name="${entry.value.bank}">
                        <span id="">${entry.value.c_name}</span> <!--卡名-->
                         <div class="row">
@@ -125,14 +120,12 @@
                            <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                       </div>
                     </div>
-<<<<<<< HEAD
+
                     
                  </div>
                  </c:forEach> 
-=======
-                 </div>
-              </c:forEach> 
->>>>>>> f8b708029145d0ff86c9a9cdcb6c342e7ee2ea75
+
+
        </main>
 
 

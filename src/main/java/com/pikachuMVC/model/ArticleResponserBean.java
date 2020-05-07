@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "responser")
-public class ResponserBean {
+@Table(name = "Article_responser")
+public class ArticleResponserBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,13 +29,13 @@ public class ResponserBean {
 	@ManyToOne
 	@JoinColumn(name = "article_Id")
 	//此回應屬於哪一個文章    一對多的  多方
-	private LaunchActivityBean launchActivityBean;
+	private ArticleBean articleBean;
 	
 	
 	private String res_post_time;
 	
 	
-	public ResponserBean() {}
+	public ArticleResponserBean() {}
 	
 	
 
@@ -43,14 +43,14 @@ public class ResponserBean {
 	
 	
 
-	public ResponserBean(Integer res_id, String m_id, Integer articleId, String res_content,
-			LaunchActivityBean launchActivityBean,String res_post_time) {
+	public ArticleResponserBean(Integer res_id, String m_id, Integer articleId, String res_content,
+			ArticleBean articleBean,String res_post_time) {
 		super();
 		this.res_id = res_id;
 		this.m_id = m_id;
 		this.articleId = articleId;
 		this.res_content = res_content;
-		this.launchActivityBean = launchActivityBean;
+		this.articleBean = articleBean;
 		this.res_post_time = res_post_time;
 	}
 
@@ -113,12 +113,12 @@ public class ResponserBean {
 		this.res_content = res_content;
 	}
 
-	public LaunchActivityBean getLaunchActivityBean() {
-		return launchActivityBean;
+	public ArticleBean getLaunchActivityBean() {
+		return articleBean;
 	}
 
-	public void setLaunchActivityBean(LaunchActivityBean launchActivityBean) {
-		this.launchActivityBean = launchActivityBean;
+	public void setLaunchActivityBean(ArticleBean articleBean) {
+		this.articleBean = articleBean;
 	}
 	
 	

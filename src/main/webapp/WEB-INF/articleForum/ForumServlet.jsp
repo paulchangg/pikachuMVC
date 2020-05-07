@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>分類看板文章-感情</title>
+    <title>論壇forum</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
@@ -14,8 +15,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="css/article_board.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <link rel="stylesheet" href="css/forum.css" />
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -83,203 +83,213 @@
       </div>
     </div>
 
-    <!-- 看板門面圖 -->
+    <!-- 上方文章卡片 x3 ----超連結待補------>
     <div class="card-group">
       <div class="card">
         <img
-          src="images/board/article_board_1.jpg"
+          src="images/slider/slide_pic1.jpg"
           class="card-img-top"
-          style="height: 340px;"
+          alt="..."
+          height="340px"
         />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              最新熱門景點
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >3月20日發布</small
+            >
+          </p>
+        </div>
       </div>
       <div class="card">
         <img
-        src="images/board/article_board_2.jpg"
-        class="card-img-top"
-          style="height: 340px;"
+          src="images/slider/slide_pic2.jpg"
+          class="card-img-top"
+          alt="..."
         />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              台新卡友來來來
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >3月25日發布</small
+            >
+          </p>
+        </div>
       </div>
       <div class="card">
         <img
-        src="images/board/article_board_3.jpg"
-        class="card-img-top"
-          style="height: 340px;"
+          src="images/slider/slide_pic4.jpg"
+          class="card-img-top"
+          alt="..."
         />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              神卡分享
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >2月28日發布</small
+            >
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- 分隔列 -->
-    <div class="second_line"></div>
+    <!-- 分隔列---->
+    <div class="second_line">
+      <span class="friendshipforum"></span>
+    </div>
 
-    <div class="container" style="padding-bottom: 25px; margin-left: 150px;">
-      <div class="row">
-        <div class="col">
-          <img src="images/board/food.jpg" style="width: 80px; height: 55px;" />
-          <span class="badge badge-warning" style="font-size: 20px;">${fourmName}</span>
-        </div>
-        <div class="col">
-          <!-- 發文按鈕 -->
-          <div
-            class="d-flex flex-row-reverse bd-highlight"
-            style="padding-top: 7px;"
-          >
-            <div
-              class="btn-group btn-group-sm"
-              role="group"
-              aria-label="Basic example"
-              style="font-size: 20px;"
-            >
-              <!-- Button trigger modal -->
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
-              >
-                發布新文章
-                <br /><i class="far fa-edit"></i>
-              </button>
+    <!-- 發文按鈕 -->
+    <div
+      class="d-flex flex-row-reverse bd-highlight"
+      style="padding-top: 7px; padding-right: 10px; margin-right: 70px;"
+    >
+      <div
+        class="btn-group btn-group-sm"
+        role="group"
+        aria-label="Basic example"
+        style="font-size: 20px;"
+      >
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          發布新文章
+          <br /><i class="far fa-edit"></i>
+        </button>
 
-              <a href="forum.html">
-                <button type="button" class="btn btn-info btn-sm">
-                  回論壇首頁
-                  <br /><i class="fas fa-home"></i>
+        <!-- Modal 跳出頁面 -->
+        <div
+          class="modal fade"
+          id="exampleModalLong"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- 叉叉按鈕 -->
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
                 </button>
-               </a>
-
-              <!-- Modal 跳出頁面 -->
-              <div
-                class="modal fade"
-                id="exampleModalLong"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLongTitle"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <!-- 叉叉按鈕 -->
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-                      <!-- 內容 -->
-                      <form id="msform">
-                        <!-- 發文者頭像 -->
-                        <div class="container">
-                          <img
-                            src="images/id_photo/memberphoto_6.png"
-                            alt="profile-sample5"
-                            id="memberid_img"
-                          />
-                          <span style="font-size: 0.6em; color: #3e8bbe;"
-                            >發文者</span
-                          ><span
-                            id="article_m_id"
-                            style="font-size: 0.8em; text-align: left;"
-                            ;
-                            >豬血糕不要香菜</span
-                          >
-                        </div>
-                        <hr />
-
-                        <div class="bd-highlight" style="font-size: small;">
-                          發文看板
-                          <!-- 發文看板選擇 -->
-                          <select id="select_area">
-                            <option value="請選擇">請選擇</option>
-                            <option value="creditcards">信用卡</option>
-                            <option value="food">美食</option>
-                            <option value="emotion">感情</option>
-                          </select>
-                        </div>
-
-                        <h1 class="fs-title">文章標題</h1>
-                        <input
-                          type="text"
-                          name="article_title"
-                          placeholder="標題"
-                        />
-                        <!-- 輸入內文 -->
-                        <h1 class="fs-title">文章內文</h1>
-                        <p class="text">
-                          <textarea
-                            name="text"
-                            class="validate[required,length[6,300]] feedback-input"
-                            id="article_content"
-                            placeholder="內文"
-                            style="height: 300px;"
-                          ></textarea>
-                        </p>
-
-                        <!-- 上傳圖片的按鈕 -->
-                        <h1 class="fs-title">文章照片</h1>
-                        <div class="articleimage" style="padding-bottom: 5px;">
-                          <input
-                            id="input-b6"
-                            name="input-b6[]"
-                            type="file"
-                            multiple
-                          />
-                        </div>
-
-                        <!-- 文章標籤選擇 標籤意思跟主題一樣-->
-                        <legend
-                          style="
-                            font-size: 13px;
-                            padding-bottom: 7px;
-                            padding-top: 15px;
-                          "
-                        >
-                          標籤選擇
-                        </legend>
-                        <div id="checkline">
-                          <ul id="labels" class="center">
-                            <li>
-                              <input class="subject" type="checkbox" />信用卡
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />美食
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />感情
-                            </li>
-                            <li><input class="subject" type="checkbox" />讚</li>
-                            <li>
-                              <input class="subject" type="checkbox" />我就爛
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />口袋空空
-                            </li>
-                          </ul>
-                        </div>
-                      </form>
-                    </div>
-
-                    <!-- 底部按鈕 -->
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary btn-sm"
-                        data-dismiss="modal"
-                      >
-                        返回
-                      </button>
-                      <button type="button" class="btn btn-primary btn-sm">
-                        送出
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
+
+              <div class="modal-body">
+                <!-- 內容 -->
+                <form id="msform" action="<c:url value="/fourm/listforum" />" method="post" enctype="multipart/form-data">
+                  <!-- 發文者頭像 -->
+                  <div class="container">
+                    <img
+                      src="${pageContext.request.contextPath}/init/getMemberImage?id=${LoginOK.m_id}"
+                      alt="profile-sample5"
+                      id="memberid_img"
+                    />
+                    <span style="font-size: 0.6em; color: #3e8bbe;">發文者</span
+                    ><span id="article_m_id" style="font-size: 0.8em;"
+                      >:${LoginOK.m_id}</span
+                    >
+                  </div>
+                  <hr />
+
+                  <div class="bd-highlight" style="font-size: small;">
+                    發文看板
+                    <!-- 發文看板選擇 -->
+                    <select name="select_fourm">
+  						<option value ="1">信用卡</option>
+  						<option value ="2">美食</option>
+  						<option value="3">感情</option>
+                    	<option value ="4" SELECTED>請選擇</option>	
+					</select>
+                  </div>
+
+                  <h1 class="fs-title">文章標題</h1>
+                  <input type="text" name="article_title" placeholder="標題" />
+                  <!-- 輸入內文 -->
+                  <h1 class="fs-title">文章內文</h1>
+                  <p class="text">
+                    <textarea
+                      name="text"
+                      class="validate[required,length[6,300]] feedback-input"
+                      id="article_content"
+                      placeholder="內文"
+                      style="height: 300px;"
+                    ></textarea>
+                  </p>
+
+                  <!-- 上傳圖片的按鈕 -->
+                  <h1 class="fs-title">文章照片</h1>
+                  <div class="articleimage" style="padding-bottom: 5px;">
+                    <input
+                      id="input-b6"
+                      name="imageFile"
+                      type="file"
+                      multiple
+                    />
+                  </div>
+
+                  <!-- 文章標籤選擇 標籤意思跟主題一樣-->
+                  <legend
+                    style="
+                      font-size: 13px;
+                      padding-bottom: 7px;
+                      padding-top: 15px;
+                    "
+                  >
+                    標籤選擇
+                  </legend>
+                  <div id="checkline">
+                    <ul id="labels" class="center">
+                      <li><input class="subject" type="checkbox" />信用卡</li>
+                      <li><input class="subject" type="checkbox" />美食</li>
+                      <li><input class="subject" type="checkbox" />感情</li>
+                      <li><input class="subject" type="checkbox" />讚</li>
+                      <li><input class="subject" type="checkbox" />我就爛</li>
+                      <li><input class="subject" type="checkbox" />口袋空空</li>
+                    </ul>
+                  </div>
+              <!-- 底部按鈕 -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-dismiss="modal"
+                >
+                  返回
+                </button>
+                <button type="submit" class="btn btn-primary btn-sm">
+                  送出
+                </button>
+              </div>
+                </form>
+              </div>
+
             </div>
           </div>
         </div>
@@ -292,22 +302,60 @@
         <!-- 左側button-->
         <div class="col-2">
           <div class="my-3">
-            <a class="nav-link" href="allboards.html" style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">所有看板</button>
-              </a>
-            </div>
-            <div class="my-3">
-              <a class="nav-link" href="activity_page.html" style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">交友活動 </button>
-               </a>
-            </div>
-            <div class="my-3">
-              <a class="nav-link" href="#" style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">配對</button>
-                </a>
+            <a class="nav-link"  style="padding: 0px;">
+            <button type="button" class="btn btn-outline-success " ">所有看板</button>
+            </a>
+            <div style="padding: 10px 0 10px 0;"></div>
+                <!-- 分類看板 -->
+                <ul class="list-group list-group-flush" style="width: 250px;">
+                  <li class="list-group-item">
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      id="creditcards"
+                    >
+                      <a
+                        href="<c:url value='/fourm/listforum/信用卡' />"
+                        style="text-decoration: none; color: black;"
+                        >信用卡</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="food">
+                      <a
+                        href="<c:url value='/fourm/listforum/美食' />"
+                        style="text-decoration: none; color: black;"
+                        >美食</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="emotion">
+                      <a
+                        href="<c:url value='/fourm/listforum/感情' />"
+                        style="text-decoration: none; color: black;"
+                        >感情</a
+                      >
+                    </button>
+                  </li>
+                </ul>
           </div>
-          <img src="images/ad_photo/pazzo.jpg" style="height:420px; width:180px; padding-top: 40px;padding-right: 10px;">
+          <div class="my-3">
+            <a class="nav-link" href="activity_page.html" style="padding: 0px;">
+            <button type="button" class="btn btn-outline-success">交友活動 </button>
+             </a>
+          </div>
+          <div class="my-3">
+            <a class="nav-link" href="#" style="padding: 0px;">
+            <button type="button" class="btn btn-outline-success">配對</button>
+              </a>
+          </div>
+          <!-- 假廣告圖 -->
+            <img src="images/ad_photo/burgerking.jpg" style="width: 200px; padding-top: 70px;padding-right: 10px;">
+            <img src="images/ad_photo/uniqlo.jpg" style="width: 200px; padding-top: 35px;padding-right: 10px;">
         </div>
+       
         <!-- 右側論壇 -->
         <div class="col-9">
           <!-- 上方tab -->
@@ -350,7 +398,7 @@
               <!-- 下方論壇卡片 -->
               <div class="container">
 			   <!-- 卡片一 -->
-                <c:forEach varStatus="stVar"  var="entry"  items="${LaunchActivityBean_love}">
+                <c:forEach varStatus="stVar"  var="entry"  items="${LaunchActivityBean}">
                  <div class="card my-2">
                   <div class="row">
                     <!-- 左側頭像 -->
@@ -380,7 +428,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">信用卡</a>
+                            <a href="article_board_credit card.html">${entry.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->
@@ -456,7 +504,7 @@
                       </div>
                       <!-- 文章內容的前幾個字 -->
                       <div class="article_content my-3">
-                        	<c:forEach varStatus="stVar2"  var="entry2"  items="${article_content_love}">
+                        	<c:forEach varStatus="stVar2"  var="entry2"  items="${article_content}">
                         	 	<c:if test="${stVar2.count == stVar.count}">
                         	 		${entry2}
                         	 	</c:if>
@@ -473,7 +521,7 @@
                       >
                        		 回應
                         <span class="total_reply">
-                        	 <c:forEach varStatus="stVar1"  var="entry1"  items="${responserCount_love}">
+                        	 <c:forEach varStatus="stVar1"  var="entry1"  items="${responserCount}">
                         	 	<c:if test="${stVar1.count == stVar.count}">
                         	 		${entry1}
                         	 	</c:if>
@@ -495,11 +543,6 @@
                   </div>
                 </div>
                 </c:forEach>
-
-
-
-               
-
               </div>
             </div>
 
@@ -512,7 +555,7 @@
             >
               <!-- 下方論壇卡片 -->
               <div class="container">
-					<c:forEach varStatus="stVar10"  var="entry10"  items="${trackBeans}">
+				<c:forEach varStatus="stVar10"  var="entry10"  items="${trackBeans}">
                 <!-- 卡片一 -->
                 <div class="card my-2">
                   <div class="row">
@@ -543,7 +586,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">信用卡</a>
+                            <a href="article_board_credit card.html">${entry10.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->
@@ -644,52 +687,12 @@
                   </div>
                 </div>
                 </c:forEach>
+				
+				
               </div>
             </div>
 
-            <!-- 跳出收藏頁面  collect Modal  -->
-            <div
-              class="modal fade"
-              id="collect"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="collectTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5
-                      class="modal-title"
-                      id="collectTitle"
-                      style="font-size: 18px; color: rgb(78, 73, 73);"
-                    >
-                      此文章已加入收藏
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary btn-sm"
-                      data-dismiss="modal"
-                    >
-                      關閉
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      取消收藏
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <!-- 跳出修改頁面 revise Modal  -->
             <div
@@ -716,11 +719,11 @@
 
                   <div class="modal-body">
                     <!-- 內容 -->
-                    <form id="msform">
+                    <form id="msform" action="<c:url value="/fourm/listforum" />" method="post" enctype="multipart/form-data">
                       <!-- 發文者頭像 -->
                       <div class="container">
                         <img
-                          src="images/id_photo/memberphoto_6.png"
+                          src="./images/id_photo/memberphoto_6.png"
                           alt="profile-sample5"
                           id="memberid_img"
                         />
@@ -737,9 +740,9 @@
                         <!-- 發文看板選擇 -->
                         <select id="select_area">
                           <option value="請選擇">請選擇</option>
-                          <option value="creditcards">信用卡</option>
-                          <option value="food">美食</option>
-                          <option value="emotion">感情</option>
+                          <option value="1">信用卡</option>
+                          <option value="2">美食</option>
+                          <option value="3">感情</option>
                         </select>
                       </div>
 
@@ -835,7 +838,7 @@
                       id="deleteTitle"
                       style="font-size: 18px; color: rgb(78, 73, 73);"
                     >
-                      確定要刪除此文章嗎？
+                      	確定要刪除此文章嗎？
                     </h5>
                     <button
                       type="button"
@@ -852,10 +855,10 @@
                       class="btn btn-secondary btn-sm"
                       data-dismiss="modal"
                     >
-                      關閉
+                   		   關閉
                     </button>
                     <button type="button" class="btn btn-primary btn-sm">
-                      確定刪除
+                      	確定刪除
                     </button>
                   </div>
                 </div>
@@ -889,7 +892,7 @@
       </ul>
     </nav>
 
-    <!-- 底部 ---------------------------->
+    <!-- 底部 ------>
     <div id="backtop" class="gotop">
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved

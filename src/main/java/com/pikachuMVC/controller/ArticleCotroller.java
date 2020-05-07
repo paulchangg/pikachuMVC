@@ -34,22 +34,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.pikachuMVC.model.LaunchActivityBean;
+import com.pikachuMVC.model.ArticleBean;
 import com.pikachuMVC.model.MemberBean;
-import com.pikachuMVC.model.ResponserBean;
-import com.pikachuMVC.service.FourmService;
+import com.pikachuMVC.model.ArticleResponserBean;
+import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.MemberService;
 
 import init.GlobalService;
 
 @Controller
 @RequestMapping("/fourm")
-public class FourmCotroller {
+public class ArticleCotroller {
 	
 	
 	
 	@Autowired
-	FourmService service;
+	ArticleService service;
 	
 	@Autowired
 	MemberService memberService;
@@ -64,20 +64,20 @@ public class FourmCotroller {
 		
 		MemberBean mb = memberService.queryMember(m.getM_id());
 		
-		Set<LaunchActivityBean> trackBeans = mb.getTrackLaunchActivity();
+		Set<ArticleBean> trackBeans = mb.getTrackLaunchActivity();
 		
 		List<Integer> trackArticle_responserCount = new ArrayList<Integer>();
 		
 		List<String> trackArticle_content = new ArrayList<String>();
 		
-		List<LaunchActivityBean> beans = service.listFourm();
+		List<ArticleBean> beans = service.listFourm();
 		
 		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
 		List<String> article_content = new ArrayList<String>();
 		
 		
-		for(  LaunchActivityBean b : trackBeans) {
+		for(  ArticleBean b : trackBeans) {
 			trackArticle_responserCount.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
 				trackArticle_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
@@ -88,7 +88,7 @@ public class FourmCotroller {
 		
 		
 		
-		for(LaunchActivityBean b : beans) {
+		for(ArticleBean b : beans) {
 			responserCount1.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
 				article_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
@@ -110,13 +110,13 @@ public class FourmCotroller {
 		
 		session.setAttribute("LaunchActivityBean", beans);
 		
-		return "fourm/ForumServlet";
+		return "articleForum/ForumServlet";
 	}
 	
 	@PostMapping("/listforum")
 	public String addForum(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile, HttpSession session) throws IllegalStateException, IOException, SQLException {
 		String filePathPrefix = null;
-		LaunchActivityBean bean = null;
+		ArticleBean bean = null;
 		String fileName = imageFile.getOriginalFilename();
 		int forum;
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
@@ -125,19 +125,19 @@ public class FourmCotroller {
 
 			filePathPrefix = session.getServletContext().getRealPath("./");
 			
-			File dir = new File(filePathPrefix, "/static/uploads/" + fileName); 
-			
+			File dir = new File(filePathPrefix, "\\static\\uploads\\" + fileName); 
+
 			if (!dir.exists()) {
 				dir.mkdirs();
 			}else {
-				 System.out.println("创建目录" + filePathPrefix + "/static/uploads/" + fileName + "失败！"); 
+				 System.out.println("创建目录" + filePathPrefix + "\\static\\uploads\\" + fileName + "失败！"); 
 			}
 
-			imageFile.transferTo(new File(filePathPrefix, "/static/uploads/" + fileName));
+			imageFile.transferTo(new File(filePathPrefix, "\\static\\uploads\\" + fileName));
 			
-			Blob img = GlobalService.fileToBlob(filePathPrefix +  "/static/uploads/" + fileName);
+			Blob img = GlobalService.fileToBlob(filePathPrefix +  "\\static\\uploads\\" + fileName);
 
-			session.setAttribute("imagepath", "/static/uploads/" + fileName);
+			session.setAttribute("imagepath", "\\static\\uploads\\" + fileName);
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date today = new Date();   									// 新增訂單的時間
@@ -146,7 +146,7 @@ public class FourmCotroller {
 			String select_fourm = request.getParameter("select_fourm");
 			String text = request.getParameter("text");
 			
-			bean = new LaunchActivityBean(null, mb, article_title,text, img, null, sdf.format(today), 0, fileName, null,null,mb.getM_id());
+			bean = new ArticleBean(null, mb, article_title,text, img, null, sdf.format(today), 0, fileName, null,null,mb.getM_id());
 			
 			try {
 				forum = Integer.valueOf(select_fourm);
@@ -163,7 +163,7 @@ public class FourmCotroller {
 
 			}
 		
-		return "forum/ForumServlet";
+		return "articleForum/ForumServlet";
 	}
 	
 	@GetMapping("/getPicture/{articletId}")
@@ -175,7 +175,7 @@ public class FourmCotroller {
 		HttpHeaders headers = new HttpHeaders();
 		String filename = "";
 		int len = 0;
-		LaunchActivityBean bean = service.getSelectLaunchActivity(articletId);
+		ArticleBean bean = service.getSelectLaunchActivity(articletId);
 		if (bean != null) {
 			Blob blob = bean.getArticleImage();
 			filename = bean.getArticleImage_Name();
@@ -197,7 +197,7 @@ public class FourmCotroller {
 		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
 		String mimeType = context.getMimeType(filename);   
 		MediaType mediaType = MediaType.valueOf(mimeType);
-		System.out.println("mediaType =" + mediaType);
+		
 		headers.setContentType(mediaType);
 		ResponseEntity<byte[]> responseEntity = 
 				new ResponseEntity<>(media, headers, HttpStatus.OK);
@@ -230,23 +230,23 @@ public class FourmCotroller {
 		
 		service.addAllWatch(activityId);
 		
-		LaunchActivityBean launchActivityBean =  service.getSelectLaunchActivity(activityId);
+		ArticleBean articleBean =  service.getSelectLaunchActivity(activityId);
 		
-		session.setAttribute("launchActivityBean", launchActivityBean);
+		session.setAttribute("launchActivityBean", articleBean);
 		
 		
 		
 		
 		//取名要跟@GetMapping("/listforum")不一樣  不然session會因為同名蓋過
 		
-		List<ResponserBean>	beans =	service.getArticleResponse(activityId);
+		List<ArticleResponserBean>	beans =	service.getArticleResponse(activityId);
 		
 		
 		
 		
 		session.setAttribute("responserBeans", beans);
 		
-		session.setAttribute("responserCount1", launchActivityBean.getActivitys().size());
+		session.setAttribute("responserCount1", articleBean.getActivitys().size());
 		
 		return "redirect:/fourm/reponseActivity";
 	}
@@ -256,7 +256,7 @@ public class FourmCotroller {
 		
 		
 		
-		return "fourm/Launch_activityServlet";
+		return "articleForum/Launch_activityServlet";
 	}
 	
 	@PostMapping("/reponseActivity")
@@ -271,15 +271,15 @@ public class FourmCotroller {
 		Date today = new Date();
 		
 		
-		ResponserBean bean = new ResponserBean(null, m_id, article_Id, res_content, null,sdf.format(today));
+		ArticleResponserBean bean = new ArticleResponserBean(null, m_id, article_Id, res_content, null,sdf.format(today));
 		
 		service.saveResponse(bean);
 		
-		List<ResponserBean>	beans =	service.getArticleResponse(article_Id);
+		List<ArticleResponserBean>	beans =	service.getArticleResponse(article_Id);
 		
-		LaunchActivityBean launchActivityBean =  service.getSelectLaunchActivity(article_Id);
+		ArticleBean articleBean =  service.getSelectLaunchActivity(article_Id);
 		
-		session.setAttribute("responserCount1", launchActivityBean.getActivitys().size());
+		session.setAttribute("responserCount1", articleBean.getActivitys().size());
 		
 		session.setAttribute("responserBeans", beans);
 	
@@ -317,7 +317,7 @@ public class FourmCotroller {
 	@GetMapping("/allboards")
 	public String listBoards() {
 		
-		return "fourm/allboards";
+		return "articleForum/allboards";
 	}
 	
 	@GetMapping("/listforum/{fourmName}")
@@ -328,20 +328,20 @@ public class FourmCotroller {
 		
 		MemberBean mb = memberService.queryMember(m.getM_id());
 		
-		Set<LaunchActivityBean> trackBeans = mb.getTrackLaunchActivity();
+		Set<ArticleBean> trackBeans = mb.getTrackLaunchActivity();
 		
 		List<Integer> trackArticle_responserCount = new ArrayList<Integer>();
 		
 		List<String> trackArticle_content = new ArrayList<String>();
 		
-		Set<LaunchActivityBean> beans = service.listDifFourm(fourmName);
+		Set<ArticleBean> beans = service.listDifFourm(fourmName);
 		
 		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
 		List<String> article_content = new ArrayList<String>();
 		
 		
-		for(  LaunchActivityBean b : trackBeans) {
+		for(  ArticleBean b : trackBeans) {
 			trackArticle_responserCount.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
 				trackArticle_content.add(b.getArticle_content().substring(0, b.getArticle_content().length()));
@@ -352,7 +352,7 @@ public class FourmCotroller {
 		
 		
 		
-		for(LaunchActivityBean b : beans) {
+		for(ArticleBean b : beans) {
 			
 			responserCount1.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
@@ -382,6 +382,6 @@ public class FourmCotroller {
 	
 	@GetMapping("/article_board")
 	public String article_board() {
-		return "fourm/article_board";
+		return "articleForum/article_board";
 	}
 }

@@ -21,8 +21,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "launch_activity")
-public class LaunchActivityBean {
+@Table(name = "article")
+public class ArticleBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,11 +60,11 @@ public class LaunchActivityBean {
 	//  此文章屬於哪個看板     一對多的   多方
 	@ManyToOne
 	@JoinColumn(name = "f_id")
-	private ForumBean forumBean;
+	private ArticleClassificarionBean articleClassificarionBean;
 	
 	// 此文章有哪些回應文章      一對多的   一方
-	@OneToMany(mappedBy = "launchActivityBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	Set<ResponserBean> activitys = new LinkedHashSet();
+	@OneToMany(mappedBy = "articleBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	Set<ArticleResponserBean> activitys = new LinkedHashSet();
 	
 	
 	//會員ID
@@ -73,7 +73,7 @@ public class LaunchActivityBean {
 	private MemberBean memberBean;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_activity", catalog = "pikachuDB",
+	@JoinTable(name = "member_article", catalog = "pikachuDB",
 	   joinColumns ={
 			   @JoinColumn(name = "activity_id", nullable = false, updatable = false)
 	   },
@@ -83,7 +83,7 @@ public class LaunchActivityBean {
 	   )
 	private Set<MemberBean> memberBeans = new LinkedHashSet();
 	
-	public LaunchActivityBean() {};
+	public ArticleBean() {};
 	
 	
 	
@@ -91,9 +91,9 @@ public class LaunchActivityBean {
 	
 
 
-	public LaunchActivityBean(Integer article_Id, MemberBean memberBean, String article_title, String article_content,
+	public ArticleBean(Integer article_Id, MemberBean memberBean, String article_title, String article_content,
 			Blob articleImage, String subject, String post_time, Integer allWatch, String articleImage_Name,
-			ForumBean forumBean, Set<ResponserBean> activitys,String member_id) {
+			ArticleClassificarionBean articleClassificarionBean, Set<ArticleResponserBean> activitys,String member_id) {
 		super();
 		this.article_Id = article_Id;
 		this.memberBean = memberBean;
@@ -104,7 +104,7 @@ public class LaunchActivityBean {
 		this.post_time = post_time;
 		this.allWatch = allWatch;
 		this.articleImage_Name = articleImage_Name;
-		this.forumBean = forumBean;
+		this.articleClassificarionBean = articleClassificarionBean;
 		this.activitys = activitys;
 		this.member_id = member_id;
 	}
@@ -205,12 +205,12 @@ public class LaunchActivityBean {
 	}
 
 
-	public Set<ResponserBean> getActivitys() {
+	public Set<ArticleResponserBean> getActivitys() {
 		return activitys;
 	}
 
 
-	public void setActivitys(Set<ResponserBean> activitys) {
+	public void setActivitys(Set<ArticleResponserBean> activitys) {
 		this.activitys = activitys;
 	}
 
@@ -267,14 +267,14 @@ public class LaunchActivityBean {
 
 
 
-	public ForumBean getForumBean() {
-		return forumBean;
+	public ArticleClassificarionBean getForumBean() {
+		return articleClassificarionBean;
 	}
 
 
 
-	public void setForumBean(ForumBean forumBean) {
-		this.forumBean = forumBean;
+	public void setForumBean(ArticleClassificarionBean articleClassificarionBean) {
+		this.articleClassificarionBean = articleClassificarionBean;
 	}
 
 	
