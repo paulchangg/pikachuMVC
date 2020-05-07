@@ -41,8 +41,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+              <li class="nav-item">
+              <a class="nav-link" href="#" id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
             </li>
             <li class="nav-item">
                    <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
@@ -64,7 +64,7 @@
       <!-- 導覽列  超連結待補 -->
          <div class="et-hero-tabs-container">
            <a class="et-hero-tab" href="#aboutus">關於我們</a>
-           <a class="et-hero-tab" href="#memberarea">會員中心</a>
+           <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
            <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
            <a class="et-hero-tab" href="#mall">商城</a>
            <a class="et-hero-tab" href="#infoweb">資訊網</a>
@@ -369,7 +369,8 @@
               
                <c:choose> 
                <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
-
+ 				<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+ 				
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                       <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -378,7 +379,7 @@
                       <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
                   </svg>
 
-                  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+                 
                   <div class="onecard"  name="${entry.value.bank}">
                     <span id="">${entry.value.c_name}</span> <!--卡名-->
                      <div class="row">
@@ -414,6 +415,7 @@
                 
                 
                 <c:when test="${qt == 'ml'}"> <!--第2種：哩程回饋-->
+          		  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                      <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -421,7 +423,6 @@
                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                      <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
                  </svg>
-          		  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                   <div class="onecard"  name="${entry.value.bank}">
                      <span id="">${entry.value.c_name}</span> <!--卡名-->
                      <div class="row">
@@ -452,6 +453,7 @@
                 </c:when>
                 
              <c:when test="${qt == 'oil'}">  <!--第3種：加油回饋-->
+               <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
              <div class="box"> <!--特效區塊需要當外層-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                    <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -459,7 +461,6 @@
                    <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                    <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
                 </svg>
-               <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
@@ -490,6 +491,7 @@
               </c:when>
                 
           <c:when test="${qt == 'mv'}">  <!--第4種：電影優惠-->
+            <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -497,7 +499,6 @@
                 <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                 <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
             </svg>
-            <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
@@ -528,6 +529,7 @@
            </c:when>                                
 
           <c:when test="${qt == 'os'}">  <!--第5種：網購回饋-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -535,7 +537,6 @@
                 <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                 <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
             </svg>
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
@@ -566,6 +567,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'zi'}">  <!--第6種：分期零利率-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -573,7 +575,6 @@
                 <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                 <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
             </svg>
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
@@ -604,6 +605,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'fg'}">  <!--第7種：首刷-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -611,7 +613,6 @@
                 <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                 <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
             </svg>
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">
@@ -642,6 +643,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'all'}">  <!--第8種：全部-->
+          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -649,7 +651,6 @@
                 <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                 <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
             </svg>
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
                     <div class="row">

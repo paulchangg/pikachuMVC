@@ -101,6 +101,7 @@ public class FourmDaoImpl implements FourmDao{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ResponserBean> getArticleResponse(int launchActivityID) {
 		
