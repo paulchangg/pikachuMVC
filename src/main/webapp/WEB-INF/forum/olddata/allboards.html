@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>所有看板</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/allboards.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="/js/inner_page.js"></script> -->
+  </head>
+
+  <body>
+    <!-- logo及上方標題列---超連結待補---->
+    <div class="top-navigation">
+      <a href="#/" class="navigation__logo">
+        <img
+          src="./images/index_logo.jpg"
+          alt="logo"
+          class="navigation__logo"
+        />
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" id=" memberlogin">會員登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="qanda">Q & A</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="shoppingcart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 導覽列------超連結待補------>
+    <div class="header">
+      <div class="nav-bar">
+        <a href="#" id="aboutus">關於我們</a>
+        <a href="#" id="memberarea">會員中心</a>
+        <a href="#" id="mall">商城</a>
+      </div>
+    </div>
+
+    <!-- 左側按鈕列表 -->
+    <div class="container-fluid">
+      <div class="row" style="display: flex; align-items: center;">
+        <!-- 左側button-->
+        <div class="col-2" style="text-align: center;">
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="allboards">
+              <a class="nav-link" href="allboards.html">所有看板</a>
+            </button>
+          </div>
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="friend_activity">
+              <a class="nav-link" href="activity_page.html">交友活動</a>
+            </button>
+          </div>
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="pair">
+              配對
+            </button>
+          </div>
+        </div>
+        <!-- 中央區塊 -->
+        <div class="content">
+          <div style="margin: 40px 0 0 90px;">
+            <span class="badge badge-warning" style="font-size: 20px;"
+              >所有看板</span
+            >
+
+            <div style="padding: 10px 0 10px 0;"></div>
+
+            <!-- 分類看板 -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="creditcards">
+                  <a href="article_board_credit card.html">信用卡</a>
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="food">
+                  <a href="article_board_food.html">美食</a>
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="emotion">
+                  <a href="article_board.html">感情</a>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <span style="margin-top: 30px;">熱門看板</span>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">信用卡</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">美食</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">感情</button>
+          </a> -->
+    </div>
+
+    <!-- 底部 ---------------------------->
+    <div class="footer">
+      <div class="gotop">
+        <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <br />
+        <br />
+        <a href="#" class="w3-botton w3-black w3-margin">
+          <i class="fa fa-arrow-up w3-margin-right"></i>
+          To the top
+        </a>
+      </div>
+      <br />
+    </div>
+
+   
+  </body>
+</html>

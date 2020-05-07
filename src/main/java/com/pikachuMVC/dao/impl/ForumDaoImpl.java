@@ -7,9 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.IForumDao;
 import com.pikachuMVC.model.FoumBean;
+import com.pikachuMVC.service.IFoumService;
+import com.pikachuMVC.service.impl.FoumServiceImpl;
 
 //1.本類別新增版名到forum表格
 //2.本類別負責讀取資料庫內forum表格內全部的紀錄(不分管理員member)
@@ -24,12 +27,21 @@ public class ForumDaoImpl implements IForumDao {
 
 	// 1.新增版名到forum表格，所有資訊
 	@Override
-	public int insertFoum(FoumBean forum) {
-		int n = 0;
+	@Transactional
+	public int insertFoum() {
+		int x = 0;
+		
 		Session session = factory.getCurrentSession();
+		
+		FoumBean forum = null;
+		String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
+		
+		for(String fname:n) { 
+		forum = new FoumBean(null, fname, null);
 		session.save(forum);
-		n++;
-		return n;
+		System.out.println("新增一筆forumActivity紀錄");
+		}
+		return x;
 	}
 
 	// 1-3刪除看板
@@ -72,7 +84,7 @@ public class ForumDaoImpl implements IForumDao {
 	@Override
 	@SuppressWarnings("unchecked")
 
-	public List<FoumBean> getAllfname(int f_id) {
+	public List<FoumBean> getAllfname() {
 
 		List<FoumBean> list = null;
 		Session session = factory.getCurrentSession();

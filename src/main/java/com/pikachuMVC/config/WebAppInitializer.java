@@ -12,15 +12,17 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	}
 
 	@Override
+	//傳回組態資訊  service/DAO HIbernate SessionFactory
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[] { RootAppConfig.class };
 	}
 
 	@Override
+	//傳回組態資訊 告訴Spring MVC 哪些類別有控制類別
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class[] { WebAppConfig.class };
 	}
-
+	//什麼請求交給  Spring MVC分派器處理  
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}

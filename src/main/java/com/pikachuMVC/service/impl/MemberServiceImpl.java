@@ -190,6 +190,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	@Transactional
 	public List<MemberBean> getActivityPerson(int article_Id) {
 		List<MemberBean> joinActivityMember = null;
 		joinActivityMember = dao.getActivityPerson(article_Id);
@@ -197,6 +198,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	@Transactional
 	public void leaveMyActivity(Launch_activityBean article_Id, String m_id) {
 		dao.leaveMyActivity(article_Id, m_id);
 		return;

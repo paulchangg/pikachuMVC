@@ -22,11 +22,11 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 
 	@Override
 	@Transactional
-	public int insertFoum(FoumBean forum) {
+	public int insertFoum() {
 
 		int result = 0;
 
-		result = dao.insertFoum(forum);
+		result = dao.insertFoum();
 
 		return result;
 
@@ -59,16 +59,14 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 		dao.setF_id(f_id);
 	}
 
+	
+	
 	@Override
 	@Transactional
-	public List<FoumBean> getAllfname(int f_id) {
-
-		List<FoumBean> result = null;
-
-		result = dao.getAllfname(f_id);
-
-		return result;
-
+	public List<FoumBean> getAllfname() {
+	
+		
+		return dao.getAllfname();
 	}
 
 	@Override
@@ -112,5 +110,7 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 
 		return fname;
 	}
+
+	
 
 }

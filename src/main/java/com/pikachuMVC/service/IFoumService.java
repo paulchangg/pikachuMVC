@@ -7,7 +7,7 @@ import com.pikachuMVC.model.FoumBean;
 
 public interface IFoumService {
 
-	int insertFoum(FoumBean forum);
+	int insertFoum();
 
 	int DeleteFname(int f_id);
 
@@ -15,7 +15,7 @@ public interface IFoumService {
 
 	void setF_id(int f_id);
 
-	List<FoumBean> getAllfname(int f_id);
+	List<FoumBean> getAllfname();
 
 	void setConnection(Connection con);
 

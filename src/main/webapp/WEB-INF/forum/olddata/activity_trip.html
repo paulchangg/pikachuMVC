@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>熱門活動-踏青旅遊</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/activity_trip.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="/js/post_article.js"></script> -->
+  </head>
+
+  <body>
+    <!-- logo及上方標題列---超連結待補---->
+    <div class="top-navigation">
+      <a href="#/" class="navigation__logo">
+        <img
+          src="./images/index_logo.jpg"
+          alt="logo"
+          class="navigation__logo"
+        />
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active memberlogin" href="#" id="">會員登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cardcompare" href="#" id="">信用卡比較</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link qanda" href="#" id="">Q & A</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shoppingcart" href="#" id="">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 導覽列------超連結待補------>
+    <div class="header">
+      <div class="nav-bar">
+        <a href="#" class="aboutus" id="">關於我們</a>
+        <a href="#" class="memberarea" id="">會員中心</a>
+        <a href="#" class="mall" id="">商城</a>
+      </div>
+    </div>
+
+    <!-- 看板門面圖 -->
+    <div class="card-group">
+      <div class="card">
+        <img src="./images/activity/pic1.jpg" class="card-img-top" alt="..." />
+      </div>
+      <div class="card">
+        <img src="./images/activity/pic2.jpg" class="card-img-top" alt="..." />
+      </div>
+      <div class="card">
+        <img
+          src="./images/activity/pic3.jpg"
+          class="card-img-top"
+          alt="..."
+          style="height: 302.95px;"
+        />
+      </div>
+    </div>
+
+    <div class="second_line"></div>
+
+    <img src="..." style="width: 80px; height: 55px;" />
+    <span class="badge badge-warning" style="font-size: 20px;">踏青旅遊</span>
+
+    <!-- 發布活動按鈕 -->
+    <div
+      class="d-flex flex-row-reverse bd-highlight"
+      style="padding-top: 7px; padding-right: 10px;"
+    >
+      <div
+        class="btn-group btn-group-sm"
+        role="group"
+        aria-label="Basic example"
+        style="font-size: 20px;"
+      >
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          發布新活動
+          <br /><i class="far fa-edit"></i>
+        </button>
+
+        <!-- Modal 跳出頁面 -->
+        <div
+          class="modal fade"
+          id="exampleModalLong"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- 叉叉按鈕 -->
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <!-- 內容 -->
+                <form id="msform">
+                  <!-- 主辦人頭像 -->
+                  <div class="container">
+                    <img
+                      src="./images/id_photo/memberphoto_6.png"
+                      alt="profile-sample5"
+                      id="memberid_img"
+                    />
+                    <span style="font-size: 0.6em; color: #3e8bbe;">主揪人</span
+                    ><span id="article_m_id" style="font-size: 0.8em;"
+                      >豬血糕不要香菜</span
+                    >
+                  </div>
+                  <hr />
+                  <h1 class="fs-title">活動標題</h1>
+                  <input type="text" name="article_title" placeholder="標題" />
+                  <h1 class="fs-title">活動地點</h1>
+                  <input type="text" name="Location" placeholder="地點" />
+                  <h1 class="fs-title">開始日期與時間</h1>
+                  <input
+                    type="datetime-local"
+                    name="startTime"
+                    placeholder="開始日期與時間"
+                  />
+                  <h1 class="fs-title">結束日期與時間</h1>
+                  <input
+                    type="datetime-local"
+                    name="endTime"
+                    placeholder="結束日期與時間"
+                  />
+
+                  <h1 class="fs-title">活動主題</h1>
+                  <!-- 主題選單 -->
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-info dropdown-toggle btn-sm"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      請選擇
+                    </button>
+                    <div class="dropdown-menu" id="subject">
+                      <a class="dropdown-item" href="#">信用卡優惠</a>
+                      <a class="dropdown-item" href="#">郊遊</a>
+                      <a class="dropdown-item" href="#">聚餐</a>
+                      <a class="dropdown-item" href="#">讀書會</a>
+                    </div>
+                  </div>
+
+                  <h1 class="fs-title">活動內容</h1>
+                  <textarea name="address" placeholder="請輸入內容"></textarea>
+                  <!-- 上傳圖片的按鈕 -->
+                  <h1 class="fs-title">活動照片</h1>
+                  <div class="input-group mb-3" style="font-size: 13px;">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="font-size: 13px;"
+                        >Upload</span
+                      >
+                    </div>
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        class="custom-file-input"
+                        id="articleimage"
+                        aria-describedby="articleimage"
+                      />
+                      <label class="custom-file-label" for="articleimage"
+                        >請選擇照片</label
+                      >
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <!-- 底部按鈕 -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-dismiss="modal"
+                >
+                  返回
+                </button>
+                <button type="button" class="btn btn-primary btn-sm">
+                  送出
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <button type="button" class="btn btn-secondary">活動管理
+  </button> -->
+      </div>
+    </div>
+
+    <!-- 中央文章大區塊範圍----->
+    <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
+      <!-- 左側看板列表---超連結待補-->
+      <div class="container-fluid">
+        <div class="leftNav" style="width: 100px;">
+          <div class="btn-group-vertical" id="forum_btn">
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">
+                <a class="nav-link" href="allboards.html">所有看板</a>
+              </button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">
+                <a class="nav-link" href="activity_page.html">交友活動</a>
+              </button>
+            </a>
+            <br />
+            <button type="button" class="btn-all-board">
+              <a class="nav-link" href="#">配對</a>
+            </button>
+            <br />
+            <span style="margin-top: 30px;">熱門活動</span>
+            <br />
+            <button type="button" class="btn-all-board">
+              <a class="nav-link" href="activity_trip.html" id="">踏青旅遊</a>
+            </button>
+            <br />
+
+            <button type="button" class="btn-all-board">
+              <a class="nav-link" href="activity_eating.html" id="">聚會吃喝</a>
+            </button>
+            <br />
+            <button type="button" class="btn-all-board">
+              <a class="nav-link" href="activity_creditcard.html" id=""
+                >信用卡揪團</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動欄位 -->
+    <div class="container">
+      <div class="card-deck">
+        <!-- 活動1-1 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/activity/trip1.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a
+                  id="share"
+                  class="share-toggle share-icon"
+                  href="activity_inner.html"
+                >
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動1-2 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+          src="./images/activity/trip2.jpg"
+          class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a
+                  id="share"
+                  class="share-toggle share-icon"
+                  href="activity_inner.html"
+                >
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動1-3 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+          src="./images/activity/trip3.jpg"
+            class="articleimage"
+            alt="..."
+            height="100%"
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a
+                  id="share"
+                  class="share-toggle share-icon"
+                  href="activity_inner.html"
+                >
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <!-- 下方頁碼分頁 ----超連結待補------>
+    <nav aria-label="Page navigation example" style="padding-top: 10px;">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item"><a class="page-link" href="#" id="">1</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" id="">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 底部 ---------------------------->
+    <div class="footer">
+      <div class="gotop">
+        <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <br />
+        <br />
+        <a href="#" class="w3-botton w3-black w3-margin">
+          <i class="fa fa-arrow-up w3-margin-right"></i>
+          To the top
+        </a>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>

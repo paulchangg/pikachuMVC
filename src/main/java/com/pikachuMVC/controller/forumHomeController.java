@@ -1,6 +1,5 @@
 package com.pikachuMVC.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +28,6 @@ public class forumHomeController {
 
 	@GetMapping("/ForumHompage")
 	public String getForumHompage(HttpServletRequest request, HttpServletResponse response) {
-		int f_id = 1;
 
 		HttpSession session = request.getSession();
 
@@ -48,7 +46,7 @@ public class forumHomeController {
 
 		IFoumService service = new FoumServiceImpl();
 
-		List<FoumBean> list = service.getAllfname(f_id);
+		List<FoumBean> list = service.getAllfname();
 
 		FoumBean foumbean = null;
 

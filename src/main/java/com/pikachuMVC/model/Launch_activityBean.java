@@ -64,7 +64,7 @@ public class Launch_activityBean {
 	private Integer f_id;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_launch_activity", catalog = "pikachutestdb", 
+	@JoinTable(name = "member_launch_activity", catalog = "pikachudb", 
 	
 	joinColumns = {
 					@JoinColumn(name = "article_Id", nullable = false, updatable = false) }, 

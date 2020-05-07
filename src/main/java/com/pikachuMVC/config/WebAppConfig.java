@@ -16,8 +16,8 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-@Configuration
-@EnableWebMvc
+@Configuration//設定Spring環境配置
+@EnableWebMvc//主要作用是引入DelegatingWebMvcConfiguration配置类。而对Spring MVC配置的主要工作，由WebMvcConfigurationSupport和用户提供的WebMvcConfigurer配置器实现。
 @ComponentScan("com.pikachuMVC")
 public class WebAppConfig implements WebMvcConfigurer {
 	public WebAppConfig() {
