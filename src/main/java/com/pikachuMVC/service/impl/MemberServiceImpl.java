@@ -1,11 +1,14 @@
 package com.pikachuMVC.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.MemberDao;
 import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.Launch_activityBean;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.PreFriend;
 import com.pikachuMVC.service.MemberService;
@@ -157,14 +160,14 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	public void addPreFriend(String mId, PreFriend pf) {
 		dao.addPreFriend(mId, pf);
-		
+
 	}
 
 	@Override
 	@Transactional
 	public void addFriend(String mId, String fId) {
 		dao.addFriend(mId, fId);
-		
+
 	}
 
 	@Override
@@ -177,6 +180,27 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	public void rmPreFriend(String fId, String mId) {
 		dao.rmPreFriend(fId, mId);
+	}
+
+	@Override
+	@Transactional
+	public void addMyActivity(Launch_activityBean article_Id, String m_id) {
+
+		dao.addMyActivity(article_Id, m_id);
+	}
+
+	@Override
+	public List<MemberBean> getActivityPerson(int article_Id) {
+		List<MemberBean> joinActivityMember = null;
+		joinActivityMember = dao.getActivityPerson(article_Id);
+		return joinActivityMember;
+	}
+
+	@Override
+	public void leaveMyActivity(Launch_activityBean article_Id, String m_id) {
+		dao.leaveMyActivity(article_Id, m_id);
+		return;
+
 	}
 
 }

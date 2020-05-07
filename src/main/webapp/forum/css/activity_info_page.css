@@ -1,0 +1,185 @@
+@import "./reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+    /* height:100%; */
+    margin: 0 5% 0 5%;
+    /* flex: 1 90%; */
+  }
+  
+  body {
+    /* margin: 0 1%; */
+    /* min-height: 100%; */
+    position: relative;
+    /* box-sizing: content-box; */
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  
+  /* 最上方列 */
+  .top-navigation {
+    height: 100px;
+    padding: 20px -1px;
+    margin: 0 auto;
+    max-width: 1280px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  
+  .navigation__logo {
+    width: 200px;
+    margin-top: auto;
+    /* padding: 0px 0px 0px 10px; */
+    align-content: center;
+  }
+  
+  /* 以下導覽列 */
+  div.header {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    /* padding: 0px 0px 1px 0px; */
+    /* background-color: #a6a9b1; */
+    height: 40px;
+  }
+  
+  .nav-bar {
+    background: #e8dfe1;
+    height: 37px;
+    padding: 0.15em 0 3px;
+    justify-content: space-evenly;
+    font-weight: bold;
+    /* background-color: #efefef; */
+    font-size: 18px;
+    color: #e8dfe1;
+    position: relative;
+  }
+  
+  .nav-bar a {
+    color: #584b53;
+    text-decoration: none;
+  }
+  
+  /* 欄位大小 */
+  .nav-bar a {
+    padding: 8px 15px;
+    font-size-adjust: initial;
+    display: inline-block;
+  }
+  
+  /* 游標靠近時更改顯示 */
+  .nav-bar a:hover {
+    background: rgb(245, 223, 226);
+    color: rgb(209, 107, 6);
+  }
+  
+/* 左側列表 */
+div.leftNav {
+    width: 200px;
+    height: 550px;
+    max-width: 20%;
+    margin: 40px 50px 330px 10px;
+    padding: 30px 0px;
+    /* border: 1px solid #c8cfe1;    框線範圍 */
+    background-color: #fff;
+    float: left;
+  }
+  
+
+  .second_line {
+    background: #c4ddcb;
+    margin: 1px 0 10px 0;
+    height: 30px;
+    padding: 0.15em 0 3px;
+    font-weight: bold;
+  }
+
+  .container{
+    /* background-color: aquamarine; */
+    height: 350px;
+    display: flex; 
+    padding: 8px 10px 8px 0;
+    
+} 
+
+/* 左側區塊 */
+.column-left {
+    /* background: #F08080; */
+    width: 50%;
+    height: 100%;
+    box-shadow: 5px 5px 9px rgba(0,0,0,.5);
+}
+
+/* 右側區塊 */
+.column-right {
+    /* background: #20B2AA; */
+    width: 50%;
+    height: 100%;
+    padding-top: 5px;
+}
+
+.flex-item{
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.column-bt-left{
+  /* background: #20B2AA; */
+  width: 50%;
+  height: 900px;
+  padding-top: 5px;
+}
+
+.column-bt-right{
+  /* background: rgb(185, 228, 226); */
+  width: 50%;
+  height: 900px;
+  padding-top: 5px;
+}
+
+#article_content{
+  padding-top: 15px;
+  font-size: 16px;
+  line-height: 22px;
+  max-height: 500px;
+}
+
+/* 底部 */
+div.footer {
+    clear: both;
+    width: 100%;
+    /* position: absolute; */
+    bottom: 0;
+    height: 60px;
+    text-align: center !important;
+    padding: 4rem !important;
+    background: #f7ede2;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  
+  /* 置頂按鈕 */
+  .w3-black,
+  .w3-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important;
+  }
+  
+  .w3-margin {
+    margin: 16px !important;
+  }
+  
+  .w3-btn,
+  .w3-button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .gotop {
+    margin-right: 18px !important;
+    margin-top: auto;
+  }

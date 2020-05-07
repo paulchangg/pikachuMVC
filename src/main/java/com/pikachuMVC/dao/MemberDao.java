@@ -1,6 +1,9 @@
 package com.pikachuMVC.dao;
 
+import java.util.List;
+
 import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.Launch_activityBean;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.PreFriend;
 
@@ -39,4 +42,13 @@ public interface MemberDao {
 	public void addFriend(String mId,String fId);
 	
 	public boolean pair(String mId,String fId);
+	
+	
+	public void addMyActivity(Launch_activityBean article_Id, String m_id);
+	
+	public List<MemberBean> getActivityPerson(int article_Id) ;
+	
+	
+	public void leaveMyActivity(Launch_activityBean article_Id, String m_id);
+
 }

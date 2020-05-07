@@ -173,8 +173,8 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 	
 		String line = "";
 		int count = 0;
-
-		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
+		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\product.txt"); //JAMES
+//		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
 //		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\product.txt");
 //		File file = new File("D:\\ttt\\product.txt");
 //		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
@@ -194,8 +194,8 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 				cb.setPrice(Double.valueOf(token[2]));
 
 				cb.setStock(Integer.valueOf(token[3]));
-		
-				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
+				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\productImgs\\" + token[4]; //JAMES
+//				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
 //				String imgname = "D:\\ttt\\" + token[4];
 //				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "D:\\spring\\pikachuMVC\\data\\productImgs\\" + token[4];
