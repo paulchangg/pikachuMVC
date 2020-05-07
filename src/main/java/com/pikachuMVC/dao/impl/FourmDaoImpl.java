@@ -14,7 +14,7 @@ import com.pikachuMVC.dao.FourmDao;
 import com.pikachuMVC.model.ForumBean;
 import com.pikachuMVC.model.LaunchActivityBean;
 import com.pikachuMVC.model.MemberBean;
-import com.pikachuMVC.model.ResponserBean;
+import com.pikachuMVC.model.Responser_foumBean;
 
 @Service
 public class FourmDaoImpl implements FourmDao{
@@ -81,9 +81,9 @@ public class FourmDaoImpl implements FourmDao{
 	}
 
 	@Override
-	public void saveResponse(ResponserBean responser) {
+	public void saveResponse(Responser_foumBean responser) {
 		
-		Set<ResponserBean> activitys = new LinkedHashSet();
+		Set<Responser_foumBean> activitys = new LinkedHashSet();
 		
 		Session session = factory.getCurrentSession();
 		
@@ -103,15 +103,15 @@ public class FourmDaoImpl implements FourmDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ResponserBean> getArticleResponse(int launchActivityID) {
+	public List<Responser_foumBean> getArticleResponse(int launchActivityID) {
 		
 		
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM ResponserBean r WHERE r.articleId = :articleId ORDER BY r.res_id";
+		String hql = "FROM Responser_foumBean r WHERE r.articleId = :articleId ORDER BY r.res_id";
 		
-		List<ResponserBean> beans	=session.createQuery(hql)
+		List<Responser_foumBean> beans	=session.createQuery(hql)
 								   			.setParameter("articleId", launchActivityID)
 								   			.getResultList();
 		
@@ -141,7 +141,7 @@ public class FourmDaoImpl implements FourmDao{
 	public void deleteArticle(int launchActivityID) {
 		Session session = factory.getCurrentSession();
 		
-		String hql1 = "DELETE FROM ResponserBean WHERE articleId = :articleId";
+		String hql1 = "DELETE FROM Responser_foumBean WHERE articleId = :articleId";
 		
 		String hql = "DELETE FROM LaunchActivityBean WHERE article_Id = :article_Id";
 		

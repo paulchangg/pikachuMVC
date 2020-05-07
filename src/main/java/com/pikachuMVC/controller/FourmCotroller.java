@@ -36,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.pikachuMVC.model.LaunchActivityBean;
 import com.pikachuMVC.model.MemberBean;
-import com.pikachuMVC.model.ResponserBean;
+import com.pikachuMVC.model.Responser_foumBean;
 import com.pikachuMVC.service.FourmService;
 import com.pikachuMVC.service.MemberService;
 
@@ -239,7 +239,7 @@ public class FourmCotroller {
 		
 		//取名要跟@GetMapping("/listforum")不一樣  不然session會因為同名蓋過
 		
-		List<ResponserBean>	beans =	service.getArticleResponse(activityId);
+		List<Responser_foumBean>	beans =	service.getArticleResponse(activityId);
 		
 		
 		
@@ -271,11 +271,11 @@ public class FourmCotroller {
 		Date today = new Date();
 		
 		
-		ResponserBean bean = new ResponserBean(null, m_id, article_Id, res_content, null,sdf.format(today));
+		Responser_foumBean bean = new Responser_foumBean(null, m_id, article_Id, res_content, null,sdf.format(today));
 		
 		service.saveResponse(bean);
 		
-		List<ResponserBean>	beans =	service.getArticleResponse(article_Id);
+		List<Responser_foumBean>	beans =	service.getArticleResponse(article_Id);
 		
 		LaunchActivityBean launchActivityBean =  service.getSelectLaunchActivity(article_Id);
 		

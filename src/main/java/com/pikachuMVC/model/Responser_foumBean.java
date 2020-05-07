@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "responser")
-public class ResponserBean {
+public class Responser_foumBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,7 @@ public class ResponserBean {
 	private String res_post_time;
 	
 	
-	public ResponserBean() {}
+	public Responser_foumBean() {}
 	
 	
 
@@ -43,7 +43,7 @@ public class ResponserBean {
 	
 	
 
-	public ResponserBean(Integer res_id, String m_id, Integer articleId, String res_content,
+	public Responser_foumBean(Integer res_id, String m_id, Integer articleId, String res_content,
 			LaunchActivityBean launchActivityBean,String res_post_time) {
 		super();
 		this.res_id = res_id;

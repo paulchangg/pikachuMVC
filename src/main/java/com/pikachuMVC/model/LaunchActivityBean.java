@@ -64,7 +64,7 @@ public class LaunchActivityBean {
 	
 	// 此文章有哪些回應文章      一對多的   一方
 	@OneToMany(mappedBy = "launchActivityBean",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	Set<ResponserBean> activitys = new LinkedHashSet();
+	Set<Responser_foumBean> activitys = new LinkedHashSet();
 	
 	
 	//會員ID
@@ -93,7 +93,7 @@ public class LaunchActivityBean {
 
 	public LaunchActivityBean(Integer article_Id, MemberBean memberBean, String article_title, String article_content,
 			Blob articleImage, String subject, String post_time, Integer allWatch, String articleImage_Name,
-			ForumBean forumBean, Set<ResponserBean> activitys,String member_id) {
+			ForumBean forumBean, Set<Responser_foumBean> activitys,String member_id) {
 		super();
 		this.article_Id = article_Id;
 		this.memberBean = memberBean;
@@ -205,12 +205,12 @@ public class LaunchActivityBean {
 	}
 
 
-	public Set<ResponserBean> getActivitys() {
+	public Set<Responser_foumBean> getActivitys() {
 		return activitys;
 	}
 
 
-	public void setActivitys(Set<ResponserBean> activitys) {
+	public void setActivitys(Set<Responser_foumBean> activitys) {
 		this.activitys = activitys;
 	}
 

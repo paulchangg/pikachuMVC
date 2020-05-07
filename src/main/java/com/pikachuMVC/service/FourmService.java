@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.pikachuMVC.model.ForumBean;
 import com.pikachuMVC.model.LaunchActivityBean;
-import com.pikachuMVC.model.ResponserBean;
+import com.pikachuMVC.model.Responser_foumBean;
 
 public interface FourmService {
 	
@@ -15,9 +15,9 @@ public interface FourmService {
 	
 	LaunchActivityBean getSelectLaunchActivity(int launchActivityID);
 	
-	void saveResponse(ResponserBean responser);
+	void saveResponse(Responser_foumBean responser);
 	
-	List<ResponserBean> getArticleResponse(int launchActivityID);
+	List<Responser_foumBean> getArticleResponse(int launchActivityID);
 	
 	void addAllWatch(int launchActivityID);
 	

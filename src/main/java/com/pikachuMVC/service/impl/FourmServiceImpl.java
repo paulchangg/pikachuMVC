@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pikachuMVC.dao.FourmDao;
 import com.pikachuMVC.model.ForumBean;
 import com.pikachuMVC.model.LaunchActivityBean;
-import com.pikachuMVC.model.ResponserBean;
+import com.pikachuMVC.model.Responser_foumBean;
 import com.pikachuMVC.service.FourmService;
 
 @Service
@@ -43,15 +43,15 @@ public class FourmServiceImpl implements FourmService {
 
 	@Override
 	@Transactional
-	public void saveResponse(ResponserBean responser) {
+	public void saveResponse(Responser_foumBean responser) {
 		dao.saveResponse(responser);
 		
 	}
 
 	@Override
 	@Transactional
-	public List<ResponserBean> getArticleResponse(int launchActivityID) {
-		List<ResponserBean> beans = null;
+	public List<Responser_foumBean> getArticleResponse(int launchActivityID) {
+		List<Responser_foumBean> beans = null;
 		beans = dao.getArticleResponse(launchActivityID);
 		return beans;
 	}
