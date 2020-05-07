@@ -31,14 +31,14 @@ public class FriendsController {
 	MemberService memberService;
 	
 	
-	@GetMapping("/f1")
+	@GetMapping("/pair")
 	public String oxFriend() {
-		return "friends/f1";
+		return "friends/pair";
 	}
 	
-	@GetMapping("/f2")
+	@GetMapping("/friendList")
 	public String getFriendList() {
-		return "friends/f2";
+		return "friends/friendList";
 	}
 	
 	@GetMapping("/Chat")

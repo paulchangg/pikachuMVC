@@ -140,7 +140,7 @@ crossorigin="anonymous" />
 		  </div>
 		  
 		<div class="personaledit"> <!--更改基本資料表單-->
-			<form >
+			<form enctype="multipart/form-data">
 				<label>暱稱: </label><input type="text" name="nickname" id="membereedit_textinput">
 				<label>	<i class="far fa-money-bill-alt"></i>年收入:</label>
 				        <select name="income">
