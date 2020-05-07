@@ -38,12 +38,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
              </li>
+             
             <li class="nav-item">
               <a class="nav-link" href="#" id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#" id="shoppingcart">
                 <i class="fas fa-shopping-cart"></i>
