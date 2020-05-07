@@ -146,4 +146,21 @@ public class FriendsController {
 		
 	}
 	
+	@PostMapping("rmFriend.do")
+	@ResponseBody
+	public void rmFriend(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws IOException{
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		String fId = request.getParameter("f");
+		
+		memberService.rmFriend(mId, fId);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(true);
+		out.flush();
+		
+		
+		
+	}
+	
 }

@@ -12,6 +12,7 @@ function doFirst() {
         let friendList = document.getElementById("friendList");
         let container = document.createElement("div");
         container.className = "container";
+        container.id = data[i].m_id;
 
         let friend = document.createElement("div");
         friend.id = data[i].m_id;
@@ -42,7 +43,7 @@ function doFirst() {
 
         let btn = document.createElement("button");
         btn.className = "btn btn-secondary btn-sm";
-        btn.style = "margin-top: 25px;";
+        btn.style = "margin-top: 25px; position: absolute;";
         btn.innerHTML = "聊天";
         btn.addEventListener("click", chat);
         btnDiv.appendChild(btn);
@@ -90,4 +91,23 @@ function chat() {
   );
 }
 
-function delFriend() {}
+function delFriend() {
+    let friendList = document.getElementById("friendList");
+    let fId = this.parentNode.parentNode.id;
+    let preDelDiv = this.parentNode.parentNode.parentNode;
+
+    let url = "rmFriend.do";
+    let data = {
+      f: fId,
+    };
+
+    $.post(url, data,
+        function (data, textStatus, jqXHR) {
+            if(data){
+                preDelDiv.style.display = "none";
+                friendList.removeChild(preDelDiv);
+            }
+        },
+        "json"
+    );
+}

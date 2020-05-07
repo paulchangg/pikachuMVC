@@ -49,16 +49,16 @@
         <div class="col-sm">
           <ul class="nav justify-content-end" style="font-size: 17px;">
             <li class="nav-item">
-              <a class="nav-link" href="#" id="memberlogin">會員登入</a>
+              <a class="nav-link" href='<c:url value="/member/member_logout" />' id="memberlogin">會員登出</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+              <a class="nav-link" href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare">信用卡比較</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="qanda">Q & A</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="shoppingcart">
+              <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
                 <i class="fas fa-shopping-cart"></i>
               </a>
             </li>
@@ -70,14 +70,14 @@
     <!-- 導覽列上slider -->
     <div class="et-hero-tabs">
       <!-- 要改放圖片的話再修正 -->
-      <img src="" style="height: 70px; width: 1367px;" />
+      <!-- <img src="" style="height: 70px; width: 1367px;" /> -->
 
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
         <a class="et-hero-tab" href="#aboutus">關於我們</a>
-        <a class="et-hero-tab" href="#memberarea">會員中心</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="#mall">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/member/member_center" />'>會員中心</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -347,7 +347,7 @@
              </a>
           </div>
           <div class="my-3">
-            <a class="nav-link" href="#" style="padding: 0px;">
+            <a class="nav-link" href='<c:url value="/friends/pair" />' style="padding: 0px;">
             <button type="button" class="btn btn-outline-success">配對</button>
               </a>
           </div>

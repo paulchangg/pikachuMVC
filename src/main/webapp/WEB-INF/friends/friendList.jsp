@@ -1,23 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>發文頁面</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/common/post_article.css" />
-    <script src="../js/jquery-3.4.1.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/f2.js"></script>
-  </head>
-
-  <body>
-    <div id="friendList"></div>
-  </body>
-</html> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -66,10 +49,10 @@ pageEncoding="UTF-8"%>
         <div class="col-sm">
           <ul class="nav justify-content-end" style="font-size: 17px;">
             <li class="nav-item">
-              <a class="nav-link" href="#" id="memberlogin">會員登入</a>
+              <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="membercenter">會員中心</a>
+              <a class="nav-link" href='<c:url value="/member/member_center" />' id="member_center">會員中心</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="qanda">Q & A</a>
@@ -92,9 +75,9 @@ pageEncoding="UTF-8"%>
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
         <a class="et-hero-tab" href="#aboutus">關於我們</a>
-        <a class="et-hero-tab" href="#cardcompare">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="#mall">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
