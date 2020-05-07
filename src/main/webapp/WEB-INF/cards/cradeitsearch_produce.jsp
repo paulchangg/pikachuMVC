@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>詳細資訊</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/cradeitsearch_page.css" />
+    <link rel="stylesheet" href="css/cradeitsearch_produce.css" />
     <link rel="stylesheet" href="css/wickedcss.min.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
   </head>
