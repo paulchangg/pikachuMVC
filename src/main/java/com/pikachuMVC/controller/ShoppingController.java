@@ -62,6 +62,8 @@ public ShoppingController() {}
 	int priceMode = 0;
 	static int modeState = 0;
 	
+	
+	//此方法是在購物車要刪除或修改數量
 	@PostMapping("/UpdateItem")
 	public String UpdateItem(HttpServletRequest request, Model model, HttpSession session) {
 		ShoppingCart sc= (ShoppingCart)session.getAttribute("ShoppingCart");
@@ -71,8 +73,10 @@ public ShoppingController() {}
 			return "index.jsp";
         }
 		
-		
+		//分辨是刪除或者是修改
 		String cmd = request.getParameter("cmd");
+		
+		//分辨是哪個商品要刪除或修改
 		String bookIdStr = request.getParameter("bookId");
 		int bookId = Integer.parseInt(bookIdStr.trim());		
 		if (cmd.equalsIgnoreCase("DEL")) {
@@ -89,6 +93,7 @@ public ShoppingController() {}
 			
 	}
 	
+	//按下購物後放進購物車
 	@PostMapping("/buyProduct")
 	public String buyProduct(HttpServletRequest request, Model model, HttpSession session) {
 		
@@ -102,16 +107,27 @@ public ShoppingController() {}
 			session.setAttribute("ShoppingCart", cart);   
 		}
 		
-		
+		//取得要將哪一個商品放進購物車
 		String productIdStr 	= request.getParameter("productId");
+		
+		//將productId轉成 int
 		int productId          = Integer.parseInt(productIdStr.trim());
+		
+		//取得這次購買的數量
 		String qtyStr 		= request.getParameter("qty");
 		Integer qty = 0 ;
 
 
+		//取得products_DPP  Map<Integer, ProductBean>  Integer是productId
 		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
+		
+		//取得此productId的商品
 		ProductBean bean = productMap.get(productId);
+		
+		//按下購物後  重整頁面會回到原本的page
 		String pageNo 		= request.getParameter("pageNo");
+		
+		//如果pageNo 給他預設值 回到第一頁
 		if (pageNo == null || pageNo.trim().length() == 0){
 			pageNo = (String) session.getAttribute("pageNo") ;
 			if (pageNo == null){
@@ -137,22 +153,32 @@ public ShoppingController() {}
 	}
 	
 	@GetMapping("/listProduct")
-	public String listProduct(HttpServletRequest request, Model model, HttpSession session) {	
+	public String listProduct(HttpServletRequest request, Model model, HttpSession session) {
+		
+		//要展示第幾頁的商品
 		String pageNoStr = request.getParameter("pageNo");
+		
+		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
 		String mode = request.getParameter("mode");
-		String productId = request.getParameter("productId");
+		
+		//??????
+//		String productId = request.getParameter("productId");
+		
+		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期
 		String price = request.getParameter("priceMode");
 		
-		if( productId == null ) {
-			id = 1;
-		}else {
-			try {
-				id = Integer.parseInt(productId.trim());
-			} catch (NumberFormatException e) {
-				id = 1;
-			}
-		}
+//		if( productId == null ) {
+//			id = 1;
+//		}else {
+//			try {
+//				id = Integer.parseInt(productId.trim());
+//			} catch (NumberFormatException e) {
+//				id = 1;
+//			}
+//		}
 		
+		
+		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期    給預設值
 		if( price == null ) {
 			priceMode = modeState;
 		}else {
@@ -164,12 +190,12 @@ public ShoppingController() {}
 			}
 		}
 		
-		if(mode != null) {
-			mode = "show";
-		}
+//		if(mode != null) {
+//			mode = "show";
+//		}
 		
 		
-		
+		//要展示第幾頁的商品  如果null給預設值
 		if( pageNoStr == null ) {
 			pageNo = 1;
 		}else {
@@ -191,14 +217,23 @@ public ShoppingController() {}
 			productMap = service.getProduct(pageNo);
 		}
 		
-		
+		//總共幾頁
 		request.setAttribute("totalPages", service.getTotalPages());
+		
+		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
 		request.setAttribute("mode", mode);
+		
+		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期
 		session.setAttribute("modeState", modeState);
 		
+		//現在是第幾頁
 		session.setAttribute("pageNo", String.valueOf(pageNo));
+		
+		//這一頁的商品
 		session.setAttribute("products_DPP", productMap);
-		if( mode == "show") {
+		
+		
+		if( "show".equals(mode)) {
 			ProductBean pb = service.getSelectBook(id);
 			session.setAttribute("product_INFO", pb);
 			return "shopping/shopping_produce";
@@ -239,7 +274,7 @@ public ShoppingController() {}
 		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
 		String mimeType = context.getMimeType(filename);   
 		MediaType mediaType = MediaType.valueOf(mimeType);
-		System.out.println("mediaType =" + mediaType);
+		
 		headers.setContentType(mediaType);
 		ResponseEntity<byte[]> responseEntity = 
 				new ResponseEntity<>(media, headers, HttpStatus.OK);
@@ -380,17 +415,17 @@ public ShoppingController() {}
 	@GetMapping("/queryProduct")
 	@ResponseBody
 	public void queryProduct(HttpServletResponse response,HttpServletRequest request) {
-		System.out.println("4777777777777777777777777777777");
+		
 		String p_name = request.getParameter("p");
-		System.out.println(p_name);
+		
 		response.setContentType("application/json; charset=utf-8");
 		try(
 				PrintWriter out = response.getWriter();
 		){
 			List<String> list = service.getProducts_name(p_name);
-			System.out.println(list.get(0));
+			
 			String categoriesJson = new Gson().toJson(list);
-			System.out.println(list.get(0));
+			
 			out.write(categoriesJson);
 			out.flush();
 		}catch(Exception e) {
@@ -403,5 +438,9 @@ public ShoppingController() {}
 		return "shopping/showShoppingCart";
 					
 	}
+	
+//	@GetMapping("/listProduct/{}")
+	
+	
 
 }

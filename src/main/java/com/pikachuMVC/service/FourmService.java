@@ -3,6 +3,7 @@ package com.pikachuMVC.service;
 import java.util.List;
 import java.util.Set;
 
+import com.pikachuMVC.model.ForumBean;
 import com.pikachuMVC.model.LaunchActivityBean;
 import com.pikachuMVC.model.ResponserBean;
 
@@ -27,5 +28,7 @@ public interface FourmService {
 	void deleteTrackActivity(int article_id,String m_id);
 	
 	Set<LaunchActivityBean> listDifFourm(String fourm);
+	
+	List<ForumBean> getforumBean();
 	
 }

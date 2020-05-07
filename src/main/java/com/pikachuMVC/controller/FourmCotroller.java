@@ -125,19 +125,19 @@ public class FourmCotroller {
 
 			filePathPrefix = session.getServletContext().getRealPath("./");
 			
-			File dir = new File(filePathPrefix, "/static/uploads/" + fileName); 
-			
+			File dir = new File(filePathPrefix, "\\static\\uploads\\" + fileName); 
+
 			if (!dir.exists()) {
 				dir.mkdirs();
 			}else {
-				 System.out.println("创建目录" + filePathPrefix + "/static/uploads/" + fileName + "失败！"); 
+				 System.out.println("创建目录" + filePathPrefix + "\\static\\uploads\\" + fileName + "失败！"); 
 			}
 
-			imageFile.transferTo(new File(filePathPrefix, "/static/uploads/" + fileName));
+			imageFile.transferTo(new File(filePathPrefix, "\\static\\uploads\\" + fileName));
 			
-			Blob img = GlobalService.fileToBlob(filePathPrefix +  "/static/uploads/" + fileName);
+			Blob img = GlobalService.fileToBlob(filePathPrefix +  "\\static\\uploads\\" + fileName);
 
-			session.setAttribute("imagepath", "/static/uploads/" + fileName);
+			session.setAttribute("imagepath", "\\static\\uploads\\" + fileName);
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date today = new Date();   									// 新增訂單的時間
@@ -197,7 +197,7 @@ public class FourmCotroller {
 		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
 		String mimeType = context.getMimeType(filename);   
 		MediaType mediaType = MediaType.valueOf(mimeType);
-		System.out.println("mediaType =" + mediaType);
+		
 		headers.setContentType(mediaType);
 		ResponseEntity<byte[]> responseEntity = 
 				new ResponseEntity<>(media, headers, HttpStatus.OK);

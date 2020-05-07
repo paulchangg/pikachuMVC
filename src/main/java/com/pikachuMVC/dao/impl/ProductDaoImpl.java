@@ -50,7 +50,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
-        	System.out.println(bean.getP_id());
+        	
         }
 		return map;
 	}
@@ -103,7 +103,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
-        	System.out.println(bean.getP_id());
+        	
         }
 		return map;
 	}
@@ -124,7 +124,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
-        	System.out.println(bean.getP_id());
+        	
         }
 		return map;
 	}
@@ -174,13 +174,13 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		String line = "";
 		int count = 0;
 //		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
-		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
+		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\product.txt");
 
 		try (FileInputStream fis = new FileInputStream(file);
 				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 				BufferedReader br = new BufferedReader(isr);) {
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				
 				String[] token = line.split("<");
 				ProductBean cb = new ProductBean();
 				cb.setP_name(token[0]);
@@ -193,7 +193,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		
 //				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
 //				String imgname = "D:\\ttt\\" + token[4];
-				String imgname = "D:\\spring\\pikachuMVC\\data\\productImgs\\" + token[4];
+				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用
 
 				Blob c_img = GlobalService.fileToBlob(imgname);
@@ -235,12 +235,12 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		String hql = "SELECT p_name FROM ProductBean c";
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
-		System.out.println(p_name);
+		
 		for(String n : list) {
 			if( n.indexOf(p_name) == -1 ) {
 			
 			}else {
-				System.out.println(n);
+				
 				list1.add(n);
 			}
 		}

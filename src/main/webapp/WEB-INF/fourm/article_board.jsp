@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>分類看板文章-感情</title>
+    <title>分類看板文章</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
@@ -292,9 +292,44 @@
         <!-- 左側button-->
         <div class="col-2">
           <div class="my-3">
-            <a class="nav-link" href="allboards.html" style="padding: 0px;">
+            <a class="nav-link" href='<c:url value="/fourm/listforum" />' style="padding: 0px;">
               <button type="button" class="btn btn-outline-success">所有看板</button>
               </a>
+                          <div style="padding: 10px 0 10px 0;"></div>
+                <!-- 分類看板 -->
+                <ul class="list-group list-group-flush" style="width: 250px;">
+                  <li class="list-group-item">
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      id="creditcards"
+                    >
+                      <a
+                        href="<c:url value='/fourm/listforum/信用卡' />"
+                        style="text-decoration: none; color: black;"
+                        >信用卡</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="food">
+                      <a
+                        href="<c:url value='/fourm/listforum/美食' />"
+                        style="text-decoration: none; color: black;"
+                        >美食</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="emotion">
+                      <a
+                        href="<c:url value='/fourm/listforum/感情' />"
+                        style="text-decoration: none; color: black;"
+                        >感情</a
+                      >
+                    </button>
+                  </li>
+                </ul>
             </div>
             <div class="my-3">
               <a class="nav-link" href="activity_page.html" style="padding: 0px;">
@@ -380,7 +415,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">信用卡</a>
+                            <a href="article_board_credit card.html">${entry.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->
@@ -543,7 +578,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">信用卡</a>
+                            <a href="article_board_credit card.html">${entry10.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->

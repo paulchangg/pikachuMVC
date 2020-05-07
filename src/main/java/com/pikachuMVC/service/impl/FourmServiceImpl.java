@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.FourmDao;
+import com.pikachuMVC.model.ForumBean;
 import com.pikachuMVC.model.LaunchActivityBean;
 import com.pikachuMVC.model.ResponserBean;
 import com.pikachuMVC.service.FourmService;
@@ -86,6 +87,12 @@ public class FourmServiceImpl implements FourmService {
 	public Set<LaunchActivityBean> listDifFourm(String fourm) {
 		Set<LaunchActivityBean> beans = dao.listDifFourm(fourm);
 		return beans;
+	}
+
+	@Override
+	@Transactional
+	public List<ForumBean> getforumBean() {
+		return dao.getforumBean();
 	}
 
 	

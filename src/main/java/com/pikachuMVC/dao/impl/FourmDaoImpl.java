@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.FourmDao;
 import com.pikachuMVC.model.ForumBean;
@@ -204,6 +205,35 @@ public class FourmDaoImpl implements FourmDao{
 		
 		
 		return bean.getActivitys();
+	}
+
+	@Override
+	public List<ForumBean> getforumBean() {
+		
+		Session session = factory.getCurrentSession();
+		
+		String hql = "FROM ForumBean";
+		
+		List<ForumBean> beans = session.createQuery(hql)
+									   .getResultList();
+		return beans;
+	}
+
+	@Override
+	@Transactional
+	public void insertFourm() {
+		
+		Session session = factory.getCurrentSession();
+		
+		ForumBean bean = new ForumBean(null,"信用卡",null);
+		ForumBean bean1 = new ForumBean(null,"美食",null);
+		ForumBean bean2 = new ForumBean(null,"感情",null);
+		
+		session.save(bean);
+		session.save(bean1);
+		session.save(bean2);
+		
+		
 	}
 
 	
