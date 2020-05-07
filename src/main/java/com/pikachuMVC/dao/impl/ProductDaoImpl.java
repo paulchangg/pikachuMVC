@@ -252,5 +252,17 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		return list1;
 	}
 
+	@Override
+	public List<ProductBean> getCategoryProducts(String category) {
+		
+		Session session = factory.getCurrentSession();
+		
+		String hql = "FROM ProductBean p WHERE p.p_category = :category ";
+		
+		
+		
+		return session.createQuery(hql).setParameter("category", category).getResultList();
+	}
+
 
 }

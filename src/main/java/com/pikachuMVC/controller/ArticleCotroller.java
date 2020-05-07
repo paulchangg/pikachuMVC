@@ -43,7 +43,7 @@ import com.pikachuMVC.service.MemberService;
 import init.GlobalService;
 
 @Controller
-@RequestMapping("/fourm")
+@RequestMapping("/articleForum")
 public class ArticleCotroller {
 	
 	
@@ -159,7 +159,7 @@ public class ArticleCotroller {
 			dir.delete();
 			
 			
-			return "redirect:/fourm/listforum";
+			return "redirect:/articleForum/listforum";
 
 			}
 		
@@ -248,7 +248,7 @@ public class ArticleCotroller {
 		
 		session.setAttribute("responserCount1", articleBean.getActivitys().size());
 		
-		return "redirect:/fourm/reponseActivity";
+		return "redirect:/articleForum/reponseActivity";
 	}
 	
 	@GetMapping("/reponseActivity")
@@ -284,7 +284,7 @@ public class ArticleCotroller {
 		session.setAttribute("responserBeans", beans);
 	
 		
-		return "redirect:/fourm/reponseActivity";
+		return "redirect:/articleForum/reponseActivity";
 	}
 	
 	@PostMapping("/delete/{article_Id}")
@@ -294,7 +294,7 @@ public class ArticleCotroller {
 		service.deleteArticle(article_Id);
 		
 		
-		return "redirect:/fourm/listforum";
+		return "redirect:/articleForum/listforum";
 	}
 	
 	@PostMapping("/track/{article_Id}/{m_id}")
@@ -303,7 +303,7 @@ public class ArticleCotroller {
 		
 		service.saveTrackActivity(article_Id, m_id);
 		
-		return "redirect:/fourm/listforum";
+		return "redirect:/articleForum/listforum";
 	}
 	
 	@PostMapping("/deleteTrack/{article_Id}/{m_id}")
@@ -311,7 +311,7 @@ public class ArticleCotroller {
 		
 		service.deleteTrackActivity(article_Id, m_id);
 		
-		return "redirect:/fourm/listforum";
+		return "redirect:/articleForum/listforum";
 	}
 	
 	@GetMapping("/allboards")
@@ -377,7 +377,7 @@ public class ArticleCotroller {
 		
 		session.setAttribute("fourmName", fourmName);
 		
-		return "redirect:/fourm/article_board";
+		return "redirect:/articleForum/article_board";
 	}
 	
 	@GetMapping("/article_board")

@@ -32,4 +32,5 @@ public interface ArticleDao {
 	
 	void insertFourm();
 	
+	
 }

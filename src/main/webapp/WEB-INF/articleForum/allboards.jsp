@@ -7,24 +7,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>所有看板</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="<c:url value="/articleForum/css/bootstrap.min.css"/>" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
       media="all"
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="css/allboards.css" />
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/articleForumcss/allboards.css" />
+    <script src="/articleForum/js/jquery-3.4.1.js"></script>
+    <script src="/articleForum/js/popper.min.js"></script>
+    <script src="/articleForum/js/bootstrap.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js"
       type="text/javascript"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js"></script>
-    <script src="js/allboards.js"></script>
+    <script src="/articleForum/js/allboards.js"></script>
   </head>
 
   <body>
@@ -40,7 +41,7 @@
         <div class="row justify-content-center">
           <div class="col-sm">
             <a href="index copy.html">
-              <img src="images/logo2.png" alt="logo" style="height: 230px;" />
+              <img src="/articleForum/images/logo2.png" alt="logo" style="height: 230px;" />
             </a>
           </div>
         </div>

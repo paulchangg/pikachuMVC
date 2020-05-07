@@ -102,4 +102,10 @@ public class ProductServiceImpl implements Serializable, ProductService {
 		return list;
 	}
 
+	@Override
+	@Transactional
+	public List<ProductBean> getCategoryProducts(String category) {
+		return dao.getCategoryProducts(category);
+	}
+
 }
