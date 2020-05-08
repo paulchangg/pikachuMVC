@@ -19,26 +19,29 @@
     <div class="flex-container">
         <!----------------------head區塊------------------------------>
         <div class="header">
-			${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+			<!--這裡開始為上方,呈現商標log位置-->
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					<a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					</a>
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
+						<div class="col-3">
 						 <c:choose>
-							<c:when test="${empty LoginOK}">								
-								<a href="<c:url value="/member/member_login" /> ">
-								
-								<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-								</a>								
-							</c:when>
-							<c:otherwise>								
-								<a href="<c:url value="/member/member_logout" />"> 
-								<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-								</a>								
-							</c:otherwise>
-						 </c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
+						</div>
 						 <div class="col-3">
 							 <a href="">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
@@ -92,7 +95,7 @@
                 <c:forEach var="aBean" varStatus="stat" items="${OrderBean.items}">
              <tr><!--這裡為訂單內容-->
                 <td><span id="orderitem_item">${stat.count}</span></td>
-                <td><a href="" id="orderitem_page"><span id="orderitem_name">${aBean.p_name}</span></a></td>
+                <td><a href="<c:url value='/shopping/listProduct?mode=show&productId=${aBean.p_id}' />" id="orderitem_page"><span id="orderitem_name">${aBean.p_name}</span></a></td>
                 <td><span id="orderitem_money">${aBean.qty}</span></td>
                 <td><span id="orderitem_qty">${aBean.price}</span></td>
                 <td><span id="orderitem_totalmomey">未使用</span></td>
@@ -101,7 +104,7 @@
              </tr>
                 </c:forEach>
              <tr>
-                <td colspan="5">訂單總金額<span id="orderitem_total">NT${subtotal}元</TD></span></td>
+                <td colspan="5">訂單總金額<span id="orderitem_total">NT${OrderBean.total}元</TD></span></td>
                 <td colspan="2">發票資訊<a href="#">檢視</a></td>
             </tr>
              </table>
@@ -140,6 +143,7 @@
                  <div class="modal-body">
                     <p>使用時請告知此兌換碼:<span id="qrcodeNum">WTR123456789</span></p>
                     <p>並且出示以下QRcode提供給店家進行兌換兌換</p>
+                    <img alt="" src="" id="qrCodeImg">
                     <div id="qrcodeCanvas"></div>
                  <div class="modal-footer">
                     <input type="button" value="列印" id="print">
@@ -159,6 +163,7 @@
      crossorigin="anonymous"></script>  
      <script src="js/qrcode.js"></script>
      <script src="js/jquery.qrcode.js"></script>
-     <script src="js/orderitem.js"></script>   
+     <script src="js/orderitem.js"></script>
+        
 </body>
 </html>      

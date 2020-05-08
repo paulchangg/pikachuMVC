@@ -1,6 +1,9 @@
 $(document).ready(function(){
-    $(".test").click(function(){
-        alert("已加入購物車按鈕");
+    $("#addShop").click(function(){
+        alert("已加入購物車");
+    })
+     $("#addTrack").click(function(){
+        alert("已加入追蹤");
     })
 }
 )

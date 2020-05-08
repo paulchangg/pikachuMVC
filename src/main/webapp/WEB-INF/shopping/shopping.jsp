@@ -23,17 +23,29 @@ crossorigin="anonymous" />
 	<div class="flex-container">
 		<!----------------------head區塊------------------------------>
 		<div class="header">
-			${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+			<!--這裡開始為上方,呈現商標log位置-->
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
-			   </div>
+					
+				  <a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					</a>
+			   	</div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="../member/member_login.jsp">
-							  <i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-							</a>
+							<c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
 					   </div>
 						 <div class="col-3">
 							 <a href="http://127.0.0.1:5500/web/login.html">
@@ -98,15 +110,21 @@ crossorigin="anonymous" />
 			 </a>
 		  </div>
 	   </div>
-
-	 <div class="col-12 hottitle"><h2>本月熱賣品</h2></div>
+	 <c:choose>
+	 	<c:when test="${category == null}">
+	 		<div class="col-12 hottitle"><h2>本月熱賣品</h2></div>
+	 	</c:when>
+	 	<c:otherwise>
+	 		<div class="col-12 hottitle"><h2>${category}</h2></div>
+	 	</c:otherwise>
+	 </c:choose>
 
 	 <div class="row sider">
 		   <div class="col-2 sidderrone"><!--左邊選單-->
-			  <p><a href=""> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
-			  <p><a href=""> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
+			  <p><a href='<c:url value='/shopping/listProduct'/>'> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
+			  <p><a href="<c:url value='/shopping/吃貨歡樂劵'/>"> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
+			  <p><a href="<c:url value='/shopping/放鬆娛樂劵'/>"> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
+			  <p><a href="<c:url value='/shopping/外出旅遊劵'/>"> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
 		   </div>
 		   <div class="col-10 sidderr2 "><!--中間商品-->
 			   <div class="row sreach" id="shopping_totalsearch">
@@ -115,25 +133,25 @@ crossorigin="anonymous" />
 					      <c:when test="${modeState == 0}">
 						     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">上市日期(舊到新)</button>
 							   <div class="dropdown-menu">
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2' />" id="shopping_pricelh">價格低到高</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1' />" id="shopping_pricehl">價格高到低</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0' />" id="shopping_pricehl">上市日期(舊到新)</a>
 							 </div>
 					    </c:when>
 					    <c:when test="${modeState == 1}">
 						     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">價格高到低</button>
 							  <div class="dropdown-menu">
-							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
-							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
-							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2' />" id="shopping_pricelh">價格低到高</a>
+							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1' />" id="shopping_pricehl">價格高到低</a>
+							     <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0' />" id="shopping_pricehl">上市日期(舊到新)</a>
 							  </div>
 					    </c:when>
 					     <c:when test="${modeState == 2}">
 						     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">價格低到高</button>
 							    <div class="dropdown-menu">
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
-							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=2' />" id="shopping_pricelh">價格低到高</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=1' />" id="shopping_pricehl">價格高到低</a>
+							      <a class="dropdown-item" href="<c:url value='/shopping/listProduct?priceMode=0' />" id="shopping_pricehl">上市日期(舊到新)</a>
 							  </div>
 					    </c:when>
 				      </c:choose>
@@ -170,56 +188,56 @@ crossorigin="anonymous" />
 			   </div> 
 	     </div>
 	 </div>	  
-	      <div class="return" > <!--底部分頁-->	
-			<ul class="pagination pagination-sm">
-				<c:choose>
-					<c:when test="${pageNo == 1}">
-						  <li class="page-item"> 
-							  <a class="page-link"  aria-label="Previous">
-							   <span aria-hidden="true">&laquo;</span> 
-						   </a>
-						 </li>
-					</c:when>
-					<c:otherwise>
-					   <li class="page-item"> 
-						   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=1' />" aria-label="Previous">
-							   <span aria-hidden="true">&laquo;</span> 
-						   </a>
-					   </li>
-					</c:otherwise>
-				</c:choose>
-			   <c:forEach begin="1" end="${totalPages}" varStatus="vs">
-				   <c:choose>
-					   <c:when test="${pageNo == vs.index}">
-						   <li class="page-item">
-							   <a class="page-link"  id="shopping_pag1">${vs.index}</a>
-						   </li>
-					   </c:when>
-					   <c:otherwise>
-						   <li class="page-item">
-							   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a>
-						   </li>
-					   </c:otherwise>
-				   </c:choose>
-			   </c:forEach>
-			   <c:choose>
-					<c:when test="${pageNo != totalPages}">
-						  <li class="page-item"> 
-						   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=${totalPages}' />" aria-label="Previous">
-							   <span aria-hidden="true">&raquo;</span> 
-						   </a>
-					   </li>
-					</c:when>
-					<c:otherwise>
-					   <li class="page-item"> 
-						   <a class="page-link" aria-label="Previous">
-							   <span aria-hidden="true">&raquo;</span> 
-						   </a>
-					   </li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
+<!-- 	      <div class="return" > 底部分頁	 -->
+<!-- 			<ul class="pagination pagination-sm"> -->
+<%-- 				<c:choose> --%>
+<%-- 					<c:when test="${pageNo == 1}"> --%>
+<!-- 						  <li class="page-item">  -->
+<!-- 							  <a class="page-link"  aria-label="Previous"> -->
+<!-- 							   <span aria-hidden="true">&laquo;</span>  -->
+<!-- 						   </a> -->
+<!-- 						 </li> -->
+<%-- 					</c:when> --%>
+<%-- 					<c:otherwise> --%>
+<!-- 					   <li class="page-item">  -->
+<%-- 						   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=1' />" aria-label="Previous"> --%>
+<!-- 							   <span aria-hidden="true">&laquo;</span>  -->
+<!-- 						   </a> -->
+<!-- 					   </li> -->
+<%-- 					</c:otherwise> --%>
+<%-- 				</c:choose> --%>
+<%-- 			   <c:forEach begin="1" end="${totalPages}" varStatus="vs"> --%>
+<%-- 				   <c:choose> --%>
+<%-- 					   <c:when test="${pageNo == vs.index}"> --%>
+<!-- 						   <li class="page-item"> -->
+<%-- 							   <a class="page-link"  id="shopping_pag1">${vs.index}</a> --%>
+<!-- 						   </li> -->
+<%-- 					   </c:when> --%>
+<%-- 					   <c:otherwise> --%>
+<!-- 						   <li class="page-item"> -->
+<%-- 							   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a> --%>
+<!-- 						   </li> -->
+<%-- 					   </c:otherwise> --%>
+<%-- 				   </c:choose> --%>
+<%-- 			   </c:forEach> --%>
+<%-- 			   <c:choose> --%>
+<%-- 					<c:when test="${pageNo != totalPages}"> --%>
+<!-- 						  <li class="page-item">  -->
+<%-- 						   <a class="page-link" href="<c:url value='/listProduct/DisplayPageProducts?pageNo=${totalPages}' />" aria-label="Previous"> --%>
+<!-- 							   <span aria-hidden="true">&raquo;</span>  -->
+<!-- 						   </a> -->
+<!-- 					   </li> -->
+<%-- 					</c:when> --%>
+<%-- 					<c:otherwise> --%>
+<!-- 					   <li class="page-item">  -->
+<!-- 						   <a class="page-link" aria-label="Previous"> -->
+<!-- 							   <span aria-hidden="true">&raquo;</span>  -->
+<!-- 						   </a> -->
+<!-- 					   </li> -->
+<%-- 					</c:otherwise> --%>
+<%-- 				</c:choose> --%>
+<!-- 			</ul> -->
+<!-- 		</div> -->
 
 
 	   <!--尾巴區塊-->
@@ -255,17 +273,17 @@ function a() {
 	// SELECT標籤
 	var words = document.getElementById("shopping_keywords");
 	var xhr = new XMLHttpRequest();
-	var url = "queryProduct?q=" + words.value;
 	console.log(words.value)
-	xhr.open("GET", url, true);
+	xhr.open("Get", "queryProduct?q="+words.value, true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		// 向伺服器提出的請求已經收到回應
 		if (xhr.readyState === 4) {
 			// 伺服器回應成功
 			if (xhr.status === 200) {
-				var books = JSON.parse(xhr.responseText);
-				cosole.log(books);
+				var responseData = xhr.responseText;
+				
+				cosole.log(JSON.parse(responseData));
 			}
 		}
 	}	

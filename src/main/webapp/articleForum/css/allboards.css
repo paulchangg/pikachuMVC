@@ -1,0 +1,93 @@
+@import "./reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+  /* height:100%; */
+  margin: 0 5% 0 5%;
+  /* flex: 1 90%; */
+}
+
+body {
+  position: relative;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 50vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
+}
+
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 10px;
+  font-size: 13px;
+  background: #90be6d;
+}
+

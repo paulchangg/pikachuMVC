@@ -21,17 +21,28 @@
 <div class="flex-container">
     <!----------------------head區塊------------------------------>
 		<div class="header">
-			${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+			<!--這裡開始為上方,呈現商標log位置-->
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+				   <a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					</a>
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="../member/member_login.jsp">
-							  <i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-							</a>
+							<c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
 					   </div>
 						 <div class="col-3">
 							 <a href="http://127.0.0.1:5500/web/login.html">
@@ -100,10 +111,10 @@
   
         <div class="row sider">
             <div class="col-2 sidderrone"><!--左邊選單-->
-                        <p><a href=""> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
-                        <p><a href=""> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
-                        <p><a href=""> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
-                       <p><a href=""> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
+                        <p><a href='<c:url value='/shopping/listProduct'/>'> <button type="button" class="sidderBtn">本月熱賣品</button></a></p>
+			  			<p><a href="<c:url value='/shopping/吃貨歡樂劵'/>"> <button type="button" class="sidderBtn">吃貨歡樂劵</button></a></p>
+			  			<p><a href="<c:url value='/shopping/放鬆娛樂劵'/>"> <button type="button" class="sidderBtn">放鬆娛樂劵</button></a></p>
+			  			<p><a href="<c:url value='/shopping/外出旅遊劵'/>"> <button type="button" class="sidderBtn">外出旅遊券</button></a></p>
             </div>
             <div class="col-10 totalarea">
               <div class="row justify-content-center">
@@ -111,24 +122,27 @@
                    <img  src="<c:url value='/shopping/getPicture/${product_INFO.p_id}' />"   class="img-fluid"  id="shoppingproduce_img" width="600px" height="400px">
                  </div>
                   <div class="col-4 produceitem"><!--中間商品--><!--這裡5個id是要連資料庫商品一切資料-->
-                      <p>商品名稱:<span id="shoppingproduce_name">${product_INFO.p_name}</span></p>
-                      <p>價格:<span id="shoppingproduce_price">${product_INFO.price}元</span></p>
-                      <p>剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
-                      <p>購買數量</p>
-                    <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">
+                      <p style="text-align:left;">商品名稱:<span id="shoppingproduce_name">${product_INFO.p_name}</span></p>
+                      <p style="text-align:left;">價格:<span id="shoppingproduce_price">${product_INFO.price}元</span></p>
+                      <p style="text-align:left;">剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
+                      <p style="text-align:left;">購買數量</p>
+                   <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST" style="text-align:left">
                        <label><input id="shoppinproduce_min" name="qty1" type="button" value="-" /></label><!--按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉-->
                        <label><input id="shoppinproduce_quantity" name="qty" type="text" value="1" /></label> 
                        <label><input id="shoppinproduce_add" name="qty1" type="button" value="+" /></label><br>
 
-                      <!--<a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
-                      <label class="labelway"><Input type='submit' class="btn btn-warning test" data-toggle="modal" data-target="#shoopingmodal"  value='放入購物車'>
-                      </label> 
+                      
+                      <label class="labelway"><Input type='submit' class="btn btn-warning test" id="addShop" data-toggle="modal" data-target="#shoopingmodal"  value='放入購物車'>
+                      </label>
                       <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
-                       <!--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->
+                  
                   </FORM>
-                  <FORM  action="<c:url value='/shopping/addtrackproduct' />" method="POST">    
+                 <br>
+                 <br>
+               	 
+                  <FORM  action="<c:url value='/shopping/addtrackproduct' />" method="POST" style="text-align:left">    
                       <!-- <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
-                      <label class="labelway" ><Input type='submit' class="btn btn-warning test" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤'>
+                      <label class="labelway" ><Input type='submit' class="btn btn-warning test" id="addTrack" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤'>
                       </label> 
                      <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
                       <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->

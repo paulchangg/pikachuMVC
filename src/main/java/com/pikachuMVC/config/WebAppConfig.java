@@ -82,23 +82,5 @@ public class WebAppConfig implements WebMvcConfigurer {
 	}
 	
 	
-//	<filter>
-//	<filter-name>OpenSessionInViewFilter</filter-name>
-//	<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
-//	<init-param>
-//		<param-name>sessionFactoryBeanName</param-name>
-//		<param-value>sessionFactory</param-value>
-//	</init-param>
-//	<!-- singleSession為true表示『處理同一個請求的所有程式都用同一個Hibernate Session』 -->
-//	<init-param>
-//		<param-name>singleSession</param-name>
-//		<param-value>true</param-value>
-//	</init-param>
-//	<!-- flushMode 預設值為: lushMode.NEVER，如果並未與交易併用，應該將 flushMode改為AUTO -->
-//	<init-param>
-//		<param-name>flushMode</param-name>
-//		<param-value>AUTO</param-value>
-//	</init-param>
-//</filter>
 	
 }

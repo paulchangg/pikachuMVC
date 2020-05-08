@@ -31,14 +31,14 @@ public class FriendsController {
 	MemberService memberService;
 	
 	
-	@GetMapping("/f1")
+	@GetMapping("/pair")
 	public String oxFriend() {
-		return "friends/f1";
+		return "friends/pair";
 	}
 	
-	@GetMapping("/f2")
+	@GetMapping("/friendList")
 	public String getFriendList() {
-		return "friends/f2";
+		return "friends/friendList";
 	}
 	
 	@GetMapping("/Chat")
@@ -142,6 +142,23 @@ public class FriendsController {
 		System.out.println(membersJson);
 		out.write(membersJson);
 		out.flush();
+		
+		
+	}
+	
+	@PostMapping("rmFriend.do")
+	@ResponseBody
+	public void rmFriend(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws IOException{
+		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		String fId = request.getParameter("f");
+		
+		memberService.rmFriend(mId, fId);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(true);
+		out.flush();
+		
 		
 		
 	}

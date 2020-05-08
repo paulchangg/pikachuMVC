@@ -80,7 +80,7 @@
         <nav>
           <a href="#" class="aboutus">關於我們</a>
           <a href="member/member_center" class="memberarea">會員中心</a>
-          <a href='<c:url  value="/fourm/listforum"/>' class="friendshipforum">論壇交友</a>
+          <a href='<c:url  value="/articleForum/listforum"/>' class="friendshipforum">論壇交友</a>
           <a href="#" class="mall">商城</a>
         </nav>
       </section>

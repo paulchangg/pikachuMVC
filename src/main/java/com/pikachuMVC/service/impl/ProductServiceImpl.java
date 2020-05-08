@@ -24,9 +24,9 @@ public class ProductServiceImpl implements Serializable, ProductService {
 
 	@Override
 	@Transactional
-	public Map<Integer, ProductBean> getProduct(int pageNo) {
+	public Map<Integer, ProductBean> getProduct() {
 		Map<Integer, ProductBean> beans = null;
-		beans = dao.getProduct(pageNo);
+		beans = dao.getProduct();
 		return beans;
 	}
 
@@ -56,17 +56,17 @@ public class ProductServiceImpl implements Serializable, ProductService {
 
 	@Override
 	@Transactional
-	public Map<Integer, ProductBean> getProductDescPrice(int pageNo) {
+	public Map<Integer, ProductBean> getProductDescPrice() {
 		Map<Integer, ProductBean> beans = null;
-		beans = dao.getProductDescPrice(pageNo);
+		beans = dao.getProductDescPrice();
 		return beans;
 	}
 
 	@Override
 	@Transactional
-	public Map<Integer, ProductBean> getProductAscPrice(int pageNo) {
+	public Map<Integer, ProductBean> getProductAscPrice() {
 		Map<Integer, ProductBean> beans = null;
-		beans = dao.getProductAscPrice(pageNo);
+		beans = dao.getProductAscPrice();
 		return beans;
 	}
 
@@ -100,6 +100,19 @@ public class ProductServiceImpl implements Serializable, ProductService {
 		List<String> list = new ArrayList<String>();
 		list = dao.getProducts_name(p_name);
 		return list;
+	}
+
+	@Override
+	@Transactional
+	public List<ProductBean> getCategoryProducts(String category) {
+		return dao.getCategoryProducts(category);
+	}
+
+	@Override
+	@Transactional
+	public void deleteTrack(String m_id, int p_id) {
+		dao.deleteTrack(m_id, p_id);
+		return;
 	}
 
 }

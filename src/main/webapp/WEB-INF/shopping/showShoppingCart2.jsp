@@ -21,17 +21,28 @@
     <div class="flex-container">
         <!----------------------head區塊------------------------------>
         <div class="header">
-			${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+			<!--這裡開始為上方,呈現商標log位置-->
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+				   <a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					</a>
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
                         <div class="col-3">
-							<a href="..webapp/member/member_login.jsp">
-							  <i class="fa fa-user-circle" id="memberlogin">會員登出</i>
-							</a>
+							 <c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
 					   </div>
 						 <div class="col-3">
 							 <a href="">

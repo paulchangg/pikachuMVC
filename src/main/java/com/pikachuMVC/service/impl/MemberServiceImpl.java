@@ -179,4 +179,10 @@ public class MemberServiceImpl implements MemberService {
 		dao.rmPreFriend(fId, mId);
 	}
 
+	@Override
+	@Transactional
+	public void rmFriend(String mId, String fId) {
+		dao.rmFriend(mId, fId);
+	}
+
 }

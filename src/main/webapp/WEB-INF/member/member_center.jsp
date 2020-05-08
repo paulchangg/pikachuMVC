@@ -43,16 +43,16 @@
 					<!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="#"> <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
+							<a href='<c:url value="/cards/cradeitCb?qt=main" />'> <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
 						<div class="col-3">
-							<a href="member_logout"> <i class="fa fa-question-circle"
+							<a href='<c:url value="/member/member_logout" />'> <i class="fa fa-question-circle"
 								id="qanda">會員登出</i>
 							</a>
 						</div>
 						<div class="col-3">
-							<a href="#"> <i class="fa fa-shopping-cart" id="shoppingcart">shopping
+							<a href='<c:url value="/shopping/listProduct" />'> <i class="fa fa-shopping-cart" id="shoppingcart">shopping
 									cart</i>
 							</a>
 						</div>
@@ -69,8 +69,8 @@
 		<!-- 導覽列--------------------------->
 		<section class="top_navi">
 			<nav>
-				<a href="#">關於我們</a> <a href="">會員中心</a> <a href="#">論壇交友</a> <a
-					href="#">商城</a> <a href="#">資訊網</a>
+				<a href="#">關於我們</a> <a href='<c:url value="/member/member_center" />'>會員中心</a> <a href='<c:url value="/articleForum/listforum"/>'>論壇交友</a> <a
+				href='<c:url value="/shopping/listProduct" />'>商城</a> <a href="#">資訊網</a>
 			</nav>
 		</section>
 
@@ -119,9 +119,9 @@
 					<!--顯示交友活動-->
 					<h3>交友&活動</h3>
 					<ul>
-						<li><i class='bx bx-donate-heart'></i><a href=""
+						<li><i class='bx bx-donate-heart'></i><a href='<c:url value="/friends/pair" />'
 							target="blank">前往交友區</a></li>
-						<li><i class='bx bxs-happy-heart-eyes'></i><a href=""
+						<li><i class='bx bxs-happy-heart-eyes'></i><a href='<c:url value="/friends/friendList" />'
 							target="blank" id="membercenter_goodfr">好友清單</a></li>
 						<li><i class='bx bx-walk'></i><a href="" target="blank">活動頁面區</a></li>
 						<i class='bx bx-calendar'></i>最近發起活動:
