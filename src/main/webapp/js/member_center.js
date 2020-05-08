@@ -246,7 +246,7 @@ function addCard() {
           if(data.hasOwnProperty(key)){
             console.log(key + ':' + data[key]);
             var cardDiv = document.createElement("div");
-            cardDiv.setAttribute("class", "addcredit");
+            cardDiv.setAttribute("class", "col-4 addcredit");
             cardDiv.setAttribute("value", data[key]);
             cardDiv.setAttribute("name", data[key]);
             // cardDiv.innerHTML = `<img src='/pikachuMVC/cards/RetrieveCardImg?id=${key}' class='addimg'><p>${data[key]}</p><input type='button' value='刪除' id='center_del' onclick='delWay()'>`;

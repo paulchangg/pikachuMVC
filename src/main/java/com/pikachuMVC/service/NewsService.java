@@ -1,4 +1,4 @@
-package com.pikachuMVC.service;
+/*package com.pikachuMVC.service;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -17,4 +17,4 @@ public interface NewsService {
 	//取得資料庫內的單則新聞(靠新聞標題尋找)
 	NewsBean getNewsByTitle(String title);
 	public void addNews(NewsBean news);
-}
+}*/

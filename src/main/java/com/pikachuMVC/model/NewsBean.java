@@ -1,4 +1,4 @@
-﻿package com.pikachuMVC.model;
+﻿/*package com.pikachuMVC.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -89,4 +89,4 @@ public class NewsBean implements Serializable {
 	}
 
 	
-}
+}*/

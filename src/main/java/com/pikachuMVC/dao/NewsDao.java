@@ -1,4 +1,4 @@
-package com.pikachuMVC.dao;
+/*package com.pikachuMVC.dao;
 
 import java.util.List;
 
@@ -9,3 +9,4 @@ public interface NewsDao {
 	public NewsBean getNewsByTitle(String title);
 	void addNewsBean(NewsBean news);
 }
+*/

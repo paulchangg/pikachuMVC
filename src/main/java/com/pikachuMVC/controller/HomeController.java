@@ -23,7 +23,7 @@ import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ProductBean;
 import com.pikachuMVC.service.CardService;
-import com.pikachuMVC.service.NewsService;
+/*import com.pikachuMVC.service.NewsService;*/
 import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.ProductService;
 
@@ -32,8 +32,8 @@ public class HomeController {
 	public HomeController() {
 	}
 	
-	@Autowired
-	NewsService newsService;
+	/*@Autowired
+	NewsService newsService;*/
 	
 	@Autowired
 	CardService service;
@@ -61,7 +61,7 @@ public class HomeController {
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
 //		if (!judgeNewsFolder()) {
-			newsService.newsCrawler();
+			//newsService.newsCrawler();
 //		}
 		
 		if (list.size() == 0) {
