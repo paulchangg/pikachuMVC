@@ -101,10 +101,6 @@ public class Snippet
         }
         
         
-
-        
-        
-        
         System.out.println("共"+allJsLinks.size()+"資料會輸出");
         
 	    //首頁資訊

@@ -47,6 +47,7 @@ public class WebAppConfig implements WebMvcConfigurer {
 //	     registry.addResourceHandler("/image/**")
 //	             .addResourceLocations("/WEB-INF/views/images/");
 //	}
+	
 	@Override
 	public void configureDefaultServletHandling
 				(DefaultServletHandlerConfigurer configurer) {
