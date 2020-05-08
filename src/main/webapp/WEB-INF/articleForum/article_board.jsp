@@ -40,7 +40,7 @@
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
-            <a href="index copy.html">
+            <a href="<c:url value='/' />">
               <img src="images/logo2.png" alt="logo" style="height: 230px;" />
             </a>
           </div>
@@ -140,7 +140,7 @@
                 <br /><i class="far fa-edit"></i>
               </button>
 
-              <a href="forum.html">
+              <a href="<c:url value='/articleForum/listforum' />">
                 <button type="button" class="btn btn-info btn-sm">
                   回論壇首頁
                   <br /><i class="fas fa-home"></i>
@@ -172,111 +172,95 @@
 
                     <div class="modal-body">
                       <!-- 內容 -->
-                      <form id="msform">
-                        <!-- 發文者頭像 -->
-                        <div class="container">
-                          <img
-                            src="images/id_photo/memberphoto_6.png"
-                            alt="profile-sample5"
-                            id="memberid_img"
-                          />
-                          <span style="font-size: 0.6em; color: #3e8bbe;"
-                            >發文者</span
-                          ><span
-                            id="article_m_id"
-                            style="font-size: 0.8em; text-align: left;"
-                            ;
-                            >豬血糕不要香菜</span
-                          >
-                        </div>
-                        <hr />
+                     <!-- 內容 -->
+                <form id="msform" action="<c:url value="/articleForum/listforum" />" method="post" enctype="multipart/form-data">
+                  <!-- 發文者頭像 -->
+                  <div class="container">
+                    <img
+                      src="${pageContext.request.contextPath}/init/getMemberImage?id=${LoginOK.m_id}"
+                      alt="profile-sample5"
+                      id="memberid_img"
+                    />
+                    <span style="font-size: 0.6em; color: #3e8bbe;">發文者</span
+                    ><span id="article_m_id" style="font-size: 0.8em;"
+                      >:${LoginOK.m_id}</span
+                    >
+                  </div>
+                  <hr />
 
-                        <div class="bd-highlight" style="font-size: small;">
-                          發文看板
-                          <!-- 發文看板選擇 -->
-                          <select id="select_area">
-                            <option value="請選擇">請選擇</option>
-                            <option value="creditcards">信用卡</option>
-                            <option value="food">美食</option>
-                            <option value="emotion">感情</option>
-                          </select>
-                        </div>
+                  <div class="bd-highlight" style="font-size: small;">
+                    發文看板
+                    <!-- 發文看板選擇 -->
+                    <select name="select_fourm">
+  						<option value ="1">信用卡</option>
+  						<option value ="2">美食</option>
+  						<option value="3">感情</option>
+                    	<option value ="4" SELECTED>請選擇</option>	
+					</select>
+                  </div>
 
-                        <h1 class="fs-title">文章標題</h1>
-                        <input
-                          type="text"
-                          name="article_title"
-                          placeholder="標題"
-                        />
-                        <!-- 輸入內文 -->
-                        <h1 class="fs-title">文章內文</h1>
-                        <p class="text">
-                          <textarea
-                            name="text"
-                            class="validate[required,length[6,300]] feedback-input"
-                            id="article_content"
-                            placeholder="內文"
-                            style="height: 300px;"
-                          ></textarea>
-                        </p>
+                  <h1 class="fs-title">文章標題</h1>
+                  <input type="text" name="article_title" placeholder="標題" />
+                  <!-- 輸入內文 -->
+                  <h1 class="fs-title">文章內文</h1>
+                  <p class="text">
+                    <textarea
+                      name="text"
+                      class="validate[required,length[6,300]] feedback-input"
+                      id="article_content"
+                      placeholder="內文"
+                      style="height: 300px;"
+                    ></textarea>
+                  </p>
 
-                        <!-- 上傳圖片的按鈕 -->
-                        <h1 class="fs-title">文章照片</h1>
-                        <div class="articleimage" style="padding-bottom: 5px;">
-                          <input
-                            id="input-b6"
-                            name="input-b6[]"
-                            type="file"
-                            multiple
-                          />
-                        </div>
+                  <!-- 上傳圖片的按鈕 -->
+                  <h1 class="fs-title">文章照片</h1>
+                  <div class="articleimage" style="padding-bottom: 5px;">
+                    <input
+                      id="input-b6"
+                      name="imageFile"
+                      type="file"
+                      multiple
+                    />
+                  </div>
 
-                        <!-- 文章標籤選擇 標籤意思跟主題一樣-->
-                        <legend
-                          style="
-                            font-size: 13px;
-                            padding-bottom: 7px;
-                            padding-top: 15px;
-                          "
-                        >
-                          標籤選擇
-                        </legend>
-                        <div id="checkline">
-                          <ul id="labels" class="center">
-                            <li>
-                              <input class="subject" type="checkbox" />信用卡
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />美食
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />感情
-                            </li>
-                            <li><input class="subject" type="checkbox" />讚</li>
-                            <li>
-                              <input class="subject" type="checkbox" />我就爛
-                            </li>
-                            <li>
-                              <input class="subject" type="checkbox" />口袋空空
-                            </li>
-                          </ul>
-                        </div>
-                      </form>
+                  <!-- 文章標籤選擇 標籤意思跟主題一樣-->
+                  <legend
+                    style="
+                      font-size: 13px;
+                      padding-bottom: 7px;
+                      padding-top: 15px;
+                    "
+                  >
+                    	標籤選擇
+                  </legend>
+                  <div id="checkline">
+                    <ul id="labels" class="center">
+                      <li><input class="subject" type="checkbox" />信用卡</li>
+                      <li><input class="subject" type="checkbox" />美食</li>
+                      <li><input class="subject" type="checkbox" />感情</li>
+                      <li><input class="subject" type="checkbox" />讚</li>
+                      <li><input class="subject" type="checkbox" />我就爛</li>
+                      <li><input class="subject" type="checkbox" />口袋空空</li>
+                    </ul>
+                  </div>
+              <!-- 底部按鈕 -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-dismiss="modal"
+                >
+                  返回
+                </button>
+                <button type="submit" class="btn btn-primary btn-sm">
+                  送出
+                </button>
+              </div>
+                </form>
                     </div>
 
-                    <!-- 底部按鈕 -->
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary btn-sm"
-                        data-dismiss="modal"
-                      >
-                        返回
-                      </button>
-                      <button type="button" class="btn btn-primary btn-sm">
-                        送出
-                      </button>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -902,27 +886,27 @@
     </div>
 
     <!-- 下方頁碼分頁 ----超連結待補------>
-    <nav
-      aria-label="Page navigation example"
-      style="padding-top: 20px; padding-bottom: 10px;"
-    >
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true"
-            >Previous</a
-          >
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" id="forum_page1">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" id="forum_page2">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" id="">Next</a>
-        </li>
-      </ul>
-    </nav>
+<!--     <nav -->
+<!--       aria-label="Page navigation example" -->
+<!--       style="padding-top: 20px; padding-bottom: 10px;" -->
+<!--     > -->
+<!--       <ul class="pagination justify-content-center"> -->
+<!--         <li class="page-item"> -->
+<!--           <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true" -->
+<!--             >Previous</a -->
+<!--           > -->
+<!--         </li> -->
+<!--         <li class="page-item"> -->
+<!--           <a class="page-link" href="#" id="forum_page1">1</a> -->
+<!--         </li> -->
+<!--         <li class="page-item"> -->
+<!--           <a class="page-link" href="#" id="forum_page2">2</a> -->
+<!--         </li> -->
+<!--         <li class="page-item"> -->
+<!--           <a class="page-link" href="#" id="">Next</a> -->
+<!--         </li> -->
+<!--       </ul> -->
+<!--     </nav> -->
 
     <!-- 底部 ---------------------------->
     <div id="backtop" class="gotop">

@@ -136,7 +136,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	public void deleteArticle(int launchActivityID) {
 		Session session = factory.getCurrentSession();
 		
-		String hql1 = "DELETE FROM Responser_foumBean WHERE articleId = :articleId";
+		String hql1 = "DELETE FROM ArticleResponserBean WHERE articleId = :articleId";
 		
 		String hql = "DELETE FROM ArticleBean WHERE article_Id = :article_Id";
 		

@@ -21,17 +21,29 @@
    <div class="flex-container">
       <!----------------------head區塊------------------------------>
         <div class="header">
-         ${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+         <!--這裡開始為上方,呈現商標log位置-->
          <div class="row justify-content-end"> 
            <div class="col-4">    <!---------logo區塊----------->
-               <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+               <a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+			   </a>
             </div>
           <div class="col-4">     <!---------左上角超連結區塊----------->
             <div class="row justify-content-end">
           <div class="col-3">
-          <a href="../member/member_logout.jsp">
-            <i class="fa fa-user-circle" id="memberlogin">會員登出</i>
-          </a>
+          
+          					<c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
          </div>
          <div class="col-3">
            <a href="">
@@ -67,25 +79,27 @@
 
           <!--這裡為追蹤清單內容-->
          <div class="Ordercontent"> 
-            <table >
+            <table border="1">
                <tr>
                  <td>商品明細</td>
                  <td>優惠價</td>
                  <td>庫存</td>
-                 <td>變更內容</td>
+                 <td></td>
                </tr> 
                	  <c:forEach varStatus="stVar"  var="entry"  items="${trackProduct}" >
                	 <tr>
                  <td>  <!--這裡顯示兩筆 第一筆為主-->
                   
-                     <img src="<c:url value='/shopping/getPicture/${entry.p_id}' />" width="150" height="150" class="img-fluid"  id="shoppingproduce_img">
-                     <a href="" id="orderlove_ul"><span id="orderlove_name">${entry.p_name}<span></a></span>
+                     <img src="<c:url value='/shopping/getPicture/${entry.p_id}' />" width="150" height="150" class="img-fluid"  id="shoppingproduce_img" style="float: left;">
+                     <a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.p_id}' />" id="orderlove_ul"  style="line-height: 99px;"><span id="orderlove_name">${entry.p_name}</span></a>
                  </td>
                  <td><span id="orderlove_price">${entry.price}</span></td>
-                 <td><span id="orderlove_stock">100</span></td>
+                 <td><span id="orderlove_stock">${entry.stock}</span></td>
                  <td>
-                  	<input type="button" value="放入購物車" id="orderlove_buy">
-                  	<input type="button" value="刪除商品" id="orderlove_delete">
+                 	<form action='<c:url value='/shopping/deleteTrack'/>' style="margin: 0px;display: inline;" method="post">
+                  		<input type="submit" value="取消追蹤" id="orderlove_delete">
+                  		<input type="hidden" name="id"  value="${entry.p_id}" >
+                 	</form>
                 </td>
                   </tr>
                  </c:forEach>
@@ -109,8 +123,8 @@
 
        <!--這裡為返回按鈕區塊-->
       <div class="footerbutton">
-        <a href="../member/member_center.jsp"><input type="button" value="返回" class="backbtn"></a> <!--這裡為返回會員中心畫面-->
-        <a href="../listProduct/shopping.jsp"><input type="button" value="購物商城" class="backbtn"></a><!--這裡為返回購物中心畫面-->
+<!--         <a href="../member/member_center.jsp"><input type="button" value="返回" class="backbtn"></a> 這裡為返回會員中心畫面 -->
+        <a href="<c:url value="/shopping/listProduct" />"><input type="button" value="返回商城" class="backbtn"></a><!--這裡為返回購物中心畫面-->
       </div>
 
 

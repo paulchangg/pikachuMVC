@@ -10,15 +10,15 @@ import com.pikachuMVC.model.ProductBean;
 
 
 public interface ProductDao {
-	Map<Integer, ProductBean> getProduct(int pageNo);
+	Map<Integer, ProductBean> getProduct();
 	
 	public ProductBean getSelectBook(int productId);
 	
 	public long getRecordCounts();
 	
-	public Map<Integer, ProductBean> getProductDescPrice(int pageNo);
+	public Map<Integer, ProductBean> getProductDescPrice();
 	
-	public Map<Integer, ProductBean> getProductAscPrice(int pageNo);
+	public Map<Integer, ProductBean> getProductAscPrice();
 	
 	void saveTrackProduct(MemberBean member,int productId);
 	
@@ -33,4 +33,6 @@ public interface ProductDao {
 	void insertProducts();
 	
 	List<ProductBean> getCategoryProducts(String category);
+	
+	void deleteTrack(String m_id,int p_id);
 }

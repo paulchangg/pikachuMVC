@@ -281,6 +281,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 		String line = "";
 		int count = 0;
 
+
 //		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\card0414.csv");
 		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/card0414.csv"); ////保羅
 //		File file = new File("C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\card0414.csv");  
@@ -305,6 +306,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 				token[2] =  token[1].substring(0, token[1].indexOf(" ")); 
 				cb.setBank(token[2]);
 				cb.setAnnlfee(token[3]);
+
 
 				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/imgs/" + token[1] + ".jpg"; //保羅
 //				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
