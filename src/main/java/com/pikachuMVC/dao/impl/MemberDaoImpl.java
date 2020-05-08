@@ -267,6 +267,25 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
+	@Override
+	public void rmFriend(String mId, String fId) {
+		MemberBean mbean;
+		MemberBean fbean;
+		
+		Session session = factory.getCurrentSession();
+		mbean = session.get(MemberBean.class, mId);
+		fbean = session.get(MemberBean.class, fId);
+		
+		Set<MemberBean> mset = mbean.getFriends();
+		mset.remove(fbean);
+		mbean.setFriends(mset);
+		
+		Set<MemberBean> fset = fbean.getFriends();
+		fset.remove(mbean);
+		fbean.setFriends(fset);
+		
+	}
+
 	
 	
 

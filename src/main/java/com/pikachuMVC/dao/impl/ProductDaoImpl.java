@@ -168,10 +168,14 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		String line = "";
 		
 
-//		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
+		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
 //		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\product.txt");
 //		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\product.txt");
+<<<<<<< HEAD
 		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
+=======
+//		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
+>>>>>>> 58d2e09882602e8c732f07cfbf0929e9880fb92d
 
 
 		try (FileInputStream fis = new FileInputStream(file);
@@ -189,8 +193,13 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 
 				cb.setStock(Integer.valueOf(token[3]));
 		
+<<<<<<< HEAD
 //				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
 				String imgname = "D:\\spring\\pikachuMVC\\data\\productImgs\\" + token[4];
+=======
+				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
+//				String imgname = "D:\\ttt\\" + token[4];
+>>>>>>> 58d2e09882602e8c732f07cfbf0929e9880fb92d
 //				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用

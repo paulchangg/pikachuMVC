@@ -38,5 +38,7 @@ public interface MemberDao {
 	
 	public void addFriend(String mId,String fId);
 	
+	public void rmFriend(String mId,String fId);
+	
 	public boolean pair(String mId,String fId);
 }

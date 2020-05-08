@@ -25,5 +25,6 @@ public interface MemberService {
 	public void addPreFriend(String mId,PreFriend pf);
 	public void rmPreFriend(String fId, String mId);
 	public void addFriend(String mId,String fId);
+	public void rmFriend(String mId,String fId);
 	public boolean pair(String mId,String fId);
 }
