@@ -103,7 +103,7 @@ body {
 /*這裡為會員中心的圖*/
 .pickuimgthree {
   position: absolute;
-  left: 30%;
+  left: 36%;
   top: 40%;
 }
 
@@ -390,17 +390,21 @@ body {
 .pickuimggiftwo {
   width: 35%;
   position: absolute;
-  left: 60%;
-  top: 75%;
+  left: 63%;
+  top: 90%;
 }
 
 /*交友對話*/
 .pickuimgfour {
   position: absolute;
-  top: 100%;
-  left: 33%;
+  top: 95%;
+  left: 40%;
 }
 
+/*第二大區塊*/
+.towwarp{
+ height: 38rem;
+}
 
 /*我的信用卡配對區塊*/
 .onearea {
@@ -451,11 +455,8 @@ body {
 
 #center_Box {
   margin-left: 13%; 
-/*   margin-top: 27%; */
-  /* position: relative; */
-  /* justify-content: center; */
   text-align: center;
-  back
+  height:20rem;
 }
 
 /*增加信用卡才會產生的div*/

@@ -165,7 +165,7 @@
 	   <!-- 中間區塊2 -->
 	   <div class="row towwarp">
 		   <!--我的信用卡收藏-->
-		   <div class="onearea">
+		   <div class="col-8 onearea">
 			 <!--我的信用卡標題與說明-->
 		 	<h3>我的信用卡配對</h3>
 			<p>
