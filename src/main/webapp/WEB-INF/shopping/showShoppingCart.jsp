@@ -36,17 +36,28 @@
     <div class="flex-container">
         <!----------------------head區塊------------------------------>
         <div class="header">
-			${LoginOK.m_id}皮卡丘商標位置<!--這裡開始為上方,呈現商標log位置-->
+			<!--這裡開始為上方,呈現商標log位置-->
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+				   <a href='<c:url value='/' />'>
+				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
+					</a>
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="../member/member_login.jsp">
-							  <i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-							</a>
+							<c:choose>
+								<c:when test="${empty LoginOK}">								
+									<a href="<c:url value="/member/member_login"/>"> 
+										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+									</a>								
+								</c:when>
+								<c:otherwise>								
+									<a href="<c:url value="/member/member_logout"/>"> 
+									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+									</a>								
+								</c:otherwise>
+							</c:choose>
 					   </div>
 						 <div class="col-3">
 							 <a href="">
@@ -125,7 +136,7 @@
         <div class="col-12 return"> <!--繼續購物-->
             <form action="<c:url value='/shopping/ProcessOrder' />" method="POST" >
                <Input type='hidden' name='finalDecision' value='Order'>
-                <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
+                <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
                 <Input type='submit' class="btn btn-warning" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
             </form>
       </div>
@@ -157,5 +168,40 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>     
         <script src="js/shopping_cart.js"></script>
+        <script type="text/javascript">
+        function confirmDelete(n) {
+        	if (confirm("確定刪除此項商品 ? ") ) {
+        		document.forms[0].action="<c:url value='/shopping/UpdateItem?cmd=DEL&bookId=" + n +"' />" ;
+        		document.forms[0].method="POST";
+        		document.forms[0].submit();
+        	} else {
+        	
+        	}
+        }
+        function modify(key, qty, index) {
+        	var x = "newQty" + index;
+        	var newQty = document.getElementById(x).value;
+        	if  (newQty < 0 ) {
+        		window.alert ('數量不能小於 0');
+        		return ; 
+        	}
+        	if  (newQty == 0 ) {
+        		window.alert ("請執行刪除功能來刪除此項商品");
+        		document.getElementById(x).value = qty;
+        		return ; 
+        	}
+        	if  (newQty == qty ) {
+        		window.alert ("新、舊數量相同，不必修改");
+        		return ; 
+        	}
+        	if (confirm("確定將此商品的數量由" + qty + " 改為 " + newQty + " ? ") ) {
+        		document.forms[0].action="<c:url value='/shopping/UpdateItem?cmd=MOD&bookId=" + key + "&newQty=" + newQty +"' />" ;
+        		document.forms[0].method="POST";
+        		document.forms[0].submit();
+        	} else {
+        		document.getElementById(x).value = qty;
+        	}
+        }
+        </script>
 </body>
 </html>

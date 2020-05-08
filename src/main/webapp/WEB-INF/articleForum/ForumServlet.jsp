@@ -40,7 +40,7 @@
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
-            <a href="index copy.html">
+            <a href="<c:url value="/"/>">
               <img src="<c:url value="/articleForum/images/logo2.png"/>" alt="logo" style="height: 230px;" />
             </a>
           </div>
@@ -472,19 +472,20 @@
                             	 </button>
                             </form>
                             <!-- 修改 -->
-                            <c:if test="${LoginOK.m_id == entry.member_id}">
-                            	 <button
-                              		type="button"
-                              		class="btn btn-link"
-                              		data-toggle="modal"
-                              		data-target="#revise"
-                              		style="color: rgb(177, 172, 172);"
-                            		>
-                              		<i class="fas fa-edit"></i>
-                            	 </button>
-                            </c:if>
+<%--                             <c:if test="${LoginOK.m_id == entry.member_id}"> --%>
+<!--                             	 <button -->
+<!--                               		type="button" -->
+<!--                               		class="btn btn-link" -->
+<!--                               		data-toggle="modal" -->
+<!--                               		data-target="#revise" -->
+<!--                               		style="color: rgb(177, 172, 172);" -->
+<!--                             		> -->
+<!--                               		<i class="fas fa-edit"></i> -->
+<!--                             	 </button> -->
+<%--                             </c:if> --%>
                             <!-- 刪除 -->
                             <c:if test="${LoginOK.m_id == entry.member_id}">
+                             <form style="margin:0px; display:inline" method="post"    action="<c:url value='/articleForum/delete/${entry.article_Id}' />">
                             	<button
                               		type="button"
                               		class="btn btn-link"
@@ -494,6 +495,7 @@
                             	>
                               	<i class="far fa-trash-alt"></i>
                             	</button>
+                            </form>
                             </c:if>
                           </div>
                         </div>
@@ -618,17 +620,17 @@
                             </button>
                             <span>${entry10.allWatch}</span>
                             <!-- 修改 -->
-                            <c:if test="${LoginOK.m_id == entry10.member_id}">
-                            	 <button
-                              		type="button"
-                              		class="btn btn-link"
-                              		data-toggle="modal"
-                              		data-target="#revise"
-                              		style="color: rgb(177, 172, 172);"
-                            		>
-                              		<i class="fas fa-edit"></i>
-                            	 </button>
-                            </c:if>
+<%--                             <c:if test="${LoginOK.m_id == entry10.member_id}"> --%>
+<!--                             	 <button -->
+<!--                               		type="button" -->
+<!--                               		class="btn btn-link" -->
+<!--                               		data-toggle="modal" -->
+<!--                               		data-target="#revise" -->
+<!--                               		style="color: rgb(177, 172, 172);" -->
+<!--                             		> -->
+<!--                               		<i class="fas fa-edit"></i> -->
+<!--                             	 </button> -->
+<%--                             </c:if> --%>
                             <!-- 刪除 -->
                             <form style="margin:0px; display:inline" method="post"    action="<c:url value='/articleForum/deleteTrack/${entry10.article_Id}/${entry10.member_id}' />">
                             	<button
@@ -665,7 +667,7 @@
                       >
                         回應
                         <span class="total_reply">
-                        	<c:forEach varStatus="stVar11"  var="entry11"  items="${article_content}">
+                        	<c:forEach varStatus="stVar11"  var="entry11"  items="${trackArticle_responserCount}">
                         	 	<c:if test="${stVar11.count == stVar10.count}">
                         	 		${entry11}
                         	 	</c:if>
@@ -857,7 +859,7 @@
                     >
                    		   關閉
                     </button>
-                    <button type="button" class="btn btn-primary btn-sm">
+                    <button type="button" class="btn btn-primary btn-sm" id="deleteArticle1" >
                       	確定刪除
                     </button>
                   </div>
@@ -900,5 +902,13 @@
       <br />
       <button type="button" class="btn btn-secondary">To the top</button>
     </div>
+    <script type="text/javascript">
+   
+    	document.getElementById("deleteArticle1").addEventListener("click", function( event ) {
+    	    // 在 “clicked div”顯示點擊次數
+    		document.forms[2].submit();
+    	 });
+   
+    </script>
   </body>
 </html>

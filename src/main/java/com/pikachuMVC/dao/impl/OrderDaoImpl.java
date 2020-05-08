@@ -17,7 +17,7 @@ import com.pikachuMVC.model.OrdersBean;
 @Repository
 public class OrderDaoImpl implements OrderDao{
 
-	private int recordsPerPage = init.GlobalService.RECORDS_PER_PAGE - 2;
+	private int recordsPerPage = init.GlobalService.RECORDS_PER_PAGE;
 	private String memberId = null;
 	private int totalPages;
 	

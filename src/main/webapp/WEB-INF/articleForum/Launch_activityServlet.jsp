@@ -56,13 +56,13 @@
       <article class="content_block">
         <!-- 文章標題---->
         <p class="article_title" style="font-size: 20px; padding-bottom: 10px;">
-          值得擁有之卡片特集
+          ${launchActivityBean.article_title}
         </p>
 
         <!-- 主題,發布時間----超連結待補---->
         <div class="content_block_a">
           <div class="subject" style="padding: 0 10px; height: 25px;">
-            <a href="article_board_credit card.html" id="creditcards">信用卡</a>
+            <a href="article_board_credit card.html" id="creditcards">${launchActivityBean.subject}</a>
           </div>
           <div class="post_Time" style="padding-left: 10px;">${launchActivityBean.post_time}</div>
         </div>

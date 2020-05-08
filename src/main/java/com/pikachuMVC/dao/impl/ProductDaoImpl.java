@@ -36,17 +36,15 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Map<Integer, ProductBean> getProduct(int pageNo) {
+	public Map<Integer, ProductBean> getProduct() {
 		Map<Integer, ProductBean> map = new HashMap<>();
 		
 		List<ProductBean> list = new ArrayList<ProductBean>();
         String hql = "FROM ProductBean";
         Session session = factory.getCurrentSession();
-        int startRecordNo = (pageNo - 1) * recordsPerPage;
+//        int startRecordNo = (pageNo - 1) * recordsPerPage;
 
         list = session.createQuery(hql)
-        			  .setFirstResult(startRecordNo)
-                      .setMaxResults(recordsPerPage)
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
@@ -89,17 +87,15 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Map<Integer, ProductBean> getProductDescPrice(int pageNo) {
+	public Map<Integer, ProductBean> getProductDescPrice() {
 		Map<Integer, ProductBean> map = new LinkedHashMap<Integer, ProductBean>();
 		
 		List<ProductBean> list = new ArrayList<ProductBean>();
         String hql = "FROM ProductBean order by price desc";
         Session session = factory.getCurrentSession();
-        int startRecordNo = (pageNo - 1) * recordsPerPage;
+//        int startRecordNo = (pageNo - 1) * recordsPerPage;
 
         list = session.createQuery(hql)
-        			  .setFirstResult(startRecordNo)
-                      .setMaxResults(recordsPerPage)
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
@@ -110,17 +106,15 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Map<Integer, ProductBean> getProductAscPrice(int pageNo) {
+	public Map<Integer, ProductBean> getProductAscPrice() {
 		Map<Integer, ProductBean> map = new LinkedHashMap<Integer, ProductBean>();
 		
 		List<ProductBean> list = new ArrayList<ProductBean>();
         String hql = "FROM ProductBean order by price";
         Session session = factory.getCurrentSession();
-        int startRecordNo = (pageNo - 1) * recordsPerPage;
+//        int startRecordNo = (pageNo - 1) * recordsPerPage;
 
         list = session.createQuery(hql)
-        			  .setFirstResult(startRecordNo)
-                      .setMaxResults(recordsPerPage)
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
@@ -135,7 +129,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		ProductBean bean;
 		MemberBean  beans;
 		
-		String hql = "FROM ProductBean p WHERE p.p_id = :p_id";
+		
 		
 		Session session = factory.getCurrentSession();
 		
@@ -172,12 +166,12 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		Session session = factory.getCurrentSession();
 	
 		String line = "";
-		int count = 0;
+		
 
 //		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/product.txt");
 //		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\product.txt");
-		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\product.txt");
-//		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
+//		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\product.txt");
+		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
 
 
 		try (FileInputStream fis = new FileInputStream(file);
@@ -196,9 +190,9 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 				cb.setStock(Integer.valueOf(token[3]));
 		
 //				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/productImgs/" + token[4];
-//				String imgname = "D:\\ttt\\" + token[4];
+				String imgname = "D:\\spring\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\productImgs\\" + token[4];
-				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\productImgs\\" + token[4];
+//				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用
 
 				Blob c_img = GlobalService.fileToBlob(imgname);
@@ -258,10 +252,23 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		Session session = factory.getCurrentSession();
 		
 		String hql = "FROM ProductBean p WHERE p.p_category = :category ";
-		
+				
 		
 		
 		return session.createQuery(hql).setParameter("category", category).getResultList();
+	}
+
+	@Override
+	public void deleteTrack(String m_id, int p_id) {
+		
+		Session session = factory.getCurrentSession();
+		
+		MemberBean mb = session.get(MemberBean.class, m_id);
+		ProductBean pb = session.get(ProductBean.class, p_id);
+		
+		mb.getProducts().remove(pb);
+		pb.getMembers().remove(mb);
+		
 	}
 
 

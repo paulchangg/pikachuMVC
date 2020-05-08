@@ -12,13 +12,13 @@ import com.pikachuMVC.model.ProductBean;
 public interface ProductService {
 	
 	//上市日期 商品
-	Map<Integer, ProductBean> getProduct(int pageNo);
+	Map<Integer, ProductBean> getProduct();
 	
 	//升冪 價格排列
-	public Map<Integer, ProductBean> getProductDescPrice(int pageNo);
+	public Map<Integer, ProductBean> getProductDescPrice();
 
 	//降冪 價格排列
-	public Map<Integer, ProductBean> getProductAscPrice(int pageNo);
+	public Map<Integer, ProductBean> getProductAscPrice();
 	
 	
 	//總頁面  要進入商品詳細資訊用
@@ -49,5 +49,7 @@ public interface ProductService {
 	//用分類去列商品
 	List<ProductBean> getCategoryProducts(String category);
 	
+	//取消追蹤
+	void deleteTrack(String m_id,int p_id);
 }
 

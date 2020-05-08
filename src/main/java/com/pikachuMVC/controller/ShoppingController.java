@@ -5,10 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -61,6 +64,8 @@ public ShoppingController() {}
 	int id = 1;
 	int priceMode = 0;
 	static int modeState = 0;
+
+	
 	
 	
 	//此方法是在購物車要刪除或修改數量
@@ -156,26 +161,26 @@ public ShoppingController() {}
 	public String listProduct(HttpServletRequest request, Model model, HttpSession session) {
 		
 		//要展示第幾頁的商品
-		String pageNoStr = request.getParameter("pageNo");
+//		String pageNoStr = request.getParameter("pageNo");
 		
 		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
 		String mode = request.getParameter("mode");
 		
-		//??????
-//		String productId = request.getParameter("productId");
+		//進去詳細資訊是哪個商品
+		String productId = request.getParameter("productId");
 		
 		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期
 		String price = request.getParameter("priceMode");
 		
-//		if( productId == null ) {
-//			id = 1;
-//		}else {
-//			try {
-//				id = Integer.parseInt(productId.trim());
-//			} catch (NumberFormatException e) {
-//				id = 1;
-//			}
-//		}
+		if( productId == null ) {
+			id = 1;
+		}else {
+			try {
+				id = Integer.parseInt(productId.trim());
+			} catch (NumberFormatException e) {
+				id = 1;
+			}
+		}
 		
 		
 		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期    給預設值
@@ -196,29 +201,29 @@ public ShoppingController() {}
 		
 		
 		//要展示第幾頁的商品  如果null給預設值
-		if( pageNoStr == null ) {
-			pageNo = 1;
-		}else {
-			try {
-				pageNo = Integer.parseInt(pageNoStr.trim());
-			} catch (NumberFormatException e) {
-				pageNo = 1;
-			}
-		}
+//		if( pageNoStr == null ) {
+//			pageNo = 1;
+//		}else {
+//			try {
+//				pageNo = Integer.parseInt(pageNoStr.trim());
+//			} catch (NumberFormatException e) {
+//				pageNo = 1;
+//			}
+//		}
 		
 		Map<Integer, ProductBean> productMap = null;
 		
 		
 		if(priceMode == 1) {
-			productMap = service.getProductDescPrice(pageNo);
+			productMap = service.getProductDescPrice();
 		}else if(priceMode == 2) {
-			productMap = service.getProductAscPrice(pageNo);
+			productMap = service.getProductAscPrice();
 		}else {
-			productMap = service.getProduct(pageNo);
+			productMap = service.getProduct();
 		}
 		
 		//總共幾頁
-		request.setAttribute("totalPages", service.getTotalPages());
+//		request.setAttribute("totalPages", service.getTotalPages());
 		
 		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
 		request.setAttribute("mode", mode);
@@ -227,10 +232,13 @@ public ShoppingController() {}
 		session.setAttribute("modeState", modeState);
 		
 		//現在是第幾頁
-		session.setAttribute("pageNo", String.valueOf(pageNo));
+//		session.setAttribute("pageNo", String.valueOf(pageNo));
 		
 		//這一頁的商品
 		session.setAttribute("products_DPP", productMap);
+		
+		//讓標題顯示本月熱賣
+		session.setAttribute("category", null);
 		
 		
 		if( "show".equals(mode)) {
@@ -414,9 +422,13 @@ public ShoppingController() {}
 	
 	@GetMapping("/queryProduct")
 	@ResponseBody
-	public void queryProduct(HttpServletResponse response,HttpServletRequest request) {
+	public void queryProduct(HttpServletResponse response,HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		String p_name = request.getParameter("p");
+		request.setCharacterEncoding("UTF-8");
+		
+		String p_name = request.getParameter("q");
+		
+		
 		
 		response.setContentType("application/json; charset=utf-8");
 		try(
@@ -424,10 +436,11 @@ public ShoppingController() {}
 		){
 			List<String> list = service.getProducts_name(p_name);
 			
+			
+			
 			String categoriesJson = new Gson().toJson(list);
 			
 			out.write(categoriesJson);
-			out.flush();
 		}catch(Exception e) {
 			
 		}
@@ -439,20 +452,34 @@ public ShoppingController() {}
 					
 	}
 	
-	@GetMapping("/listProduct/{category}")
-	public String category(@PathVariable String category, HttpSession session) {
+	@GetMapping("/{category}")
+	public String category(@PathVariable String category, HttpSession session,HttpServletRequest request) {
+		
 		
 		List<ProductBean> beans = service.getCategoryProducts(category);
 		
-		Map<Integer,ProductBean> productsMap = null;
+		
+		Map<Integer, ProductBean> pro = new LinkedHashMap<Integer, ProductBean>();;
 		
 		for(ProductBean b : beans) {
-			productsMap.put(b.getP_id(), b);
+			pro.put(b.getP_id(), b);
 		}
 		
-		session.setAttribute("products_DPP", productsMap);
+		session.setAttribute("category", category);
+		
+		session.setAttribute("products_DPP", pro);
 		
 		return "shopping/shopping";
+	}
+	
+	@PostMapping("/deleteTrack")
+	public String deleteTrack(HttpServletRequest request,HttpSession session,@RequestParam Integer id) {
+		
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
+		
+		service.deleteTrack(mb.getM_id(), id);
+		
+		return "redirect:/shopping/listtrackproduct";
 	}
 	
 
