@@ -39,7 +39,7 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
-            <a href="index copy.html">
+            <a href='<c:url value="/" />'>
               <img src="../articleForum/images/logo2.png" alt="logo" style="height: 230px;" />
             </a>
           </div>
@@ -115,14 +115,14 @@ pageEncoding="UTF-8"%>
           <img src="../articleForum/images/cellphone.jpg" style="width: 80px; height: 60px;" />
           <span class="badge badge-warning" style="font-size: 20px;">配對</span>
         </div>
-        <a href="forum_friendlist.html">
+        <a href='<c:url value="/friends/friendList" />'>
           <button type="button" class="btn btn-primary btn-sm">
             好友列表
             <br /><i class="fas fa-users"></i>
           </button>
         </a>
 
-        <a href="forum.html">
+        <a href='<c:url value="/articleForum/listforum"/>'>
           <button type="button" class="btn btn-info btn-sm">
             回論壇首頁
             <br /><i class="fas fa-home"></i>
@@ -132,7 +132,7 @@ pageEncoding="UTF-8"%>
     </div>
 
     <!-- 左側按鈕列表 -->
-    <div class="container-fluid">
+    <div class="container-fluid" />
       <div class="row" style="display: flex; padding-top: 20px;">
         <!-- 左側button-->
         <div class="col-2">

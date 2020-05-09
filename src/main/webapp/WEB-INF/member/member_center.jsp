@@ -30,7 +30,7 @@
          </div>
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
-             <a href="index copy.html">
+             <a href='<c:url value="/" />' >
                 <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
