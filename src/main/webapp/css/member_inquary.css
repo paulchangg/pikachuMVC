@@ -1,0 +1,226 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+}
+
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
+}
+
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+  z-index: 1100;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 2%;
+  font-size: 20px;
+  background-color: #90be6d;
+
+}
+
+
+/*個人資料圖像*/
+.imageone{
+  margin-left: 40%;
+  margin-top: 1%;
+}
+
+
+
+/*返回按鈕*/
+
+#Button2{
+  border:0;
+  background-color:#FFE066;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
+  font-size: 23px;
+}
+
+
+#Button2:hover{
+  color:#FFE066;
+  background-color:#fff;
+  border:2px #FFE066 solid;
+}
+
+/*動畫區塊*/
+
+.middle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height:40rem ;
+}
+
+
+/*整個動畫區塊*/
+.wrap{
+  width: 36rem;
+  height: 40rem;
+}
+
+.back h2{
+  font-size: 30px;
+  margin-top: 6%;
+  margin-bottom: 3%;
+}
+
+/*詳細資訊內文*/
+.personaldata{
+  margin-top: 5%;
+  font-size: 20px;
+  height: 50%;
+}
+
+
+/*顯示會員帳號的文字*/
+.front h3{
+  margin-top: 10%;
+  font-size: 23px;
+}
+
+/*顯示會員圖像*/
+.photo{
+  margin-top: 6%;
+  text-align: center;
+}
+
+/*正面區塊*/
+.front{
+  transform: perspective(800px) rotateY(0deg);
+  width: 28rem;
+  height: 34rem;
+  position: absolute;
+  backface-visibility: hidden;
+  box-shadow: 0 0 10px #2c3e50;
+  transition: .8s;
+  margin-left: 4%;
+  margin-top: 2%;
+  background: url(../images/捉迷藏比卡丘.png);
+  background-size: 20rem;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+/*反面區塊*/
+.back{
+  transform: perspective(800px) rotateY(180deg);
+  width: 28rem;
+  height: 34rem;
+  position: absolute;
+  backface-visibility: hidden;
+  box-shadow: 0 0 10px #2c3e50;
+  transition: .8s;
+  margin-left: 4%;
+  margin-top: 2%;
+  background: url(../images/比卡丘黃色沒電波.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 15rem;
+}
+
+.wrap:hover .front{
+    transform: perspective(800px) rotateY(-180deg);
+}
+
+.wrap:hover .back{
+  transform: perspective(800px) rotateY(0deg);
+}
+
+.footerbutton{
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

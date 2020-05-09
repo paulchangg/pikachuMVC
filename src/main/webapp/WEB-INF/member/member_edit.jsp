@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>修改個人資料</title>
      <link rel="stylesheet" href="../css/bootstrap.min.css">
-	 <link href="../css/common/member_edit.css" rel="stylesheet" type="text/css">
+	 <link href="../css/member_edit.css" rel="stylesheet" type="text/css">
 	 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-     <link rel="stylesheet" href="../css/common/wickedcss.min.css">
+     <link rel="stylesheet" href="../css/wickedcss.min.css">
      <script src="../js/index_modal.js"></script> <!-- 捲動時固定瀏覽器在上方的js-->
     <script> function updateMb(){
 	if (confirm("確定更新會員資料 ? ") ) {
@@ -35,16 +35,19 @@
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
              <a href="index copy.html">
-                <img src="../images/common/logo2.png" alt="logo" style="height: 230px;" />
+                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
         <!-- 右上區塊 -->
         <div class="col-sm">
-			<ul class="nav justify-content-end" style="font-size: 17px;">
+					<ul class="nav justify-content-end" style="font-size: 17px;">
 			   <li class="nav-item">
 				 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
-			  </li>   <a class="nav-link" href="#" id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+			  </li>  
+			  <li class="nav-item">
+			 <a class="nav-link" href="#" id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+			  </li>  
 			 <li class="nav-item">
 			   <a class="nav-link" href="#" id="shoppingcart">
 				 <i class="fas fa-shopping-cart"></i>
@@ -68,7 +71,7 @@
       </div>
    
 	  <!-- 會員修改框圖片 -->
-	  <div><img src="../images/common/個人資料.png" class="imageone"></div>
+	  <div><img src="../images/個人資料.png" class="imageone"></div>
 
 	     <!--顯示資料庫帳號-->
 		 <div class="memberID">

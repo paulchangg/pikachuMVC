@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>會員中心</title>
      <link rel="stylesheet" href="../css/bootstrap.min.css">
-     <link href="../css/common/member_center.css" rel="stylesheet" type="text/css">
+     <link href="../css/member_center.css" rel="stylesheet" type="text/css">
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-	 <link rel="stylesheet" href="../css/common/wickedcss.min.css">
+	 <link rel="stylesheet" href="../css/wickedcss.min.css">
 	<script src="../js/jquery-3.4.1.js"></script>
-	<!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 	<script src="../js/index_modal.js"></script> <!-- 捲動時固定瀏覽器在上方的js-->
@@ -32,21 +31,21 @@
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
              <a href="index copy.html">
-                <img src="../images/common/logo2.png" alt="logo" style="height: 230px;" />
+                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>
         <!-- 右上區塊 -->
         <div class="col-sm">
-			<ul class="nav justify-content-end" style="font-size: 17px;">
+						<ul class="nav justify-content-end" style="font-size: 17px;">
 			   <li class="nav-item">
-				 <a class="nav-link" href='<c:url value="/member/member_logout" />' id="memberlogin">會員登出</a>
-			  </li>   <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+				 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
+			  </li>  
+			  <li class="nav-item">
+			 <a class="nav-link" href="#" id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+			  </li>  
 			 <li class="nav-item">
-			   <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
-			 </li>
-			 <li class="nav-item">
-			   <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
+			   <a class="nav-link" href="#" id="shoppingcart">
 				 <i class="fas fa-shopping-cart"></i>
 			   </a>
 			 </li>
@@ -70,11 +69,11 @@
         </div>
       </div>
 
-	  <img src="../images/common/比卡丘02.gif" class="pickuimggif">
+	  <img src="../images/比卡丘02.gif" class="pickuimggif">
 	 
 
 	  <!-- 中間區塊1 -->
-	  <img src="../images/common/會員中心.png" class="pickuimgthree">
+	  <img src="../images/會員中心.png" class="pickuimgthree">
 	  <div class="warp-center">
 
 			<!-- 討論區管理 -->
@@ -187,8 +186,8 @@
 		<!-- 增加信用卡區塊-->
 		<div class="row" id="center_Box"></div>	
 	  </div>
-	  <img src="../images/common/交友配對.png" class="pickuimgfour">
-	  <img src="../images/common/比卡丘翻轉.gif"  class="pickuimggiftwo">
+	  <img src="../images/交友配對.png" class="pickuimgfour">
+	  <img src="../images/比卡丘翻轉.gif"  class="pickuimggiftwo">
 	  
 	
 

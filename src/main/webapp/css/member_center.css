@@ -1,0 +1,492 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+}
+
+/* 導覽列上面那塊 */
+.et-hero-tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
+}
+
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+  z-index: 1100;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 5%;
+  font-size: 10px;
+  background-color: #90be6d;
+}
+
+
+/*這裡為比卡丘會動的圖*/
+.pickuimggif {
+  width: 35%;
+  position: absolute;
+}
+
+/*這裡為會員中心的圖*/
+.pickuimgthree {
+  position: absolute;
+  left: 36%;
+  top: 40%;
+}
+
+
+/*中間整體區塊*/
+.warp-center {
+  margin-top: 2%;
+  height: 35rem;
+  text-align: center;
+}
+
+
+/*討論區管理區塊*/
+.containerbb {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  top: 65%;
+  left: 40%;
+  box-shadow: 0 2px 5px #333;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  font-size: 10px;
+}
+
+.containerbb p {
+  margin-top: 30%;
+}
+
+.coverbb {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: perspective(1500px) rotateY(0deg);
+  transition: all 1s ease-in-out;
+  transform-origin: left;
+  top: 0%;
+  left: 0%;
+
+}
+
+.backbb {
+  background-size: 100% 100%;
+  transform: perspective(1000px)rotateY(180deg);
+  position: absolute;
+  padding-top: 30px;
+  box-shadow: 0 2px 5px #333;
+}
+
+.containerbb:hover {
+  transform: scale(2);
+  z-index: 9999;
+}
+
+.containerbb:hover .coverbb {
+  transform: perspective(1500px) rotateY(-180deg);
+
+}
+
+.frontbb,
+.backbb {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.frontbb {
+  background-color: #aed9e0;
+  background-size: 120%;
+  padding: 30px;
+  font-size: 25px;
+}
+
+
+/*交友與活動手冊*/
+
+.containercc {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  top: 65%;
+  left: 53%;
+  box-shadow: 0 2px 5px #333;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  font-size: 10px;
+}
+
+.containercc p {
+  margin-top: 30%;
+}
+
+.covercc {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: perspective(1500px) rotateY(0deg);
+  transition: all 1s ease-in-out;
+  transform-origin: left;
+  top: 0%;
+  left: 0%;
+
+}
+
+.backcc {
+  background-size: 100% 100%;
+  transform: perspective(1000px)rotateY(180deg);
+  position: absolute;
+  padding-top: 30px;
+  box-shadow: 0 2px 5px #333;
+}
+
+.containercc:hover {
+  transform: scale(2);
+  z-index: 9999;
+}
+
+.containercc:hover .covercc {
+  transform: perspective(1500px) rotateY(-180deg);
+
+}
+
+.frontcc,
+.backcc {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.frontcc {
+  background-color: #ffa69e;
+  background-size: 120%;
+  padding: 25px;
+  font-size: 25px;
+}
+
+.frontcc h4 {
+  margin-top: 25%;
+}
+
+
+
+/*商城動畫區塊*/
+.containeree {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  top: 65%;
+  left: 79%;
+  box-shadow: 0 2px 5px #333;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  font-size: 10px;
+  z-index: 990;
+}
+
+.containeree p {
+  margin-top: 30%;
+}
+
+.coveree {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: perspective(1500px) rotateY(0deg);
+  transition: all 1s ease-in-out;
+  transform-origin: left;
+  top: 0%;
+  left: 0%;
+
+}
+
+.backee {
+  background-size: 100% 100%;
+  transform: perspective(1000px)rotateY(180deg);
+  position: absolute;
+  padding-top: 30px;
+  box-shadow: 0 2px 5px #333;
+}
+
+.containeree:hover {
+  transform: scale(2);
+  z-index: 99999;
+}
+
+.containeree:hover .coveree {
+  transform: perspective(1500px) rotateY(-180deg);
+
+}
+
+.frontee,
+.backee {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.frontee {
+  background-color: #43aa8b;
+  background-size: 120%;
+  padding: 25px;
+  font-size: 25px;
+
+}
+
+
+
+
+/*會員動畫區塊*/
+.containerff {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  top: 65%;
+  left: 66%;
+  box-shadow: 0 2px 5px #333;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  font-size: 10px;
+}
+
+.containerff p {
+  margin-top: 30%;
+}
+
+.coverff {
+  width: 12rem;
+  height: 14rem;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: perspective(1500px) rotateY(0deg);
+  transition: all 1s ease-in-out;
+  transform-origin: left;
+  top: 0%;
+  left: 0%;
+
+}
+
+.backff p {
+  margin-top: 15%;
+}
+
+.backff {
+  background-size: 100% 100%;
+  transform: perspective(1000px)rotateY(180deg);
+  position: absolute;
+  padding-top: 30px;
+  box-shadow: 0 2px 5px #333;
+}
+
+.containerff:hover {
+  transform: scale(2);
+  z-index: 9999;
+}
+
+.containerff:hover .coverff {
+  transform: perspective(1500px) rotateY(-180deg);
+
+}
+
+.frontff,
+.backff {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+
+.frontff {
+  background-color: #ff9b54;
+  background-size: 120%;
+  padding: 25px;
+  font-size: 25px;
+}
+
+
+/*第二支比卡丘*/
+.pickuimggiftwo {
+  width: 35%;
+  position: absolute;
+  left: 63%;
+  top: 90%;
+}
+
+/*交友對話*/
+.pickuimgfour {
+  position: absolute;
+  top: 95%;
+  left: 40%;
+}
+
+/*第二大區塊*/
+.towwarp{
+ height: 38rem;
+}
+
+/*我的信用卡配對區塊*/
+.onearea {
+  margin-top: 13%;
+  margin-left: 10%;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #FFE066;
+  padding: 15px;
+  height: 10rem;
+}
+
+
+
+/*銀行選單下拉式*/
+#selectBank {
+  width: 150px;
+}
+
+/*銀行選單下拉式*/
+#selectCard {
+  width: 220px;
+}
+
+
+
+/*增加按鈕樣式*/
+.center_Button2 {
+  border: 0;
+  background-color: #35A7FF;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.center_Button2:hover {
+  color: #35A7FF;
+  background-color: #fff;
+  border: 2px #35A7FF solid;
+}
+
+/*3張文字強調*/
+.threenumber {
+  font-size: 25px;
+}
+
+
+#center_Box {
+  margin-left: 13%; 
+  text-align: center;
+  height:20rem;
+  justify-content:center;
+}
+
+/*增加信用卡才會產生的div*/
+.addcredit {
+  padding: 20px;
+
+}
+
+/*innerHTML信用卡圖檔*/
+.addimg {
+  width: 15rem;
+  height: 10rem;
+  margin-bottom: 5%;
+}
+
+
+
+/*刪除按鈕樣式*/
+#center_del {
+  border: 0;
+  background-color: #FF5964;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+#center_del:hover {
+  color: #FF5964;
+  background-color: #fff;
+  border: 2px #FF5964 solid;
+}
