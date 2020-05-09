@@ -13,8 +13,8 @@
      <link href="../css/common/member_center.css" rel="stylesheet" type="text/css">
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 	 <link rel="stylesheet" href="../css/common/wickedcss.min.css">
-	 <!-- <script src="../js/jquery-3.4.1.js"></script> -->
-	 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="../js/jquery-3.4.1.js"></script>
+	<!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 	<script src="../js/index_modal.js"></script> <!-- 捲動時固定瀏覽器在上方的js-->

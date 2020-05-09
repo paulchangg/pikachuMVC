@@ -457,6 +457,7 @@ body {
   margin-left: 13%; 
   text-align: center;
   height:20rem;
+  justify-content:center;
 }
 
 /*增加信用卡才會產生的div*/

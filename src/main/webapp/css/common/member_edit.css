@@ -1,355 +1,305 @@
-@import '/css/reset.css';
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
 
-
-body{
-  font-family: 'Noto Sans TC', sans-serif;
-  padding: initial;
-}
-  
-  .flex-container {
-    margin: 0 13%;  /* 全版置中 */
-    text-align: center;    
-    display: block;
-    /* display: -webkit-flex; */
-    display: flex;  
-    /* -webkit-flex-flow: row wrap; */
-    flex-flow: row wrap;
-    font-family: 'Noto Sans TC', sans-serif;
-  }
-  
-  .flex-container {
-    margin: 0 13%;  /* 全版置中 */
-    text-align: center;    
-    display: block;
-    /* display: -webkit-flex; */
-    display: flex;  
-    /* -webkit-flex-flow: row wrap; */
-    flex-flow: row wrap;
-    font-family: 'Noto Sans TC', sans-serif;
-  }
-  
-  .flex-container > * {
-    flex: 1 80%;
-  }
-  
-  /* 分辨區塊位置 */
-  
-  .top_nav {background:#E8DFE1;}
-  .index_slider{background-color: lightblue;}
-  .site_footer {background: #F7EDE2;}
-  
-  
-  /*頭區塊*/
-  .header{
-    height: 9rem;
-    margin-top: 3%;
-  }
-
-  /* 尾巴位置 */
-  .site_footer{
-    text-align: center!important;
-    padding: 4rem!important;
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
- /*導覽列*/
-
-.top_navi {
-  padding: 0.8em 0;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 40px;
-  color: #E8DFE1;
-  position:relative;
-  padding-bottom: -2px;
-
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
 }
 
-.top_navi a {
-  color: #584B53;
-  text-decoration: none;
+body {
+  font-family: "Noto Sans TC", sans-serif;
   font-size: 20px;
 }
 
-.top_navi nav{
-  position:absolute;
-  top:0;
-  /* left:0; */
-  background: #E8DFE1;
-  width:100%;
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
 }
 
-/* 欄位大小 */
-.top_navi nav a{
-  padding:10px 60px;
-  font-size-adjust: initial;
-  display:inline-block;
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
 }
 
-/* 游標靠近時更改顯示 */
-.top_navi nav a:hover{
-  background:rgb(245, 223, 226);
-  color:rgb(209, 107, 6)
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+  z-index: 1100;
 }
 
-.content_nav {
-  padding: 3em 0;
-  justify-content: space-between;
-  font-weight: bold;
-  /* background-color: #efefef; */
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 5%;
+  font-size: 10px;
+  background-color: #90be6d;
+}
+
+
+
+/*個人資料圖像*/
+.imageone{
+  margin-left: 40%;
+  margin-top: 1%;
+}
+
+
+
+/*返回按鈕*/
+
+#Button2{
+  border:0;
+  background-color:#FFE066;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
   font-size: 23px;
-  color: #AFAFAE;
-  border-radius: 5px;
-  position:relative;
 }
 
-.content_nav a {
-  color: #584B53;
-  text-decoration: none;
+
+#Button2:hover{
+  color:#FFE066;
+  background-color:#fff;
+  border:2px #FFE066 solid;
 }
 
-.content_nav nav{
-  position:absolute;
-  top:0 auto;
-  /* left:0; */
-  background: rgb(255, 255, 255);
-  width:100%;
-}
 
-/* 欄位大小 */
-.content_nav nav a{
-  padding:10px 50px;
-  font-size-adjust: initial;
-  display:inline-block;
-}
-
-/* 游標靠近時更改顯示 */
-.content_nav nav a:hover{
-  background:rgb(245, 223, 226);
-  color:rgba(79, 127, 190, 0.733)
-}
-
-.bottom_content{
-  padding-top: 80px;
-  padding-bottom: 10px;
-  font-size: 20px;
-}
-
-  /*返回按鈕*/
-
-  #Button2{
-    border:0;
-    background-color:#F2D470;
-    color:#fff;
-    border-radius:5px;
-    cursor:pointer;
-    font-size: 30px;
-  }
-  
-  
-  #Button2:hover{
-    color:#F2D470;
-    background-color:#fff;
-    border:2px #F2D470 solid;
-  }
-  
-/*修改個人資料標題*/
-
-.memberedit{
-    background-color:#f4f4f4;
-    text-align: center;
-    height: 6rem;
-}
-
-.memberedit h3{
-    font-size: 25px;
-    margin-top: 3%;
-
-}
 /*顯示會員ID帳號區塊*/
 .memberID{
-    height: 3rem;
-    text-align: center;
-    margin-top: 1%;
-    font-size: 15px;
+  height: 3rem;
+  text-align: center;
+  margin-top: 1%;
+  font-size: 22px;
 }
-
 
 /*動畫區塊整體*/
 .aniarea{
-   margin: auto;
-   transition: translate(-50%,-50%);
-   position:absolute;
-   height: 42rem;
-   border: solid #584B53;
+ margin: auto;
+ transition: translate(-50%,-50%);
+ height: 47rem;
+ margin-top: 1%;
+ text-align: center;
 }
 
 /*動畫區塊的線框*/
 .aniarea::before, .aniarea::after{
-    content: '';
-    border:3px solid #FFE73E;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    margin: -15px;
-    animation: borderclip 8s linear infinite reverse;
+  content: '';
+  border:3px solid #90be6d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  animation: borderclip 8s linear infinite reverse;
 }
 
 .aniarea::after{
-    animation-delay: -4s;
+  animation-delay: -4s;
 }
 
 @keyframes borderclip 
 {
-      0%,100%{
-      clip: rect(0px,45rem,3px,0px);
-      }
-      25%{
-      clip: rect(0px,3px,45rem,0px);
-      }
-      50%{
-       clip: rect(40rem,45rem,45rem,0px);
-      }
-      75%{
-       clip: rect(0px,45rem,45rem,40rem);
-      }
+    0%,100%{
+    clip: rect(0px,45rem,3px,0px);
+    }
+    25%{
+    clip: rect(0px,3px,47rem,0px);
+    }
+    50%{
+     clip: rect(40rem,47rem,47rem,0px);
+    }
+    75%{
+     clip: rect(0px,47rem,47rem,40rem);
+    }
 }
 
-  
+
 .aniarea :hover ::before , .aniarea:hover::after{
-  animation-play-state: paused;
+animation-play-state: paused;
 }
-
 
 
 /*返回按鈕區塊*/
 .footerbutton{
-    text-align: center;
-    margin-top:3%;
+  text-align: center;
+  margin-top:3%;
 }
 
 /*會員頭像編輯區塊與選擇圖片按鈕*/
 .photo{
-  margin-top: 2%;
-  margin-bottom: 2%;
+padding: 20px;
 }
 
 /*會員更改資料表單區塊*/
 .personaledit{
-  margin-top: 5%;
-  margin: auto;
-  text-align: center;
-  width: 23rem;
-  font-size: 18px;
-  border-bottom: #584B53 double;
-  margin-bottom: 3%;
+margin-top: 5%;
+margin: auto;
+text-align: center;
+width: 23rem;
+font-size: 18px;
+border-bottom: #584B53 double;
+margin-bottom: 3%;
 }
 
 #membereedit_textinput{
-  width: 9rem;
+width: 9rem;
 }
 
 .personaledit select{
-  width: 9rem;
+width: 9rem;
 
 }
 .personaledit label{
-  width: 7rem;
+width: 7rem;
 }
 
 
 /*確定修改按鈕*/
 #updateMbBtn{
-  border:0;
-  background-color:#5DC2FE;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-  font-size: 18px;
-  margin-bottom: 2%;
+border:0;
+background-color:#35A7FF;
+color:#fff;
+border-radius:5px;
+cursor:pointer;
+font-size: 20px;
+margin-bottom: 3%;
 }
 
 #updateMbBtn:hover{
-  color:#5DC2FE;
-  background-color:#fff;
-  border:2px #5DC2FE solid;
+color:#35A7FF;
+background-color:#fff;
+border:2px #35A7FF solid;
 }
 
 /*選擇圖片按鈕*/
 #membereedit_photoBtn{
-  border:0;
-  background-color:#5DC2FE;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-  font-size: 18px;
+border:0;
+background-color:#35A7FF;
+color:#fff;
+border-radius:5px;
+cursor:pointer;
+font-size: 20px;
 }
 
 #membereedit_photoBtn:hover{
-  color:#5DC2FE;
-  background-color:#fff;
-  border:2px #5DC2FE solid;
+color:#35A7FF;
+background-color:#fff;
+border:2px #35A7FF solid;
 }
 
 
 /*密碼變更表單*/
 .personalpassword{
-  margin: auto;
-  width: 30rem;
-  font-size: 18px;
+margin: auto;
+width: 30rem;
+font-size: 18px;
 }
 
 .personalpassword label{
-  width: 6rem;
+width: 6rem;
 }
 
 .personalpassword input{
-  width: 10rem;
+width: 10rem;
 }
 
 #membereedit_changeBtn{
-  border:0;
-  background-color:#5DC2FE;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-  font-size: 18px;
-  width: 6rem;
-  margin-top: 1%;
+border:0;
+background-color:#35A7FF;
+color:#fff;
+border-radius:5px;
+cursor:pointer;
+font-size: 20px;
+width: 6rem;
+margin-top: 2%;
 }
 
 #membereedit_changeBtn:hover{
-  color:#5DC2FE;
-  background-color:#fff;
-  border:2px #5DC2FE solid;
+color:#35A7FF;
+background-color:#fff;
+border:2px #35A7FF solid;
 }
 
 
 /*互動視窗裡的確認按鈕*/
 #memberedit_modalBtn{
-  margin: auto;
-  border:0;
-  background-color:#5DC2FE;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
-  font-size: 18px;
-  width: 6rem;
-  margin-top: 1%;
+margin: auto;
+border:0;
+background-color:#35A7FF;
+color:#fff;
+border-radius:5px;
+cursor:pointer;
+font-size: 20px;
+width: 6rem;
+margin-top: 1%;
 }
 
 #memberedit_modalBtn:hover{
-  color:#5DC2FE;
-  background-color:#fff;
-  border:2px #5DC2FE solid;
+color:#35A7FF;
+background-color:#fff;
+border:2px #35A7FF solid;
 }
 
 /*互動視窗裡圖案選項*/
 .modal-body label{
+width: 8rem;
+}
+
+
   width: 8rem;
 }
