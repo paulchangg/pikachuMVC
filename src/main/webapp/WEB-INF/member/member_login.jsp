@@ -13,8 +13,8 @@
 	crossorigin="anonymous" />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="../css/common/member_login.css" />
-<link rel="stylesheet" href="../css/common/wickedcss.min.css" />
+<link rel="stylesheet" href="../css/member_login.css" />
+<link rel="stylesheet" href="../css/wickedcss.min.css" />
 <link
 	href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
 	rel='stylesheet'>
@@ -26,7 +26,7 @@
 	<div class="flex-container">
 		<div class="header">
 			<div class="logoimg">
-				<img src="../images/common/logo.png" width="180px" height="100px">
+				<img src="../images/logo.png" width="180px" height="100px">
 			</div>
 			<div class="toparea">
 				<c:if test="${ ! empty sessionScope.timeOut }">
@@ -52,7 +52,7 @@
 			</div>
 			<div class="row">
 				<div class="col-2  hahaha">
-					<img src="../images/common/login_晶片圖.png" class="loginimgone">
+					<img src="../images/login_晶片圖.png" class="loginimgone">
 				</div>
 				<!-- 登入區塊表單  -->
 				<div class="col-7">
@@ -131,12 +131,12 @@
 					<a href="member_register" class="btn pure">還不是會員??快去註冊>></a>
 				</div>
 				<div class="col-1 ">
-					<img src="../images/common/login_歡迎回來.png" class="loginthtree">
+					<img src="../images/login_歡迎回來.png" class="loginthtree">
 				</div>
-				<img src="../images/common/login_交友脫單.png" class="loginfour">
+				<img src="../images/login_交友脫單.png" class="loginfour">
 
 				<div class="col-1 testimg">
-					<img src="../images/common/login_皮卡丘出來.png" class="loginimgtwo">
+					<img src="../images/login_皮卡丘出來.png" class="loginimgtwo">
 				</div>
 			</div>
 		</div>

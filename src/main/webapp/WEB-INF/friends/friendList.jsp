@@ -176,7 +176,7 @@ prefix="c"%>
             </a>
           </div>
           <div class="my-3">
-            <a class="nav-link" href="forum_pair.html" style="padding: 0px;">
+            <a class="nav-link" href='<c:url value="/friends/pair" />' style="padding: 0px;">
               <button type="button" class="btn btn-outline-success">
                 配對
               </button>
