@@ -22,135 +22,123 @@
 
 <body>
 
-
-	<div class="flex-container">
-		<div class="header">
-			<div class="logoimg">
-				<img src="../images/logo.png" width="180px" height="100px">
-			</div>
-			<div class="toparea">
-				<c:if test="${ ! empty sessionScope.timeOut }">
-					<!-- 表示使用逾時，重新登入 -->
-					<c:set var="msg"
-						value="<font color='red'>${sessionScope.timeOut}</font>" />
-				</c:if>
-			</div>
+<div class="container-fluid" style="height: 190px;">
+       <div class="row">
+          <div class="col-sm"> <!-- 左上角logo -->
+             <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+             <p style="font-size: small;">
+               快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+             </p>
+         </div>
+         <div class="row justify-content-around"> <!-- logo -->
+           <div class="col-sm">
+             <a href="index copy.html">
+                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
+             </a>
+          </div>
+        </div>
+        <!-- 右上區塊 -->
+        <div class="col-sm">
+			<ul class="nav justify-content-end" style="font-size: 17px;">
+			   <li class="nav-item">
+				                 <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+			  </li>  
+			   <li class="nav-item">
+			       <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
+				    <i class="fas fa-shopping-cart"></i>
+			   </a>
+			 </li>
+		   </ul>
 		</div>
+	   </div>
+		  
+           <!-- 導覽列 -->
+      <div class="et-hero-tabs">
+      <!-- 要改放圖片的話再修正 -->
+      <!-- 導覽列  超連結待補 -->
+         <div class="et-hero-tabs-container">
+           <a class="et-hero-tab" href="#aboutus">關於我們</a>
+           <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
+           <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
+           <a class="et-hero-tab" href="#mall">商城</a>
+           <a class="et-hero-tab" href="#infoweb">資訊網</a>
+           <span class="et-hero-tab-slider"></span>
+        </div>
+      </div>
+   
+	  <img src="../images/登入對話框.png" id="imagetwo">
+	  <img src="../images/忘記密碼.png" id="imagefive">
+	  <img src="../images/迷彩-1.png" class="rollerLeft imageone" id="imagethree">
 
-		<section class="top_navi">
-			<nav>
-				<a href="#">關於我們</a> <a href="member_center">會員中心</a> <a
-					href="#">論壇交友</a> <a href="#">商城</a> <a href="#">資訊網</a>
-			</nav>
-		</section>
+	  <div class="centercard" id="centercardarea">
+		<div class="row">
+			<!-- 登入區塊表單  -->
+			<div class="col-7 centertwo" id="centertwo">
+				<form id="" name="frmlogin" method="post" action="login.do"
+					onSubmit="return check()">
+					<input type="hidden" name="csrf_test_name">
 
+					<!-- 使用表格-->
+					<h1 style="font-size: 30px;">會員登入</h1>
+					<table class="tableareatotal">
+						<tr>
+							<td>
+								帳號:
+								<!-- 輸入帳號  --> <input class="validate[required,custom[email]]"
+								type="text" name="account" id="memberlogin_id"
+								value="${requestScope.user}${param.account}"
+								autocomplete="off">
 
-		<!-- 中間區塊  -->
-		<div class="centercard">
-			<div class="logintitle">
-				<div class="logintitletext">尊爵貴賓卡</div>
-			</div>
-			<div class="row">
-				<div class="col-2  hahaha">
-					<img src="../images/login_晶片圖.png" class="loginimgone">
-				</div>
-				<!-- 登入區塊表單  -->
-				<div class="col-7">
-					<form id="" name="frmlogin" method="post" action="login.do"
-						onSubmit="return check()">
-						<input type="hidden" name="csrf_test_name">
-
-						<!-- 使用表格-->
-						<h1 style="font-size: 30px;">會員登入</h1>
-						<table class="tableareatotal">
-							<tr>
-								<td>
-									<!-- 輸入帳號  --> <input class="validate[required,custom[email]]"
-									type="text" name="account" id="memberlogin_id"
-									value="${requestScope.user}${param.account}"
-									placeholder="請輸入帳號" autocomplete="off">
-
-									<p>
-										<Font color='red' size="-3">${ErrorMsgKey.AccountEmptyError}</Font>
-									</p>
-								</td>
-							</tr>
-							<!-- 輸入密碼  -->
-							<!-- 認證碼輸入-->
-							<tr>
-								<td><input class="validate[required]" type="password"
-									name="password" id="memberilogin_password"
-									value="${requestScope.password}${param.password}"
-									placeholder="請輸入密碼" autocomplete="off"></br> 記住帳密 <input
-									type="checkbox" name="rememberMe"
-									<c:if test='${requestScope.rememberMe==true}'>                  
-									 checked='checked'
-								   </c:if>
-									value="true"> <!-- 輸入密碼錯誤顯示區塊  -->
-									<p>
-										<Font color='red' size="-3">${ErrorMsgKey.PasswordEmptyError}</Font>
-									</p>
-									<p>
-										<Font color='red' size="-1">${msg}${ErrorMsgKey.LoginError}&nbsp;</Font>
-									</p></td>
-							</tr>
-<!-- 							<tr> -->
-<!-- 								<td> -->
-<!-- 									<div class="input_code"> -->
-<!-- 										<input type="text" id="inputCode" placeholder="驗證碼無大小寫" /> -->
-<!-- 										<p> -->
-<!-- 											<span id="text_show"></span> -->
-<!-- 										</p> -->
-<!-- 									</div> -->
-<!-- 								</td> -->
-<!-- 							</tr> -->
-<!-- 							認證碼圖形 -->
-<!-- 							<tr> -->
-<!-- 								<td> -->
-<!-- 									<div class="v_code"> -->
-<!-- 										<div class="code_show"> -->
-<!-- 											<span class="code" id="memberregister_img"></span> -->
-<!-- 											<p> -->
-<!-- 												<a id="linkbt">看不清換一張</a> -->
-<!-- 											</p> -->
-<!-- 										</div> -->
-<!-- 								</td> -->
-<!-- 							</tr> -->
-							<!-- 登入按鈕-->
-							<tr>
-								<td>
-									<button type="submit" class="btn normal2 send" id="Button1">LOGIN
-										登入</button> <br> <%-- <Font color='red' size="-1">${msg}${ErrorMsgKey.LoginError}&nbsp;</Font> --%>
-								</td>
-							</tr>
-						</table>
-					</form>
-					<button type="button" class="btn btn-outline-danger" id="forgetbtn">
-						忘記密碼<i class='bx bx-question-mark'></i>
-					</button>
-					<a href="member_register" class="btn pure">還不是會員??快去註冊>></a>
-				</div>
-				<div class="col-1 ">
-					<img src="../images/login_歡迎回來.png" class="loginthtree">
-				</div>
-				<img src="../images/login_交友脫單.png" class="loginfour">
-
-				<div class="col-1 testimg">
-					<img src="../images/login_皮卡丘出來.png" class="loginimgtwo">
-				</div>
-			</div>
-		</div>
-
-		<!-- 尾巴區塊  -->
-		<div class="site_footer">
-			<div class="gotop">
-				<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-				</br>
+								<p>
+									<Font color='red' size="-3">${ErrorMsgKey.AccountEmptyError}</Font>
+								</p>
+							</td>
+						</tr>
+						<!-- 輸入密碼  -->
+						<!-- 認證碼輸入-->
+						<tr>
+							<td>密碼
+								<input class="validate[required]" type="password"
+								name="password" id="memberilogin_password"
+								value="${requestScope.password}${param.password}"
+								autocomplete="off"></br> <span style="font-size: 16px;">記住帳密</span> <input
+								type="checkbox" name="rememberMe"
+								<c:if test='${requestScope.rememberMe==true}'>                  
+								 checked='checked'
+							   </c:if>
+								value="true"> <!-- 輸入密碼錯誤顯示區塊  -->
+								<p>
+									<Font color='red' size="-3">${ErrorMsgKey.PasswordEmptyError}</Font>
+								</p>
+								<p>
+									<Font color='red' size="-1">${msg}${ErrorMsgKey.LoginError}&nbsp;</Font>
+								</p></td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" class="btn normal2 send" id="Button1">LOGIN
+									登入</button> <br> <%-- <Font color='red' size="-1">${msg}${ErrorMsgKey.LoginError}&nbsp;</Font> --%>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<button type="button" id="forgetbtn">
+					忘記密碼<i class='bx bx-question-mark'></i>
+				</button>
+				<a href="member_register" class="floater btn pure">還不是會員??快去註冊<i class='bx bxs-pencil'></i></a>
 			</div>
 		</div>
 	</div>
-
-
+      <!-- 回到置頂------>
+       <div id="backtop" class="gotop">
+         <h5>
+            © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+         </h5>
+         <br />
+          <button type="button" class="btn btn-secondary">To the top</button>
+      </div>
+ 
+  </div>    
 
 	<!-- 忘記密碼區塊 Modal -->
 	<div class="modal fade" id="myModal" role="dialog"
@@ -189,25 +177,30 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var bbb=document.getElementById('imagetwo');
+		var ccc=document.getElementById('imagethree');
+		ccc.addEventListener("click",abcder)
+		bbb.addEventListener("click",abcder);
+		function abcder(){
+			var aaa=document.getElementById('centertwo');
+			var fff=document.getElementById('imagefive');
+			aaa.style.display="inline";
+			bbb.style.display="none";
+			fff.style.display="inline";
+			
+			}
 
-
-
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-		
 	</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+crossorigin="anonymous"></script>
+<script src="../js/member_login.js"></script>
+ </body>
+</html>
 
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous">
-		
-	</script>
-	<script src="../js/member_login.js"></script>
-</body>
 </html>

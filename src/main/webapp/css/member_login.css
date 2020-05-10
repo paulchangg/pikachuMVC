@@ -1,326 +1,206 @@
-@import './reset.css';
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
 
-body{
-  font-family: 'Noto Sans TC', sans-serif;
-  padding: initial;
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
 }
 
-.flex-container {
-  margin: 0 13%;  /* 全版置中 */
-  text-align: center;    
-  display: block;
-  /* display: -webkit-flex; */
-  display: flex;  
-  /* -webkit-flex-flow: row wrap; */
-  flex-flow: row wrap;
-  font-family: 'Noto Sans TC', sans-serif;
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
 }
 
-.flex-container > * {
-  flex: 1 80%;
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
 }
 
-/* 分辨區塊位置 */
-
-.top_nav {background:#E8DFE1;}
-.index_slider{background-color: lightblue;}
-.site_footer {background: #F7EDE2;}
-
-
-/*頭區塊*/
-.header{
-  height: 9rem;
-}
-
-/*logo位置*/
-.logoimg{
-  margin-left: 20px;
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
   position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
 }
 
-/* 尾巴位置 */
-.site_footer{
-  text-align: center!important;
-  padding: 4rem!important;
-  margin-top: 10px;
-  font-size: 18px;
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+  z-index: 1100;
 }
 
-/*最上面文字*/
-.toptext{
-   font-size: 20px;
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
 }
 
-/*最上面區塊*/
-.toparea{
-  margin-top: 50px;
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
 }
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 5%;
+  font-size: 10px;
+  background-color: #90be6d;
+}
+
 
 /*中間區塊*/
 .centercard{
+  text-align: center;
+  font-size: 20px;
+  height: 30rem;
+  margin-top: 5%;
+  margin-left: 20%;
+  
+}
+
+/*登入表單*/
+.centertwo{
+  display: none;
+}
+
+
+/*迷彩比卡丘*/
+.imageone{
+  position: absolute;
+  width: 25rem;
+  margin-left: 55%;
+  margin-top: 10%;
+}
+
+
+
+/*對話框動畫*/
+#imagetwo{
+  position: absolute;
+  margin-left: 50%;
+  visibility: hidden;
+  animation-name: hahawoo;
+  animation-duration: 2s;
+  animation-delay: 2.3s;
+  animation-iteration-count: infinite;
+  animation-direction: ease-out;
+  
+}
+
+@keyframes hahawoo{
+  from{ visibility:visible;
+       margin-top: 4%;};
+  to{visibility:hidden;
+      margin-top: 6%;};
+}
+
+
+/*忘記密碼*/
+#imagefive{
+  position: absolute;
+  margin-left: 50%;
+  display: none;
   margin-top: 3%;
-  margin-bottom: 3%;
-  background-color:#F7EDE2;
-  height: 40rem;
-  border-radius: 20px;
 }
 
-/*尊爵貴賓卡文字*/
-.logintitletext{
-  width: 300px;
-  font-size: 30px;
-  margin-top:3%;
-}
-
-/*晶片卡圖片*/
-.loginimgone{
-  margin-top: 25%;
-  width:330px ;
-  height:300px;
-}
-
-@keyframes mypickuch{
-   0% { right: 0px;}
-   50%{ right: 20px;}
-   100%{right: 40px;}
-}
 
 /*整個表格*/
 .tableareatotal{
   margin: auto;
-  text-align: center;
   border: solid;
-  border-color: lightgoldenrodyellow;
+  border-color: #FFE066;
   width: 450px;
   
 }
 
 /*表格的td*/
 .tableareatotal td{
-  text-align: center;
   padding: 7px;
 }
 
 
-/*皮卡丘出來圖片*/
-.loginimgtwo{
-  position: relative;
-  margin-top: 100%;
-  animation-name:mypickuch;
-  animation-duration: 3s;
-  transition-timing-function: ease-in;
-  animation-delay: 1s;
-  animation-fill-mode:forwards;
-  width:400px;
-  height:380px;
-}
+/*忘記密碼按鈕樣式*/
 
-/*皮卡丘出來區塊*/
-.testimg{
-  margin-top: 6%;
-}
-
-/*歡迎回來動畫*/
-@keyframes welecometext{
-  0%{visibility: hidden;}
-  50%{visibility: visible;}
-  75%{visibility: hidden;}
-  100%{visibility: visible;}
+#forgetbtn{
+  border:0;
+  background-color:#FF5964;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-size: 18px;
+  margin-top: 3%;
 }
 
 
-/*歡迎回來圖片*/
-.loginthtree{
-  position: relative;
-  width: 245px;
-  visibility: hidden;
-  animation-name:welecometext;
-  animation-duration: 5s;
-  transition-timing-function: ease-in-out;
-  animation-delay: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#forgetbtn:hover{
+  color:#FF5964;
+  background-color:#fff;
+  border:2px #FF5964 solid;
 }
 
-
-/*脫單的圖片*/
-.loginfour{
-  position: absolute;
-  float: left;
-  margin-left: 47%;
-  margin-top: 15%;
-  animation-name:welecometext;
-  animation-duration: 5s;
-  transition-timing-function: ease-in-out;
-  animation-delay: 6s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  visibility: hidden;
-}
-
-
-
-/*以下為驗證碼區塊*/
-.v_code {
-  width: 150px;
-  margin: 0 auto;
-}
-
-.code_show {
-  overflow: hidden;
-}
-
-.code_show span {
-  display: block;
-  float: left;
-  margin-bottom: 10px;
-}
-.code_show a {
-  display: block;
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.code {
-  font-style: italic;
-  background-color:#EBF5FB;
-  color: blue;
-  font-size: 30px;
-  letter-spacing: 3px;
-  font-weight: bolder;
-  cursor: pointer;
-  padding: 10px 5px;
-  text-align: center;
-}
-#inputCode {
-  width: 220px;
-  height: 30px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 12px;
-  color: #288bc4;
-  cursor: pointer;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-
-/*看不清楚換一張文字*/
-#linkbt{
-   font-size: 15px;
-   margin-left: 20px;
-   
-}
 
 /*按鈕樣式*/
 
 #Button1{
   border:0;
-  background-color:#776C5B;
+  background-color:#35A7FF;
   color:#fff;
   border-radius:10px;
   cursor:pointer;
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 
 #Button1:hover{
-  color:#776C5B;
+  color:#35A7FF;
   background-color:#fff;
-  border:2px #776C5B solid;
+  border:2px #35A7FF solid;
 }
 
-
-
-
-/*導覽列*/
-
-.top_navi {
-  padding: 0.8em 0;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 40px;
-  color: #E8DFE1;
-  position:relative;
-  padding-bottom: -2px;
-
-}
-
-.top_navi a {
-  color: #584B53;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.top_navi nav{
-  position:absolute;
-  top:0;
-  /* left:0; */
-  background: #E8DFE1;
-  width:100%;
-}
-
-/* 欄位大小 */
-.top_navi nav a{
-  padding:10px 60px;
-  font-size-adjust: initial;
-  display:inline-block;
-}
-
-/* 游標靠近時更改顯示 */
-.top_navi nav a:hover{
-  background:rgb(245, 223, 226);
-  color:rgb(209, 107, 6)
-}
-
-.content_nav {
-  padding: 3em 0;
-  justify-content: space-between;
-  font-weight: bold;
-  /* background-color: #efefef; */
-  font-size: 23px;
-  color: #AFAFAE;
-  border-radius: 5px;
-  position:relative;
-}
-
-.content_nav a {
-  color: #584B53;
-  text-decoration: none;
-}
-
-.content_nav nav{
-  position:absolute;
-  top:0 auto;
-  /* left:0; */
-  background: rgb(255, 255, 255);
-  width:100%;
-}
-
-/* 欄位大小 */
-.content_nav nav a{
-  padding:10px 50px;
-  font-size-adjust: initial;
-  display:inline-block;
-}
-
-/* 游標靠近時更改顯示 */
-.content_nav nav a:hover{
-  background:rgb(245, 223, 226);
-  color:rgba(79, 127, 190, 0.733)
-}
-
-.bottom_content{
-  padding-top: 80px;
-  padding-bottom: 10px;
-  font-size: 20px;
-}
 
 
 /*密碼互動視窗*/
@@ -350,7 +230,7 @@ a:hover {
   color:#fff;
   border-radius:5px;
   cursor:pointer;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 
@@ -359,3 +239,4 @@ a:hover {
   background-color:#fff;
   border:2px #ED6E7B solid;
 }
+
