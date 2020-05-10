@@ -111,7 +111,7 @@ public String CbPageCardsServlet(HttpServletRequest request) {
 	int cardCounts = CardMap.size();
 	request.setAttribute("cardCounts", cardCounts);
 	request.setAttribute("qt", queryType);	
-	request.setAttribute("products_DPP", CardMap);
+	request.setAttribute("card_m", CardMap);
 
 	return "/cards/cradeitsearch_page";		
 }
@@ -148,7 +148,7 @@ public String ModalSearch(HttpServletRequest request) throws UnsupportedEncoding
 	System.out.println(ql);
 	
 	Map<Integer, CardBean> CardMap = service.getModalBean(ql);
-	request.setAttribute("products_DPP", CardMap);
+	request.setAttribute("card_m", CardMap);
 	
 	return "cards/cradeitsearch_minecredit";
 	

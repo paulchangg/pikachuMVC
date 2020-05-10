@@ -83,7 +83,7 @@
 
  			
        			<main id=mm class="col-8 main"><!--結果呈現區塊-->
-       		   <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+<%--        		   <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
 
                <div class="box"> <!--特效區塊需要當外層-->
               
@@ -123,7 +123,7 @@
 
                     
                  </div>
-                 </c:forEach> 
+                 </c:forEach>  --%>
 
 
        </main>
