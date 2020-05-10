@@ -131,13 +131,13 @@
                       </span>
                      <span class="text">花旗銀行</span>
                 </label></br>
-                <label >
+<!--                 <label >
                   <input type="checkbox" name="bank" class="checkbox" value="匯豐銀行">
                   <span class="btn-box">
                     <span class="btn"></span>      
                   </span>
                  <span class="text">匯豐銀行</span>
-                </label></br>
+                </label></br> -->
                 <label>
                   <input type="checkbox" name="bank" class="checkbox" value="渣打銀行">
                   <span class="btn-box">
@@ -369,7 +369,7 @@
               
                <c:choose> 
                <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
- 				<c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+ 				<c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
  				
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -415,7 +415,7 @@
                 
                 
                 <c:when test="${qt == 'ml'}"> <!--第2種：哩程回饋-->
-          		  <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          		  <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
                 <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                      <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -453,7 +453,7 @@
                 </c:when>
                 
              <c:when test="${qt == 'oil'}">  <!--第3種：加油回饋-->
-               <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+               <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
              <div class="box"> <!--特效區塊需要當外層-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                    <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -491,7 +491,7 @@
               </c:when>
                 
           <c:when test="${qt == 'mv'}">  <!--第4種：電影優惠-->
-            <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+            <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -529,7 +529,7 @@
            </c:when>                                
 
           <c:when test="${qt == 'os'}">  <!--第5種：網購回饋-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -567,7 +567,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'zi'}">  <!--第6種：分期零利率-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -605,7 +605,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'fg'}">  <!--第7種：首刷-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
@@ -643,7 +643,7 @@
                 </c:when>                
 
           <c:when test="${qt == 'all'}">  <!--第8種：全部-->
-          <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
+          <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
