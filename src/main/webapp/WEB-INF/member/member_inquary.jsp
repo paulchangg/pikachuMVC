@@ -33,7 +33,7 @@
            <div class="col-sm">
 			<ul class="nav justify-content-end" style="font-size: 17px;">
 			   <li class="nav-item">
-				 <a class="nav-link" href="#" id="memberlogin">會員登出</a>
+				 <a class="nav-link" href="member_logout" id="memberlogin">會員登出</a>
 			  </li>  
 			  <li class="nav-item">
 			 <a class="nav-link" href="#" id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
