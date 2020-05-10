@@ -14,15 +14,15 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
 crossorigin="anonymous"
 />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href='<c:url value="/css/common/member_register.css" />'/>
-<link rel="stylesheet" href='<c:url value="/css/common/wickedcss.min.css" />'/>
+<link rel="stylesheet" href='<c:url value="/css/member_register.css" />'/>
+<link rel="stylesheet" href='<c:url value="/css/wickedcss.min.css" />'/>
 
 </head>
 <body>
   <div class="flex-container">
 	  <div class="header">
 		  <div class="logoimg">
-			  <img src="<c:url value="/images/common/logo.png" />" width="180px" height="100px">
+			  <img src="<c:url value="/images/logo.png" />" width="180px" height="100px">
 		  </div>
 		  <div class="toparea">
 			  <span class="toptext">您現在的身分為訪客 已有會員帳號了嗎?快來 
@@ -133,10 +133,10 @@ crossorigin="anonymous"
 			 </div>
 			 
 			 <div class="col-4 centerimg">
-				 <img src="<c:url value="/images/common/register_皮卡丘.png" />" width="500px" height="450px" class="pulse">
+				 <img src="<c:url value="/images/register_皮卡丘.png" />" width="500px" height="450px" class="pulse">
 			 </div>
 		 </div>
-	           <img src="<c:url value="/images/common/regist註冊寫字.png" />" class="handimg">
+	           <img src="<c:url value="/images/regist註冊寫字.png" />" class="handimg">
 	           
       <!-- 尾巴---------------------------------------->
 	  <div class="site_footer">

@@ -59,8 +59,8 @@
          <div class="et-hero-tabs-container">
            <a class="et-hero-tab" href="#aboutus">關於我們</a>
            <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
-           <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-           <a class="et-hero-tab" href="#mall">商城</a>
+           <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+           <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
            <a class="et-hero-tab" href="#infoweb">資訊網</a>
            <span class="et-hero-tab-slider"></span>
         </div>
