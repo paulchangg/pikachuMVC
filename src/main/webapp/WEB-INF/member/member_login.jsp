@@ -202,5 +202,3 @@ crossorigin="anonymous"></script>
 <script src="../js/member_login.js"></script>
  </body>
 </html>
-
-</html>

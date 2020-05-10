@@ -1,244 +1,326 @@
-@import './reset.css';
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
 
-body{
-  font-family: 'Noto Sans TC', sans-serif;
-  padding: initial;
+/* 版面高度設置 */
+html {
+  margin: 0 5% 0 5%;
 }
 
-.flex-container {
-  margin: 0 13%;  /* 全版置中 */
-  text-align: center;    
-  display: block;
-  /* display: -webkit-flex; */
-  display: flex;  
-  /* -webkit-flex-flow: row wrap; */
-  flex-flow: row wrap;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.flex-container > * {
-  flex: 1 80%;
-}
-
-/* 分辨區塊位置 */
-
-.top_nav {background:#E8DFE1;}
-.index_slider{background-color: lightblue;}
-.site_footer {background: #F7EDE2;}
-
-
-/*頭區塊*/
-.header{
-  height: 9rem;
-  border-bottom: solid;
-  border-width: 20px;
-  border-color: #F7EDE2;
-
-}
-
-/*logo位置*/
-.logoimg{
-  margin-left: 20px;
-  position: absolute;
-}
-
-/*整個區塊*/
-.container{
-  padding-top: 30px;
-  padding-bottom: 10px;
+body {
+  font-family: "Noto Sans TC", sans-serif;
   font-size: 20px;
 }
 
-/* 尾巴位置 */
-.site_footer{
-  text-align: center!important;
-  padding: 4rem!important;
-  margin-top: 5px;
-  font-size: 18px;
+/* 導覽列上面那塊 */
+.et-hero-tabs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 65vh; */
+  position: relative;
+  text-align: center;
+  padding: 0 2em;
 }
 
-/*最上面文字*/
-.toptext{
-   font-size: 20px;
+/* 導覽列那條 */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
 }
 
-/*最上面區塊*/
+/* 固定在上面 */
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+  width: 91%;
+  z-index: 1100;
+}
+
+/* 導覽列的格子 */
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  background: #FFE066;
+}
+
+/* 游標移過去時顯示顏色 */
+.et-hero-tab:hover {
+  color: white;
+  background: #90be6d;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+
+
+/* 底部 */
+.gotop {
+  text-align: center !important;
+  padding: 3rem !important;
+  margin-top: 5%;
+  font-size: 10px;
+  background-color: #90be6d;
+}
+
+
+
+/*詢問是否為會員*/
 .toparea{
-  margin-top: 50px;
+  margin-top: 2%;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 2%;
 }
 
-/*最上面連結登入字型*/
-#memberlogin{
-   font-size: 20px;
+
+#totalimage{
+  height: 30rem;
 }
 
-/*h1標題*/
-.titleh1{
-  font-size: 35px;
-  color: #776C5B ;
+
+
+/*大比卡丘的對話框*/
+.imageconvone{
+  position: absolute;
+  margin-left: 35%;
+  margin-top: -1%;
+  opacity: 0;
+  animation-name: imagecon;
+  animation-duration: 5s;
+  animation-delay: 5s;
+}
+
+
+/*小比卡丘對話框*/
+.imageconvtwo{
+  position: absolute;
+  margin-left: 25%;
+  margin-top: -1%;
+  opacity: 0;
+  animation-name: imagecon;
+  animation-duration: 4s;
+  animation-delay: 3s;
+}
+
+
+@keyframes imagecon{
+  0%{opacity:1};
+  100%{opacity:1};
+}
+
+
+
+
+
+/*大比卡丘*/
+.hahapickhubig{
+  position: absolute;
+  margin-top: 4%;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-name: runone;
+
+}
+
+@keyframes runone{
+   25%{margin-left: 0%;}
+  100%{margin-left: 25%;}
+}
+
+
+
+/*小比卡丘圖片*/
+.hahapickhu{
+  width: 20rem;
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 6%;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-name: runnnnn;
+}
+
+@keyframes runnnnn{
+  25%{margin-left: 65%;}
+ 100%{margin-left: 45%;}
+}
+
+
+/*成為會員的對話框區塊*/
+.imageconvthree{
+  background-image: url(../images/會員對話03.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: 30rem;
+  margin: auto;
+  width: 30rem;
+  height: 10rem;
+  position: relative;
+  margin-left: 32%;
+  margin-top: -10%;
+  animation: imagetwo ease-in 3s 6.5s;
+  animation-fill-mode: forwards;
+  opacity:0;
+
+}
+
+@keyframes imagetwo{
+  from {
+    opacity:0;
+}
+to {
+    opacity:1;}
+}
+
+
+
+/*成為會員的按鈕*/
+#becmemberbtn{
+  position: absolute;
+  margin-top: 17%;
+  margin-left: 60%;
+  border:0;
+  background-color:#FF5964;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-size: 25px;
+  margin-bottom: 20px;
+  opacity: 1;
+}
+
+
+#becmemberbtn:hover{
+  color:#FF5964;
+  background-color:#fff;
+  border:2px #FF5964 solid;
+}
+
+
+
+/*略過的按鈕*/
+#skipBtn{
+  position: absolute;
+  margin-top: 17%;
+  margin-left: 60%;
+  border:0;
+  background-color:#35A7FF;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-size: 20px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation-name: skinbtn;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+
+#skipBtn:hover{
+  color:#35A7FF;
+  background-color:#fff;
+  border:2px #35A7FF solid;
+}
+
+/*略過的動畫*/
+@keyframes skinbtn{
+  from {
+    opacity:0;
+}
+to {
+    opacity:1;}
+}
+
+.titlemember{
+  margin-top: 2%;
+  margin-bottom: 3%;
 }
 
 
 /*表單中間整個區塊*/
 .centerarea {
-  margin-top: 20px;
-  height: 57rem;
-  color: #776C5B;
+  justify-content: center;
+  text-align: center;
 }
 
-/*圖片區塊位置*/
-.centerimg{
-  float: left;
-  margin-top: 20px;
-}
 
 /*表單區塊*/
 .formtablearea{
    border:solid;
-   border-color: #F7EDE2;
-   float: left;
- 
+   border-color: #FFE066;
+   display: none;
 }
 
 
 .table01{
-  margin: auto;
-  font-size: 18px;
-  width: 300px;
+  font-size: 20px;
 }
 
 .table01 th{
-  text-align:right;
-  heigh:50px;
+  text-align: right;
+  width: 10rem;
+  vertical-align:top;
+
 }
 
 .table01 td{
   text-align: left;
+  width: 15rem;
 }
 
-
-/*以下為驗證碼區塊*/
-.v_code {
-  width: 150px;
-  margin: 0 auto;
+.table01 input{
+  padding: 4px;
+  height: 2rem;
+  vertical-align:top;
 }
 
-.v_code > input 
-{
-  width: 100px;
-  height: 36px;
-  margin-top: 10px;
-}
-
-.code_show {
-  overflow: hidden;
-}
-
-.code_show span {
-  display: block;
-  float: left;
-  margin-bottom: 10px;
-}
-.code_show a {
-  display: block;
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.code {
-  font-style: italic;
-  background-color:#EBF5FB;
-  color: blue;
-  font-size: 30px;
-  letter-spacing: 3px;
-  font-weight: bolder;
-  cursor: pointer;
-  padding: 0 10px;
-  text-align: center;
-}
-#inputCode {
-  width: 150px;
-  height: 30px;
-}
-a {
-  text-decoration: none;
-  font-size: 12px;
-  color: #288bc4;
-  cursor: pointer;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-
-/*看不清楚換一張文字*/
-#linkbt{
-   font-size: 15px;
-   margin-left: 60px;
-   
-}
 
 /*按鈕樣式*/
 
 #Button1{
   border:0;
-  background-color:#776C5B;
+  background-color:#35A7FF;
   color:#fff;
   border-radius:10px;
   cursor:pointer;
   font-size: 23px;
   margin-bottom: 20px;
+  margin-top: 3%;
 }
 
 
 #Button1:hover{
-  color:#776C5B;
+  color:#35A7FF;
   background-color:#fff;
-  border:2px #776C5B solid;
-}
-
-
-
-/*寫字圖片*/
-
-@keyframes myhand{
-
-   0%{visibility: visible;}
-   10%{margin-left: 20%;}
-   15%{margin-left: 22%;}
-   20%{margin-top: 22%;}
-   25%{margin-left: 20%;}
-   30%{margin-left: 22%;}
-   35%{margin-top: 24%;}
-   40%{margin-left: 20%;}
-   45%{margin-left: 22%;}
-   50%{margin-top: 26%;}
-   55%{margin-left: 20%;}
-   60%{margin-left: 22%;}
-   65%{margin-top: 28%;}
-   70%{margin-left: 20%;}
-   75%{margin-left: 22%;}
-   80%{margin-top: 30%;}
-   85%{margin-left: 20%;}
-   90%{margin-left: 22%;}
-   95%{margin-top: 35%;}
-   96%{visibility: hidden;} 
-}
-
-
-/*手的動畫*/
-.handimg{
-  position: absolute;
-  float: left;
-  margin-top: 20%;
-  margin-left: 25%;
-  visibility: hidden;
-  animation-name:myhand ;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 2s;
-  width:450px;
-  height:500px;
+  border:2px #35A7FF solid;
 }
