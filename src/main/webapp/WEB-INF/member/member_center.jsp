@@ -30,7 +30,7 @@
          </div>
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
-             <a href="index copy.html">
+             <a href='<c:url value="/" />' >
                 <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
@@ -39,13 +39,13 @@
         <div class="col-sm">
 						<ul class="nav justify-content-end" style="font-size: 17px;">
 			   <li class="nav-item">
-				 <a class="nav-link" href="member_logout" id="memberlogin">會員登出</a>
+				 <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
 			  </li>  
 			  <li class="nav-item">
-			 <a class="nav-link" href="#" id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
+			 <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
 			  </li>  
 			 <li class="nav-item">
-			   <a class="nav-link" href="#" id="shoppingcart">
+			   <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
 				 <i class="fas fa-shopping-cart"></i>
 			   </a>
 			 </li>

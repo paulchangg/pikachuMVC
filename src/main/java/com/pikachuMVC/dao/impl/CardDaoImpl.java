@@ -281,9 +281,9 @@ public class CardDaoImpl implements Serializable, CardDao {
 		String line = "";
 		int count = 0;
 //		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\card0414.csv");
-//		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/card0414.csv"); ////保羅
+		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/card0414.csv"); ////保羅
 //		File file = new File("C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\card0414.csv");  
-		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\card0414.csv");  
+//		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\card0414.csv");  
 //		File file = new File("C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\card0414.csv");  ////宋用
 
 		try (FileInputStream fis = new FileInputStream(file);
@@ -305,9 +305,9 @@ public class CardDaoImpl implements Serializable, CardDao {
 				cb.setBank(token[2]);
 				cb.setAnnlfee(token[3]);
 
-//				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/imgs/" + token[1] + ".jpg"; //保羅
+				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/imgs/" + token[1] + ".jpg"; //保羅
 //				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
-				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
+//				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
 //				String imgname = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg";
 //				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用
 

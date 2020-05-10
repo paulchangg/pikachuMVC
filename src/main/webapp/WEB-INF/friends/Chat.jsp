@@ -70,7 +70,7 @@
         if ("WebSocket" in window) {
 //            alert("您的瀏覽器支援 WebSocket!");
             if (webSocket == null) {
-                var url = "ws://192.168.0.14:8080/pikachuMVC/chat/" + roomName + '/'+ mId;
+                var url = "ws://172.20.10.2:8080/pikachuMVC/chat/" + roomName + '/'+ mId;
                 // 開啟一個 web socket
                 webSocket = new WebSocket(url);
             } else {
@@ -95,7 +95,7 @@
                 alert("連線已關閉...");
                 webSocket = null;
                 document.getElementsByClassName("msg_board")[0].innerHTML = "";
-                window.location.replace('/pikachuMVC/friends/f2');
+                window.location.replace('/pikachuMVC/friends/friendList');
             };
         }
         else {

@@ -40,7 +40,7 @@ prefix="c"%>
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
-            <a href="index copy.html">
+            <a href='<c:url value="/" />'>
               <img
                 src="../articleForum/images/logo2.png"
                 alt="logo"
@@ -147,7 +147,7 @@ prefix="c"%>
           >
         </div>
 
-        <a href="forum.html">
+        <a href='<c:url value="/articleForum/listforum"/>'>
           <button type="button" class="btn btn-info btn-sm">
             回論壇首頁
             <br /><i class="fas fa-home"></i>
@@ -176,7 +176,7 @@ prefix="c"%>
             </a>
           </div>
           <div class="my-3">
-            <a class="nav-link" href="forum_pair.html" style="padding: 0px;">
+            <a class="nav-link" href='<c:url value="/friends/pair" />' style="padding: 0px;">
               <button type="button" class="btn btn-outline-success">
                 配對
               </button>
