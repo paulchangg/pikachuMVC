@@ -11,8 +11,8 @@
 rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-crossorigin="anonymous"
-/>
+crossorigin="anonymous"/>
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href='<c:url value="../css/member_register.css" />'/>
 <link rel="stylesheet" href='<c:url value="../css/wickedcss.min.css" />'/>
@@ -72,7 +72,7 @@ crossorigin="anonymous"
 	  <button id="skipBtn">skip</button>
 	</div>
 	  <div class="imageconvthree" id="becmember">
-	      <button id="becmemberbtn">成為會員</button>
+	      <button id="becmemberbtn" class="pulse">成為會員</button>
 	  </div>
 	  <!---------------------表單區塊-------------------------------->
 	      <div class="row centerarea">

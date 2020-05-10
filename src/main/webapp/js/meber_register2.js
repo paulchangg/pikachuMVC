@@ -49,7 +49,7 @@ function doFirst() {
 
     $(window)
       .scroll(function () {
-        if ($(this).scrollTop() > 50) {
+        if ($(this).scrollTop() > 1) {
           $("#backtop").fadeIn(222);
         } else {
           $("#backtop").stop().fadeOut(222);
