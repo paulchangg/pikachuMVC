@@ -48,14 +48,14 @@ function doFirst() {
     });
 
     $(window)
-      .scroll(function () {
-        if ($(this).scrollTop() > 1) {
-          $("#backtop").fadeIn(222);
-        } else {
-          $("#backtop").stop().fadeOut(222);
-        }
-      })
-      .scroll();
+    .scroll(function () {
+      if ($(this).scrollTop() >=0) {
+        $("#backtop").fadeIn(222);
+      } else {
+        $("#backtop").stop().fadeOut(222);
+      }
+    })
+    .scroll();
   });
 }
 

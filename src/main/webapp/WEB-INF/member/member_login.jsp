@@ -66,9 +66,8 @@
         </div>
       </div>
    
-	  <img src="../images/登入對話框.png" id="imagetwo">
-	  <img src="../images/忘記密碼.png" id="imagefive">
-	  <img src="../images/迷彩-1.png" class="rollerLeft imageone" id="imagethree">
+	    <img src="../images/忘記密碼.png" id="imagefive">
+	    <img src="../images/迷彩-1.png" class="rollerLeft imageone" id="imagethree">
 
 	  <div class="centercard" id="centercardarea">
 		<div class="row">
@@ -177,21 +176,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var bbb=document.getElementById('imagetwo');
-		var ccc=document.getElementById('imagethree');
-		ccc.addEventListener("click",abcder)
-		bbb.addEventListener("click",abcder);
-		function abcder(){
-			var aaa=document.getElementById('centertwo');
-			var fff=document.getElementById('imagefive');
-			aaa.style.display="inline";
-			bbb.style.display="none";
-			fff.style.display="inline";
-			
-			}
-
-	</script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 crossorigin="anonymous"></script>
