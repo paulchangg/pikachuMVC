@@ -91,7 +91,6 @@ body {
 }
 
 
-
 /*詢問是否為會員*/
 .toparea{
   margin-top: 2%;
@@ -101,33 +100,28 @@ body {
 }
 
 
-#totalimage{
-  height: 40rem;
-}
-
-
 
 /*大比卡丘的對話框*/
 .imageconvone{
   position: absolute;
-  margin-left: 35%;
-  margin-top: -1%;
-  opacity: 0;
+  margin-left: 12%;
+  margin-top: -15%;
   animation-name: imagecon;
   animation-duration: 5s;
   animation-delay: 5s;
+  opacity: 0;
 }
 
 
 /*小比卡丘對話框*/
 .imageconvtwo{
   position: absolute;
-  margin-left: 25%;
-  margin-top: -1%;
-  opacity: 0;
+  margin-left: 56%;
+  margin-top: -12%;
   animation-name: imagecon;
   animation-duration: 4s;
   animation-delay: 3s;
+  opacity: 0;
 }
 
 
@@ -138,139 +132,49 @@ body {
 
 
 
-
-
 /*大比卡丘*/
 .hahapickhubig{
   position: absolute;
-  margin-top: 4%;
+  width: 20rem;
+  margin-top: -10%;
+  margin-left: 0%;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-name: runone;
-
+  
 }
-
-@keyframes runone{
-   25%{margin-left: 0%;}
-  100%{margin-left: 25%;}
-}
-
 
 
 /*小比卡丘圖片*/
 .hahapickhu{
-  width: 20rem;
+  width: 15rem;
   position: absolute;
+  margin-top: -6%;
   margin-left: 70%;
-  margin-top: 6%;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-name: runnnnn;
+
 }
+
+
+@keyframes runone{
+  25%{margin-left: 0%;}
+ 100%{margin-left: 13%;}
+}
+
 
 @keyframes runnnnn{
-  25%{margin-left: 65%;}
- 100%{margin-left: 45%;}
+  25%{margin-left: 70%;}
+ 100%{margin-left: 57%;}
 }
 
 
-/*成為會員的對話框區塊*/
-.imageconvthree{
-  background-image: url(../images/會員對話03.png);
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-size: 30rem;
-  margin: auto;
-  width: 30rem;
-  height: 10rem;
-  position: relative;
-  margin-left: 32%;
-  margin-top: -10%;
-  animation: imagetwo ease-in 3s 6.5s;
-  animation-fill-mode: forwards;
-  opacity:0;
-
-}
-
-@keyframes imagetwo{
-  from {
-    opacity:0;
-}
-to {
-    opacity:1;}
-}
-
-
-
-/*成為會員的按鈕*/
-#becmemberbtn{
-  position: absolute;
-  margin-top: 17%;
-  margin-left: 60%;
-  border:0;
-  background-color:#FF5964;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
-  font-size: 25px;
-  margin-bottom: 20px;
-  opacity: 1;
-}
-
-
-#becmemberbtn:hover{
-  color:#FF5964;
-  background-color:#fff;
-  border:2px #FF5964 solid;
-}
-
-
-
-/*略過的按鈕*/
-#skipBtn{
-  position: absolute;
-  margin-top: 17%;
-  margin-left: 60%;
-  border:0;
-  background-color:#35A7FF;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
-  font-size: 20px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation-name: skinbtn;
-  animation-duration: 4s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-
-#skipBtn:hover{
-  color:#35A7FF;
-  background-color:#fff;
-  border:2px #35A7FF solid;
-}
-
-/*略過的動畫*/
-@keyframes skinbtn{
-  from {
-    opacity:0;
-}
-to {
-    opacity:1;}
-}
-
-.titlemember{
-  margin-top: 2%;
-  margin-bottom: 3%;
-}
-
-
-/*表單中間整個區塊*/
+/*中間整個區塊*/
 .centerarea {
-  justify-content: center;
+  margin: auto;
   text-align: center;
+
 }
 
 
@@ -278,30 +182,42 @@ to {
 .formtablearea{
    border:solid;
    border-color: #FFE066;
-   display: none;
-}
+   border-radius: 10px;
+   padding: 15px;
 
+}
 
 .table01{
   font-size: 20px;
+  text-align: center;
 }
 
 .table01 th{
-  text-align: right;
-  width: 10rem;
   vertical-align:top;
+}
 
+.table01 label{
+  width: 6rem;
+  margin-left: 25%;
 }
 
 .table01 td{
-  text-align: left;
-  width: 15rem;
+ text-align: left;
+ width: 23rem;
+
 }
 
 .table01 input{
   padding: 4px;
   height: 2rem;
   vertical-align:top;
+  font-size: 15px;
+  margin-left: 5%;
+}
+
+
+#signup_id  ,#register_password, #nameinput, #signup_mail{ 
+  width: 15rem;
 }
 
 
@@ -324,3 +240,5 @@ to {
   background-color:#fff;
   border:2px #35A7FF solid;
 }
+
+
