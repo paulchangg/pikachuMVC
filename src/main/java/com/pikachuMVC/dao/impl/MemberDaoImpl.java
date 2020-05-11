@@ -313,7 +313,6 @@ public class MemberDaoImpl implements MemberDao {
 
 			mbean = (MemberBean) iter.next();
 			joinActivityMember.add(mbean);     
-			System.out.println("joinActivityMember =" + joinActivityMember);
 		}
 		
 		

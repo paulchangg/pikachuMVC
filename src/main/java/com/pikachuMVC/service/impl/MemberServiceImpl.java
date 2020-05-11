@@ -194,6 +194,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberBean> getActivityPerson(int article_Id) {
 		List<MemberBean> joinActivityMember = null;
 		joinActivityMember = dao.getActivityPerson(article_Id);
+	
 		return joinActivityMember;
 	}
 

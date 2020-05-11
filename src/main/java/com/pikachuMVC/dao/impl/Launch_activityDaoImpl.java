@@ -102,6 +102,11 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 		Session session = factory.getCurrentSession();
 
 		list = session.createQuery(hql).getResultList();
+		
+		if(list == null) {
+			return list;
+		}
+		
 		return list;
 	}
 

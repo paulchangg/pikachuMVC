@@ -94,12 +94,13 @@
 								method="POST" enctype="multipart/form-data" id="msform">
 								<!-- 主辦人頭像 -->
 								<div class="container">
-									<img src="./images/id_photo/memberphoto_6.png"
+							
+									<img 	src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${loginmember}'
 										alt="profile-sample5" id="memberid_img" /><br>
 									<c:choose>
 										<c:when test="${Newsessionfname != null}">
-<!-- 											<span style="font-size: 0.6em; color: #3e8bbe;">主揪人</span> -->
-<%-- 											<span id="article_m_id" style="font-size: 0.8em;">${loginmember}</span> --%>
+											<span style="font-size: 0.6em; color: #3e8bbe;">主揪人</span>
+											<span id="article_m_id" style="font-size: 0.8em;">${loginmember}</span>
 											<!-- 發文著的名子 -->
 											<h1>發文看板:${Newsessionfname}</h1>
 											<hr />
@@ -108,23 +109,23 @@
 											<!-- <input type="text" name="article_title" placeholder="標題" /> -->
 
 											<input type="text" id="article_title" name="article_title"
-												placeholder="標題不能少於10個字" value="${param.article_title}" />
+												placeholder="標題不能少於5個字" value="${param.article_title}" />
 											<font color="red" size="-1">${MsgMap.TitleError}</font>
 											<br>
 
 											<h1 class="fs-title">活動地點</h1>
 											<input type="text" name="Location" placeholder="地點"
 												value="${param.Location}" />
-											<font color="red" size="-1">${MsgMap.subjectError}</font>
+											<font color="red" size="-1">${MsgMap.locationError}</font>
 											<br>
 											<h1 class="fs-title">活動開始時間</h1>
-											<input type="date" name="starteTimeStr" placeholder="開始日期與時間"
+											<input type="datetime-local" name="starteTimeStr" placeholder="開始日期與時間"
 												value="${param.starteTimeStr}" />
 											<font color="red" size="-1">${MsgMap.starte_TimeError}</font>
 											<br>
 
 											<h1 class="fs-title">活動結束時間</h1>
-											<input type="date" name="endTimeStr" placeholder="結束日期與時間"
+											<input type="datetime-local" name="endTimeStr" placeholder="結束日期與時間"
 												value="${param.endTimeStr}" />
 											<font color="red" size="-1">${MsgMap.endTimeError}</font>
 											<br>
@@ -133,18 +134,14 @@
 											<!-- 主題選單 -->
 											<div class="btn-group">
 
-												<input type="text" id="subject" name="subject" size="100"
-													value="${param.subject}" /><br> <font color="red"
-													size="-1">${MsgMap.subject}</font><br>
-
-
+											<input type="text" id="subject" name="subject" size="100"
+											value="${param.subject}" /><br>
 											</div>
-
+											<font color="red"size="-1">${MsgMap.subjectError}</font><br>
 
 											<h1 class="fs-title">活動內容</h1>
-											<!-- <textarea name="address" placeholder="請輸入內容"></textarea> -->
 
-											<textarea cols="50" rows="5" placeholder="內容不能少於100個字"
+											<textarea cols="50" rows="5" placeholder="內容不能少於50個字"
 												name="article_content">${param.article_content}</textarea>
 											<br>
 											<font color="red" size="-1">${MsgMap.ContentError}</font>
@@ -210,7 +207,7 @@
 					</a><br>
 					<c:forEach var="sessionfname" items="${sessionfname}">
 						<a
-							href="<c:url value='/forum/ConnectionForum_launch?${sessionfname}'/>"
+							href="<c:url value='/forum/ConnectionForum_launch?fname=${sessionfname}'/>"
 							id="">
 							<button type="button" class="btn-all-board">${sessionfname}</button>
 						</a>

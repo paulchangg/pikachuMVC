@@ -230,8 +230,8 @@
 					</a><br>
 					<c:forEach var="sessionfname" items="${sessionfname}">
 						<a
-							href="<c:url value='/forum/ConnectionForum_launch?${sessionfname}'/>"
-							id="">
+						href="<c:url value='/forum/ConnectionForum_launch?fname=${sessionfname}'/>"
+						id="">
 							<button type="button" class="btn-all-board">${sessionfname}</button>
 						</a>
 						<br />
@@ -261,8 +261,7 @@
 								<div class="col-2"
 									style="display: flex; align-items: center; padding-right: 10px;">
 									<img class="memberid_img"
-										<%--                     src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ activity_info_page.article_Id }' --%>
-                  src='${pageContext.servletContext.contextPath}/member/RetrieveMemberImageServlet?JoinPersonMid=${responAll.res_m_id }'
+									  src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${responAll.res_m_id }'
 										alt=""
 										style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 								</div>
@@ -298,8 +297,7 @@
 						<div class="col-2"
 							style="display: flex; align-items: center; padding-right: 10px; padding-top: 10px;">
 							<img class="memberid_img"
-								<%--                     src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ activity_info_page.article_Id }' --%>
-                  src='${pageContext.servletContext.contextPath}/member/RetrieveMemberImageServlet?JoinPersonMid=${activity_info_page.article_m_id }'
+                  src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${activity_info_page.article_m_id }'
 								alt=""
 								style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 						</div>
@@ -326,7 +324,7 @@
             	
             	${JoinPersonName.name}
                 <img class="memberid_img"
-									src='${pageContext.servletContext.contextPath}/member/RetrieveMemberImageServlet?JoinPersonMid=${JoinPersonName.m_id }'
+                src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${JoinPersonName.m_id }'
 									alt=""
 									style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 							</c:forEach>

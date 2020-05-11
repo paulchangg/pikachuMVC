@@ -34,7 +34,7 @@ public class ForumDaoImpl implements IForumDao {
 		Session session = factory.getCurrentSession();
 		
 		FoumBean forum = null;
-		String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
+		String [] n= {"旅遊踏青","聚會吃喝","電影咖","愛車聚會"};
 		
 		for(String fname:n) { 
 		forum = new FoumBean(null, fname, null);
@@ -83,9 +83,7 @@ public class ForumDaoImpl implements IForumDao {
 	// 2.查詢forum表格內的所有版名不分member)
 	@Override
 	@SuppressWarnings("unchecked")
-
 	public List<FoumBean> getAllfname() {
-
 		List<FoumBean> list = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM FoumBean ";
