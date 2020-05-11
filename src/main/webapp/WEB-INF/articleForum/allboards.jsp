@@ -126,7 +126,7 @@
             </a>
           </div>
           <div class="my-2">
-            <a class="nav-link" href="activity_page.html" style="padding-top: 1px;">
+              <a class="nav-link" href="<c:url value="/forum/ForumHompage" />" style="padding-top: 1px;">
               <button type="button" class="btn btn-outline-success">
                 交友活動
               </button>

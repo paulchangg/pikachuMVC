@@ -71,6 +71,18 @@ public class MemberBean {
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "memberBeans")
 	Set<ArticleBean> trackLaunchActivity = new LinkedHashSet<ArticleBean>();
 	
+	//--------------------------活動的開始-------------------------------------	
+		@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+		Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+		
+		
+
+		
+		@OneToMany(cascade = {CascadeType.ALL})
+		@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
+		private Set<ResponserBean> responserBean = new LinkedHashSet<>();
+	//--------------------------活動的結束-------------------------------------		
+	
 	public MemberBean() {
 		super();
 	}
@@ -93,6 +105,22 @@ public class MemberBean {
 	}
 	
 	
+
+	public Set<Launch_activityBean> getLaunch_activityBean() {
+		return launch_activityBean;
+	}
+
+	public void setLaunch_activityBean(Set<Launch_activityBean> launch_activityBean) {
+		this.launch_activityBean = launch_activityBean;
+	}
+
+	public Set<ResponserBean> getResponserBean() {
+		return responserBean;
+	}
+
+	public void setResponserBean(Set<ResponserBean> responserBean) {
+		this.responserBean = responserBean;
+	}
 
 	public Set<ArticleBean> getLaunchActivity() {
 		return launchActivity;

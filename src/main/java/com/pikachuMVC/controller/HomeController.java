@@ -15,16 +15,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.pikachuMVC.dao.CardDao;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.pikachuMVC.dao.ArticleDao;
+import com.pikachuMVC.dao.CardDao;
+import com.pikachuMVC.dao.IForumDao;
 import com.pikachuMVC.dao.ProductDao;
-import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.ArticleClassificarionBean;
+import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.FoumBean;
 import com.pikachuMVC.model.ProductBean;
-import com.pikachuMVC.service.CardService;
 /*import com.pikachuMVC.service.NewsService;*/
 import com.pikachuMVC.service.ArticleService;
+import com.pikachuMVC.service.CardService;
+import com.pikachuMVC.service.IFoumService;
 import com.pikachuMVC.service.ProductService;
 
 @Controller
@@ -53,10 +56,16 @@ public class HomeController {
 	@Autowired
 	ArticleService articleService;
 
+	@Autowired
+	IFoumService foumservice;
+	
+	@Autowired
+	IForumDao iForumDao;
+	
 	private List<CardBean> list = new ArrayList<CardBean>();
 	private List<ProductBean> productList = new ArrayList<ProductBean>();
 	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
-
+	private List<FoumBean> forumList = new ArrayList<FoumBean>();
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
@@ -84,6 +93,16 @@ public class HomeController {
 			}
 			fourmList = articleService.getforumBean();
 		}
+		
+		
+		if(forumList.size() ==0) {
+			if(foumservice.getAllfname().size() ==0) {
+				iForumDao.insertFoum();
+			}
+			forumList =foumservice.getAllfname();
+		}
+		
+		
 		
 		return "index";
 	}
