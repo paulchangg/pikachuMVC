@@ -1,4 +1,4 @@
-/*package com.pikachuMVC.service.impl;
+package com.pikachuMVC.service.impl;
 
 import java.io.BufferedInputStream;
 
@@ -28,6 +28,7 @@ import javax.net.ssl.X509TrustManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -82,23 +83,23 @@ public class NewsServiceImpl implements NewsService {
 		webClient.waitForBackgroundJavaScript(5 * 1000); // 等待javascript後台處理時間(5s)...也是5~10秒差不多
 		Document doc = Jsoup.parse(page.asXml());
 
-		for (Element newsLink : doc.select("a[href^='https'][class*='img_div news_list_img']")) {
+		for (Element newsLink : doc.select("a[href^='https'][class*='img_div news_list_img']")) {     //取得dom 陣列
 			NewsBean news = new NewsBean();
-			url = newsLink.attr("href");
+			url = newsLink.attr("href");                 //各新聞的超連結
 			System.out.println(url);
-			page = webClient.getPage(url);
+			page = webClient.getPage(url);						//連到該新聞網頁(開第二層)
 			webClient.waitForBackgroundJavaScript(5 * 1000);
-			Document docC = Jsoup.parse(page.asXml());
+			Document docC = Jsoup.parse(page.asXml());         //第二層網頁再分析
 			
 			// 新聞標題
-			String newsTitle = newsLink.attr("title");
+			String newsTitle = newsLink.attr("title");   //該dom的title屬性
 			System.out.println(newsTitle);
 			news.setTitle(newsTitle);
 			//抓今天時間
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+//			SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 			SimpleDateFormat sdfOfFolder = new SimpleDateFormat("yyyyMMdd");
-			String today = sdfOfFolder.format(new Date());
 			Date date = new Date();
+			String today = sdfOfFolder.format(date);  //轉變今天日期的格式
 			news.setCreateDate(date);
 			news.setFolder("/"+today);
 			// 抓取內文
@@ -108,11 +109,18 @@ public class NewsServiceImpl implements NewsService {
 			
 			// 抓取img
 			Element contentE3 = docC.select("[class='con_img']").get(0);
+			//活動時間
+			Elements acttime =docC.select("[class*='detail_title']").select("p");
+			String acttext=acttime.text();//活動時間
 			
-			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();
+			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();   //內容
 			String txtName = ("[" + today + "]" + newsTitle + ".txt").replaceAll("[\\/:*?><|\"]", "");
-			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
-			news.setContent("/content/"+txtName);
+//			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+//			news.setContent("/content/"+txtName);  
+			news.setActTime(acttext);
+			news.setContent(txtPath+txtName);
+			news.setIntro(content.substring(0, 80));
 			BufferedInputStream in = null;
 			ByteArrayOutputStream out = null;
 			HttpURLConnection httpUrlConnection = null;
@@ -121,7 +129,7 @@ public class NewsServiceImpl implements NewsService {
 			try {
 				File txtFolder = new File(txtPath);
 				File txt = new File(txtPath + txtName);
-				if (!txt.exists() || txt.length() == 0) {
+				if (!txt.exists() || txt.length() == 0) {   //沒有文字檔 或有檔沒內容
 					try {
 						txtFolder.mkdirs();
 					} catch (Exception e) {
@@ -143,12 +151,14 @@ public class NewsServiceImpl implements NewsService {
 			// 抓取圖片url
 			try {
 			String imgLink = contentE3.select("img").get(0).attr("src");
-			System.out.println(imgLink);
+//			System.out.println(imgLink);
 			
 			String imgName = today + "-" + imgLink.substring(imgLink.lastIndexOf('/') + 1);
-			String imgPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\img\\";
+			String imgPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\img\\";
+			
 //			System.out.println(imgPath);
-			news.setImage("/img/"+imgName);
+//			news.setImage("/img/"+imgName);
+			news.setImage(today+"/img/"+imgName);
 			in = null;
 			out = null;
 			httpUrlConnection = null;
@@ -175,7 +185,7 @@ public class NewsServiceImpl implements NewsService {
 					out = new ByteArrayOutputStream();
 
 					// 建立串流Buffer
-					byte[] buffer = new byte[1024];
+					byte[] buffer = new byte[819200];
 					File imgFolder = new File(imgPath);
 					File img = new File(imgPath + imgName);
 					if (!img.exists() || img.length() == 0) {
@@ -191,9 +201,9 @@ public class NewsServiceImpl implements NewsService {
 							// 輸出檔案
 							out.write(buffer, 0, readByte);
 						}
-
-						byte[] response = out.toByteArray();
-						file.write(response);
+						out.writeTo(file);
+//						byte[] response = out.toByteArray();
+//						file.write(response);
 					} else {
 						continue;
 					}
@@ -271,5 +281,21 @@ public class NewsServiceImpl implements NewsService {
 	public void addNews(NewsBean news) {
 		dao.addNewsBean(news);	
 	}
+
+	@Override
+	public List<NewsBean> getLastestNews() {
+	
+		return dao.getLastestNews();
+	}
+
+	@Override
+	public NewsBean getNewsById(int id) {
+		
+		return dao.getNewsById(id);
+	}
+
+	@Override
+	public List<NewsBean> getLastestNews2() {
+		return dao.getLastestNews2();
+	}
 }
-*/
