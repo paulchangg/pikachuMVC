@@ -169,11 +169,6 @@ body {
 }
 
 
-.aniarea :hover ::before , .aniarea:hover::after{
-animation-play-state: paused;
-}
-
-
 /*返回按鈕區塊*/
 .footerbutton{
   text-align: center;

@@ -1,0 +1,73 @@
+@import "./reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
+
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+	
+	/*background = gradient + image pattern combo*/
+	background: 
+		linear-gradient(rgba(180, 90, 10, 0.6), rgba(15, 180,82, 0.1));
+}
+/* 
+body {
+	font-family: montserrat, arial, verdana;
+} */
+/*form styles*/
+.modal-content{
+	width: 600px;
+  }
+  
+  #msform {
+	  width: 450px;
+	  margin: 8px auto;
+	  /* text-align: center; */
+	  position: relative;
+  }
+  
+  #memberid_img {
+	border-radius: 50%;
+	position: absolute;
+	bottom: 100%;   /* icon上移 */
+	left: 5px;
+	/* z-index: 1; */
+	max-width: 90px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /*inputs*/
+  #msform input, #msform textarea {
+	  padding: 15px;   /* 欄位高度 */
+	  border: 1px solid #ccc;
+	  border-radius: 3px;
+	  margin-bottom: 10px;
+	  width: 100%;
+	  box-sizing: border-box;
+	  color: #2C3E50;
+	  font-size: 13px;
+  }
+  
+  
+  /*headings*/
+  .fs-title {
+	  font-size: 13px;
+	  text-transform: uppercase;
+	  color: rgb(103, 104, 105);
+	margin-bottom: 15px;
+	margin-top: 12px;
+  }
+  
+  .fs-subtitle {
+	  font-weight: normal;
+	  font-size: 13px;
+	  color: #666;
+	  margin-bottom: 20px;
+  }
+  
+

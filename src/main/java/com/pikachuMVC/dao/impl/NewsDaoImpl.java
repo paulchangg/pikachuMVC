@@ -80,9 +80,5 @@ public class NewsDaoImpl implements NewsDao {
 				.setParameter("newsId", id)
 				.getSingleResult();
 		return news;
-	}
-
-
-
-	
+	}	
 }

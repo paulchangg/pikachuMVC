@@ -24,25 +24,25 @@ import com.google.gson.annotations.Expose;
 public class MemberBean {
 	@Id
 	@Expose
-	String m_id;
-	String m_password;
+	private String m_id;
+	private String m_password;
 	@Expose
-	String name;
-	String phone_num;
+	private String name;
+	private String phone_num;
 	@Column(unique = true)
-	String m_mail;
+	private String m_mail;
 	@Expose
-	String nickname;
-	Date birthday;
+	private String nickname;
+	private Date birthday;
 	@Expose
-	String gender;
-	Blob m_img;
+	private String gender;
+	private Blob m_img;
 	@Expose
-	String income;
+	private String income;
 	@Expose
-	String city;
+	private String city;
 	@Expose
-	String education;
+	private String education;
 	
 	@OneToMany(mappedBy = "mb",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<PreFriend> preFriends;
@@ -71,6 +71,18 @@ public class MemberBean {
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "memberBeans")
 	Set<ArticleBean> trackLaunchActivity = new LinkedHashSet<ArticleBean>();
 	
+	//--------------------------活動的開始-------------------------------------	
+		@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+		Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+		
+		
+
+		
+		@OneToMany(cascade = {CascadeType.ALL})
+		@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
+		private Set<ResponserBean> responserBean = new LinkedHashSet<>();
+	//--------------------------活動的結束-------------------------------------		
+	
 	public MemberBean() {
 		super();
 	}
@@ -93,6 +105,22 @@ public class MemberBean {
 	}
 	
 	
+
+	public Set<Launch_activityBean> getLaunch_activityBean() {
+		return launch_activityBean;
+	}
+
+	public void setLaunch_activityBean(Set<Launch_activityBean> launch_activityBean) {
+		this.launch_activityBean = launch_activityBean;
+	}
+
+	public Set<ResponserBean> getResponserBean() {
+		return responserBean;
+	}
+
+	public void setResponserBean(Set<ResponserBean> responserBean) {
+		this.responserBean = responserBean;
+	}
 
 	public Set<ArticleBean> getLaunchActivity() {
 		return launchActivity;

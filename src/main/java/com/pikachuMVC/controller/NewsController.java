@@ -43,11 +43,11 @@ public String getNews(HttpServletRequest request) throws IOException {
 	String txtPath = news.getContent();
 	File file = new File(txtPath);
 	
-	if(file != null) {
-		System.out.println("OK");
-	}else {
-		System.out.println("GG");
-	}
+//	if(file != null) {
+//		System.out.println("OK");
+//	}else {
+//		System.out.println("GG");
+//	}
 	
 	InputStreamReader reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
 	BufferedReader br = new BufferedReader(reader); 
@@ -62,8 +62,10 @@ public String getNews(HttpServletRequest request) throws IOException {
 	request.setAttribute("content", cont);
 	
 	
+
 	return "/news/informationtwo";
 }		
 
 
 }
+

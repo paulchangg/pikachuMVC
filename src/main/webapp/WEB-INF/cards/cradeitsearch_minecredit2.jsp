@@ -29,7 +29,7 @@
          <div class="row justify-content-around">
            <div class="col-sm">
              <a href="index copy.html">
-                <img src="../cards/image/重新縮圖.png" alt="logo" style="height: 230px;" />
+                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
         </div>

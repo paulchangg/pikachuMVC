@@ -72,7 +72,7 @@
 			  <div class="photo" id="memberinquary_img">
 				  <c:choose>
 					  <c:when test="${empty LoginOK.m_img}">
-						  <img src="../images/common/membephoto_0.png" width="160" height="160">
+						  <img src="../images/membephoto_0.png" width="160" height="160">
 					 </c:when>
 					<c:otherwise>
 					  <img

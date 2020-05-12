@@ -18,6 +18,8 @@ public interface NewsService {
 	NewsBean getNewsByTitle(String title);
 	public NewsBean getNewsById(int id);
 	public void addNews(NewsBean news);
+
 	public List<NewsBean> getLastestNews();
 	public List<NewsBean> getLastestNews2();
+
 }
