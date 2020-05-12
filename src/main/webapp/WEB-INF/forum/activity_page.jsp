@@ -156,7 +156,7 @@
 								<!-- 主辦人頭像 -->
 								<div class="container">
 							
-									<img 	src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${loginmember}'
+									<img 	src='${pageContext.request.contextPath}/init/getMemberImage?id=${loginmember}'
 										alt="profile-sample5" id="memberid_img" /><br>
 									<c:choose>
 										<c:when test="${Newsessionfname != null}">

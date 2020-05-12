@@ -83,7 +83,7 @@
 		<div class="photo" id="membereedit_img"><!--顯示會員圖像-->
 		  <c:choose>
 			  <c:when test="${empty LoginOK.m_img}">
-				  <img src="../images/common/membephoto_0.png" width="160" height="160">			
+				  <img src="../images/membephoto_0.png" width="160" height="160">			
 			  </c:when>
 			  <c:otherwise>
 				  <img src='<c:url value="/init/getMemberImage?id=${LoginOK.m_id}" />' width="160" height="160">	
@@ -105,22 +105,22 @@
 						  <div class="modal-body">
 							  <label class="radio-inline"><input type="radio"
 								  name="m_img" value="memberphoto_1"><img
-								  src="../images/common/memberphoto_1.jpg" width="100"
+								  src="../images/memberphoto_1.jpg" width="100"
 								  height="100"></label> <label class="radio-inline"><input
 								  type="radio" name="m_img" value="memberphoto_2"><img
-								  src="../images/common/memberphoto_2.jpg" width="100"
+								  src="../images/memberphoto_2.jpg" width="100"
 								  height="100"></label> <label class="radio-inline"><input
 								  type="radio" name="m_img" value="memberphoto_3"><img
-								  src="../images/common/memberphoto_3.jpg" width="100"
+								  src="../images/memberphoto_3.jpg" width="100"
 								  height="100"></label> <label class="radio-inline"><input
 								  type="radio" name="m_img" value="memberphoto_4"><img
-								  src="../images/common/memberphoto_4.jpg" width="100"
+								  src="../images/memberphoto_4.jpg" width="100"
 								  height="100"></label> <label class="radio-inline"><input
 								  type="radio" name="m_img" value="memberphoto_5"><img
-								  src="../images/common/memberphoto_5.jpg" width="100"
+								  src="../images/memberphoto_5.jpg" width="100"
 								  height="100"></label> <label class="radio-inline"><input
 								  type="radio" name="m_img" value="memberphoto_6"><img
-								  src="../images/common/memberphoto_6.jpg" width="100"
+								  src="../images/memberphoto_6.jpg" width="100"
 								  height="100"></label>
 						  </div>
 						  <div class="modal-footer">

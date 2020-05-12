@@ -443,7 +443,7 @@ public class MemberController {
 
 			if (is == null) {
 				fileName = "membephoto_0.png";
-				is = sc.getResourceAsStream("/images/common/" + fileName);
+				is = sc.getResourceAsStream("/images/" + fileName);
 			}
 
 			// 由圖片檔的檔名來得到檔案的MIME型態

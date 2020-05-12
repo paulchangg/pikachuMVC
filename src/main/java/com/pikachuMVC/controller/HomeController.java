@@ -35,8 +35,8 @@ public class HomeController {
 	public HomeController() {
 	}
 	
-	@Autowired
-	NewsService newsService;
+	/*@Autowired
+	NewsService newsService;*/
 	
 	@Autowired
 	CardService service;
@@ -69,9 +69,9 @@ public class HomeController {
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
-		if (!judgeNewsFolder()) {
+	/*	if (!judgeNewsFolder()) {
 			newsService.newsCrawler();
-	}
+	}*/
 		
 		if (list.size() == 0) {
 			if (service.getCards().size() == 0) {
