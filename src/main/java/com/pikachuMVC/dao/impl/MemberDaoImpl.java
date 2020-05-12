@@ -1,5 +1,7 @@
 package com.pikachuMVC.dao.impl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.pikachuMVC.dao.MemberDao;
 import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.Launch_activityBean;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.PreFriend;
 
@@ -286,7 +289,78 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
-	
+	@Override
+	public void addMyActivity(Launch_activityBean article_Id, String m_id) {
+		MemberBean mbean;
+		Launch_activityBean launchbean;
+
+		Session session = factory.getCurrentSession();
+		// mbean 是 以MemberBean的m_id 為參考依據(裡面包含Birthday city 等MemberBean的屬性)
+		mbean = session.get(MemberBean.class, m_id);
+		// launchbean 是 以Launch_activityBean的article_Id 為參考依據(裡面包含article_content
+		// article_title等Launch_activityBean的屬性)
+
+		launchbean = session.get(Launch_activityBean.class, article_Id.getArticle_Id());
+		// mbean呼叫getLaunch_activityBean()方法 ，將呼叫的物件 存入變數launchset 的Set集合
+		Set<Launch_activityBean> launchset = mbean.getLaunch_activityBean();
+
+		// Set集合型態的launchset物件，將以Launch_activityBean 的 article_Id 為參考的物件launchbean
+		// 加進去(launchset物件內)
+		launchset.add(launchbean);
+		// 將launchbean物件放入mbean物件內
+		mbean.setLaunch_activityBean(launchset);
+
+		// launchbean呼叫.getMembers()方法 ，將呼叫的參數 存入物件members 的Set集合
+		Set<MemberBean> members = launchbean.getMembers();
+
+		// Set集合型態的members物件，將以MemberBean 的 m_id 為參考的物件mbean 加進去( members物件內)
+		members.add(mbean);
+		// 將members物件放入launchbean物件內
+		launchbean.setMembers(members);
+		
+	}
+
+	@Override
+	public List<MemberBean> getActivityPerson(int article_Id) {
+		MemberBean mbean = null;
+		List<MemberBean> joinActivityMember = new ArrayList<MemberBean>();
+		Session session = factory.getCurrentSession();
+		
+		Launch_activityBean launch_activityBean = (Launch_activityBean) session.load(Launch_activityBean.class,article_Id);
+
+		for (Iterator<?> iter = launch_activityBean.getMembers().iterator(); iter.hasNext();) {
+
+			mbean = (MemberBean) iter.next();
+			joinActivityMember.add(mbean);     
+		}
+		
+		
+		return joinActivityMember;  //List<String>
+	}
+
+	@Override
+	public void leaveMyActivity(Launch_activityBean article_Id, String m_id) {
+		MemberBean mbean;
+		Launch_activityBean launchbean;
+
+		Session session = factory.getCurrentSession();
+		// mbean 是 以MemberBean的m_id 為參考依據(裡面包含Birthday city 等MemberBean的屬性)
+		mbean = session.get(MemberBean.class, m_id);
+		// launchbean 是 以Launch_activityBean的article_Id 為參考依據(裡面包含article_content
+		// article_title等Launch_activityBean的屬性)
+
+		launchbean = session.get(Launch_activityBean.class, article_Id.getArticle_Id());
+		
+		Set<Launch_activityBean> launchset =mbean.getLaunch_activityBean();
+		launchset.remove(launchbean);
+		
+		
+		Set<MemberBean> members = launchbean.getMembers();
+		
+		members.remove(mbean);
+		launchbean.setMembers(members);
+		
+	}
 	
 
 }

@@ -1,4 +1,4 @@
-/*package com.pikachuMVC.dao.impl;
+package com.pikachuMVC.dao.impl;
 
 import java.util.List;
 
@@ -46,4 +46,4 @@ public class NewsDaoImpl implements NewsDao {
 	}
 
 	
-}*/
+}

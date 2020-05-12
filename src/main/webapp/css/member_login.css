@@ -101,11 +101,6 @@ body {
   
 }
 
-/*登入表單*/
-.centertwo{
-  display: none;
-}
-
 
 /*迷彩比卡丘*/
 .imageone{
@@ -117,18 +112,6 @@ body {
 
 
 
-/*對話框動畫*/
-#imagetwo{
-  position: absolute;
-  margin-left: 50%;
-  visibility: hidden;
-  animation-name: hahawoo;
-  animation-duration: 2s;
-  animation-delay: 2.3s;
-  animation-iteration-count: infinite;
-  animation-direction: ease-out;
-  
-}
 
 @keyframes hahawoo{
   from{ visibility:visible;
@@ -137,12 +120,16 @@ body {
       margin-top: 6%;};
 }
 
-
 /*忘記密碼*/
 #imagefive{
   position: absolute;
   margin-left: 50%;
-  display: none;
+  visibility: hidden;
+  animation-name: hahawoo;
+  animation-duration: 2s;
+  animation-delay: 2.5s;
+  animation-iteration-count: infinite;
+  animation-direction: ease-out;
   margin-top: 3%;
 }
 
@@ -158,7 +145,7 @@ body {
 
 /*表格的td*/
 .tableareatotal td{
-  padding: 7px;
+  padding: 10px;
 }
 
 

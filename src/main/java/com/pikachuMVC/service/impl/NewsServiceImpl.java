@@ -1,4 +1,4 @@
-/*package com.pikachuMVC.service.impl;
+package com.pikachuMVC.service.impl;
 
 import java.io.BufferedInputStream;
 
@@ -272,4 +272,3 @@ public class NewsServiceImpl implements NewsService {
 		dao.addNewsBean(news);	
 	}
 }
-*/
