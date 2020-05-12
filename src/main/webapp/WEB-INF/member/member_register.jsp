@@ -14,17 +14,6 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
 crossorigin="anonymous"/>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<<<<<<< HEAD
-<link rel="stylesheet" href='<c:url value="/css/member_register.css" />'/>
-<link rel="stylesheet" href='<c:url value="/css/wickedcss.min.css" />'/>
-
-</head>
-<body>
-  <div class="flex-container">
-	  <div class="header">
-		  <div class="logoimg">
-			  <img src="<c:url value="/images/logo.png" />" width="180px" height="100px">
-=======
 <link rel="stylesheet" href='<c:url value="../css/member_register.css" />'/>
 <link rel="stylesheet" href='<c:url value="../css/wickedcss.min.css" />'/>
 </head>
@@ -36,7 +25,6 @@ crossorigin="anonymous"/>
 			  <p style="font-size: small;">
 				快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
 			  </p>
->>>>>>> 3192e76ce249584b1dd55cfb6e4fc8e7ea14f127
 		  </div>
 		  <div class="row justify-content-around"> <!-- logo -->
 			<div class="col-sm">
@@ -146,22 +134,12 @@ crossorigin="anonymous"/>
 					      <input type="submit" value="確認送出" id="Button1">
 				  </form>
 			 </div>
-<<<<<<< HEAD
-			 
-			 <div class="col-4 centerimg">
-				 <img src="<c:url value="/images/register_皮卡丘.png" />" width="500px" height="450px" class="pulse">
-			 </div>
-		 </div>
-	           <img src="<c:url value="/images/regist註冊寫字.png" />" class="handimg">
-=======
 		 </div>
 	
 			<img src="../images/會員對話01.png" class="imageconvone">
 			<img src="../images/比卡丘黃色沒電波.png" class="hahapickhubig">
 		    <img src="../images/加入會員1.png" class="imageconvtwo">
 			<img src="../images/比卡丘黃色沒電波翻轉.png" class="hahapickhu">
-	    
->>>>>>> 3192e76ce249584b1dd55cfb6e4fc8e7ea14f127
 	           
       <!-- 尾巴---------------------------------------->
 	  <div id="backtop" class="gotop">
