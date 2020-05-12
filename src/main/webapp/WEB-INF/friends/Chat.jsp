@@ -95,7 +95,7 @@
                 alert("連線已關閉...");
                 webSocket = null;
                 document.getElementsByClassName("msg_board")[0].innerHTML = "";
-                window.location.replace('/pikachuMVC/friends/friendList');
+                window.location.replace('/pikachuMVC/friends');
             };
         }
         else {

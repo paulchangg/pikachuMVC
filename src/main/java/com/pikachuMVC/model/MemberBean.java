@@ -24,25 +24,25 @@ import com.google.gson.annotations.Expose;
 public class MemberBean {
 	@Id
 	@Expose
-	String m_id;
-	String m_password;
+	private String m_id;
+	private String m_password;
 	@Expose
-	String name;
-	String phone_num;
+	private String name;
+	private String phone_num;
 	@Column(unique = true)
-	String m_mail;
+	private String m_mail;
 	@Expose
-	String nickname;
-	Date birthday;
+	private String nickname;
+	private Date birthday;
 	@Expose
-	String gender;
-	Blob m_img;
+	private String gender;
+	private Blob m_img;
 	@Expose
-	String income;
+	private String income;
 	@Expose
-	String city;
+	private String city;
 	@Expose
-	String education;
+	private String education;
 	
 	@OneToMany(mappedBy = "mb",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<PreFriend> preFriends;
