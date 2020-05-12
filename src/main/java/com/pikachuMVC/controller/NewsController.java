@@ -1,4 +1,4 @@
-/*package com.pikachuMVC.controller;
+package com.pikachuMVC.controller;
 
 import java.util.List;
 
@@ -32,4 +32,3 @@ public class NewsController {
 	}
 	
 }
-*/
