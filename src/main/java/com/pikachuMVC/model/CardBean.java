@@ -16,6 +16,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
+
 
 
 @Entity
@@ -28,13 +30,18 @@ public class CardBean implements Serializable{
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private	Integer		c_id;
-	private	String      c_name ;			
+	@Expose
+	private	Integer		c_id; //.
+	@Expose
+	private	String      c_name ;	//.		
 	private	String		bank 	;		
-	private	String		annlfee ;		
+	@Expose
+	private	String		annlfee ;	//.	
 	private	Blob		c_img 	;		
-	private	Double		fcb 	;		
-	private	Double		dcb 	;		
+	@Expose
+	private	Double		fcb 	;		//.
+	@Expose
+	private	Double		dcb 	;		//.
 	private	String		fcb_n ;		
 	private	String		dcb_n 	;		
 	private	String		fma 	;		
