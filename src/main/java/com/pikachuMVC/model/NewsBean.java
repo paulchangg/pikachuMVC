@@ -24,20 +24,41 @@ public class NewsBean implements Serializable {
 	private Date 		createDate;
 	@Column(nullable = false)
 	private String  	folder;
-	@Column(nullable = false)
+	@Column(nullable = false, length = 65535, columnDefinition="Text")
 	private String  	content;
+	@Column(nullable = false, length = 65535, columnDefinition="Text")
+	private String  	intro;
 	@Column(nullable = false)
 	private String    	image;
+	@Column(nullable = false)
+	private String    	actTime;
 		
-	public NewsBean(Integer newsId, String title, Date createDate, String folder,String content, String image) {
+	public NewsBean(Integer newsId, String title, Date createDate, String folder, String content, String intro,
+			String image, String actTime) {
 		super();
 		this.newsId = newsId;
 		this.title = title;
 		this.createDate = createDate;
 		this.folder = folder;
 		this.content = content;
+		this.intro = intro;
 		this.image = image;
+		this.actTime = actTime;
 	}
+
+
+
+	public String getActTime() {
+		return actTime;
+	}
+
+
+
+	public void setActTime(String actTime) {
+		this.actTime = actTime;
+	}
+
+
 
 	public NewsBean() {
 		super();
@@ -46,9 +67,24 @@ public class NewsBean implements Serializable {
 	public Integer getNewsId() {
 		return newsId;
 	}
+	
 	public void setNewsId(Integer newsId) {
 		this.newsId = newsId;
 	}
+	
+	public String getIntro() {
+		return intro;
+	}
+
+
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+
+
+
 	public String getTitle() {
 		return title;
 	}

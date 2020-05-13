@@ -1,0 +1,134 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: initial;
+}
+  
+.flex-container {
+    margin: 0 5%;  /* 全版置中 */
+    text-align: center;    
+    display: block;
+    /* display: -webkit-flex; */
+    display: flex;  
+    /* -webkit-flex-flow: row wrap; */
+    flex-flow: row wrap;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.flex-container > * {
+    flex: 1 80%;
+}
+  
+/* 分辨區塊位置 */
+  
+  .top_nav {background:#E8DFE1;}
+  .index_slider{background-color: lightblue;}
+  .site_footer {background: #F7EDE2;}
+  
+  
+/*頭區塊*/
+  .header{
+    height: 9rem;
+    margin-top: 3%;
+  }
+
+/* 尾巴位置 */
+  .site_footer{
+    text-align: center!important;
+    padding: 4rem!important;
+    margin-top: 3%;
+    font-size: 18px;
+  }
+  
+/*導覽列*/
+
+.top_navi {
+  padding: 0.8em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 40px;
+  color: #E8DFE1;
+  position:relative;
+  padding-bottom: -2px;
+
+}
+
+.top_navi a {
+  color: #584B53;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.top_navi nav{
+  position:absolute;
+  top:0;
+  /* left:0; */
+  background: #E8DFE1;
+  width:100%;
+}
+
+/* 欄位大小 */
+.top_navi nav a{
+  padding:10px 60px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.top_navi nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgb(209, 107, 6)
+}
+
+.content_nav {
+  padding: 3em 0;
+  justify-content: space-between;
+  font-weight: bold;
+  /* background-color: #efefef; */
+  font-size: 23px;
+  color: #AFAFAE;
+  border-radius: 5px;
+  position:relative;
+}
+
+.content_nav a {
+  color: #584B53;
+  text-decoration: none;
+}
+
+.content_nav nav{
+  position:absolute;
+  top:0 auto;
+  /* left:0; */
+  background: rgb(255, 255, 255);
+  width:100%;
+}
+
+/* 欄位大小 */
+.content_nav nav a{
+  padding:10px 50px;
+  font-size-adjust: initial;
+  display:inline-block;
+}
+
+/* 游標靠近時更改顯示 */
+.content_nav nav a:hover{
+  background:rgb(245, 223, 226);
+  color:rgba(79, 127, 190, 0.733)
+}
+
+
+.textartccal{
+  margin: auto;
+  border: solid 2px grey;
+  margin-top: 5%;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.textartccalimg{
+  padding: 5px;
+  margin-bottom: 2%;
+}

@@ -139,7 +139,7 @@
           <a href="#" class="hottopics">熱門看板</a>
           <a href="#" class="recentactivity">近期活動</a>
           <a href="#" class="pairfun">配對樂</a>
-          <a href="#" class="latestpromotion">優惠資訊</a>
+          <a href='<c:url  value="/news/lastestNews"/>' class="latestpromotion">優惠資訊</a>
         </nav>
       </section>
 
