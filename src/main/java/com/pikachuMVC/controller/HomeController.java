@@ -111,6 +111,11 @@ public class HomeController {
 		return "index";
 	}
 	
+	@GetMapping("/about_us")
+	public String aboutUs() {
+		return "about_us";
+	}
+	
 	private Boolean judgeNewsFolder() {
 		LocalTime nineOC = LocalTime.of(9, 0, 0);
 	    LocalTime nH = LocalTime.now();
