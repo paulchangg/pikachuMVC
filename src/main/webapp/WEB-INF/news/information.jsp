@@ -54,7 +54,7 @@ crossorigin="anonymous" />
 		<div class="sp-slides"><!--圖片開始區塊-->
 		<c:forEach varStatus="stVar2"  var="cirnews"  items="${newslist2}" >
 			<div class="sp-slide">
-				<a href='<c:url  value="/news/NewsInfo?id=${cirnews.newsId}"/>' ><img class="sp-image" src="${cirnews.image}" id="sliderimg1"></a>
+				<a href='<c:url  value="/news/NewsInfo?id=${cirnews.newsId}"/>' ><img class="sp-image" src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${cirnews.newsId}" class="articleimg" id="sliderimg1"></a>
 			</div>
 		</c:forEach>
 		</div>
@@ -83,7 +83,7 @@ crossorigin="anonymous" />
 		 </div>  -->
 		  <c:forEach varStatus="stVar"  var="entry"  items="${newslist}" >
 		   <div class="downarticle">
-		       <a href='<c:url  value="/news/NewsInfo?id=${entry.newsId}"/>' id="ahrefstr"><img src="${entry.image}" class="articleimg"><!--以第一個為例-->
+		       <a href='<c:url  value="/news/NewsInfo?id=${entry.newsId}"/>' id="ahrefstr"><img src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${entry.newsId}" class="articleimg"><!--以第一個為例-->
 				 <h5><span id="strtitle">${entry.title}</span></h5>
 			  </a>
 		       <p><span id="strcontext">${entry.intro}</span>...</p>
@@ -93,6 +93,9 @@ crossorigin="anonymous" />
 		  
 		</div>	
 	</div>
+		<img src="C:/_JSP/workspaceJDBC_s/pikachuMVC/src/main/webapp/news/20200512/img/20200512/img/20200512-UCardu20200511175010.jpg">
+		<img src="C:\_JSP\workspaceJDBC_s\pikachuMVC\src\main\webapp\news\20200512\img\20200512\img\20200512-UCardu20200511175010.jpg">
+		<img src='<c:url  value="/news/20200512/img/20200512-UCardu20200511175010.jpg"/>'>
 		<img src="20200512/img/20200512-UCardu20200511175010.jpg" >
 		<div class="site_footer"> <!--尾巴區塊-->
 			<div class="gotop">

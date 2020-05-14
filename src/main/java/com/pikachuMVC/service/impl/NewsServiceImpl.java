@@ -1,7 +1,6 @@
 package com.pikachuMVC.service.impl;
 
 import java.io.BufferedInputStream;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,6 +13,8 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +25,8 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -38,8 +41,8 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.pikachuMVC.model.NewsBean;
 import com.pikachuMVC.dao.NewsDao;
+import com.pikachuMVC.model.NewsBean;
 import com.pikachuMVC.service.NewsService;
 
 @Transactional
@@ -83,9 +86,10 @@ public class NewsServiceImpl implements NewsService {
 		webClient.waitForBackgroundJavaScript(5 * 1000); // 等待javascript後台處理時間(5s)...也是5~10秒差不多
 		Document doc = Jsoup.parse(page.asXml());
 
-		for (Element newsLink : doc.select("a[href^='https'][class*='img_div news_list_img']")) {     //取得dom 陣列
+		for (Element newsLink : doc.select("a[href][class*='img_div news_list_img']")) {     //取得dom 陣列
+			//[class*='img_div news_list_img']
 			NewsBean news = new NewsBean();
-			url = newsLink.attr("href");                 //各新聞的超連結
+			url = "https://www.cardu.com.tw"+newsLink.attr("href");                 //各新聞的超連結
 			System.out.println(url);
 			page = webClient.getPage(url);						//連到該新聞網頁(開第二層)
 			webClient.waitForBackgroundJavaScript(5 * 1000);
@@ -116,7 +120,7 @@ public class NewsServiceImpl implements NewsService {
 			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();   //內容
 			String txtName = ("[" + today + "]" + newsTitle + ".txt").replaceAll("[\\/:*?><|\"]", "");
 //			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
-			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+			String txtPath = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
 //			news.setContent("/content/"+txtName);  
 			news.setActTime(acttext);
 			news.setContent(txtPath+txtName);
@@ -151,18 +155,17 @@ public class NewsServiceImpl implements NewsService {
 			// 抓取圖片url
 			try {
 			String imgLink = contentE3.select("img").get(0).attr("src");
-//			System.out.println(imgLink);
-			
-			String imgName = today + "-" + imgLink.substring(imgLink.lastIndexOf('/') + 1);
-			String imgPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\img\\";
-			
+//			System.out.println(imgLink);			
+//			String imgName = today + "-" + imgLink.substring(imgLink.lastIndexOf('/') + 1);
+//			String imgPath = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\img\\";
 //			System.out.println(imgPath);
 //			news.setImage("/img/"+imgName);
-			news.setImage(today+"/img/"+imgName);
+//			news.setImage(today+"/img/"+imgName);
 			in = null;
 			out = null;
 			httpUrlConnection = null;
 			file = null;
+			Blob n_img;
 				if (imgLink.startsWith("https://")) {
 					// HTTPS時
 					httpUrlConnection = getHttpURLConnectionFromHttps(imgLink);
@@ -186,28 +189,41 @@ public class NewsServiceImpl implements NewsService {
 
 					// 建立串流Buffer
 					byte[] buffer = new byte[819200];
-					File imgFolder = new File(imgPath);
-					File img = new File(imgPath + imgName);
-					if (!img.exists() || img.length() == 0) {
-						try {
-							imgFolder.mkdirs();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						file = new FileOutputStream(img);
+//					File imgFolder = new File(imgPath);
+//					File img = new File(imgPath + imgName);
+//					if (!img.exists() || img.length() == 0) {
+//						try {
+//							imgFolder.mkdirs();
+//						} catch (Exception e) {
+//							e.printStackTrace();
+//						}
+//						file = new FileOutputStream(img);
 
 						int readByte;
 						while ((readByte = in.read(buffer)) != -1) {
 							// 輸出檔案
 							out.write(buffer, 0, readByte);
 						}
-						out.writeTo(file);
-//						byte[] response = out.toByteArray();
+//						out.writeTo(file);
+						byte[] response = out.toByteArray();
 //						file.write(response);
-					} else {
-						continue;
-					}
-
+						
+						try {
+							n_img = new SerialBlob(response);
+							news.setN_img(n_img);
+						} catch (SerialException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						
+//					} else {
+//						continue;
+//					}
+//
 				}
 //		        //下載成功後，返回檔案路徑
 //		        filePath = fileDirectoryPath + File.separator + fileNameWithoutFormat + "." + imageType;

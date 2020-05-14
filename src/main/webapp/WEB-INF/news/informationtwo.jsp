@@ -48,7 +48,7 @@ crossorigin="anonymous" />
 			<h3><span id="title">${news.title}</span></h3>
 			<p><span id="acttime">${news.actTime}</span></p>
 			<div class="textartccalimg">
-			   <img src="${news.image}" width="500px" height="350px" id="newsimg">
+			   <img src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${news.newsId}" width="500px" height="350px" id="newsimg">
 	    	</div>
 			<p><span id="contextstr">
 				${content}
