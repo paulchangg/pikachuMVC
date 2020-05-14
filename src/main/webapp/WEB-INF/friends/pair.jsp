@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#aboutus">關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>

@@ -77,7 +77,11 @@ function doFirst() {
 
         preFriends.appendChild(pfriend);
       }
-
+      let lastDiv = document.createElement('div');
+      lastDiv.innerHTML = '<span style="color:blue">已經沒有推薦的人選嘍～</span>';
+      lastDiv.style.display = "none";
+      preFriends.appendChild(lastDiv);
+      
       preFriends.firstChild.style.display = "block";
     },
     "json"

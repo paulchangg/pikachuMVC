@@ -32,7 +32,7 @@
          </div>
          <div class="row justify-content-around"> <!-- logo -->
            <div class="col-sm">
-             <a href="index copy.html">
+             <a href='<c:url value="/" />'>
                 <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
              </a>
           </div>
@@ -57,11 +57,11 @@
       <!-- 要改放圖片的話再修正 -->
       <!-- 導覽列  超連結待補 -->
          <div class="et-hero-tabs-container">
-           <a class="et-hero-tab" href="#aboutus">關於我們</a>
-           <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
-           <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-           <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-           <a class="et-hero-tab" href="#infoweb">資訊網</a>
+			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+			<a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+			<a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+			<a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+			<a class="et-hero-tab" href="#infoweb">資訊網</a>
            <span class="et-hero-tab-slider"></span>
         </div>
       </div>
