@@ -38,9 +38,9 @@ public class RootAppConfig {
 //		ds.setPassword("songsql");
 
 //		ds.setPassword("ruby123");	
-		ds.setPassword("qazwsx12");	
+//		ds.setPassword("qazwsx12");	
 
-//		ds.setPassword("ruby123");
+		ds.setPassword("ruby123");
 //		ds.setPassword("Do!ng123");
 
 		ds.setInitialPoolSize(5);
