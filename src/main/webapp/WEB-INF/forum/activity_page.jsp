@@ -262,21 +262,19 @@
 	<!-- 這裡面要放全部的活動結束(不分標籤) -->
 
 	<c:choose>
-	
-	
 		<c:when test="${Newsessionfname == null}">
-			<c:forEach var="launchAll" items="${launchAll}">
-				<%-- 			會員: ${ launchAll.article_m_id }<br><br> --%>
+			
 				<div class="container">
-					<%-- 				<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
+				
 					<div class="card-deck">
 						<!-- 活動1-1 -->
+						<c:forEach var="launchAll" items="${launchAll}">
 						<div class="card">
 							<!-- 活動圖片 -->
 							
 							
 							<a href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>">
-							<img height="80%" width="80px"
+							<img 
 								src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }'
 								class="articleimage" alt="..." />
 							</a>
@@ -310,9 +308,9 @@
 							</div>
 							<div class="card__action"></div>
 						</div>
+			</c:forEach>
 					</div>
 				</div>
-			</c:forEach>
 		</c:when>
 		<c:otherwise>
 		
@@ -321,24 +319,25 @@
 		
 		
 			<!-- 		分標籤的部分 -->
-			<c:forEach var="pageActivitysByfame" items="${pageActivitysByfame}">
-				<c:if
-					test="${Newsessionfname == pageActivitysByfame.foumBean.fname }">
+			
 					<div class="container">
 						<%-- 					<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
 						<div class="card-deck">
 							<!-- 活動1-1 -->
+							<c:forEach var="pageActivitysByfame" items="${pageActivitysByfame}">
+				<c:if
+					test="${Newsessionfname == pageActivitysByfame.foumBean.fname }">
 							<div class="card">
 								<!-- 活動圖片 -->
-
-								<img height="80%" width="80px"
+								<a href="<c:url value='/forum/activity_info_page?article_IdStr=${ pageActivitysByfame.article_Id }&mode=enterpage'/>">
+								<img 
 									src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ pageActivitysByfame.article_Id }'
 									class="articleimage" alt="..." />
+									</a>
 								<div class="card-body">
 									<div class="card__share">
 										<div class="card__social">
-											<a class="share-icon googleplus" href="#"><span
-												class="fa fa-google-plus"></span></a>
+
 
 											<!-- 點擊進入詳細活動頁面  -->
 											<a id="share" class="share-toggle share-icon"
@@ -363,11 +362,11 @@
 								</div>
 								<div class="card__action"></div>
 							</div>
+				</c:if>
+			</c:forEach>
 						</div>
 					</div>
-				</c:if>
 
-			</c:forEach>
 
 		</c:otherwise>
 	</c:choose>

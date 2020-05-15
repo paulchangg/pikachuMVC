@@ -26,6 +26,8 @@
 <!-- <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT"> -->
 </head>
 
+
+
 <body>
 	<!-- logo及上方標題列---超連結待補---->
 	<div class="top-navigation">
@@ -329,78 +331,81 @@
 					</c:forEach>
 
 					<!-- 頁碼分頁 ----開始------>
-					<nav aria-label="Page navigation example"
-						style="padding-top: 10px;">
-						<ul class="pagination justify-content-center">
-
-							<c:if test="${pageNo > 1}">
 
 
+					<c:if test="${responAll != null}">
+						<nav aria-label="Page navigation example"
+							style="padding-top: 10px;">
+							<ul class="pagination justify-content-center">
 
-								<li class="page-item"><a class="page-link"
-									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo-1}&article_IdStr=${ activity_info_page.article_Id }' />"
-									id="">Previous</a></li>
-							</c:if>
+								<c:if test="${pageNo > 1}">
 
 
 
-							<c:if test="${  pageNo !=0  }">
+									<li class="page-item"><a class="page-link"
+										href="<c:url value='/forum/activity_info_page?pageNo=${pageNo-1}&article_IdStr=${ activity_info_page.article_Id }' />"
+										id="">Previous</a></li>
+								</c:if>
 
 
 
-
-
-
-
-
-
-								<li class="page-item"><a class="page-link"
-									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo}&article_IdStr=${ activity_info_page.article_Id }' />"
-									id="">${pageNo}</a></li>
-							</c:if>
+								<c:if test="${  pageNo !=0  }">
 
 
 
 
 
 
-							<c:if test="${  pageNo !=totalPage  }">
+
+
+
+									<li class="page-item"><a class="page-link"
+										href="<c:url value='/forum/activity_info_page?pageNo=${pageNo}&article_IdStr=${ activity_info_page.article_Id }' />"
+										id="">${pageNo}</a></li>
+								</c:if>
 
 
 
 
 
-								<li class="page-item"><a class="page-link"
-									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
-									id="">${pageNo+1}</a></li>
 
-
-							</c:if>
+								<c:if test="${  pageNo !=totalPage  }">
 
 
 
 
-							<c:if test="${pageNo != totalPage}">
+
+									<li class="page-item"><a class="page-link"
+										href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
+										id="">${pageNo+1}</a></li>
+
+
+								</c:if>
 
 
 
-								<li class="page-item"><a class="page-link"
-									href="<c:url value='/forum/activity_info_page?pageNo=${totalPage}&article_IdStr=${ activity_info_page.article_Id }' />"
-									id="">End</a></li>
-							</c:if>
+
+								<c:if test="${pageNo != totalPage}">
 
 
-							<c:if test="${pageNo != totalPage}">
+
+									<li class="page-item"><a class="page-link"
+										href="<c:url value='/forum/activity_info_page?pageNo=${totalPage}&article_IdStr=${ activity_info_page.article_Id }' />"
+										id="">End</a></li>
+								</c:if>
 
 
-								<li class="page-item"><a class="page-link"
-									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
-									id="">Next</a></li>
-							</c:if>
-						</ul>
-					</nav>
+								<c:if test="${pageNo != totalPage}">
 
 
+									<li class="page-item"><a class="page-link"
+										href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
+										id="">Next</a></li>
+								</c:if>
+							</ul>
+						</nav>
+
+					</c:if>
 
 
 
@@ -432,22 +437,23 @@
 
 					<!-- 參與成員頭像區塊 -->
 
-					<p style="font-size: 22px; padding-top: 70px;">成員</p>
+					<p style="font-size: 22px; padding-top: 70px;">成員參加活動人</p>
 
 					<!-- ------------   活動人元			 -->
-					<div></div>
 					<div class="row">
-						<div class="col-2">
-							參加活動人:<br>
 							<c:forEach var="JoinPersonName" items="${JoinPersonName}"> 
+						<div class="col-2">
+							<br>
             	
-            	${JoinPersonName.name}
+<%--             	${JoinPersonName.name} --%>
                 <img class="memberid_img"
 									src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${JoinPersonName.m_id }'
 									alt=""
 									style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
-							</c:forEach>
+
+
 						</div>
+							</c:forEach>
 
 					</div>
 					<!-- ------------   活動人元			 -->
