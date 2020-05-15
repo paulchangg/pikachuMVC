@@ -37,13 +37,24 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_login" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
+            <c:choose>
+				<c:when test="${empty LoginOK}">								
+					<a href="<c:url value="/member/member_login"/>"> 
+						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+					</a>								
+				</c:when>
+				<c:otherwise>								
+					<a href="<c:url value="/member/member_logout"/>"> 
+					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+					</a>								
+				</c:otherwise>
+			 </c:choose>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center" />' style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<c:url value='/shopping/listtrackproduct' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+            <a class="nav-link"  href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span>5</span> <!-- 加入購物車的商品數量 -->
@@ -64,7 +75,7 @@
         <a class="et-hero-tab" href="#">關於我們</a>
         <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
         <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="#mall">商城</a>
+        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
