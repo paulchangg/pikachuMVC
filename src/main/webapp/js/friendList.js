@@ -17,6 +17,7 @@ function doFirst() {
         let friend = document.createElement("div");
         friend.id = data[i].m_id;
         friend.className = "row";
+        friend.style = "background-color: #FDFCF6;";
 
         let imgDiv = document.createElement("div");
         imgDiv.className = "col-2";
@@ -84,7 +85,13 @@ function chat() {
     data,
     function (data, textStatus, jqXHR) {
       if (data) {
-        window.location.href = "/pikachuMVC/friends/Chat";
+        // window.location.href = "/pikachuMVC/friends/Chat";
+        window.open(
+          "/pikachuMVC/friends/Chat",
+          "Chat",
+          (config =
+            "height=450,width=600,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no")
+        );
       }
     },
     "json"
@@ -92,22 +99,24 @@ function chat() {
 }
 
 function delFriend() {
-    let friendList = document.getElementById("friendList");
-    let fId = this.parentNode.parentNode.id;
-    let preDelDiv = this.parentNode.parentNode.parentNode;
+  let friendList = document.getElementById("friendList");
+  let fId = this.parentNode.parentNode.id;
+  let preDelDiv = this.parentNode.parentNode.parentNode;
 
-    let url = "rmFriend.do";
-    let data = {
-      f: fId,
-    };
+  let url = "rmFriend.do";
+  let data = {
+    f: fId,
+  };
 
-    $.post(url, data,
-        function (data, textStatus, jqXHR) {
-            if(data){
-                preDelDiv.style.display = "none";
-                friendList.removeChild(preDelDiv);
-            }
-        },
-        "json"
-    );
+  $.post(
+    url,
+    data,
+    function (data, textStatus, jqXHR) {
+      if (data) {
+        preDelDiv.style.display = "none";
+        friendList.removeChild(preDelDiv);
+      }
+    },
+    "json"
+  );
 }

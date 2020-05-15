@@ -62,6 +62,7 @@ public class FriendsController {
 		
 		session.setAttribute("roomName", roomName);
 		session.setAttribute("mId", mId);
+		session.setAttribute("fId", fId);
 		
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();

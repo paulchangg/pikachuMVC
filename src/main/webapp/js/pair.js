@@ -35,21 +35,21 @@ function doFirst() {
         let income = `${data[i].income}`;
         if (income !== "undefined") {
           let mIncome = document.createElement("p");
-          mIncome.innerHTML = income;
+          mIncome.innerHTML = `年收： ${income}`;
           pfriend.appendChild(mIncome);
         }
 
         let city = `${data[i].city}`;
         if (city !== "undefined") {
           let mCity = document.createElement("p");
-          mCity.innerHTML = city;
+          mCity.innerHTML = `居住地： ${city}`;
           pfriend.appendChild(mCity);
         }
 
         let education = `${data[i].education}`;
         if (education !== "undefined") {
           let mEducation = document.createElement("p");
-          mEducation.innerHTML = education;
+          mEducation.innerHTML = `學歷： ${education}`;
           pfriend.appendChild(mEducation);
         }
 
@@ -77,7 +77,11 @@ function doFirst() {
 
         preFriends.appendChild(pfriend);
       }
-
+      let lastDiv = document.createElement('div');
+      lastDiv.innerHTML = '<span style="color:blue">已經沒有推薦的人選嘍～</span>';
+      lastDiv.style.display = "none";
+      preFriends.appendChild(lastDiv);
+      
       preFriends.firstChild.style.display = "block";
     },
     "json"

@@ -25,7 +25,7 @@ public class NewsDaoImpl implements NewsDao {
 		String hql="FROM NewsBean order by createDate desc";
 		Session session = factory.getCurrentSession();
 	    Query<NewsBean> query = session.createQuery(hql);   
-	    query.setMaxResults(20);
+	    query.setMaxResults(6);
 	    List<NewsBean> list = query.list();
 	    return list;
 	}
