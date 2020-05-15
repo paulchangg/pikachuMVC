@@ -41,6 +41,7 @@ import com.pikachuMVC.model.MemberBean;
 				@WebInitParam(name = "mustLogin4", value = "/member/member_inquary"), 
 				@WebInitParam(name = "mustLogin5", value = "/friends/*"), 
 				@WebInitParam(name = "mustLogin6", value = "/articleForum/*"),
+				@WebInitParam(name = "mustLogin7", value = "/forum/*"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
 public class LoginCheckingFilter implements Filter {

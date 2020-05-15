@@ -111,34 +111,35 @@
 				<div class="row">
 					<div class="message_button"
 						style="padding-top: 100px; padding-left: 20px;">
-						<%-- 						<c:forEach var="JoinPersonName" items="${JoinPersonName}"> --%>
 
 
 
 
 
+						<c:if test="${joinmember  ==false}">
 
 
 
-						<c:choose>
-							<c:when test="${empty JoinPersonName}">
-								<a
-									href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=add_activity'/>"
-									id="">
-									<button type="button" class="btn btn-outline-success"
-										data-toggle="modal" data-target="#exampleModalCenter">加入此活動</button>
-								</a>
 
-							</c:when>
-							<c:otherwise>
-								<a
-									href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=leave_activity'/>"
-									id="">
-									<button type="button" class="btn btn-outline-success"
-										data-toggle="modal" data-target="#exampleModalCenter">取消參加此活動</button>
-								</a>
-							</c:otherwise>
-						</c:choose>
+							<a
+								href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=add_activity'/>"
+								id="">
+								<button type="button" class="btn btn-outline-success"
+									data-toggle="modal" data-target="#exampleModalCenter">加入此活動</button>
+							</a>
+						</c:if>
+
+
+						<c:if test="${joinmember  ==true}">
+							<a
+								href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=leave_activity'/>"
+								id="">
+								<button type="button" class="btn btn-outline-success"
+									data-toggle="modal" data-target="#exampleModalCenter">取消參加此活動</button>
+							</a>
+						</c:if>
+
+
 					</div>
 
 					<!-- 跳出加入成功視窗 -->
@@ -147,28 +148,24 @@
 						role="dialog" aria-labelledby="joinactivity" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
-								<c:choose>
-									<c:when test="${empty JoinPersonName}">
-
-										<div class="modal-header">
-											<h5 class="modal-title" id="joinactivity">已成功加入活動</h5>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									</c:when>
-									<c:otherwise>
-
-										<div class="modal-header">
-											<h5 class="modal-title" id="joinactivity">已取消參加此活動</h5>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									</c:otherwise>
-								</c:choose>
+								<c:if test="${joinmember  ==false}">
+									<div class="modal-header">
+										<h5 class="modal-title" id="joinactivity">已成功加入活動</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+								</c:if>
+								<c:if test="${joinmember  ==true}">
+									<div class="modal-header">
+										<h5 class="modal-title" id="joinactivity">已取消參加此活動</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+								</c:if>
 
 								<div class="modal-footer">
 
@@ -436,6 +433,9 @@
 					<!-- 參與成員頭像區塊 -->
 
 					<p style="font-size: 22px; padding-top: 70px;">成員</p>
+
+					<!-- ------------   活動人元			 -->
+					<div></div>
 					<div class="row">
 						<div class="col-2">
 							參加活動人:<br>
@@ -450,7 +450,7 @@
 						</div>
 
 					</div>
-
+					<!-- ------------   活動人元			 -->
 				</div>
 			</span>
 		</div>

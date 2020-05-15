@@ -66,7 +66,9 @@
 	<!-- 看板門面圖 -->
 	<div class="card-group">
 		<div class="card">
+		
 			<img src="./images/activity/pic1.jpg" class="card-img-top" alt="..." />
+			
 		</div>
 		<div class="card">
 			<img src="./images/activity/pic2.jpg" class="card-img-top" alt="..." />
@@ -112,9 +114,14 @@
 								<!-- 主辦人頭像 -->
 								<div class="container">
 
+
+								
 									<img
 										src='${pageContext.request.contextPath}/init/getMemberImage?id=${loginmember}'
 										alt="profile-sample5" id="memberid_img" /><br>
+										
+										
+										
 									<c:choose>
 										<c:when test="${Newsessionfname != null}">
 											<span style="font-size: 0.6em; color: #3e8bbe;">主揪人</span>
@@ -255,6 +262,8 @@
 	<!-- 這裡面要放全部的活動結束(不分標籤) -->
 
 	<c:choose>
+	
+	
 		<c:when test="${Newsessionfname == null}">
 			<c:forEach var="launchAll" items="${launchAll}">
 				<%-- 			會員: ${ launchAll.article_m_id }<br><br> --%>
@@ -264,15 +273,18 @@
 						<!-- 活動1-1 -->
 						<div class="card">
 							<!-- 活動圖片 -->
+							
+							
+							<a href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>">
 							<img height="80%" width="80px"
 								src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }'
 								class="articleimage" alt="..." />
+							</a>
+								
 							<div class="card-body">
 								<div class="card__share">
 									<div class="card__social">
-										<a class="share-icon googleplus" href="#"><span
-											class="fa fa-google-plus"></span></a>
-
+										
 										<!-- 點擊進入詳細活動頁面  -->
 
 
@@ -303,6 +315,11 @@
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
+		
+		
+		
+		
+		
 			<!-- 		分標籤的部分 -->
 			<c:forEach var="pageActivitysByfame" items="${pageActivitysByfame}">
 				<c:if
