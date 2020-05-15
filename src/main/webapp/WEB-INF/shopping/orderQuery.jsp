@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
     <link href="css/Order-inquary.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="css/wickedcss.min.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -16,62 +15,76 @@
 </head>
 <body>
 
-    <div class="flex-container">
-        <!----------------------head區塊------------------------------>
-        <div class="header">
-			<!--這裡開始為上方,呈現商標log位置-->
-		   <div class="row justify-content-end"> 
-				<div class="col-4">    <!---------logo區塊----------->
-				   <a href='<c:url value='/' />'>
-				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
-					</a>
-			   </div>
-			   <div class="col-4">     <!---------左上角超連結區塊----------->
-					<div class="row justify-content-end">
-						<div class="col-3">
-							<c:choose>
-								<c:when test="${empty LoginOK}">								
-									<a href="<c:url value="/member/member_login"/>"> 
-										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-									</a>								
-								</c:when>
-								<c:otherwise>								
-									<a href="<c:url value="/member/member_logout"/>"> 
-									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-									</a>								
-								</c:otherwise>
-							</c:choose>
-					   </div>
-						 <div class="col-3">
-							 <a href="">
-							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
-							</a>
-						</div>
-						<div class="col-3"> 
-							 <a href="#">
-							  <i class="fa fa-question-circle" id="qanda">Q & A</i>
-							</a>
-					   </div>
-				   </div>
-			   </div>
-		   </div>
-	   </div>
-		<!-- 導覽列--------------------------->
-	   <section class="top_navi">
-		   <nav>
-		       <a href="<c:url value="/shopping/listtrackproduct" />" >追蹤商品</a>
-			   <a href="#" >關於我們</a>
-			   <a href="<c:url value="/member/member_center" />">會員中心</a>
-			   <a href="#">論壇交友</a>
-			   <a href="#">信用卡搜尋</a>
-			   <a href="<c:url value="/shopping/listProduct" />">購物商城</a>
-			   <a href="#">資訊網</a>
-			</nav>
-		</section>
-        
+   <body>
+   <!-- 上方標題logo列----超連結待補----->
+   <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
+        </div>
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+			<c:choose>
+				<c:when test="${empty LoginOK}">								
+					<a class="nav-link" href="<c:url value="/member/member_login"/>"> 
+						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+					</a>								
+				</c:when>
+				<c:otherwise>								
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>"> 
+					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+					</a>								
+				</c:otherwise>
+			</c:choose>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="<c:url value="/shopping/listtrackproduct" />" style="color: rgb(92, 41, 7);">追蹤商品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span>5</span> <!-- 加入購物車的商品數量 -->
+               <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   </div>
+
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
+
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href="#">關於我們</a>
+        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
+        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
+        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href="">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+   
        <!--這裡為顯示訂單查詢區塊-->
        <div class="ordertitle">
-           <h2>訂單查詢頁面</h2>
+           <img src="../shopping/image/訂單查詢.png">
        </div>
       
 
@@ -80,10 +93,10 @@
            <table>
                <tr>
                    <td>查詢條件:</td>
-                   <td><input type="radio" name="orderitem" value="onemonth" id="Orderinquary_onemonth">一個月內訂單</td>
-                   <td><input type="radio" name="orderitem" value="nouse" id="Orderinquary_nouse">未使用訂單</td>
-                   <td><input type="radio" name="orderitem" value="use" id="Orderinquary_use">已使用訂單</td>
-                   <td><input type="radio" name="orderitem" value="sixmonth" id="Orderinquary_sixmonth">六個月內訂單</td>
+                   <td><input type="radio" name="orderitem" value="onemonth" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
+                   <td><input type="radio" name="orderitem" value="nouse" id="Orderinquary_nouse"  class="radioBtn">未使用訂單</td>
+                   <td><input type="radio" name="orderitem" value="use" id="Orderinquary_use"  class="radioBtn">已使用訂單</td>
+                   <td><input type="radio" name="orderitem" value="sixmonth" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
                </tr>
                <tr>
                    <td>訂單編號:</td>
@@ -177,23 +190,44 @@
             </div>
        </div>
 	            
-             <!--這裡返回訂單查詢頁面按鈕區塊-->
             
     
-           <!--這裡為底部區塊-->
-           <div class="site_footer"> <!--尾巴區塊-->
-              <div class="gotop">
-                 <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-             </div>
-          </div>
-   </div>   
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-     crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery-barcode.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>    
+            <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+		<h4>
+		  © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+		</h4>
+		<div class="footer">
+		  <ul> 
+			<li>
+				<span></span>
+				<span></span>
+				<span class="fab fa-facebook"></span>
+			</li>
+			<li>
+				<span></span>
+				<span></span>
+				<span class="fab fa-twitter"></span>
+			</li>
+			<li>
+				<span></span>
+				<span></span>
+				<span class="fab fa-instagram"></span>
+			</li>
+			<li>
+				<span></span>
+				<span></span>
+				<span class="fab fa-linkedin"></span>
+			</li>
+		  </ul>  
+		</div> 
+		
+		<br />
+		<button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+	</div> 
+   	<script src="js/jquery-3.4.1.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
 </body> 
 </html> 
