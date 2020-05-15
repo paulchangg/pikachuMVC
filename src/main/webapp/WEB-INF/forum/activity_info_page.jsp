@@ -33,40 +33,27 @@
 			src="./images/index_logo.jpg" alt="logo" class="navigation__logo" />
 		</a>
 		<ul class="nav justify-content-end">
-			<li class="nav-item">
-			
-			
-			
-			
-			
-			
-
-				
-					<c:choose>
-					<c:when test="${empty LoginOK}">								
-						<a href="<c:url value='/member/member_login'/>"  class="nav-link active memberlogin"> 
-							<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-						</a>								
+			<li class="nav-item"><c:choose>
+					<c:when test="${empty LoginOK}">
+						<a href="<c:url value='/member/member_login'/>"
+							class="nav-link active memberlogin"> <i
+							class="fa fa-user-circle" id="memberlogin">會員登入</i>
+						</a>
 					</c:when>
-					<c:otherwise>								
-						<a href="<c:url value='/member/member_logout'/>"  class="nav-link active memberlogin"> 
-							<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-						</a>								
+					<c:otherwise>
+						<a href="<c:url value='/member/member_logout'/>"
+							class="nav-link active memberlogin"> <i
+							class="fa fa-user-circle" id="memberlogout">會員登出</i>
+						</a>
 					</c:otherwise>
-				</c:choose>
-				
-				
-				
-				
-				
-				
-				</li>
-			<li class="nav-item"><a class="nav-link cardcompare" href="<c:url value='/cards/cradeitCb?qt=main'/>"
-				id="">信用卡比較</a></li>
+				</c:choose></li>
+			<li class="nav-item"><a class="nav-link cardcompare"
+				href="<c:url value='/cards/cradeitCb?qt=main'/>" id="">信用卡比較</a></li>
 			<li class="nav-item"><a class="nav-link qanda" href="#" id="">Q
 					& A</a></li>
-			<li class="nav-item"><a class="nav-link shoppingcart" href="<c:url value='/shopping/listProduct'/>"
-				id=""> <i class="fas fa-shopping-cart"></i>
+			<li class="nav-item"><a class="nav-link shoppingcart"
+				href="<c:url value='/shopping/listProduct'/>" id=""> <i
+					class="fas fa-shopping-cart"></i>
 			</a></li>
 		</ul>
 	</div>
@@ -74,8 +61,9 @@
 	<!-- 導覽列------超連結待補------>
 	<div class="header">
 		<div class="nav-bar">
-			<a href="#" class="aboutus" id="">關於我們</a> <a href="<c:url value='/member/member_center'/>"  
-				class="memberarea" id="">會員中心</a> <a href="#" class="mall" id="">商城</a>
+			<a href="#" class="aboutus" id="">關於我們</a> <a
+				href="<c:url value='/member/member_center'/>" class="memberarea"
+				id="">會員中心</a> <a href="#" class="mall" id="">商城</a>
 		</div>
 	</div>
 
@@ -123,67 +111,67 @@
 				<div class="row">
 					<div class="message_button"
 						style="padding-top: 100px; padding-left: 20px;">
-<%-- 						<c:forEach var="JoinPersonName" items="${JoinPersonName}"> --%>
-
-
-				
+						<%-- 						<c:forEach var="JoinPersonName" items="${JoinPersonName}"> --%>
 
 
 
 
 
-			<c:choose>
-			<c:when test="${empty JoinPersonName}">
+
+
+
+						<c:choose>
+							<c:when test="${empty JoinPersonName}">
 								<a
 									href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=add_activity'/>"
 									id="">
 									<button type="button" class="btn btn-outline-success"
 										data-toggle="modal" data-target="#exampleModalCenter">加入此活動</button>
 								</a>
-								
-			</c:when>
-			<c:otherwise>
+
+							</c:when>
+							<c:otherwise>
 								<a
 									href="<c:url value='/forum/activity_info_page?article_IdStr=${ activity_info_page.article_Id}&mode=leave_activity'/>"
 									id="">
 									<button type="button" class="btn btn-outline-success"
 										data-toggle="modal" data-target="#exampleModalCenter">取消參加此活動</button>
 								</a>
-			</c:otherwise>
-			</c:choose>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					
+
 					<!-- 跳出加入成功視窗 -->
-				
+
 					<div class="modal fade" id="exampleModalCenter" tabindex="-1"
 						role="dialog" aria-labelledby="joinactivity" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<c:choose>
-			<c:when test="${empty JoinPersonName}">	
-							
-								<div class="modal-header">
-									<h5 class="modal-title" id="joinactivity">已成功加入活動</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-			</c:when>
-			<c:otherwise>		
-								
-								<div class="modal-header">
-									<h5 class="modal-title" id="joinactivity">已取消參加此活動</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-					</c:otherwise>
-			</c:choose>			
-								
+									<c:when test="${empty JoinPersonName}">
+
+										<div class="modal-header">
+											<h5 class="modal-title" id="joinactivity">已成功加入活動</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									</c:when>
+									<c:otherwise>
+
+										<div class="modal-header">
+											<h5 class="modal-title" id="joinactivity">已取消參加此活動</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									</c:otherwise>
+								</c:choose>
+
 								<div class="modal-footer">
-								
+
 									<button type="button" class="btn btn-primary btn-sm">
 										確認</button>
 								</div>
@@ -229,7 +217,8 @@
 												spellcheck="false" placeholder="內容不能少於10個字"
 												name="res_contentStr">${param.res_contentStr}</textarea>
 											<font color="red" size="-1">${MsgMap.res_contentError}</font>
-											<br>
+											<br> <Input type='hidden' name='pageNo'
+												value='${param.pageNo}'>
 										</div>
 									</div>
 									<!--                   中間內容結束 -->
@@ -265,25 +254,31 @@
 					</button>
 					<br />
 					<button type="button" class="btn-all-board">
-							<a class="nav-link" href="<c:url value="/forum/ForumHompage" />">交友活動</a>
+						<a class="nav-link"
+							href="<c:url value="/forum/ForumHompage?pageNo=1" />">交友活動</a>
 					</button>
 					<br />
 					<button type="button" class="btn-all-board">
 						<a class="nav-link" href="#">配對</a>
 					</button>
 					<br /> <span style="margin-top: 30px;">熱門活動</span> <br> <a
-						href="<c:url value='/forum/QueryLaunchALL' />">
+						href="<c:url value='/forum/QueryLaunchALL?pageNo=1' />">
 
 						<button type="button" class="btn-all-board">所有活動頁面</button>
 					</a><br>
-					<c:forEach var="sessionfname" items="${sessionfname}">
+
+					<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+
+
 						<a
-						href="<c:url value='/forum/ConnectionForum_launch?fname=${sessionfname}'/>"
-						id="">
-							<button type="button" class="btn-all-board">${sessionfname}</button>
+							href="<c:url value='/forum/ConnectionForum_launch?fname=${listFame_listFid.key}&fid=${listFame_listFid.value}'/>"
+							id="">
+							<button type="button" class="btn-all-board">${listFame_listFid.key}</button>
 						</a>
 						<br />
 					</c:forEach>
+
+
 
 				</div>
 			</div>
@@ -309,7 +304,7 @@
 								<div class="col-2"
 									style="display: flex; align-items: center; padding-right: 10px;">
 									<img class="memberid_img"
-									  src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${responAll.res_m_id }'
+										src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${responAll.res_m_id }'
 										alt=""
 										style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 								</div>
@@ -336,6 +331,83 @@
 
 					</c:forEach>
 
+					<!-- 頁碼分頁 ----開始------>
+					<nav aria-label="Page navigation example"
+						style="padding-top: 10px;">
+						<ul class="pagination justify-content-center">
+
+							<c:if test="${pageNo > 1}">
+
+
+
+								<li class="page-item"><a class="page-link"
+									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo-1}&article_IdStr=${ activity_info_page.article_Id }' />"
+									id="">Previous</a></li>
+							</c:if>
+
+
+
+							<c:if test="${  pageNo !=0  }">
+
+
+
+
+
+
+
+
+
+								<li class="page-item"><a class="page-link"
+									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo}&article_IdStr=${ activity_info_page.article_Id }' />"
+									id="">${pageNo}</a></li>
+							</c:if>
+
+
+
+
+
+
+							<c:if test="${  pageNo !=totalPage  }">
+
+
+
+
+
+								<li class="page-item"><a class="page-link"
+									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
+									id="">${pageNo+1}</a></li>
+
+
+							</c:if>
+
+
+
+
+							<c:if test="${pageNo != totalPage}">
+
+
+
+								<li class="page-item"><a class="page-link"
+									href="<c:url value='/forum/activity_info_page?pageNo=${totalPage}&article_IdStr=${ activity_info_page.article_Id }' />"
+									id="">End</a></li>
+							</c:if>
+
+
+							<c:if test="${pageNo != totalPage}">
+
+
+								<li class="page-item"><a class="page-link"
+									href="<c:url value='/forum/activity_info_page?pageNo=${pageNo+1}&article_IdStr=${ activity_info_page.article_Id }' />"
+									id="">Next</a></li>
+							</c:if>
+						</ul>
+					</nav>
+
+
+
+
+
+					<!-- 頁碼分頁 ----結束------>
 
 				</div> <!-- 右側資訊列 -->
 				<div class="column-bt-right" style="padding-left: 50px;">
@@ -345,7 +417,7 @@
 						<div class="col-2"
 							style="display: flex; align-items: center; padding-right: 10px; padding-top: 10px;">
 							<img class="memberid_img"
-                  src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${activity_info_page.article_m_id }'
+								src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${activity_info_page.article_m_id }'
 								alt=""
 								style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 						</div>
@@ -355,8 +427,7 @@
 									style="color: rgb(177, 172, 172); display: flex; align-items: center;">
 									<!-- 發文者id ----->
 									<h6 class="article_m_id"
-										style="font-size: 14px; padding-top: 10px;">
-										${ activity_info_page.article_m_id}</h6>
+										style="font-size: 14px; padding-top: 10px;">${ activity_info_page.article_m_id}</h6>
 								</div>
 							</div>
 						</div>
@@ -372,7 +443,7 @@
             	
             	${JoinPersonName.name}
                 <img class="memberid_img"
-                src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${JoinPersonName.m_id }'
+									src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${JoinPersonName.m_id }'
 									alt=""
 									style="max-width: 100%; max-height: 100%; padding-top: 15px;" />
 							</c:forEach>

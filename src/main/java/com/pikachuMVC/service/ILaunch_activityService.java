@@ -27,5 +27,17 @@ public interface ILaunch_activityService {
 
 	FoumBean getF_ById(int f_id);
 
+	List<Launch_activityBean> getpageActivitys(Integer pageNo);
+
+	int getTotalPages();
+
+	long getRecordCounts();
+
+	List<Launch_activityBean> getpageActivitysByfame(Integer pageNo,Integer f_id);
+
+	int getTotalPagesByfname(Integer f_id);
+
+	long getRecordCountsByfname(Integer f_id);
+
 
 }

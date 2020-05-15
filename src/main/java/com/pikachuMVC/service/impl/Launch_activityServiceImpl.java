@@ -3,6 +3,7 @@ package com.pikachuMVC.service.impl;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -113,5 +114,52 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 
 		return result;
 	}
+	@Override
+	@Transactional
+	public List<Launch_activityBean> getpageActivitys(Integer pageNo) {
+		return dao.getpageActivitys(pageNo);
+	}
+	@Override
+	@Transactional
+	public int getTotalPages() {
+		return dao.getTotalPages();
+	}
+	@Override
+	@Transactional
+	public long getRecordCounts() {
+		return dao.getRecordCounts();
+	}
+	@Override
+	@Transactional
+	public List<Launch_activityBean> getpageActivitysByfame(Integer pageNo, Integer f_id) {
+		return dao.getpageActivitysByfame(pageNo, f_id);
+	}
+	@Override
+	@Transactional
+	public int getTotalPagesByfname(Integer f_id) {
+		return dao.getTotalPagesByfname(f_id);
+	}
+	@Override
+	@Transactional
+	public long getRecordCountsByfname(Integer f_id) {
+		return dao.getRecordCountsByfname(f_id);
+	}
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

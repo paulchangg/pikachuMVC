@@ -19,6 +19,9 @@
 <!-- <script src="/js/post_article.js"></script> -->
 </head>
 
+
+
+
 <body>
 	<!-- logo及上方標題列---超連結待補---->
 	<div class="top-navigation">
@@ -26,63 +29,27 @@
 			src="./images/index_logo.jpg" alt="logo" class="navigation__logo" />
 		</a>
 		<ul class="nav justify-content-end">
-			<li class="nav-item">
-			
-			
-
-				
-				
-
-				
-				<c:choose>
-					<c:when test="${empty LoginOK}">								
-						<a href="<c:url value='/member/member_login'/>"  class="nav-link active memberlogin"> 
-							<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-						</a>								
+			<li class="nav-item"><c:choose>
+					<c:when test="${empty LoginOK}">
+						<a href="<c:url value='/member/member_login'/>"
+							class="nav-link active memberlogin"> <i
+							class="fa fa-user-circle" id="memberlogin">會員登入</i>
+						</a>
 					</c:when>
-					<c:otherwise>								
-						<a href="<c:url value='/member/member_logout'/>"  class="nav-link active memberlogin"> 
-							<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-						</a>								
+					<c:otherwise>
+						<a href="<c:url value='/member/member_logout'/>"
+							class="nav-link active memberlogin"> <i
+							class="fa fa-user-circle" id="memberlogout">會員登出</i>
+						</a>
 					</c:otherwise>
-				</c:choose>
-				
-				
-				
-				
-				
-				
-				
-				
-				</li>
-				
-			<li class="nav-item">
-			
-			
-			
-			
-			
+				</c:choose></li>
 
-			
-			<a class="nav-link cardcompare" href="<c:url value='/cards/cradeitCb?qt=main'/>"
-				id="">信用卡比較</a>
-				
-				
-				
-				
-				
-				</li>
+			<li class="nav-item"><a class="nav-link cardcompare"
+				href="<c:url value='/cards/cradeitCb?qt=main'/>" id="">信用卡比較</a></li>
 			<li class="nav-item"><a class="nav-link qanda" href="#" id="">Q&A</a></li>
-			<li class="nav-item">
-			
-			
-			
-
-			
-			<a class="nav-link shoppingcart" 
-			
-			href="<c:url value='/shopping/listProduct'/>"
-				id=""> <i class="fas fa-shopping-cart"></i>
+			<li class="nav-item"><a class="nav-link shoppingcart"
+				href="<c:url value='/shopping/listProduct'/>" id=""> <i
+					class="fas fa-shopping-cart"></i>
 			</a></li>
 		</ul>
 	</div>
@@ -90,20 +57,9 @@
 	<!-- 導覽列------超連結待補------>
 	<div class="header">
 		<div class="nav-bar">
-			<a href="#" class="aboutus" id="">關於我們</a> 
-			
-			
-			
-			
-			
-			
-			<a href="<c:url value='/member/member_center'/>"
-				class="memberarea" id="">會員中心</a> 
-				
-				
-				
-				
-				<a href="#" class="mall" id="">商城</a>
+			<a href="#" class="aboutus" id="">關於我們</a> <a
+				href="<c:url value='/member/member_center'/>" class="memberarea"
+				id="">會員中心</a> <a href="#" class="mall" id="">商城</a>
 		</div>
 	</div>
 
@@ -155,8 +111,9 @@
 								method="POST" enctype="multipart/form-data" id="msform">
 								<!-- 主辦人頭像 -->
 								<div class="container">
-							
-									<img 	src='${pageContext.request.contextPath}/init/getMemberImage?id=${loginmember}'
+
+									<img
+										src='${pageContext.request.contextPath}/init/getMemberImage?id=${loginmember}'
 										alt="profile-sample5" id="memberid_img" /><br>
 									<c:choose>
 										<c:when test="${Newsessionfname != null}">
@@ -180,14 +137,14 @@
 											<font color="red" size="-1">${MsgMap.locationError}</font>
 											<br>
 											<h1 class="fs-title">活動開始時間</h1>
-											<input type="datetime-local" name="starteTimeStr" placeholder="開始日期與時間"
-												value="${param.starteTimeStr}" />
+											<input type="datetime-local" name="starteTimeStr"
+												placeholder="開始日期與時間" value="${param.starteTimeStr}" />
 											<font color="red" size="-1">${MsgMap.starte_TimeError}</font>
 											<br>
 
 											<h1 class="fs-title">活動結束時間</h1>
-											<input type="datetime-local" name="endTimeStr" placeholder="結束日期與時間"
-												value="${param.endTimeStr}" />
+											<input type="datetime-local" name="endTimeStr"
+												placeholder="結束日期與時間" value="${param.endTimeStr}" />
 											<font color="red" size="-1">${MsgMap.endTimeError}</font>
 											<br>
 
@@ -195,10 +152,11 @@
 											<!-- 主題選單 -->
 											<div class="btn-group">
 
-											<input type="text" id="subject" name="subject" size="100"
-											value="${param.subject}" /><br>
+												<input type="text" id="subject" name="subject" size="100"
+													value="${param.subject}" /><br>
 											</div>
-											<font color="red"size="-1">${MsgMap.subjectError}</font><br>
+											<font color="red" size="-1">${MsgMap.subjectError}</font>
+											<br>
 
 											<h1 class="fs-title">活動內容</h1>
 
@@ -222,6 +180,7 @@
 														class="custom-file-label" for="articleimage">請選擇照片</label>
 
 												</div>
+												<Input type='hidden' name='pageNo' value='${param.pageNo}'>
 											</div>
 
 											<!-- 底部按鈕 -->
@@ -256,52 +215,58 @@
 				<div class="btn-group-vertical" id="forum_btn">
 					<a href="#" id="">
 						<button type="button" class="btn-all-board">所有看板</button>
-					</a> <br /> 
-					
-					
-					
-					<a href="<c:url value="/forum/ForumHompage" />" id="">
+					</a> <br /> <a href="<c:url value="/forum/ForumHompage?pageNo=1" />" id="">
 						<button type="button" class="btn-all-board">交友活動</button>
-					</a> <br /> 
-					
-					
-					
-					<a href="#" id="">
+					</a> <br /> <a href="#" id="">
 						<button type="button" class="btn-all-board">配對</button>
-					</a> <br /> <span style="margin-top: 30px;">熱門活動</span> <br /> 
-					<a
-						href="<c:url value='/forum/QueryLaunchALL' />"> 
+					</a> <br /> <span style="margin-top: 30px;">熱門活動</span> <br /> <a
+						<%-- 						href="<c:url value='/forum/QueryLaunchALL' />">  --%>
+							href="<c:url value='/forum/QueryLaunchALL?pageNo=1' />">
 
 						<button type="button" class="btn-all-board">所有活動頁面</button>
 					</a><br>
-					<c:forEach var="sessionfname" items="${sessionfname}">
+
+
+					
+
+
+					<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+
+
 						<a
-							href="<c:url value='/forum/ConnectionForum_launch?fname=${sessionfname}'/>"
+							href="<c:url value='/forum/ConnectionForum_launch?fname=${listFame_listFid.key}&fid=${listFame_listFid.value}'/>"
 							id="">
-							<button type="button" class="btn-all-board">${sessionfname}</button>
+							<button type="button" class="btn-all-board">${listFame_listFid.key}</button>
 						</a>
 						<br />
 					</c:forEach>
+
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 
+
+
+	<!-- --中間大區塊貼文開始	 ------------------------------------->
 	<!-- 活動欄位 -->
 	<!-- 這裡面要放全部的活動結束(不分標籤) -->
+
 	<c:choose>
 		<c:when test="${Newsessionfname == null}">
 			<c:forEach var="launchAll" items="${launchAll}">
-<%-- 			會員: ${ launchAll.article_m_id }<br><br> --%>
+				<%-- 			會員: ${ launchAll.article_m_id }<br><br> --%>
 				<div class="container">
-<%-- 				<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
+					<%-- 				<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
 					<div class="card-deck">
 						<!-- 活動1-1 -->
 						<div class="card">
 							<!-- 活動圖片 -->
 							<img height="80%" width="80px"
-							src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }' class="articleimage"
-									alt="..." />
+								src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }'
+								class="articleimage" alt="..." />
 							<div class="card-body">
 								<div class="card__share">
 									<div class="card__social">
@@ -309,14 +274,13 @@
 											class="fa fa-google-plus"></span></a>
 
 										<!-- 點擊進入詳細活動頁面  -->
-										
+
 
 										<a id="share" class="share-toggle share-icon"
-										href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>"> 
-<%-- 									href="activity_info_page.jsp?article_Id=${ launchAll.article_Id }">  --%>
-											
-											
-											
+											href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>">
+
+
+
 											<i class="fas fa-plus"></i>
 										</a>
 									</div>
@@ -339,18 +303,20 @@
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
-			<c:forEach var="launchAll" items="${launchAll}">
-				<c:if test="${Newsessionfname == launchAll.foumBean.fname }">
+			<!-- 		分標籤的部分 -->
+			<c:forEach var="pageActivitysByfame" items="${pageActivitysByfame}">
+				<c:if
+					test="${Newsessionfname == pageActivitysByfame.foumBean.fname }">
 					<div class="container">
-<%-- 					<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
+						<%-- 					<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
 						<div class="card-deck">
 							<!-- 活動1-1 -->
 							<div class="card">
 								<!-- 活動圖片 -->
-								
+
 								<img height="80%" width="80px"
-								src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }' class="articleimage"
-									alt="..." />
+									src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ pageActivitysByfame.article_Id }'
+									class="articleimage" alt="..." />
 								<div class="card-body">
 									<div class="card__share">
 										<div class="card__social">
@@ -359,22 +325,24 @@
 
 											<!-- 點擊進入詳細活動頁面  -->
 											<a id="share" class="share-toggle share-icon"
-												
-												href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>"> 
-												
-												
+												href="<c:url value='/forum/activity_info_page?article_IdStr=${ pageActivitysByfame.article_Id }&mode=enterpage'/>">
+
+
 												<i class="fas fa-plus"></i>
 											</a>
 										</div>
 									</div>
 									<div class="card__meta" style="padding-top: 10px;">
 										<!-- 活動主題 -->
-										<a href="#" class="subject">${ launchAll.foumBean.fname}</a><br>
+										<a href="#" class="subject">${ pageActivitysByfame.foumBean.fname}</a><br>
 										<!-- 活動時間 -->
-										<time class="post_Time" style="font-size: medium;">${ launchAll.startTime }</time>
+										<time class="post_Time" style="font-size: medium;">${ pageActivitysByfame.startTime }</time>
 									</div>
 									<!-- 活動內文 -->
-									<p class="article_content">以下活動內文 ~ ~</p>
+									<p class="article_content">
+
+											以下活動內文 ~ ~
+<%-- 										${pageActivitysByfame.article_content};</p> --%>
 								</div>
 								<div class="card__action"></div>
 							</div>
@@ -383,28 +351,157 @@
 				</c:if>
 
 			</c:forEach>
-<!-- 			<font  size="5">此板目前沒有活動喔，新增文章可以坐沙發喔</font> -->
 
 		</c:otherwise>
 	</c:choose>
-	      <br />
-	      <br />
+
+	<br />
+	<br />
+	<!-- --中間大區塊貼文結束	 ------------------------------------->
 
 
 
 	<!-- 下方頁碼分頁 ----超連結待補------>
+
+
+
+
+
+
+
+
+
+
 	<nav aria-label="Page navigation example" style="padding-top: 10px;">
 		<ul class="pagination justify-content-center">
-			<li class="page-item disabled"><a class="page-link" href="#"
-				id="" tabindex="-1" aria-disabled="true">Previous</a></li>
-			<li class="page-item"><a class="page-link" href="#" id="">1</a></li>
-			<li class="page-item"><a class="page-link" href="#" id="">2</a></li>
-			<li class="page-item"><a class="page-link" href="#" id="">Next</a>
-			</li>
+
+			<c:if test="${pageNo > 1}">
+
+				<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+					<c:if test="${Newsessionfname ==listFame_listFid.key }">
+
+						<li class="page-item"><a class="page-link"
+							href="<c:url value='/forum/ConnectionForum_launch?pageNo=${pageNo-1}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
+							id="">Previous</a></li>
+
+				</c:if>
+				</c:forEach>
+				
+				
+				
+				
+
+<c:if test="${Newsessionfname ==null }">
+				<li class="page-item"><a class="page-link"
+					href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo-1}' />"
+					id="">Previous</a></li>
+</c:if>
+			</c:if>
+
+
+
+			<c:if test="${  pageNo !=0  }">
+			
+			
+			
+				<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+					<c:if test="${Newsessionfname ==listFame_listFid.key }">
+						<li class="page-item"><a class="page-link"
+							href="<c:url value='/forum/ConnectionForum_launch?pageNo=${pageNo}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
+							id="">${pageNo}</a></li>
+					</c:if>
+				</c:forEach>
+				
+				
+				
+				
+
+<c:if test="${Newsessionfname ==null }">
+
+				<li class="page-item"><a class="page-link"
+					href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo}' />"
+					id="">${pageNo}</a></li>
+				</c:if>	
+					
+					
+</c:if>
+
+
+
+
+				<c:if test="${  pageNo !=totalPage  }">
+
+					<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+						<c:if test="${Newsessionfname ==listFame_listFid.key }">
+							<li class="page-item"><a class="page-link"
+								href="<c:url value='/forum/ConnectionForum_launch?pageNo=${pageNo+1}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
+								id="">${pageNo+1}</a></li>
+						</c:if>
+					</c:forEach>
+
+
+
+
+			<c:if test="${Newsessionfname ==null }">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo+1}' />"
+						id="">${pageNo+1}</a></li>
+				</c:if>
+
+
+			</c:if>
+
+
+			
+
+			<c:if test="${pageNo != totalPage}">
+			<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+			<c:if test="${Newsessionfname ==listFame_listFid.key }">
+
+
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/forum/ConnectionForum_launch?pageNo=${totalPage}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
+						id="">End</a></li>
+				</c:if>
+</c:forEach>
+
+
+<c:if test="${Newsessionfname ==null }">
+
+				<li class="page-item"><a class="page-link"
+					href="<c:url value='/forum/QueryLaunchALL?pageNo=${totalPage}' />"
+					id="">End</a></li>
+			</c:if>
+</c:if>
+
+
+			<c:if test="${pageNo != totalPage}">
+<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+				<c:if test="${Newsessionfname ==listFame_listFid.key }">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/forum/ConnectionForum_launch?pageNo=${pageNo+1}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
+						id="">Next</a></li>
+				</c:if>
+</c:forEach>
+
+
+<c:if test="${Newsessionfname ==null }">
+				<li class="page-item"><a class="page-link"
+					href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo+1}' />"
+					id="">Next</a></li>
+			</c:if>
+</c:if>
 		</ul>
 	</nav>
 
+
+
+
+
 	<!-- 底部 ---------------------------->
+
+
+
 	<div class="footer">
 		<div class="gotop">
 			<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
