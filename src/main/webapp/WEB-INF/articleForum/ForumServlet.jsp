@@ -274,7 +274,7 @@
 
 
 
-					<a class="nav-link" href="<c:url value="/forum/ForumHompage" />"
+					<a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />"
 						style="padding: 0px;">
 						<button type="button" class="btn btn-outline-success">交友活動
 						</button>

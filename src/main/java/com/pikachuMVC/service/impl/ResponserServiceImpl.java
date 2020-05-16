@@ -62,18 +62,50 @@ public class ResponserServiceImpl implements IResponserService {
 
 	}
 
+//	@Override
+//	@Transactional
+//	public List<ResponserBean> getAllContent(int article_Id) {
+//
+//		List<ResponserBean> result = null;
+//
+//		result = dao.getAllContent(article_Id);
+//
+//		return result;
+//
+//	}
+	
 	@Override
 	@Transactional
-	public List<ResponserBean> getAllContent(int article_Id) {
-
-		List<ResponserBean> result = null;
-
-		result = dao.getAllContent(article_Id);
-
-		return result;
-
+	public List<ResponserBean> getAllContent(int article_Id, Integer pageNo) {
+		
+		return dao.getAllContent(article_Id, pageNo);
 	}
 
+	
+	
+	
+	
+	@Override
+	@Transactional
+	public int getTotalPages(int article_Id) {
+		return dao.getTotalPages(article_Id);
+	}
+	@Override
+	@Transactional
+	public long getRecordCounts(int article_Id) {
+		return dao.getRecordCounts(article_Id);
+	}
+
+	@Override
+	@Transactional
+	public void setConnection(Connection con) {
+		dao.setConnection(con);
+	}
+
+	
+	
+	
+	
 	@Override
 	@Transactional
 	public List<ResponserBean> getMemberContent(String res_m_id) {
@@ -85,11 +117,4 @@ public class ResponserServiceImpl implements IResponserService {
 		return result;
 
 	}
-
-	@Override
-	@Transactional
-	public void setConnection(Connection con) {
-		dao.setConnection(con);
-	}
-
 }

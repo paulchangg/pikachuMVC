@@ -2,6 +2,7 @@ package com.pikachuMVC.dao;
 
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import com.pikachuMVC.model.FoumBean;
 import com.pikachuMVC.model.Launch_activityBean;
@@ -36,5 +37,17 @@ public interface ILaunch_activityDao {
 	
 	int addPopularity(int article_Id, int popularity);
 
+	List<Launch_activityBean> getpageActivitys(Integer pageNo);
+
+	int getTotalPages();
+
+	long getRecordCounts();
+
+	
+	List<Launch_activityBean> getpageActivitysByfame(Integer pageNo,Integer f_id);
+
+	int getTotalPagesByfname(Integer f_id);
+
+	long getRecordCountsByfname(Integer f_id);
 
 }

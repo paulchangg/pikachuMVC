@@ -8,11 +8,14 @@ import java.net.URLDecoder;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -64,7 +67,8 @@ public class forumHomeController {
 	ServletContext sc;
 
 	@GetMapping("/forum/ForumHompage")
-	public String getForumHompage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public String getForumHompage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) {
 
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
@@ -74,23 +78,36 @@ public class forumHomeController {
 
 		FoumBean foumbean = null;
 
-		List<String> listFame = new ArrayList<>();
+//		List<String> listFame = new ArrayList<>();
+//		List<Integer> listFid = new ArrayList<>();
+
+		Map<String, Integer> listFame_listFid = new LinkedHashMap<String, Integer>();
 
 		for (int n = 0; n < list.size(); n++) {
 
 			foumbean = list.get(n);
 
-			String fname = foumbean.getFname();
+//			String fname = foumbean.getFname();
+//			Integer fid = foumbean.getF_id();
+//
+//			
+//			listFame.add(fname);
+//			listFid.add(fid);
+//			session.setAttribute("sessionfname", listFame);
 
-			listFame.add(fname);
+			listFame_listFid.put(foumbean.getFname(), foumbean.getF_id());
 
-			session.setAttribute("sessionfname", listFame);
+			session.setAttribute("listFame_listFid", listFame_listFid);
 
 		}
 
-		List<Launch_activityBean> launchAll = launch_activityService.getAllArticles();
+		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);
 
 		session.setAttribute("launchAll", launchAll);
+
+		session.setAttribute("pageNo", pageNo);
+
+		session.setAttribute("totalPage", launch_activityService.getTotalPages());
 
 		return "forum/activity_page";
 	}
@@ -98,9 +115,16 @@ public class forumHomeController {
 	@GetMapping("/forum/ConnectionForum_launch")
 
 	public String ConnectionForum_launch(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-			@RequestParam("fname") String query) {
+			@RequestParam("fname") String query, @RequestParam("fid") Integer fid, Model model,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) {
 
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+
+		if (session != null) {
+
+			session.removeAttribute("launchAll");
+
+		}
 
 		request.setAttribute("loginmember", mb.getM_id());
 
@@ -116,36 +140,48 @@ public class forumHomeController {
 		}
 //		 QueryString是中文，所以解碼-------------------結束-------------------------
 
+		List<Launch_activityBean> pageActivitysByfame = launch_activityService.getpageActivitysByfame(pageNo, fid);
+
+		session.setAttribute("pageActivitysByfame", pageActivitysByfame);
+
+		model.addAttribute("pageNo", pageNo);
+
+		model.addAttribute("totalPage", launch_activityService.getTotalPagesByfname(fid));
+
 		return "forum/activity_page";
 
 	}
 
 	@GetMapping("/forum/QueryLaunchALL")
-	public String QueryLaunchALL(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public String QueryLaunchALL(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			@RequestParam(value = "pageNo") Integer pageNo, Model model) {
 
 //  點選 頁面activity_page的 所有活動時按鈕，並且按取 我要發文，不會遺留上一個Newsessionfname ----開始
 		if (session != null) {
 			session.removeAttribute("Newsessionfname");
 		}
+
 //  點選 頁面activity_page的 所有活動時按鈕，並且按取 我要發文，不會遺留上一個Newsessionfname ----結束
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		session.setAttribute("loginmember", mb.getM_id());
 
-		List<Launch_activityBean> launchAll = launch_activityService.getAllArticles();
+		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);
 
 		session.setAttribute("launchAll", launchAll);
 
-		List<ResponserBean> responAll = new ArrayList<>();
+		model.addAttribute("pageNo", pageNo);
 
-		session.setAttribute("responAll", responAll);
+		model.addAttribute("totalPage", launch_activityService.getTotalPages());
+
 		return "forum/activity_page";
 
 	}
 
 	// 要用的時候需要改 return "forum/QueryLaunchMember"; 這字串
 	@GetMapping("/forum/QueryLaunchMember")
-	public String QueryLaunchMember(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public String QueryLaunchMember(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) {
 
 		if (session == null) { // 使用逾時
 			return "/";
@@ -170,32 +206,31 @@ public class forumHomeController {
 
 			System.out.println("article_Id" + article_Id);
 
-			responAll.addAll(responserService.getAllContent(article_Id));
+			responAll.addAll(responserService.getAllContent(article_Id, pageNo));
 
 		}
 
 		session.setAttribute("responAll", responAll);
+
+		session.setAttribute("pageNo", pageNo);
+
+		session.setAttribute("totalPage", responserService.getTotalPages(article_Id));
+
 		return "forum/QueryLaunchMember";
 
 	}
 
 	@PostMapping("/forum/Launch_activityServlet")
-	public String Launch_activityServlet(
-			HttpServletRequest request, 
-			HttpServletResponse response, 
-			HttpSession session,
-			Model model, 
-			@RequestParam("articleimageStr") MultipartFile imageFile,
+	public String Launch_activityServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			Model model, @RequestParam("articleimageStr") MultipartFile imageFile,
 			@RequestParam("article_title") String article_title,
-			@RequestParam("article_content") String article_content, 
-			@RequestParam("subject") String subject,
-			@RequestParam("Location") String Location, 
-			@RequestParam("starteTimeStr") String starteTimeStr,
-			@RequestParam("endTimeStr") String endTimeStr
+			@RequestParam("article_content") String article_content, @RequestParam("subject") String subject,
+			@RequestParam("Location") String Location, @RequestParam("starteTimeStr") String starteTimeStr,
+			@RequestParam("endTimeStr") String endTimeStr,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) throws IOException, ServletException {
 
-	) throws IOException, ServletException {
+		// @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo
 
-		
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		model.addAttribute("MsgMap", errorMsg);// 顯示錯誤訊息
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
@@ -223,20 +258,30 @@ public class forumHomeController {
 			errorMsg.put("endTimeError", "活動結束時間不可空白");
 
 		}
-		
-		Date starteTime = null;
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			starteTime = format.parse(starteTimeStr);
-		} catch (Exception e) {
 
+		Date starteTime = null;
+		String newstarteTimeStr = null;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		try {
+
+			newstarteTimeStr = starteTimeStr.replace("T", " ");
+
+			starteTime = sdf.parse(newstarteTimeStr);
+
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 
 		Date endTime = null;
-
+		String newendTimeStr = null;
 		try {
 
-			endTime = format.parse(endTimeStr);
+			newendTimeStr = endTimeStr.replace("T", " ");
+
+			endTime = sdf.parse(newendTimeStr);
+
 		} catch (Exception e) {
 		}
 
@@ -277,22 +322,24 @@ public class forumHomeController {
 
 		Integer popularity = 0;
 
-//		Launch_activityBean article = new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
-//		articleimage, subject, Location, ts, null, starteTime, endTime, popularity, foumBean, null);
+		Launch_activityBean article = new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
+				articleimage, subject, Location, ts, null, starteTime, endTime, popularity, foumBean, null);
 
-		launch_activityService.insertArticle(new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
-				articleimage, subject, Location, ts, null, starteTime, endTime, popularity, foumBean, null));
+		launch_activityService.insertArticle(article);
 
-		model.addAttribute("Launch_activityBean",
-				new Launch_activityBean(null, mb.getM_id(), article_title, article_content, articleimage, subject,
-						Location, ts, null, starteTime, endTime, popularity, foumBean, null));
+		model.addAttribute("pageNo", pageNo);
 
-		return "redirect:/forum/QueryLaunchALL ";
+		model.addAttribute("totalPage", launch_activityService.getTotalPages());
+
+		return "redirect:/forum/QueryLaunchALL?pageNo= " + pageNo;
+//		return "redirect:/forum/QueryLaunchALL";
+
 	}
 
 	@GetMapping("/forum/activity_info_page")
 	public String activity_info_page(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-			@RequestParam("article_IdStr") Integer article_Id) throws IOException, ServletException {
+			@RequestParam("article_IdStr") Integer article_Id,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) throws IOException, ServletException {
 
 		Launch_activityBean bean = launch_activityService.getArticle_Id(article_Id);
 		// mode無法透過@RequestParam綁定會有錯誤
@@ -304,13 +351,17 @@ public class forumHomeController {
 
 		// 以下是為了留言回覆後 回到同一頁面準備的
 		if (mode == null) {
-			ResponserBean b = (ResponserBean) session.getAttribute("newresponser");
+//			ResponserBean b = (ResponserBean) session.getAttribute("newresponser");
 
-			Launch_activityBean article_Id2 = b.getLaunch_activityBean();
+//			Launch_activityBean article_Id2 = b.getLaunch_activityBean();
 
-			responAll.addAll(responserService.getAllContent(article_Id2.getArticle_Id()));
+			responAll.addAll(responserService.getAllContent(article_Id, pageNo));
 
 			session.setAttribute("responAll", responAll);
+			session.setAttribute("pageNo", pageNo);
+
+			session.setAttribute("totalPage", responserService.getTotalPages(article_Id));
+
 
 			return "forum/activity_info_page";
 
@@ -327,17 +378,27 @@ public class forumHomeController {
 				e.printStackTrace();
 			}
 
+			@SuppressWarnings("unused")
 			String querymemberid = null;
 
+			
 			List<String> joinmember = new ArrayList<String>();
 			for (MemberBean b : JoinPersonName) {
+				
 				querymemberid = b.getM_id();// 取出JoinPersonNameList集合內的會員id
 
 				joinmember.add(querymemberid);
 			}
+			
+			
+			session.setAttribute("gdfg", joinmember.contains(mb.getM_id()));
+			
+			
+			
 //			String loginmember_id = ((MemberBean) session.getAttribute("LoginOK")).getM_id();
 			// joinmember 是參加活動的會員所有id 以下做 登入的會員ID 是否有在資料庫內的參加活動人員ID
 			// 沒有的話 Popularity+1
+			
 			if (!joinmember.contains(mb.getM_id())) {
 				Integer Popularity = bean.getPopularity();
 				Popularity++;
@@ -396,9 +457,13 @@ public class forumHomeController {
 
 //以下是所有判斷式共用的
 
-		responAll.addAll(responserService.getAllContent(article_Id));
+		responAll.addAll(responserService.getAllContent(article_Id, pageNo));
 
 		session.setAttribute("responAll", responAll);
+
+		session.setAttribute("pageNo", pageNo);
+
+		session.setAttribute("totalPage", responserService.getTotalPages(article_Id));
 
 		try {
 			JoinPersonName = memberservice.getActivityPerson(article_Id);
@@ -406,6 +471,22 @@ public class forumHomeController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		String querymemberid = null;
+		List<String> joinmember = new ArrayList<String>();
+		for (MemberBean b : JoinPersonName) {
+			
+			querymemberid = b.getM_id();// 取出JoinPersonNameList集合內的會員id
+
+			joinmember.add(querymemberid);
+		}
+		
+		
+		session.setAttribute("joinmember", joinmember.contains(mb.getM_id()));
+		
+		
+		System.out.println("joinmember.contains(mb.getM_id())"+joinmember.contains(mb.getM_id()));
+		
 		session.setAttribute("JoinPersonName", JoinPersonName);
 
 		return "forum/activity_info_page";
@@ -553,6 +634,7 @@ public class forumHomeController {
 
 	public String ResponserServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			RedirectAttributes attr, @RequestParam("article_IdStr") Integer article_Id,
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
 			@RequestParam("res_contentStr") String res_contentStr, Model model) {
 
 		Map<String, String> errorMsg = new HashMap<String, String>();
@@ -569,7 +651,20 @@ public class forumHomeController {
 			return "forum/activity_info_page";
 		}
 
-		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		Timestamp oldts = new Timestamp(System.currentTimeMillis());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date ts = new Date();
+
+		try {
+			
+		String	startTime = sdf.format(oldts);
+		
+		ts=	sdf.parse(startTime);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		Launch_activityBean launch_activityBean = launch_activityService.getArticle_Id(article_Id);
 
@@ -577,10 +672,10 @@ public class forumHomeController {
 
 		responserService.insertRescontent(responser);
 
-		session.setAttribute("newresponser", responser);
 
 		attr.addAttribute("article_IdStr", article_Id);
-		return "redirect:/forum/activity_info_page";
+
+		return "redirect:/forum/activity_info_page?pageNo=" + pageNo;
 	}
 
 	@PostMapping("/forum/UpdateDelResponerServlet")
@@ -597,8 +692,6 @@ public class forumHomeController {
 
 		else if (mode.equalsIgnoreCase("MOD")) {
 			Timestamp updateTime = new Timestamp(System.currentTimeMillis());
-
-//			ResponserBean responser = new ResponserBean();
 
 			new ResponserBean().setUpdateTime(updateTime);
 			new ResponserBean().setRes_content(res_content);

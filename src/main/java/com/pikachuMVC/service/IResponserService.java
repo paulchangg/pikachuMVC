@@ -15,10 +15,14 @@ public interface IResponserService {
 
 	int DeleteArticle(int res_id);
 
-	List<ResponserBean> getAllContent(int article_Id);
+	List<ResponserBean> getAllContent(int article_Id, Integer pageNo);
 
 	List<ResponserBean> getMemberContent(String res_m_id);
 
 	void setConnection(Connection con);
+
+	int getTotalPages(int article_Id);
+
+	long getRecordCounts(int article_Id);
 
 }

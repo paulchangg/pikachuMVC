@@ -39,6 +39,7 @@ public class ForumDaoImpl implements IForumDao {
 		session.save(forum);
 		System.out.println("新增一筆forumActivity紀錄");
 		}
+		System.out.println("新增forumActivity成功");
 		return x;
 	}
 

@@ -7,18 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/shopping_cart.css" rel="stylesheet" type="text/css">
-    <title>購物車清單</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-    crossorigin="anonymous" />
+    <title>購物清單</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/common/wickedcss.min.csss"/>
+  <link rel="stylesheet" href="css/wickedcss.min.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 </head>
 <body>
-
     <form>
        <input type="hidden" name="a"/>
     </form>
@@ -33,64 +29,77 @@
        </c:otherwise>
     </c:choose>
 
-    <div class="flex-container">
-        <!----------------------head區塊------------------------------>
-        <div class="header">
-			<!--這裡開始為上方,呈現商標log位置-->
-		   <div class="row justify-content-end"> 
-				<div class="col-4">    <!---------logo區塊----------->
-				   <a href='<c:url value='/' />'>
-				   		<img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
-					</a>
-			   </div>
-			   <div class="col-4">     <!---------左上角超連結區塊----------->
-					<div class="row justify-content-end">
-						<div class="col-3">
-							<c:choose>
-								<c:when test="${empty LoginOK}">								
-									<a href="<c:url value="/member/member_login"/>"> 
-										<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-									</a>								
-								</c:when>
-								<c:otherwise>								
-									<a href="<c:url value="/member/member_logout"/>"> 
-									<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-									</a>								
-								</c:otherwise>
-							</c:choose>
-					   </div>
-						 <div class="col-3">
-							 <a href="">
-							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
-							</a>
-						</div>
-						<div class="col-3"> 
-							 <a href="#">
-							  <i class="fa fa-question-circle" id="qanda">Q & A</i>
-							</a>
-					   </div>
-				   </div>
-			   </div>
-		   </div>
-	   </div>
-		<!-- 導覽列--------------------------->
-	   <section class="top_navi">
-		   <nav>
-			   <a href="<c:url value="/shopping/orderList" />" >查詢訂單</a>
-		       <a href="<c:url value="/shopping/listtrackproduct" />" >追蹤商品</a>
-			   <a href="#" >關於我們</a>
-			   <a href="<c:url value="/member/member_center" />">會員中心</a>
-			   <a href="#">論壇交友</a>
-			   <a href="#">信用卡搜尋</a>
-			   <a href="<c:url value="/shopping/listProduct" />">購物商城</a>
-			   <a href="#">資訊網</a>			</nav>
-		</section>
-            
-        <!--這裡為步驟購物圖檔-->
-        <div class="stepimg"><img src="image/參考圖.png" height="300px"></div>
-    
+      <!-- 上方標題logo列----超連結待補----->
+   <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
+        </div>
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+             <c:choose>
+				<c:when test="${empty LoginOK}">								
+					<a href="<c:url value="/member/member_login"/>"> 
+						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+					</a>								
+				</c:when>
+				<c:otherwise>								
+					<a href="<c:url value="/member/member_logout"/>"> 
+					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+					</a>								
+				</c:otherwise>
+			 </c:choose>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   </div>
+
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
+
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href="#">關於我們</a>
+        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
+        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
+        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+   
+     <!--這裡為步驟購物圖檔-->
+    <div class="stepimg"><img src="../shopping/image/參考圖.png"></div>
+
+    <!-- 中間區塊 -->
+    <div class="wrap">
         <!--這裡為購物清單-->
-        <div class="tablearea">
+        <div class="col-10 tablearea">
             <h4>購物清單</h4>
                 <table class="table table-hover ">
                    <thead><!--購物清單表格標題-->
@@ -107,7 +116,7 @@
                     <c:forEach varStatus="vs" var="anEntry" items="${ShoppingCart.content}">
                       <tr>
                           <td><a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page">
-                              <img src="<c:url value='/shopping/getPicture/${anEntry.value.p_id}' />" width="100px" id="shoppingcart_img">
+                              <img src="<c:url value='/shopping/getPicture/${anEntry.value.p_id}' />"  id="shoppingcart_img">
                              ${anEntry.value.p_name} </a>
                           </td>
                           <td>NT<sapn id="shoppingcart_orp">${anEntry.value.price}</sapn>元
@@ -115,14 +124,14 @@
                           <td>
                           <!--<input id="shoppingcart_min" name="qty" type="button" value="-" />  按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉 -->
                           <%--<input id="shoppingcart_quantity" name="newQty${vs.index}" type="text" value="${anEntry.value.qty}" /> --%>
-                              <Input id="newQty${vs.index}" style="width:70px;text-align:right" name="newQty" type="text" value="<fmt:formatNumber value="${anEntry.value.qty}" />" name="qty" onkeypress="return isNumberKey(event)"  />
+                              <Input id="newQty${vs.index}" class="newQinput" style="width:70px;text-align:right" name="newQty" type="text" value="<fmt:formatNumber value="${anEntry.value.qty}" />" name="qty" onkeypress="return isNumberKey(event)"  />
                           <!--<input id="shoppingcart_add" name="qty" type="button" value="+" /> -->
                          </td>
                           <td><span id="shoppingcart_stock">30</span></td>
                           <td>小計:<span id="shoppingcart_total">${anEntry.value.qty * anEntry.value.price}</span></td>
                           <td>
-                                <Input type="button" name="delete" value="刪除" onclick="confirmDelete(${anEntry.key})"><!--麻煩你寫了...智商過低我已經要陣亡Q_Q-->
-                                <Input type="button" name="delete" value="修改" onclick="modify(${anEntry.key}, ${anEntry.value.qty}, ${vs.index})"><!--麻煩你寫了...智商過低我已經要陣亡Q_Q-->
+                                <Input type="button" name="delete" value="刪除" onclick="confirmDelete(${anEntry.key})" class="addBTn">
+                                <Input type="button" name="delete" value="修改" onclick="modify(${anEntry.key}, ${anEntry.value.qty}, ${vs.index})" class="addBTn">
                          </td>
                       </tr>
                       </c:forEach>
@@ -132,21 +141,49 @@
                     </tbody>
              </table>
         </div>
-
-        <div class="col-12 return"> <!--繼續購物-->
+         <div class="return "> <!--繼續購物-->
             <form action="<c:url value='/shopping/ProcessOrder' />" method="POST" >
                <Input type='hidden' name='finalDecision' value='Order'>
-                <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
-                <Input type='submit' class="btn btn-warning" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
+                <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="returnBtn">繼續購物</button></a>
+                <Input type='submit' class="returnBtn" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
             </form>
-      </div>
+        </div>
+  </div> 
          
-	   <div class="site_footer"> <!--尾巴區塊-->
-          <div class="gotop">
-              <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-          </div>
-     </div>
- </div>
+	<!-- 底部 ------>
+      <div id="backtop" class="gotop">
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <div class="footer">
+          <ul> 
+            <li>
+                <span></span>
+                <span></span>
+                <span class="fab fa-facebook"></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span class="fab fa-twitter"></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span class="fab fa-instagram"></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span class="fab fa-linkedin"></span>
+            </li>
+          </ul>  
+        </div> 
+        
+        <br />
+        <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+      </div>
+</div>
     
         <!--這區塊是點選結算跳出視窗-->    
         <div class="modal fade" id="shoppingcart_paymoney">
@@ -160,13 +197,10 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>     
+               <script src="/js/jquery-3.4.1.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
         <script src="js/shopping_cart.js"></script>
         <script type="text/javascript">
         function confirmDelete(n) {
@@ -178,6 +212,7 @@
         	
         	}
         }
+        
         function modify(key, qty, index) {
         	var x = "newQty" + index;
         	var newQty = document.getElementById(x).value;

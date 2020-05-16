@@ -1,7 +1,10 @@
 package com.pikachuMVC.dao.impl;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.pikachuMVC.dao.ILaunch_activityDao;
 import com.pikachuMVC.model.FoumBean;
 import com.pikachuMVC.model.Launch_activityBean;
+import com.pikachuMVC.model.ProductBean;
 
 //本類別
 //1.新增一筆文章到launch_activity表格
@@ -22,6 +26,7 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 	@Autowired
 	SessionFactory factory;
 	int articleId = 0;
+	private int recordsPerPage = 2; // 預設值：每頁2筆
 
 	// 1.新增一筆文章到launch_activity表格
 	@Override
@@ -102,13 +107,36 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 		Session session = factory.getCurrentSession();
 
 		list = session.createQuery(hql).getResultList();
-		
-		if(list == null) {
+
+		if (list == null) {
 			return list;
 		}
-		
+
 		return list;
 	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Launch_activityBean> getpageActivitys(Integer pageNo) {
+		
+		int startRecordNo = (pageNo - 1) * recordsPerPage ;//2
+			
+
+
+		
+		List<Launch_activityBean> list = new ArrayList<Launch_activityBean>();
+		String hql = "FROM Launch_activityBean";
+		Session session = factory.getCurrentSession();
+		list = session.createQuery(hql).setFirstResult(startRecordNo).setMaxResults(recordsPerPage).getResultList();
+		return list;
+
+	}
+	
+
+	
+	
 
 	@Override
 	public void setConnection(Connection con) {
@@ -134,5 +162,77 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 		article.setPopularity(popularity);
 		return result;
 	}
+
+	
+
+	@Override
+	public int getTotalPages() {
+		// 注意下一列敘述的每一個型態轉換
+		Integer totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
+
+
+		return totalPages;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public long getRecordCounts() {
+		long count = 0; // 必須使用 long 型態
+		String hql = "SELECT count(*) FROM Launch_activityBean";
+		Session session = factory.getCurrentSession();
+		List<Long> list = session.createQuery(hql).getResultList();
+		if (list.size() > 0) {
+			count = list.get(0);
+
+
+		}
+		return count;
+	}
+
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Launch_activityBean> getpageActivitysByfame(Integer pageNo,Integer f_id) {
+		
+		int startRecordNo = (pageNo - 1) * recordsPerPage ;//2
+		List<Launch_activityBean> list = new ArrayList<Launch_activityBean>();
+		
+		
+		
+		String hql = "FROM Launch_activityBean where f_id = :fid";
+		
+		Session session = factory.getCurrentSession();
+		list = session.createQuery(hql).setFirstResult(startRecordNo).setMaxResults(recordsPerPage).setParameter("fid", f_id).getResultList();
+		
+		return list;
+	}
+	
+	
+	@Override
+	public int getTotalPagesByfname(Integer f_id) {
+		// 注意下一列敘述的每一個型態轉換
+		Integer totalPages = (int) (Math.ceil(getRecordCountsByfname(f_id) / (double) recordsPerPage));
+
+
+		return totalPages;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public long getRecordCountsByfname(Integer f_id) {
+		long count = 0; // 必須使用 long 型態
+		String hql = "SELECT count(*) FROM Launch_activityBean where f_id =:fid";
+		Session session = factory.getCurrentSession();
+		List<Long> list = session.createQuery(hql).setParameter("fid", f_id).getResultList();
+		if (list.size() > 0) {
+			count = list.get(0);
+
+
+		}
+		return count;
+	}
+	
 
 }
