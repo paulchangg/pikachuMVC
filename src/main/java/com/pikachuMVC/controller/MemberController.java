@@ -401,7 +401,7 @@ public class MemberController {
 		Blob m_img = null;
 
 		imgname = request.getParameter("m_img");
-		imgpath = "/images/common/" + imgname + ".jpg";
+		imgpath = "/images/" + imgname + ".jpg";
 		System.out.println(imgpath);
 
 		try {
