@@ -371,14 +371,14 @@ margin: auto;
   width: 13rem;
   border-top: none;
   font-size: 18px;
-  display: none;
+  display: inline;
   list-style: none;
   z-index: 999;
   background-color: white;
 }
 
 .searchblock li{
-	list-style: none;
+	list-style: inline;
 	text-align:left;
 	
 }

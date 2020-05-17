@@ -157,13 +157,13 @@
                <div class="col-3 input-group"><!--搜尋關鍵字id-->
                 <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()">
                   <div class="input-group-append">
-                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;">搜尋</button>
+                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;" onchange="b()">搜尋</button>
                  </div>
               </div>
               <div class="searchblock" id="searchblockone"><!--關鍵字顯示區塊.-->
-                   <li><i class='bx bx-search'></i><span>飲料餐劵</span></li>
-                   <li><i class='bx bx-search'></i><span>美食餐劵</span></li>
-                   <li><i class='bx bx-search'></i><span>碰碰餐劵</span></li>
+<!--                    <li><i class='bx bx-search'></i><span>飲料餐劵</span></li> -->
+<!--                    <li><i class='bx bx-search'></i><span>美食餐劵</span></li> -->
+<!--                    <li><i class='bx bx-search'></i><span>碰碰餐劵</span></li> -->
               </div>
           </div>
 
@@ -289,28 +289,28 @@
 <!--              	</div> -->
 <!--          	</div> -->
  </div>   
-    <script>
-      var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
-      var showbtn=document.getElementById("searchblockone");//取得隱藏區塊
-          inputBtn.addEventListener("input",function(){
+<!--     <script> -->
+//       var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
+//       var showbtn=document.getElementById("searchblockone");//取得隱藏區塊
+//           inputBtn.addEventListener("input",function(){
 
-            if(inputBtn.value==null || inputBtn.value =="")//如果輸入欄位為空值或空字串則隱藏表單
-            {
-              showbtn.style.display="none";
-            }
-            else{
-              showbtn.style.display="inline";
-            };
+//             if(inputBtn.value==null || inputBtn.value =="")//如果輸入欄位為空值或空字串則隱藏表單
+//             {
+//               showbtn.style.display="none";
+//             }
+//             else{
+//               showbtn.style.display="inline";
+//             };
             
            
-      });
+//       });
      
      
-   </script>
+<!--    </script> -->
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-   <script src="js/index.js"></script>
+<!--    <script src="../js/index.js"></script> -->
    <script src="js/shopping.js"></script>
   </body>
 </html>
