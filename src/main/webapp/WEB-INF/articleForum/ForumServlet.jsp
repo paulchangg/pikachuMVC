@@ -31,33 +31,31 @@
 
 <body>
 	<!-- 上方標題logo列---超連結待補---->
-	<div class="container-fluid" style="height: 190px;">
+	<div class="container-fluid" style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
 		<div class="row">
 			<div class="col-sm">
 				<p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-				<p style="font-size: small;">快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
+				<p style="font-size: medium; padding-top: 10px;">快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
 			</div>
 			<div class="row justify-content-around">
 				<div class="col-sm">
 					<a href="<c:url value="/"/>"> <img
 						src="<c:url value="/articleForum/images/logo2.png"/>" alt="logo"
-						style="height: 230px;" />
+						style="height: 340px; width: 300px;padding:0 30px 140px 0;" />
 					</a>
 				</div>
 			</div>
 			<!-- 右上區塊 -->
 			<div class="col-sm">
-				<ul class="nav justify-content-end" style="font-size: 17px;">
+				<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
 					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/member/member_logout" />' id="memberlogin">會員登出</a>
+						href='<c:url value="/member/member_logout" />' id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare">信用卡比較</a>
+						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#" id="qanda">Q
-							& A</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
+						href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
 							<i class="fas fa-shopping-cart"></i>
 					</a></li>
 				</ul>
@@ -67,13 +65,12 @@
 
 	<!-- 導覽列上slider -->
 	<div class="et-hero-tabs">
-		<!-- 要改放圖片的話再修正 -->
-		<!-- <img src="" style="height: 70px; width: 1367px;" /> -->
+	      <div class="aa" style="height: 100px;"></div>
 
 		<!-- 導覽列  超連結待補 -->
 		<div class="et-hero-tabs-container">
-			<a class="et-hero-tab" href="#aboutus">關於我們</a> <a
-				class="et-hero-tab" href='<c:url value="/member/member_center" />'>會員中心</a>
+			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a> <a
+				class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
 			<a class="et-hero-tab"
 				href='<c:url value="/articleForum/listforum"/>'>論壇交友</a> <a
 				class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
@@ -82,7 +79,7 @@
 		</div>
 	</div>
 
-	<!-- 上方文章卡片 x3 ----超連結待補------>
+	<!-- 上方文章卡片 x3 -->
 	<div class="card-group">
 		<div class="card">
 			<img
@@ -133,13 +130,12 @@
 	</div>
 
 	<!-- 分隔列---->
-	<div class="second_line">
-		<span class="friendshipforum"></span>
-	</div>
+		<div class="second_line"></div>
+
 
 	<!-- 發文按鈕 -->
-	<div class="d-flex flex-row-reverse bd-highlight"
-		style="padding-top: 7px; padding-right: 10px; margin-right: 70px;">
+	<div class="d-flex flex-row bd-highlight"
+		style="padding-top: 7px; margin-left: 18px;">
 		<div class="btn-group btn-group-sm" role="group"
 			aria-label="Basic example" style="font-size: 20px;">
 			<!-- Button trigger modal -->
@@ -286,16 +282,11 @@
 						<button type="button" class="btn btn-outline-success">配對</button>
 					</a>
 				</div>
-				<!-- 假廣告圖 -->
-				<img
-					src="<c:url value="/articleForum/images/ad_photo/burgerking.jpg"/>"
-					style="width: 200px; padding-top: 70px; padding-right: 10px;">
-				<img src="<c:url value="/articleForum/images/ad_photo/uniqlo.jpg"/>"
-					style="width: 200px; padding-top: 35px; padding-right: 10px;">
+				<!-- 假廣告圖刪除 -->
 			</div>
 
 			<!-- 右側論壇 -->
-			<div class="col-9">
+			<div class="col-9" style="min-height:800px;">
 				<!-- 上方tab -->
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item"><a class="nav-link active" id="all-tab"
@@ -667,11 +658,40 @@
 	</nav>
 
 	<!-- 底部 ------>
-	<div id="backtop" class="gotop">
-		<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-		<br />
-		<button type="button" class="btn btn-secondary">To the top</button>
-	</div>
+	 <div id="backtop" class="gotop">
+      <h4>
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      </h4>
+      <div class="footer">
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
+
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div>
 	<script type="text/javascript">
 		document.getElementById("deleteArticle1").addEventListener("click",
 				function(event) {
