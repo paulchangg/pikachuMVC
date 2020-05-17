@@ -161,6 +161,7 @@ bt.addEventListener('click', () => {
 })
 
 
+// 導覽列功能設定
 class StickyNavigation {
   constructor() {
     this.currentId = null;
@@ -197,7 +198,6 @@ class StickyNavigation {
   }
 }
 
-
 window.addEventListener("load", doFirst);
 
 function doFirst() {
@@ -211,14 +211,13 @@ function doFirst() {
     });
 
     $(window)
-      .scroll(function () {
-        if ($(this).scrollTop() >= 0) {
-          $("#backtop").fadeIn(100);
-        } else {
-          $("#backtop").stop().fadeOut(222);
-        }
-      })
-      .scroll();
+    .scroll(function () {
+      if ($(this).scrollTop() >=0) {
+        $("#backtop").fadeIn(222);
+      } else {
+        $("#backtop").stop().fadeOut(222);
+      }
+    })
+    .scroll();
   });
 }
-
