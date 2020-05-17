@@ -376,7 +376,7 @@
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                     <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                   </svg>
@@ -405,7 +405,7 @@
                            </div>
                        </div>   
                        <div class="col-2 creditbtn"><!--商品連結頁面--> 
-                         <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>
+                         <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>
                            詳細資訊
                         </a>
                       </div>
@@ -420,8 +420,8 @@
           		  <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
                 <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                     <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                    <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                  </svg>
@@ -447,7 +447,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -459,7 +459,7 @@
              <div class="box"> <!--特效區塊需要當外層-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                   <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                 </svg>
@@ -485,7 +485,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -496,8 +496,8 @@
             <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+           <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
@@ -523,7 +523,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -535,7 +535,7 @@
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
         <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
@@ -561,7 +561,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank"  id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -572,8 +572,8 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-              <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+            <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
@@ -599,7 +599,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -610,8 +610,8 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+         <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
@@ -637,7 +637,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>
@@ -649,7 +649,7 @@
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
                       <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
@@ -675,7 +675,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary"  target="_blank" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
               </div>

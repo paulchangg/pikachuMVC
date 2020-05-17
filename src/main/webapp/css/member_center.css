@@ -1,4 +1,4 @@
-@import "./reset.css";
+
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
@@ -497,6 +497,7 @@ body {
 /*第二大區塊*/
 .towwarp{
  height: 38rem;
+  font-size: 18px;
 }
 
 /*我的信用卡配對區塊*/

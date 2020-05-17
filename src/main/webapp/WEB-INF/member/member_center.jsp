@@ -197,9 +197,7 @@
 	 
     <!-- 底部 ------>
     <div id="backtop" class="gotop">
-      <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
       <div class="footer">
         <ul> 
           <li>

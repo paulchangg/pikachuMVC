@@ -6,66 +6,65 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>詳細資訊</title>
+<title>信用卡詳細資訊</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/cradeitsearch_produce.css" />
 <link rel="stylesheet" href="css/wickedcss.min.css">
-<link
-	href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
-	rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-	<div class="container-fluid" style="height: 190px;">
-		<div class="row">
-			<div class="col-sm">
-				<!-- 左上角logo -->
-				<p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-				<p style="font-size: small;">快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
-			</div>
-			<div class="row justify-content-around">
-				<!-- logo -->
-				<div class="col-sm">
-					<a href="index copy.html"> <img src="../cards/image/重新縮圖.png"
-						alt="logo" style="height: 230px;" />
-					</a>
-				</div>
-			</div>
-			<!-- 右上區塊 -->
-			<div class="col-sm">
-				<ul class="nav justify-content-end" style="font-size: 17px;">
-					<li class="nav-item"><a class="nav-link" href="#"
-						id="memberlogin">會員登出</a></li>
+	 <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
+        </div>
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout" style="color: rgb(92, 41, 7);">會員登出</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-					<li class="nav-item"><a class="nav-link" href="#"
-						id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#" id="qanda">
-							<i class="fa fa-question-circle" id="qanda"></i>Q & A
-					</a></li>
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
 
-					<li class="nav-item"><a class="nav-link" href="#"
-						id="shoppingcart"> <i class="fas fa-shopping-cart"></i>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- 導覽列 -->
-		<div class="et-hero-tabs">
-			<!-- 要改放圖片的話再修正 -->
-			<img src="" style="height: 70px; width: 1367px;" />
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
 
-			<!-- 導覽列  超連結待補 -->
-			<div class="et-hero-tabs-container">
-				<a class="et-hero-tab" href="#aboutus">關於我們</a> <a
-					class="et-hero-tab"
-					href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
-				<a class="et-hero-tab" href="#friendshipforum">論壇交友</a> <a
-					class="et-hero-tab" href="#mall">商城</a> <a class="et-hero-tab"
-					href="#infoweb">資訊網</a> <span class="et-hero-tab-slider"></span>
-			</div>
-		</div>
 
-		<div class="credittitle">詳細資訊</div>
+    <div class="credittitle">詳細資訊</div>
 
 		<div class="row imgareatext">
 			<!-- 信用卡上半部 -->
@@ -118,30 +117,27 @@
 						href="#cradeitsearchproduce_zero" data-toggle="tab">分期零利率</a></li>
 				</ul>
 				<div class="tab-content my-2 mx-2">
-					<div class="tab-pane fade show active"
-						id="cradeitsearchproduce_gift">
-						<div class="gifttext">
-							<!--首刷禮-->
-							<!--                      <img src="../cards/image/首刷禮.jpg"> -->
-							<p Align="Left">
-								國內消費現金回饋備註：<span class="test">${bean.dcb_n}</span>
-							</p>
-							<p Align="Left">
-								國外消費現金回饋備註：<span class="test">${bean.fcb_n}</span>
-							</p>
+					<div class="tab-pane fade show active" id="cradeitsearchproduce_gift">
+						<div class="row">
+							<div class="col gifttext">
+								國內消費現金回饋備註：<br><span class="test">${bean.dcb_n}</span>
+							</div>
+							<div class="col gifttext">
+								國外消費現金回饋備註：<br><span class="test">${bean.fcb_n}</span>
+							</div>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="cradeitsearchproduce_dis">
 						<!--哩程累積-->
 						<div class="row">
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>國內哩程累積</span>
 								</div>
 								<div class="test">${bean.dma}</div>
 								<div>${bean.dma_n}</div>
 							</div>
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>國外哩程累積</span>
 								</div>
@@ -153,14 +149,14 @@
 					</div>
 					<div class="tab-pane fade" id="cradeitsearchproduce_app">
 						<div class="row">
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>平日電影折扣</span>
 								</div>
 								<div class="test">${bean.moviedis}</div>
 								<div>${bean.moviedis_n}</div>
 							</div>
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>週未電影折扣</span>
 								</div>
@@ -171,14 +167,14 @@
 					</div>
 					<div class="tab-pane fade" id="cradeitsearchproduce_mon">
 						<div class="row">
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>加油現金回饋</span>
 								</div>
 								<div class="test">${bean.refuel_cb}</div>
 								<div>${bean.refuel_cb_n}</div>
 							</div>
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>加油優惠</span>
 								</div>
@@ -189,14 +185,14 @@
 					</div>
 					<div class="tab-pane fade" id="cradeitsearchproduce_es">
 						<div class="row">
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>網購回饋</span>
 								</div>
 								<div class="test">${bean.onlinefb}</div>
 								<div>${bean.onlinefb_n}</div>
 							</div>
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>數位通路回饋上限</span>
 								</div>
@@ -207,14 +203,14 @@
 					</div>
 					<div class="tab-pane fade" id="cradeitsearchproduce_zero">
 						<div class="row">
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>分期零利率</span>
 								</div>
 								<div class="test">${bean.zeroins}</div>
 								<div>${bean.zeroins_n}</div>
 							</div>
-							<div class="col">
+							<div class="col gifttext">
 								<div>
 									<span>最低可分期金額</span>
 								</div>
@@ -254,15 +250,39 @@
 
 
 
-
-		<!-- 回到置頂------>
-		<div id="backtop" class="gotop">
-			<h5>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h5>
-			<br />
-			<button type="button" class="btn btn-secondary">To the top</button>
-		</div>
-
-	</div>
+	  
+	 
+    <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+    </div>
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
