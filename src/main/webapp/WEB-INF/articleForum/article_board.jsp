@@ -30,35 +30,65 @@
 
   <body>
     <!-- 上方標題logo列---超連結待補---->
-    <div class="container-fluid" style="height: 190px;">
+    <div class="container-fluid" style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
       <div class="row">
         <div class="col-sm">
           <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-          <p style="font-size: small;">
+          <p style="font-size: medium; padding-top: 10px;">
             快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
           </p>
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
             <a href="<c:url value='/' />">
-              <img src="images/logo2.png" alt="logo" style="height: 230px;" />
+              <img src="images/logo2.png" alt="logo" style="height: 340px; width: 300px; padding:0 30px 140px 0;" />
             </a>
           </div>
         </div>
         <!-- 右上區塊 -->
-        <div class="col-sm">
-          <ul class="nav justify-content-end" style="font-size: 17px;">
+         <div class="col-sm">
+          <ul
+            class="nav justify-content-end"
+            style="font-size: 18px; font-weight: bold;"
+          >
             <li class="nav-item">
-              <a class="nav-link" href="#" id="memberlogin">會員登入</a>
+              <c:choose>
+                <c:when test="${empty LoginOK}">
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_login" />'
+                    id="memberlogin"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登入</a
+                  >
+                </c:when>
+                <c:otherwise>
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_logout" />'
+                    id="memberlogout"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登出</a
+                  >
+                </c:otherwise>
+              </c:choose>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+              <a
+                class="nav-link"
+                href='<c:url value="/member/member_center" />'
+                id="membercenter"
+                style="color: rgb(92, 41, 7);"
+                ><i class="bx bx-user-circle"></i>會員中心</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="qanda">Q & A</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="shoppingcart">
+              <a
+                class="nav-link"
+                href='<c:url value="/shopping/listProduct" />'
+                id="shoppingcart"
+                style="color: rgb(92, 41, 7);"
+              >
                 <i class="fas fa-shopping-cart"></i>
               </a>
             </li>
@@ -70,14 +100,14 @@
     <!-- 導覽列上slider -->
     <div class="et-hero-tabs">
       <!-- 要改放圖片的話再修正 -->
-      <img src="" style="height: 70px; width: 1367px;" />
+          <div class="aa" style="height: 100px;"></div>
 
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#aboutus">關於我們</a>
-        <a class="et-hero-tab" href="#memberarea">會員中心</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="#mall">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -109,19 +139,14 @@
     </div>
 
     <!-- 分隔列 -->
-    <div class="second_line"></div>
-
-    <div class="container" style="padding-bottom: 25px; margin-left: 150px;">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col">
-          <img src="images/board/food.jpg" style="width: 80px; height: 55px;" />
-          <span class="badge badge-warning" style="font-size: 20px;">${fourmName}</span>
-        </div>
-        <div class="col">
+       <div class="col">
           <!-- 發文按鈕 -->
           <div
-            class="d-flex flex-row-reverse bd-highlight"
-            style="padding-top: 7px;"
+            class="d-flex flex-row bd-highlight"
+            style="padding-top: 15px;
+                   padding-bottom: 15px;"
           >
             <div
               class="btn-group btn-group-sm"
@@ -140,12 +165,7 @@
                 <br /><i class="far fa-edit"></i>
               </button>
 
-              <a href="<c:url value='/articleForum/listforum' />">
-                <button type="button" class="btn btn-info btn-sm">
-                  回論壇首頁
-                  <br /><i class="fas fa-home"></i>
-                </button>
-               </a>
+            
 
               <!-- Modal 跳出頁面 -->
               <div
@@ -171,7 +191,6 @@
                     </div>
 
                     <div class="modal-body">
-                      <!-- 內容 -->
                      <!-- 內容 -->
                 <form id="msform" action="<c:url value="/articleForum/listforum" />" method="post" enctype="multipart/form-data">
                   <!-- 發文者頭像 -->
@@ -259,14 +278,19 @@
               </div>
                 </form>
                     </div>
-
-                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="col">
+             <div style="height:20px;"></div>   
+          <span class="badge badge-warning" style="font-size: 20px; padding-top:8px;">${fourmName}</span>
+        </div>
+
+       
       </div>
     </div>
 
@@ -327,10 +351,17 @@
               <button type="button" class="btn btn-outline-success">配對</button>
                 </a>
           </div>
-          <img src="images/ad_photo/pazzo.jpg" style="height:420px; width:180px; padding-top: 40px;padding-right: 10px;">
+            <a href="<c:url value='/articleForum/listforum' />">
+                <button type="button" class="btn btn-info btn-sm">
+                  回論壇首頁
+                  <br /><i class="fas fa-home"></i>
+                </button>
+               </a>
+          <!-- 假廣告圖刪除 -->
+          <%-- <img src="images/ad_photo/pazzo.jpg" style="height:420px; width:180px; padding-top: 40px;padding-right: 10px;"> --%>
         </div>
         <!-- 右側論壇 -->
-        <div class="col-9">
+			<div class="col-9" style="min-height:800px;">
           <!-- 上方tab -->
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -915,8 +946,35 @@
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
       </h4>
+      <div class="footer">
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
+
       <br />
-      <button type="button" class="btn btn-secondary">To the top</button>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
     </div>
   </body>
 </html>
