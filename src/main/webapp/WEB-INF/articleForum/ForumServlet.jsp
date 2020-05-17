@@ -16,6 +16,7 @@
 	media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="<c:url value="/articleForum/css/forum.css"/>" />
+	    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <script src="<c:url value="/articleForum/js/jquery-3.4.1.js"/>"></script>
 <script src=" <c:url value="/articleForum/js/popper.min.js"/>"></script>
 <script src="<c:url value="/articleForum/js/bootstrap.min.js"/>"></script>
@@ -286,7 +287,7 @@
 			</div>
 
 			<!-- 右側論壇 -->
-			<div class="col-9" style="min-height:800px;">
+			<div class="col-9" style="min-height:1100px;">
 				<!-- 上方tab -->
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item"><a class="nav-link active" id="all-tab"
