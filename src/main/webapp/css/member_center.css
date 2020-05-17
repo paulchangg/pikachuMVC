@@ -1,3 +1,4 @@
+@import "./reset.css";
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
@@ -90,7 +91,10 @@ body {
 }
 
 #back_bt{
-  float: right;
+  position: fixed;
+  left: 1430px;
+  bottom: 30%;
+  z-index: 99;
 }
 
 
