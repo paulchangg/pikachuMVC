@@ -83,10 +83,10 @@ crossorigin="anonymous"/>
 					          <td> 
 								  <input class="validate[required]"
 								  type="password" name="password" id="register_password"
-						          value="" placeholder="密碼長度需8位數字以上" 
+						          value="" placeholder="組成密碼長度需8位數字以上" 
 								  autocomplete="off">
 								  <input type="checkbox" onclick="myFunction()">顯示<br>
-								  <span style="font-size: 15px; color: red;">8碼以上的英文大小寫+數字特殊符號@#組成</span><br>
+								  <span style="font-size: 15px; color: red;">8碼以上的英文大小寫+數字特殊符號@#</span><br>
 								  <font color="red" size="-1">
 						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
 					         </td>

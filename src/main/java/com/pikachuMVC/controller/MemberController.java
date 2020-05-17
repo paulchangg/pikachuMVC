@@ -206,13 +206,14 @@ public class MemberController {
 				errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
 			} else {
 				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
-				try {
-					birthday = sdf.format(sdf1.parse(birthday));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+//				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+
+//				try {
+//					birthday = sdf.format(sdf1.parse(birthday));
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				}
 
 				MemberBean mb = new MemberBean(account, password, name, phone_num, email, null, Date.valueOf(birthday),
 						gender, null, null, null, null);
