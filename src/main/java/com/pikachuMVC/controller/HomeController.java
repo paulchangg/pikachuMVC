@@ -68,6 +68,7 @@ public class HomeController {
 	private List<ProductBean> productList = new ArrayList<ProductBean>();
 	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 	private List<FoumBean> forumList = new ArrayList<FoumBean>();
+	
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
@@ -117,20 +118,21 @@ public class HomeController {
 	}
 	
 	private Boolean judgeNewsFolder() {
-		LocalTime nineOC = LocalTime.of(9, 0, 0);
-	    LocalTime nH = LocalTime.now();
-	    if (nH.isAfter(nineOC)) {
+//		LocalTime nineOC = LocalTime.of(9, 0, 0);
+//	    LocalTime nH = LocalTime.now();
+//	    if (nH.isAfter(nineOC)) {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
-			File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today);
+			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;
+			File file = new File(txtPath);
 			return file.exists();
-			
-	    } else {
-	    	Calendar   cal   =   Calendar.getInstance();
-	    	cal.add(Calendar.DATE, -1);
-	    	String yesterday = new SimpleDateFormat("yyyyMMdd").format(cal.getTime());
-	    	File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + yesterday);
-	    	return file.exists();
-	    }
+//	    }	
+//	     else {
+//	    	Calendar   cal   =   Calendar.getInstance();
+//	    	cal.add(Calendar.DATE, -1);
+//	    	String yesterday = new SimpleDateFormat("yyyyMMdd").format(cal.getTime());
+//	    	File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + yesterday);
+//	    	return file.exists();
+//	    }
 	}
 }

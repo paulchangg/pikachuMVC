@@ -482,5 +482,94 @@ public ShoppingController() {}
 		return "redirect:/shopping/listtrackproduct";
 	}
 	
+	@PostMapping("/buyProductAjax")
+	@ResponseBody
+	public void buyProductAjax(HttpServletResponse response,HttpServletRequest request, HttpSession session) {
+		
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		
+		// 如果找不到ShoppingCart物件
+		if (cart == null) {
+			// 就新建ShoppingCart物件
+			cart = new ShoppingCart();
+			// 並將此新建ShoppingCart的物件放到session物件內，成為它的屬性物件
+			session.setAttribute("ShoppingCart", cart);   
+		}
+		
+		//取得要將哪一個商品放進購物車
+		String productIdStr 	= request.getParameter("productId");
+		
+		//將productId轉成 int
+		int productId          = Integer.parseInt(productIdStr.trim());
+		
+		//取得這次購買的數量
+		String qtyStr 		= request.getParameter("qty");
+		Integer qty = 0 ;
+
+
+		//取得products_DPP  Map<Integer, ProductBean>  Integer是productId
+		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
+		
+		//取得此productId的商品
+		ProductBean bean = productMap.get(productId);
+		
+		
+		
+		try{
+			// 進行資料型態的轉換
+			qty = Integer.parseInt(qtyStr.trim());
+		} catch(NumberFormatException e){
+			e.printStackTrace();
+		}
+		
+		
+		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
+		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
+		// 將OrderItem物件內加入ShoppingCart的物件內
+		cart.addToCart(productId, oib);
+	
+		try(
+				PrintWriter out = response.getWriter();
+		){		
+			
+			out.write("yes");
+			out.flush();
+		}catch(Exception e) {
+			
+		}
+		
+	}
+	
+
+	@PostMapping("/addtrackproductAjax")
+	@ResponseBody
+	public void addtrackproductAjax(HttpServletResponse response,HttpServletRequest request, HttpSession session) {
+		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		
+		String productIdStr 	= request.getParameter("productId");
+		int productId          = Integer.parseInt(productIdStr.trim());
+		
+
+
+		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
+		ProductBean bean = productMap.get(productId);
+		
+		
+		service.saveTrackProduct(mb, productId);
+		
+		try(
+				PrintWriter out = response.getWriter();
+		){		
+			
+			out.write("yes");
+			out.flush();
+		}catch(Exception e) {
+			
+		}
+		
+		
+	}
+	
 
 }

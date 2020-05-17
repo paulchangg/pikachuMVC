@@ -93,10 +93,10 @@ crossorigin="anonymous" />
 		  
 		</div>	
 	</div>
-		<img src="C:/_JSP/workspaceJDBC_s/pikachuMVC/src/main/webapp/news/20200512/img/20200512/img/20200512-UCardu20200511175010.jpg">
-		<img src="C:\_JSP\workspaceJDBC_s\pikachuMVC\src\main\webapp\news\20200512\img\20200512\img\20200512-UCardu20200511175010.jpg">
-		<img src='<c:url  value="/news/20200512/img/20200512-UCardu20200511175010.jpg"/>'>
-		<img src="20200512/img/20200512-UCardu20200511175010.jpg" >
+<!-- 		<img src="C:/_JSP/workspaceJDBC_s/pikachuMVC/src/main/webapp/news/20200512/img/20200512/img/20200512-UCardu20200511175010.jpg"> -->
+<!-- 		<img src="C:\_JSP\workspaceJDBC_s\pikachuMVC\src\main\webapp\news\20200512\img\20200512\img\20200512-UCardu20200511175010.jpg"> -->
+<%-- 		<img src='<c:url  value="/news/20200512/img/20200512-UCardu20200511175010.jpg"/>'> --%>
+<!-- 		<img src="20200512/img/20200512-UCardu20200511175010.jpg" > -->
 		<div class="site_footer"> <!--尾巴區塊-->
 			<div class="gotop">
 			   <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
