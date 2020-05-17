@@ -178,31 +178,31 @@
 								</div>
 								<hr />
 
-								<div class="bd-highlight" style="font-size: small;">
+								<div class="bd-highlight" style="font-size: small;" id="postArticle_fourmError">
 									發文看板
 									<!-- 發文看板選擇 -->
-									<select name="select_fourm">
+								</div>
+									<select name="select_fourm" id="postArticle_fourm">
 										<option value="1">信用卡</option>
 										<option value="2">美食</option>
 										<option value="3">感情</option>
 										<option value="4" SELECTED>請選擇</option>
 									</select>
-								</div>
 
-								<h1 class="fs-title">文章標題</h1>
-								<input type="text" name="article_title" placeholder="標題" />
+								<h1 class="fs-title" id="postArticle_titleError">文章標題</h1>
+								<input type="text" name="article_title" placeholder="標題"  id="postArticle_title"/>
 								<!-- 輸入內文 -->
-								<h1 class="fs-title">文章內文</h1>
+								<h1 class="fs-title" id="postArticle_contentError">文章內文</h1>
 								<p class="text">
 									<textarea name="text"
 										class="validate[required,length[6,300]] feedback-input"
-										id="article_content" placeholder="內文" style="height: 300px;"></textarea>
+										id="postArticle_content" placeholder="內文" style="height: 300px;"></textarea>
 								</p>
 
 								<!-- 上傳圖片的按鈕 -->
-								<h1 class="fs-title">文章照片</h1>
+								<h1 class="fs-title" id="inputImgError">文章照片</h1>
 								<div class="articleimage" style="padding-bottom: 5px;">
-									<input id="input-b6" name="imageFile" type="file" multiple />
+									<input id="inputImg" name="imageFile" type="file" multiple="multiple" />
 								</div>
 
 								<!-- 文章標籤選擇 標籤意思跟主題一樣-->
@@ -223,7 +223,7 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary btn-sm"
 										data-dismiss="modal">返回</button>
-									<button type="submit" class="btn btn-primary btn-sm">
+									<button type="button" class="btn btn-primary btn-sm" id="postArticleBtn">
 										送出</button>
 								</div>
 							</form>

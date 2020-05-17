@@ -144,12 +144,12 @@
                    <label class="labelall"><input id="shoppinproduce_quantity" name="qty" type="text" value="1" /></label> 
                    <label class="labelall"><input id="shoppinproduce_add" name="qty1" type="button" value="+" /></label>
 
-                   <label class="labelone"><Input type='submit' id="addShop" data-toggle="modal" data-target="#shoopingmodal"  value='放入購物車'> </label>
+                   <label class="labelone"><Input type='button' id="addShop" data-toggle="modal" data-target="#shoopingmodal"  value='放入購物車'  productId='${product_INFO.p_id}' > </label>
                   <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
               </FORM>
               <FORM  action="<c:url value='/shopping/addtrackproduct' />" method="POST" style="text-align:left">    
                   <!-- <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
-                  <label class="labelway" ><Input type='submit'  id="addTrack" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤清單'>
+                  <label class="labelway" ><Input type='button'  id="addTrack" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤清單'  productId='${product_INFO.p_id}'> 
                   </label> 
                  <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
                   <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->

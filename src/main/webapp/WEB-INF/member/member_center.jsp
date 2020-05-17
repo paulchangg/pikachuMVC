@@ -12,67 +12,72 @@
      <link rel="stylesheet" href="../css/bootstrap.min.css">
      <link href="../css/member_center.css" rel="stylesheet" type="text/css">
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-	 <link rel="stylesheet" href="../css/wickedcss.min.css">
-	<script src="../js/jquery-3.4.1.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-	<script src="../js/index_modal.js"></script> <!-- 捲動時固定瀏覽器在上方的js-->
-	<script src="../js/member_center.js"></script>   
+     <link rel="stylesheet" href="../css/wickedcss.min.css">
+     <script src="../js/jquery-3.4.1.js"></script>
+     <script src="../js/popper.min.js"></script>
+     <script src="../js/bootstrap.min.js"></script>
+     <script src="../js/index.js"></script><!-- 捲動時固定瀏覽器在上方的js-->
+     <script src="../js/member_center.js"></script>   
   </head>
-  <body>
-    <div class="container-fluid" style="height: 190px;">
-       <div class="row">
-          <div class="col-sm"> <!-- 左上角logo -->
-             <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-             <p style="font-size: small;">
-               快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-             </p>
-         </div>
-         <div class="row justify-content-around"> <!-- logo -->
-           <div class="col-sm">
-             <a href='<c:url value="/" />' >
-                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
-             </a>
-          </div>
-        </div>
-        <!-- 右上區塊 -->
-        <div class="col-sm">
-						<ul class="nav justify-content-end" style="font-size: 17px;">
-			   <li class="nav-item">
-				 <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
-			  </li>  
-			  <li class="nav-item">
-			 <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
-			  </li>  
-			 <li class="nav-item">
-			   <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
-				 <i class="fas fa-shopping-cart"></i>
-			   </a>
-			 </li>
-		   </ul>
-		  </div>
-		  </div>
-		  
-           <!-- 導覽列 -->
-      <div class="et-hero-tabs">
-      <!-- 要改放圖片的話再修正 -->
-        <!-- <img src="" style="height: 70px; width: 1367px;" /> -->
+   <body>
+  <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
 
-      <!-- 導覽列  超連結待補 -->
-         <div class="et-hero-tabs-container">
-           <a class="et-hero-tab" href="#aboutus">關於我們</a>
-           <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
-           <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-           <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-           <a class="et-hero-tab" href="#infoweb">資訊網</a>
-           <span class="et-hero-tab-slider"></span>
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
         </div>
       </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout" style="color: rgb(92, 41, 7);">會員登出</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-	  <img src="../images/比卡丘02.gif" class="pickuimggif">
-	 
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
 
-	  <!-- 中間區塊1 -->
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href="#aboutus">關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+
+
+    <img src="../images/比卡丘02.gif" class="pickuimggif">
+   
+
+     <!-- 中間區塊1 -->
 	  <img src="../images/會員中心.png" class="pickuimgthree">
 	  <div class="warp-center">
 
@@ -126,9 +131,9 @@
 					違反善良風俗的行為呦~</p>
 			</div>
 		</div>
-	   </div>
-   
-	   	<!-- 商城 -->
+     </div>
+     
+     	<!-- 商城 -->
 		<div class="containeree">
 			<p>   
 				<i class='bx bx-shopping-bag'></i><a href="" target="blank">訂單查詢</a><br>
@@ -189,19 +194,39 @@
 	  <img src="../images/交友配對.png" class="pickuimgfour">
 	  <img src="../images/比卡丘翻轉.gif"  class="pickuimggiftwo">
 	  
-	
-
-
-      <!-- 回到置頂------>
-       <div id="backtop" class="gotop">
-      <h5>
+	 
+    <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+      <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h5>
+      </h4>
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
       <br />
-      <button type="button" class="btn btn-secondary">To the top</button>
-      </div>
- 
-    </div>    
-    
- </body>
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+    </div>
+  </body>
 </html>

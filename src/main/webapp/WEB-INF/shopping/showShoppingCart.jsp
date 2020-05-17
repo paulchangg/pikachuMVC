@@ -197,10 +197,10 @@
                 </div>
             </div>
         </div>
-               <script src="/js/jquery-3.4.1.js"></script>
+               <script src="js/jquery-3.4.1.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/index.js"></script>
+<!--         <script src="../js/index.js"></script> -->
         <script src="js/shopping_cart.js"></script>
         <script type="text/javascript">
         function confirmDelete(n) {

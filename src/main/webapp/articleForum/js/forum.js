@@ -49,7 +49,7 @@ $(function(){
 
 // 發布新活動的上傳圖片
 $(document).ready(function() {
-    $("#input-b6").fileinput({
+    $("#inputImg").fileinput({
 		showClose:false,
 		showCaption:false,
 		showRemove: false,
@@ -59,6 +59,43 @@ $(document).ready(function() {
         maxFileCount: 10,
         mainClass: "input-group-lg"
     });
+    $('#postArticleBtn').click(function(){
+    	var img = $('#inputImg');
+    	var item = img[0].files;
+    	var size;
+    	
+    	try {
+    			size = item[0].size;
+    		}
+    		catch (e) {
+    		    size = 0;
+    		}
+    	
+    	$.ajax({
+			url: '/pikachuMVC/articleForum/checkData',
+			type: 'post',
+			data: { postArticle_fourm: $('#postArticle_fourm').val(),
+					postArticle_title: $('#postArticle_title').val(),
+					postArticle_content: $('#postArticle_content').val(),
+					imgSize: size
+					
+			},
+			dataType:"json",
+			success:function(response){
+				var flag = response.check ==="false" ? false : true;
+				
+				if(flag){
+					document.forms[0].submit();			
+				}else{
+					$('#postArticle_fourmError').html("發文看板&nbsp;&nbsp;&nbsp;&nbsp;<Font color='green' size='-3'>"+response.postArticle_fourm+"</Font>");
+					$('#postArticle_titleError').html("文章標題&nbsp;&nbsp;&nbsp;&nbsp;<Font color='green' size='-3'>"+response.postArticle_title+"</Font>")
+					$('#postArticle_contentError').html("文章內文&nbsp;&nbsp;&nbsp;&nbsp;<Font color='green' size='-3'>"+response.postArticle_content+"</Font>");
+					$('#inputImgError').html("文章照片&nbsp;&nbsp;&nbsp;&nbsp;<Font color='green' size='-3'>"+response.imgSize+"</Font>");
+				}
+			}
+
+		}); 	
+    })
 });
 
 // 修改頁面的上傳圖片

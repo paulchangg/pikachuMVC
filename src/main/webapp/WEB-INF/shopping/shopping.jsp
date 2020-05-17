@@ -44,7 +44,7 @@
             <a class="nav-link"  href="<c:url value='/shopping/listtrackproduct' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
                <i class="fas fa-shopping-cart"><span style="color:#FF5964">5</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
@@ -157,13 +157,13 @@
                <div class="col-3 input-group"><!--搜尋關鍵字id-->
                 <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()">
                   <div class="input-group-append">
-                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;">搜尋</button>
+                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;" onchange="b()">搜尋</button>
                  </div>
               </div>
               <div class="searchblock" id="searchblockone"><!--關鍵字顯示區塊.-->
-                   <li><i class='bx bx-search'></i><span>飲料餐劵</span></li>
-                   <li><i class='bx bx-search'></i><span>美食餐劵</span></li>
-                   <li><i class='bx bx-search'></i><span>碰碰餐劵</span></li>
+<!--                    <li><i class='bx bx-search'></i><span>飲料餐劵</span></li> -->
+<!--                    <li><i class='bx bx-search'></i><span>美食餐劵</span></li> -->
+<!--                    <li><i class='bx bx-search'></i><span>碰碰餐劵</span></li> -->
               </div>
           </div>
 
@@ -181,7 +181,7 @@
                          <Input type='hidden' name='qty' value='1'>
                            <Input type='hidden' name='productId' value='${entry.value.p_id}'>
                          <Input type='hidden' name='pageNo' value='${pageNo}'>
-                         <Input type='submit' class="btn btn-info test" data-toggle="modal" data-target="#shoopingmodal"  value='購買' id="buyBtn">
+                         <Input type='button' class="btn btn-info test buyBtn" data-toggle="modal" data-target="#shoopingmodal"  value='購買'  productId='${entry.value.p_id}' qty='1'>
                       </FORM>
                    </div>
                </div>
@@ -289,50 +289,28 @@
 <!--              	</div> -->
 <!--          	</div> -->
  </div>   
-    <script type="text/javascript">
-      function a() {
-        // SELECT標籤
-        var words = document.getElementById("shopping_keywords");
-        var xhr = new XMLHttpRequest();
-        xhr.open("Get", "queryProduct?q="+words.value, true);
-        xhr.send();
-        xhr.onreadystatechange = function() {
-          // 向伺服器提出的請求已經收到回應
-          if (xhr.readyState === 4) {
-            // 伺服器回應成功
-            if (xhr.status === 200) {
-              var responseData = xhr.responseText;
-              
-              cosole.log(JSON.parse(responseData));
-            }
-          }
-        }	
-        
-      }
-      
-      </script>
-    <script>
-      var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
-      var showbtn=document.getElementById("searchblockone");//取得隱藏區塊
-          inputBtn.addEventListener("input",function(){
+<!--     <script> -->
+//       var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
+//       var showbtn=document.getElementById("searchblockone");//取得隱藏區塊
+//           inputBtn.addEventListener("input",function(){
 
-            if(inputBtn.value==null || inputBtn.value =="")//如果輸入欄位為空值或空字串則隱藏表單
-            {
-              showbtn.style.display="none";
-            }
-            else{
-              showbtn.style.display="inline";
-            };
+//             if(inputBtn.value==null || inputBtn.value =="")//如果輸入欄位為空值或空字串則隱藏表單
+//             {
+//               showbtn.style.display="none";
+//             }
+//             else{
+//               showbtn.style.display="inline";
+//             };
             
            
-      });
+//       });
      
      
-   </script>
+<!--    </script> -->
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-   <script src="js/index.js"></script>
+<!--    <script src="../js/index.js"></script> -->
    <script src="js/shopping.js"></script>
   </body>
 </html>

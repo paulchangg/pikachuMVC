@@ -61,7 +61,8 @@ public class NewsServiceImpl implements NewsService {
 		return dao.getNewsByTitle(title);
 	}
 
-	@Scheduled(cron = "0 0 9-18/3 ? * MON-FRI")
+//	@Scheduled(cron = "0 0 9-18/3 ? * MON-FRI")
+	@Scheduled(cron = "0 0 8 * * ?")
 	@Override
 	public void newsCrawler() throws 
 	FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
@@ -120,7 +121,7 @@ public class NewsServiceImpl implements NewsService {
 			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();   //內容
 			String txtName = ("[" + today + "]" + newsTitle + ".txt").replaceAll("[\\/:*?><|\"]", "");
 //			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
-			String txtPath = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
 //			news.setContent("/content/"+txtName);  
 			news.setActTime(acttext);
 			news.setContent(txtPath+txtName);
