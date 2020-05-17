@@ -268,7 +268,7 @@
           </aside>
           <main style="padding-right: 10px;">
             <h1 style="padding-bottom: 40px;">各種優惠看這裡 </h1>
-            <button class="bt" style="padding: 1rem 2.5rem;"><a style="text-decoration:none; color: rgb(73, 5, 73);" href="#">前往資訊網</button></a>
+            <button class="bt" style="padding: 1rem 2.5rem;"><a style="text-decoration:none; color: rgb(73, 5, 73);" href='<c:url value="/news/lastestNews"/>'>前往資訊網</button></a>
           </main>
         </div>
       </div>
