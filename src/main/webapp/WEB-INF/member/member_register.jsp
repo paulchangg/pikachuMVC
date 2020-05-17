@@ -7,57 +7,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>成為比卡丘會員</title>
-<link
-rel="stylesheet"
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-crossorigin="anonymous"/>
+<link rel="stylesheet"   href='<c:url value="../css/bootstrap.min.css" />'/>               
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href='<c:url value="../css/member_register.css" />'/>
 <link rel="stylesheet" href='<c:url value="../css/wickedcss.min.css" />'/>
 </head>
 <body>
-	<div class="container-fluid" style="height: 190px;">
-		<div class="row">
-		   <div class="col-sm"> <!-- 左上角logo -->
-			  <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-			  <p style="font-size: small;">
-				快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-			  </p>
-		  </div>
-		  <div class="row justify-content-around"> <!-- logo -->
-			<div class="col-sm">
-			  <a href='<c:url value="/" />'>
-				 <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
-			  </a>
-		   </div>
-		 </div>
-		 <!-- 右上區塊 -->
-		 <div class="col-sm">
-			 <ul class="nav justify-content-end" style="font-size: 17px;">
-				<li class="nav-item">
-				
-			   </li>   
-			  <li class="nav-item">
+ <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
 
-			  </li>
-			</ul>
-		   </div>
-		</div>
-		 <div class="et-hero-tabs">
-	   <!-- 導覽列  超連結待補 -->
-		  <div class="et-hero-tabs-container">
-			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
-           <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
-           <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-           <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-           <a class="et-hero-tab" href="#infoweb">資訊網</a>
-			<span class="et-hero-tab-slider"></span>
-		 </div>
-		 </div>
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
+        </div>
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+      </div>
+    </div>
+  </div>
 
-	   <div class="floater toparea">
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
+
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+
+
+    <div class="floater toparea">
 			您現在的身分為訪客,已有會員帳號了嗎? <a href="member_login" style="color: #FF5964; font-size: 25px;">快來登入<i class='bx bx-happy-alt'></i> </a>
 	 </div> 
 	  <!---------------------表單區塊-------------------------------->
@@ -83,10 +81,10 @@ crossorigin="anonymous"/>
 					          <td> 
 								  <input class="validate[required]"
 								  type="password" name="password" id="register_password"
-						          value="" placeholder="組成密碼長度需8位數字以上" 
+						          value="" placeholder="密碼長度需8位數字以上" 
 								  autocomplete="off">
 								  <input type="checkbox" onclick="myFunction()">顯示<br>
-								  <span style="font-size: 15px; color: red;">8碼以上的英文大小寫+數字特殊符號@#</span><br>
+								  <span style="font-size: 15px; color: red;">8碼以上的英文大小寫+數字特殊符號@#組成</span><br>
 								  <font color="red" size="-1">
 						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
 					         </td>
@@ -140,25 +138,46 @@ crossorigin="anonymous"/>
 			<img src="../images/比卡丘黃色沒電波.png" class="hahapickhubig">
 		    <img src="../images/加入會員1.png" class="imageconvtwo">
 			<img src="../images/比卡丘黃色沒電波翻轉.png" class="hahapickhu">
-	           
-      <!-- 尾巴---------------------------------------->
-	  <div id="backtop" class="gotop">
-		<h5>
-		   © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-		</h5>
-		<br />
-		 <button type="button" class="btn btn-secondary">To the top</button>
-	 </div>
-</div>
+
+	
+    <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+      
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+     
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+    </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-crossorigin="anonymous"></script>
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/popper.min.js"></script>
+ <script src="../js/bootstrap.min.js"></script>
 <script src="../js/meber_register2.js"></script>
 <script src="../js/member_register.js"></script>
 </body>
