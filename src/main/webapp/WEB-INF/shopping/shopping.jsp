@@ -44,7 +44,7 @@
             <a class="nav-link"  href="<c:url value='/shopping/listtrackproduct' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
                <i class="fas fa-shopping-cart"><span style="color:#FF5964">5</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
@@ -181,7 +181,7 @@
                          <Input type='hidden' name='qty' value='1'>
                            <Input type='hidden' name='productId' value='${entry.value.p_id}'>
                          <Input type='hidden' name='pageNo' value='${pageNo}'>
-                         <Input type='submit' class="btn btn-info test" data-toggle="modal" data-target="#shoopingmodal"  value='購買' id="buyBtn">
+                         <Input type='button' class="btn btn-info test buyBtn" data-toggle="modal" data-target="#shoopingmodal"  value='購買'  productId='${entry.value.p_id}' qty='1'>
                       </FORM>
                    </div>
                </div>
@@ -289,28 +289,6 @@
 <!--              	</div> -->
 <!--          	</div> -->
  </div>   
-    <script type="text/javascript">
-      function a() {
-        // SELECT標籤
-        var words = document.getElementById("shopping_keywords");
-        var xhr = new XMLHttpRequest();
-        xhr.open("Get", "queryProduct?q="+words.value, true);
-        xhr.send();
-        xhr.onreadystatechange = function() {
-          // 向伺服器提出的請求已經收到回應
-          if (xhr.readyState === 4) {
-            // 伺服器回應成功
-            if (xhr.status === 200) {
-              var responseData = xhr.responseText;
-              
-              cosole.log(JSON.parse(responseData));
-            }
-          }
-        }	
-        
-      }
-      
-      </script>
     <script>
       var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
       var showbtn=document.getElementById("searchblockone");//取得隱藏區塊

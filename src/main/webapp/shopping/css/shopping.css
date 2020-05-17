@@ -426,7 +426,7 @@ margin: auto;
 }
 
 /*購買按鈕樣式*/
-#buyBtn {
+.buyBtn {
   border: 0;
   background-color: #35A7FF;
   color: #fff;
@@ -436,7 +436,7 @@ margin: auto;
   margin-top: 5%;
 }
 
-#buyBtn:hover {
+.buyBtn:hover {
   color: #35A7FF;
   background-color: #fff;
   border: 2px #35A7FF solid;

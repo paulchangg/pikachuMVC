@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -32,11 +33,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.Gson;
 import com.pikachuMVC.model.ArticleBean;
-import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.ArticleResponserBean;
+import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.MemberService;
 
@@ -383,5 +386,75 @@ public class ArticleCotroller {
 	@GetMapping("/article_board")
 	public String article_board() {
 		return "articleForum/article_board";
+	}
+	
+	@PostMapping("/checkData")
+	@ResponseBody
+	public void check(HttpServletRequest request,HttpSession session,HttpServletResponse response) {
+		String postArticle_fourm = request.getParameter("postArticle_fourm");
+		String postArticle_title = request.getParameter("postArticle_title");
+		String postArticle_content = request.getParameter("postArticle_content");
+		String img = request.getParameter("imgSize");
+		int imgSize = 0;
+		Boolean check = true;
+		Map<String,String> errorMsg = new HashMap<String, String>();
+		
+		
+		
+		
+		
+		try {
+			imgSize = Integer.parseInt(img.trim());
+		} catch (NumberFormatException e) {
+			imgSize = 1;
+		}
+		
+		
+		
+		
+		
+		try(
+				PrintWriter out = response.getWriter();
+		){		
+			if ("4".equals(postArticle_fourm)) {
+				errorMsg.put("postArticle_fourm", "請選擇看板");
+				check = false;
+			}else{
+				errorMsg.put("postArticle_fourm", "");
+				
+			}
+			
+			if (postArticle_title == null || postArticle_title.trim().length() < 6) {
+				errorMsg.put("postArticle_title", "標題需5個字以上");
+				check = false;
+			}else{
+				errorMsg.put("postArticle_title", "");
+				
+			}
+			
+			if (postArticle_content == null || postArticle_content.trim().length() < 11) {
+				errorMsg.put("postArticle_content", "內文需10個字以上");
+				check = false;
+			}else{
+				errorMsg.put("postArticle_content", "");
+				
+			}
+			
+			if (imgSize == 0 ) {
+				errorMsg.put("imgSize", "內文請附上一張圖");
+				check = false;
+			}else{
+				errorMsg.put("imgSize", "");
+			}
+			
+			errorMsg.put("check", ""+check);
+			
+			response.setContentType("application/json; charset=utf-8");
+			String errorMessage = new Gson().toJson(errorMsg);
+			out.write(errorMessage);
+			out.flush();
+		}catch(Exception e) {
+			
+		}
 	}
 }
