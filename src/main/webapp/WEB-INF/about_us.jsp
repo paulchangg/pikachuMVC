@@ -26,7 +26,6 @@ prefix="c"%>
       style="
         height: 160px;
         background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);
-        width: 1300px;
       "
     >
       <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->

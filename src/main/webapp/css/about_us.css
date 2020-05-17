@@ -41,6 +41,7 @@ body {
 .et-hero-tabs-container--top {
   position: fixed;
   top: 0;
+  width: 92%;
 }
 
 /* 導覽列的格子 */
