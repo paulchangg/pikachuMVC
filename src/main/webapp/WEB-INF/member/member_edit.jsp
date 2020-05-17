@@ -11,64 +11,76 @@
 	 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
      <link rel="stylesheet" href="../css/wickedcss.min.css">
-     <script src="../js/index_modal.js"></script> <!-- 捲動時固定瀏覽器在上方的js-->
-    <script> function updateMb(){
-	if (confirm("確定更新會員資料 ? ") ) {
-		document.forms[1].action="<c:url value='edit.do' />";
-		document.forms[1].method="POST";
-		document.forms[1].submit();
-		return;
-	} else {
-		return;
-	}
-    }
-    </script>
-</head>
-<div class="container-fluid" style="height: 190px;">
-       <div class="row">
-          <div class="col-sm"> <!-- 左上角logo -->
-             <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-             <p style="font-size: small;">
-               快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-             </p>
-         </div>
-         <div class="row justify-content-around"> <!-- logo -->
-           <div class="col-sm">
-             <a href='<c:url value="/" />'>
-                <img src="../images/logo2.png" alt="logo" style="height: 230px;" />
-             </a>
-          </div>
-        </div>
-        <!-- 右上區塊 -->
+     <script src="../js/index.js"></script><!-- 捲動時固定瀏覽器在上方的js-->
+  <script> function updateMb(){
+if (confirm("確定更新會員資料 ? ") ) {
+  document.forms[1].action="<c:url value='edit.do' />";
+  document.forms[1].method="POST";
+  document.forms[1].submit();
+  return;
+} else {
+  return;
+}
+  }
+  </script>
+  </head>
+
+  <body>
+  <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+    <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
+
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
         <div class="col-sm">
-					<ul class="nav justify-content-end" style="font-size: 17px;">
-			   <li class="nav-item">
-				<a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
-			  </li>  
-			  <li class="nav-item">
-                 <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare"><i class='bx bx-user-circle' ></i>會員中心</a>
-			  </li>  
-			 <li class="nav-item">
-			  <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart"> 	 <i class="fas fa-shopping-cart"></i> </a>
-			 </li>
-		   </ul>
-		  </div>
-	   </div>
-		  
-           <!-- 導覽列 -->
-      <div class="et-hero-tabs">
-      <!-- 導覽列  超連結待補 -->
-         <div class="et-hero-tabs-container">
-			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
-			<a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
-			<a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-			<a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-			<a class="et-hero-tab" href="#infoweb">資訊網</a>
-           <span class="et-hero-tab-slider"></span>
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
         </div>
       </div>
-   
-	  <!-- 會員修改框圖片 -->
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout" style="color: rgb(92, 41, 7);">會員登出</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
+
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+
+
+    <!-- 會員修改框圖片 -->
 	  <div><img src="../images/個人資料.png" class="imageone"></div>
 
 	     <!--顯示資料庫帳號-->
@@ -77,9 +89,9 @@
 			   會員帳號ID:<span id="membereedit_id">${LoginOK.m_id}</span>
 			</p>
 		 </div>
-	 
-	  <!--動畫框限+會員資料+密碼修改-->
-      <div class="col-5 aniarea">
+
+	 <!--動畫框限+會員資料+密碼修改-->
+   <div class="col-5 aniarea">
 		<div class="photo" id="membereedit_img"><!--顯示會員圖像-->
 		  <c:choose>
 			  <c:when test="${empty LoginOK.m_img}">
@@ -190,31 +202,50 @@
 			  <p> <input type="submit" value="變更密碼" id="membereedit_changeBtn">
 		  </form>
 	  </div>
-	 </div>
-
-	   <!--返回區塊-->
+   </div>
+   
+     <!--返回區塊-->
 	   <div class="footerbutton">
 		  <a href="member_center"><input type="button" value="返回" id="Button2"></a>
 	  </div>
 	  
-	
-
-      <!-- 回到置頂------>
-       <div id="backtop" class="gotop">
-         <h5>
-            © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-         </h5>
-         <br />
-          <button type="button" class="btn btn-secondary">To the top</button>
-      </div>
- 
-</div>    
- 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-	crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-	crossorigin="anonymous"></script>
-</body>
+	  
+	 
+    <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+      <h4>
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      </h4>
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+    </div>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
 </html>
