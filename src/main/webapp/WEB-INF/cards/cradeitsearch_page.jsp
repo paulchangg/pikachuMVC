@@ -18,59 +18,64 @@
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script><!--要放前面-->
    
   </head>
-  <body>
-    <!-- 上方標題logo列---超連結待補---->
-    <div class="container-fluid" style="height: 190px;">
-       <div class="row">
-          <div class="col-sm">
-             <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-             <p style="font-size: small;">
-               快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-             </p>
-         </div>
-         <div class="row justify-content-around">
-           <div class="col-sm">
-             <a href="">
-                <img src="../cards/image/重新縮圖.png" alt="logo" style="height: 230px;" />
-             </a>
-          </div>
-        </div>
-        <!-- 右上區塊 -->
+ <body>
+  <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
         <div class="col-sm">
-           <ul class="nav justify-content-end" style="font-size: 17px;">
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="memberlogin">會員登出</a>
-             </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#" id="cardcompare"><i class="fa fa-user-circle" id="memberlogin"></i>會員中心</a>
-            </li>
-            <li class="nav-item">
-                   <a class="nav-link" href="#" id="qanda"> <i class="fa fa-question-circle" id="qanda"></i>Q & A</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="shoppingcart">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </li>
-          </ul>
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
         </div>
-       </div>
-  
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+         <li class="nav-item">
+              <c:choose>
+          <c:when test="${empty LoginOK}">      
+              <a class="nav-link" href='<c:url value="/member/member_login" />' id="memberlogin" style="color: rgb(92, 41, 7);">會員登入</a>
+              </c:when>
+              <c:otherwise>               
+            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a>                
+          </c:otherwise>
+        </c:choose>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-      <div class="et-hero-tabs">
-      <!-- 要改放圖片的話再修正 -->
-        <img src="" style="height: 70px; width: 1367px;" />
+    <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
 
-      <!-- 導覽列  超連結待補 -->
-         <div class="et-hero-tabs-container">
-           <a class="et-hero-tab" href="#aboutus">關於我們</a>
-           <a class="et-hero-tab" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡比較</a>
-           <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-           <a class="et-hero-tab" href="#mall">商城</a>
-           <a class="et-hero-tab" href="#infoweb">資訊網</a>
-           <span class="et-hero-tab-slider"></span>
-        </div>
-     </div>
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
+
 
 
        <!-- 輪播圖  -->
@@ -83,9 +88,6 @@
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
-         <!-- Add button -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
    </div>
 
 
@@ -373,10 +375,10 @@
  				
                <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                      <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                      <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
+                    <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
                       <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                      <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                   </svg>
 
                  
@@ -419,9 +421,9 @@
                 <div class="box"> <!--特效區塊需要當外層-->
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                      <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                     <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                     <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                     <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                  </svg>
                   <div class="onecard"  name="${entry.value.bank}">
                      <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -456,10 +458,10 @@
                <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
              <div class="box"> <!--特效區塊需要當外層-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                   <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                   <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                   <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                   <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+                  <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
                 </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -494,10 +496,10 @@
             <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+          <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -532,10 +534,10 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+        <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -570,10 +572,10 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+              <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -608,10 +610,10 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+        <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -646,10 +648,10 @@
           <c:forEach varStatus="stVar"  var="entry"  items="${card_m}" >
           <div class="box"> <!--特效區塊需要當外層-->
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
-                <line class="left" x1="0" y1="400" x2="0" y2="-1300"/>
-                <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                <line class="right" x1="1252" y1="0" x2="1252" y2="160"/>
+          <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
+                      <line class="left" x1="0" y1="160" x2="0" y2="-1300"/>
+                      <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
+                      <line class="right" x1="1271" y1="0" x2="1271" y2="160"/>
             </svg>
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -688,20 +690,43 @@
                   </div>
           </div>
        </main>
-
-    <!-- 回到置頂------>
-       <div id="backtop" class="gotop">
-      <h5>
+	  
+	 
+    <!-- 底部 ------>
+    <div id="backtop" class="gotop">
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h5>
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
       <br />
-      <button type="button" class="btn btn-secondary">To the top</button>
-      </div>
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
     </div>
- <script src="js/jquery-3.4.1.js"></script>
- <script src="js/popper.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="js/cradeitsearch_page.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/cradeitsearch_page.js"></script>
  <script>
 
 var checkValue = document.getElementsByName("bank");//上網查使用checkbox用這個方式取得
@@ -745,33 +770,35 @@ function show(){
   cntcard.innerText =cnt + "項搜尋結果";
   }
 
-</script>
- <script>
-    var swiper = new Swiper('.swiper-container', {
-      effect: 'cube',  /*效果*/
-      loop:true,   /*是否循環*/
-      autoplay:{
-        disableOnInteraction:false, /*false為碰到就會自動切換不會停止*/
-      },
-      
-      cubeEffect: {
-        shadow: true,  
-        slideShadows: true, /*當滑動時顯示陰影*/
-        shadowOffset: 20,   /*陰影偏移*/
-        shadowScale: 0.94,  /*陰影比例*/
-        
-      },
-      pagination: {
-        el: '#swiper_Name .swiper-pagination', //分頁物件
-      },
-   
-      navigation: {
-                nextEl: '#swiper_Name .swiper-button-next',
-                prevEl: '#swiper_Name .swiper-button-prev',
-            },
 
-    });
-</script>
+  var swiper = new Swiper('.swiper-container', {
+    effect: 'cube',  /*效果*/
+    direction :'vertical',
+    grabCursor: true,
+    loop:true,   /*是否循環*/
+    autoplay:{
+      disableOnInteraction:false, /*false為碰到就會自動切換不會停止*/
+    },
+
+    
+    cubeEffect: {
+      shadow: true,  
+      slideShadows: true, /*當滑動時顯示陰影*/
+      shadowOffset: 20,   /*陰影偏移*/
+      shadowScale: 0.94,  /*投影缩放比例*/
+      speed:6000,
+      autoplay:600,
+
+      
+    },
+    pagination: {
+      el: '#swiper_Name .swiper-pagination', //分頁物件
+    },
  
+
+  });
+</script>
 </body> 
 </html>    
+
+
