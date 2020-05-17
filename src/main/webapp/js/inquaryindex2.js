@@ -18,7 +18,6 @@ class StickyNavigation {
 
   onScroll() {
     this.checkTabContainerPosition();
-    // this.findCurrentTabSelector();
   }
 
   // 固定延展功能
@@ -49,12 +48,11 @@ function doFirst() {
 
     $(window)
       .scroll(function () {
-        if ($(this).scrollTop() > 50) {
-          $("#backtop").fadeIn(100);
+        if ($(this).scrollTop() > 0) {
+          $("#backtop").fadeIn(222);
         } else {
           $("#backtop").stop().fadeOut(222);
         }
       })
       .scroll();
-  });
-}
+  });}
