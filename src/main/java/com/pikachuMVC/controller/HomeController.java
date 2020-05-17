@@ -68,6 +68,7 @@ public class HomeController {
 	private List<ProductBean> productList = new ArrayList<ProductBean>();
 	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 	private List<FoumBean> forumList = new ArrayList<FoumBean>();
+	
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
