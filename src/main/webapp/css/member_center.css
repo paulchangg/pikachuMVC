@@ -90,7 +90,10 @@ body {
 }
 
 #back_bt{
-  float: right;
+  position: fixed;
+  left: 1430px;
+  bottom: 30%;
+  z-index: 99;
 }
 
 
