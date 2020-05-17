@@ -392,12 +392,12 @@
                                <div>年費</div>
                            </div>
                             <div class="col-4 creditinner"><!--國外消費-->   
-                                <div><span >${entry.value.fcb}</span></div>
+                                <div><span >${entry.value.fcb}%</span></div>
                                 <div>國外消費現金回饋</div>
                                 <div></div>
                            </div> 
                             <div class="col-4 creditinner"><!--國內消費--> 
-                               <div><span >${entry.value.dcb}</span></div>
+                               <div><span >${entry.value.dcb}%</span></div>
                                <div>國內消費現金回饋</div>
                                <div></div>
                            </div>
@@ -549,7 +549,7 @@
                                <div>數位通路回饋上限</div>
                            </div>
                             <div class="col-4 creditinner"><!--國外消費-->   
-                                <div><span >${entry.value.fcb}</span></div>
+                                <div><span >${entry.value.fcb}%</span></div>
                                 <div>國外消費現金回饋</div>
                                 <div></div>
                            </div> 
@@ -663,12 +663,12 @@
                                <div>年費</div>
                            </div>
                             <div class="col-4 creditinner"><!--國外消費-->   
-                                <div><span >${entry.value.fcb}</span></div>
+                                <div><span >${entry.value.fcb}%</span></div>
                                 <div>國外消費現金回饋</div>
                                 <div></div>
                            </div> 
                             <div class="col-4 creditinner"><!--國內消費--> 
-                               <div><span >${entry.value.dcb}</span></div>
+                               <div><span >${entry.value.dcb}%</span></div>
                                <div>國內消費現金回饋</div>
                                <div></div>
                            </div>
