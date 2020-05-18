@@ -43,9 +43,7 @@ function a() {
 
 			for (i = 0; i < search; i++) {
 
-				query = query + "<li><i class='bx bx-search' onclick='c(" + i
-						+ ")'  id='search" + i + "'>" + response[i]
-						+ "</i></li>";
+				query = query + "<li onclick='c()'><i class='bx bx-search' onclick='c(" + i +")'  id='search" + i + "'>" + response[i]+ "</i></li>";
 			}
 
 			$('#searchblockone').html(query);
@@ -60,7 +58,6 @@ function c(e) {
 }
 
 function d(){
-	console.log('222');
 	$.ajax({
 		url : '/pikachuMVC/shopping/searchProductAjax',
 		type : 'post',

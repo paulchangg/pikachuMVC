@@ -19,4 +19,6 @@ public interface OrderDao {
 	long getRecordCounts(String m_id);
 	
 	public int getTotalPages(String m_id);
+	
+	List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo,long days);
 }

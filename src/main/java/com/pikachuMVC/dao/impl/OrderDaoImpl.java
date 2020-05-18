@@ -75,10 +75,23 @@ public class OrderDaoImpl implements OrderDao{
 	public int getTotalPages(String m_id) {
 		// 注意下一列敘述的每一個型態轉換
 		totalPages = (int) (Math.ceil(getRecordCounts(m_id) / (double) recordsPerPage));
-		if(totalPages == 0) {
-			totalPages = 1;
-		}
+
 		return totalPages;
+	}
+
+	@Override
+	public List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo, long days) {
+		List<OrdersBean> list = null;
+		Session session = factory.getCurrentSession();
+		int startRecordNo = (pageNo - 1) * recordsPerPage;
+		String hql = "FROM OrdersBean ob WHERE ob.m_id = :mid";
+		list = session.createQuery(hql)
+						.setParameter("mid", memberId)
+						.setFirstResult(startRecordNo)
+	                    .setMaxResults(recordsPerPage)
+						.getResultList();
+		return list;
+		
 	}
 
 }

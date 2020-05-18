@@ -4,11 +4,14 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.Map;
- 
+
 import javax.imageio.ImageIO;
- 
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -68,4 +71,24 @@ public class QRcode {
 		}
 		System.out.println("\n\nYou have successfully created QR Code.");
 	}
+	
+	public static long parseTimeString2Date(String timeString) {
+		if ((timeString == null) || (timeString.equals(""))) {
+			return 0;
+		}
+		Date date2 = null;
+		Date date = new Date();
+		long day = 0;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			date2 = new Date(dateFormat.parse(timeString).getTime());
+			day = (date.getTime()-date2.getTime())/(24*60*60*1000)>0 ? (date.getTime()-date2.getTime())/(24*60*60*1000):
+				(date2.getTime()-date.getTime())/(24*60*60*1000);
+			
+		} catch (Exception e) {
+			 e.printStackTrace();
+		}
+		return day;
+	}
+	
 }
