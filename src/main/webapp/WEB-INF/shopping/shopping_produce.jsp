@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
      <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link href="css/shopping_produce.css" rel="stylesheet" type="text/css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/wickedcss.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="css/shopping_produce.css" rel="stylesheet" type="text/css">
     <title>商品資訊</title>
 </head>
  <body>
@@ -177,9 +177,7 @@
 
     <!-- 底部 ------>
     <div id="backtop" class="gotop">
-      <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
       <div class="footer">
         <ul> 
           <li>

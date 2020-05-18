@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>優惠資訊網</title>
 <link rel="stylesheet" type="text/css" href="css/slider-pro.css" media="screen"/>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -42,14 +42,21 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout" style="color: rgb(92, 41, 7);">會員登出</a>
+             <c:choose>
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
+				</c:when>
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
+				</c:otherwise>
+			 </c:choose>
           </li>
           <li class="nav-item">
             <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
-              <i class="fas fa-shopping-cart"></i>
+          <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>
@@ -67,7 +74,7 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -107,7 +114,7 @@
 		<div class="row">
 		  <c:forEach varStatus="stVar"  var="entry"  items="${newslist}" >
 		   <div class="col-6 downarticle">
-		       <a href='<c:url  value="/news/NewsInfo?id=${entry.newsId}"/>' id="ahrefstr"><img src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${entry.newsId}" class="articleimg"><!--以第一個為例-->
+		       <a href='<c:url  value="/news/NewsInfo?id=${entry.newsId}"/>'  target="_blank" id="ahrefstr"><img src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${entry.newsId}" class="articleimg"><!--以第一個為例-->
 				 <h5><span id="strtitle">${entry.title}</span></h5>
 			  </a>
 		       <p><span id="strcontext">${entry.intro}</span>...</p>

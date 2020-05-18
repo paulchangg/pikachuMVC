@@ -225,16 +225,19 @@ body {
 
 .articleareatwo{
   justify-content: center;
+
 }
 
 .downarticle{
   font-size: 18px;
   border-radius: 10px;
   margin-top:1%;
+  text-align:center;
 }
 /*文章圖片*/
 .articleimg{
  width:20rem;
  height:15rem;
+ margin:auto;
 }
 
