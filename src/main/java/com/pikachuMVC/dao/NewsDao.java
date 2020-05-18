@@ -11,4 +11,5 @@ public interface NewsDao {
 	void addNewsBean(NewsBean news);
 	public List<NewsBean> getLastestNews();
 	public List<NewsBean> getLastestNews2();
+	public boolean titleExists(String title);
 }

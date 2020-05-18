@@ -74,38 +74,47 @@ public class CardController {
 
 		case "main":
 			CardMap = service.getRandomBean();
+			
 			break;
 
 		case "cb":
 			CardMap = service.getCbPageCards();
+			request.setAttribute("qt_c", "現金回饋");
 			break;
 
 		case "ml":
 			CardMap = service.getMlPageCards();
+			request.setAttribute("qt_c", "哩程回饋");
 			break;
-
+			
 		case "oil":
 			CardMap = service.getOilPageCards();
+			request.setAttribute("qt_c", "加油卡優惠");
 			break;
 
 		case "mv":
 			CardMap = service.getMvPageCards();
+			request.setAttribute("qt_c", "電影優惠");
 			break;
 
 		case "os":
 			CardMap = service.getOsPageCards();
+			request.setAttribute("qt_c", "網路購物");
 			break;
 
 		case "zi":
 			CardMap = service.getZiPageCards();
+			request.setAttribute("qt_c", "分期零利率優惠");
 			break;
 
 		case "fg":
 			CardMap = service.getFgPageCards();
+			request.setAttribute("qt_c", "信用卡首刷禮");
 			break;
 
 		case "all":
 			CardMap = service.getAllCards();
+			request.setAttribute("qt_c", "全部");
 			break;
 
 		default:

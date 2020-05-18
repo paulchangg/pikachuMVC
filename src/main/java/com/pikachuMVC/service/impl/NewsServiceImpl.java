@@ -86,7 +86,17 @@ public class NewsServiceImpl implements NewsService {
 		HtmlPage page = webClient.getPage(url);
 		webClient.waitForBackgroundJavaScript(5 * 1000); // 等待javascript後台處理時間(5s)...也是5~10秒差不多
 		Document doc = Jsoup.parse(page.asXml());
-
+		//抓今天時間
+		SimpleDateFormat sdfOfFolder = new SimpleDateFormat("yyyyMMdd");
+		Date date = new Date();
+		String today = sdfOfFolder.format(date);  //轉變今天日期的格式
+		String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+		File txtFolder = new File(txtPath);
+		
+		if(!txtFolder.exists()) {
+		txtFolder.mkdirs();
+		}
+		
 		for (Element newsLink : doc.select("a[href][class*='img_div news_list_img']")) {     //取得dom 陣列
 			//[class*='img_div news_list_img']
 			NewsBean news = new NewsBean();
@@ -99,12 +109,14 @@ public class NewsServiceImpl implements NewsService {
 			// 新聞標題
 			String newsTitle = newsLink.attr("title");   //該dom的title屬性
 			System.out.println(newsTitle);
-			news.setTitle(newsTitle);
-			//抓今天時間
+			if(dao.titleExists(newsTitle)){
+				continue;
+			}else {
+				news.setTitle(newsTitle);	
+			}
+			
+			
 //			SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-			SimpleDateFormat sdfOfFolder = new SimpleDateFormat("yyyyMMdd");
-			Date date = new Date();
-			String today = sdfOfFolder.format(date);  //轉變今天日期的格式
 			news.setCreateDate(date);
 			news.setFolder("/"+today);
 			// 抓取內文
@@ -121,7 +133,6 @@ public class NewsServiceImpl implements NewsService {
 			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();   //內容
 			String txtName = ("[" + today + "]" + newsTitle + ".txt").replaceAll("[\\/:*?><|\"]", "");
 //			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
-			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
 //			news.setContent("/content/"+txtName);  
 			news.setActTime(acttext);
 			news.setContent(txtPath+txtName);
@@ -132,19 +143,13 @@ public class NewsServiceImpl implements NewsService {
 			FileOutputStream file = null;
 
 			try {
-				File txtFolder = new File(txtPath);
+				
 				File txt = new File(txtPath + txtName);
-				if (!txt.exists() || txt.length() == 0) {   //沒有文字檔 或有檔沒內容
-					try {
-						txtFolder.mkdirs();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+				if (!txt.exists() || txt.length() == 0) {   //沒有文字檔 或有檔沒內容					
 					OutputStreamWriter otTxt = new OutputStreamWriter(new FileOutputStream(txt), "UTF-8");
 					otTxt.write(content);
 					otTxt.flush();
 					otTxt.close();
-					
 				} else {
 					continue;
 				}
