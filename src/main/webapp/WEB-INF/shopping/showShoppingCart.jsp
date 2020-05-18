@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/wickedcss.min.css"/>
+  <link rel="stylesheet" href="css/shopping_cart.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 </head>
@@ -52,15 +53,11 @@
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
              <c:choose>
-				<c:when test="${empty LoginOK}">								
-					<a href="<c:url value="/member/member_login"/>"> 
-						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-					</a>								
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
-				<c:otherwise>								
-					<a href="<c:url value="/member/member_logout"/>"> 
-					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-					</a>								
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
 			 </c:choose>
           </li>
@@ -200,7 +197,7 @@
                <script src="js/jquery-3.4.1.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-<!--         <script src="../js/index.js"></script> -->
+        <script src="../js/index.js"></script>
         <script src="js/shopping_cart.js"></script>
         <script type="text/javascript">
         function confirmDelete(n) {

@@ -31,4 +31,6 @@ public interface OrderService {
 	long getRecordCounts(String m_id);
 
 	int getTotalPages(String m_id);
+	
+	List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo,long days);
 }

@@ -46,6 +46,8 @@ import com.pikachuMVC.model.ShoppingCart;
 import com.pikachuMVC.service.OrderService;
 import com.pikachuMVC.service.ProductService;
 
+import init.QRcode;
+
 @Controller
 @RequestMapping("/shopping")
 public class ShoppingController {
@@ -367,7 +369,7 @@ public ShoppingController() {}
 	}
 	
 	@GetMapping("/orderList")
-	public String orderList(HttpServletRequest request, Model model, HttpSession session){
+	public String orderList(HttpServletRequest request, HttpSession session){
 		String pageNoStr = request.getParameter("pageNo");
 		
 		if( pageNoStr == null ) {
@@ -566,7 +568,6 @@ public ShoppingController() {}
 		int productId          = Integer.parseInt(productIdStr.trim());
 		
 
-
 		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
 		ProductBean bean = productMap.get(productId);
 		
@@ -615,6 +616,30 @@ public ShoppingController() {}
 	@GetMapping("/ajaxSearch")
 	public String ajaxSearch() {
 		return "shopping/shopping";
+	}
+	
+	@PostMapping("/orderList/{orderDay}")
+	public String postOrderList(HttpServletRequest request, HttpSession session,@PathVariable long orderDay){
+		String pageNoStr = request.getParameter("pageNo");
+		
+		if( pageNoStr == null ) {
+			pageNo = 1;
+		}else {
+			try {
+				pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) {
+				pageNo = 1;
+			}
+		}
+		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		String m_id = mb.getM_id();
+		
+		List<OrdersBean> memberOrders = orderService.getMemberOrders(mb.getM_id(),pageNo);
+		session.setAttribute("memberOrders", memberOrders);
+		session.setAttribute("totalPages", orderService.getTotalPages(m_id));
+		session.setAttribute("pageNo", pageNo);
+		return "/shopping/orderQuery";
 	}
 
 }

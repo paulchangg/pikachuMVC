@@ -38,7 +38,14 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_login" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
+             <c:choose>
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
+				</c:when>
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
+				</c:otherwise>
+			 </c:choose>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
@@ -291,7 +298,7 @@
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-<!--    <script src="../js/index.js"></script> -->
+   <script src="../js/index.js"></script>
    <script src="js/shopping.js"></script>
   </body>
 </html>
