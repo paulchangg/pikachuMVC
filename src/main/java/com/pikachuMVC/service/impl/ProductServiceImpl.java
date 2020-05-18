@@ -2,6 +2,7 @@ package com.pikachuMVC.service.impl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -113,6 +114,14 @@ public class ProductServiceImpl implements Serializable, ProductService {
 	public void deleteTrack(String m_id, int p_id) {
 		dao.deleteTrack(m_id, p_id);
 		return;
+	}
+
+	@Override
+	@Transactional
+	public Map<Integer, ProductBean> getSearchProducts(String p_name) {
+		Map<Integer, ProductBean> list = new HashMap<Integer, ProductBean>(); 
+		list = dao.getSearchProducts(p_name);
+		return list;
 	}
 
 }

@@ -7,9 +7,9 @@ $(document).ready(function(){
 			data: { productId: $(this).attr("productId"),
 					qty: $('#shoppinproduce_quantity').val()
 			},
-			dataType: "html",
+			dataType: "text",
 			success:function(response){
-				console.log("55");
+				$('#shoppingCartItem').html(''+response);
 			}
 		});
     })

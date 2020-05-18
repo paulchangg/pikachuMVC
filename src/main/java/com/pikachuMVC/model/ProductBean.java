@@ -17,6 +17,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
+
 
 @Entity
 @Table(name = "product")
@@ -28,11 +30,14 @@ public class ProductBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Expose
 	private Integer p_id;
+	@Expose
 	private String p_name;
 	
 	@Column(length = 65535,columnDefinition="Text")
 	private String p_desc;
+	@Expose
 	private Double price;
 	private Integer stock;
 	private Blob p_img;
@@ -48,7 +53,6 @@ public class ProductBean implements Serializable{
 			   }
 			   )
 	Set<MemberBean> members = new LinkedHashSet<>();
-//	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "products")
 	
 	
 	
