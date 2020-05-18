@@ -3,6 +3,9 @@ package com.pikachuMVC.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -80,5 +83,25 @@ public class NewsDaoImpl implements NewsDao {
 				.setParameter("newsId", id)
 				.getSingleResult();
 		return news;
-	}	
+	}
+
+	@Override
+	public boolean titleExists(String title) {
+		boolean exist = false;
+		String hql = "FROM NewsBean n WHERE n.title = :ntitle ";
+		Session session = factory.getCurrentSession();
+		try {
+			NewsBean bean = (NewsBean) session.createQuery(hql)
+										.setParameter("ntitle", title)
+										.getSingleResult();
+			if (bean != null) {
+				exist = true;
+			}
+		} catch(NoResultException e) {
+			exist = false;
+		} catch(NonUniqueResultException e) {
+			exist = true;
+		} 
+		return exist;
+	}
 }
