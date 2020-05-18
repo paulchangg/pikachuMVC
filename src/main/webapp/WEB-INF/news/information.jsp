@@ -8,53 +8,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-
 <title>優惠資訊網</title>
-
-<link rel="stylesheet" type="text/css" href="css/slider-pro.min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/slider-pro.css" media="screen"/>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/wickedcss.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/examples.css" media="screen"/>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-crossorigin="anonymous" />
-<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/common/wickedcss.min.csss"/>
-<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-<script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.sliderPro.min.js"></script>
 <script type="text/javascript" src="js/information.js"></script>
-
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/index.js"></script>
 </head>
 <body>
-<div class="flex-container">
-		<!----------------------head區塊------------------------------>
-		<div class="header">
-		      
-		</div>
-		<!-- 導覽列--------------------------->
-	   <section class="top_navi">
-		   <nav>
-			   <a href="#" >關於我們</a>
-			   <a href="">會員中心</a>
-			   <a href="#">論壇交友</a>
-			   <a href="#">信用卡搜尋</a>
-			   <a href="#">購物商城</a>
-			   <a href="#">資訊網</a>
-			</nav>
-		</section>
+  <!-- 上方標題logo列----超連結待補----->
+  <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+    <div class="row">
+      <div class="col-sm">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </p>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-sm">
+          <a href="index copy.html">
+            <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
+          </a>
+        </div>
+      </div>
+      <!-- 右上區塊 -->
+      <div class="col-sm">
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout" style="color: rgb(92, 41, 7);">會員登出</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+   <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+    <div class="aa" style="height: 100px;"></div>
 
-       <!-- 優惠資訊標題--------------------------->
-	   <div class="shopping">
-		     <h2>優惠資訊快報</h3>
-	   </div>
+      <!-- 導覽列  -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
 
        <!-- 輪播圖區塊--------------------------->
 	<div id="informationslider" class="slider-pro">
-		<div class="sp-slides"><!--圖片開始區塊-->
+		<div class="sp-slides""><!--圖片開始區塊-->
 		<c:forEach varStatus="stVar2"  var="cirnews"  items="${newslist2}" >
 			<div class="sp-slide">
-				<a href='<c:url  value="/news/NewsInfo?id=${cirnews.newsId}"/>' ><img class="sp-image" src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${cirnews.newsId}" class="articleimg" id="sliderimg1"></a>
+				<a href='<c:url  value="/news/NewsInfo?id=${cirnews.newsId}"/>' ><img class="sp-image" src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${cirnews.newsId}"  id="sliderimg1"></a>
 			</div>
 		</c:forEach>
 		</div>
@@ -63,49 +86,70 @@ crossorigin="anonymous" />
 		<c:forEach varStatus="stVar2"  var="cirnews2"  items="${newslist2}" >
 			<div class="sp-thumbnail">
 				<div class="sp-thumbnail-text">
-				    <div class="sp-thumbnail-title"><span id="articaltitle">${cirnews2.title}</span></div><!--以第一個為例-->
-					   <div class="sp-thumbnail-description"><span id="articalstr"></span></div>
+				    <div class="sp-thumbnail-title"><span id="articaltitle">${cirnews2.title}</span></div>
 				  </div>
 			  </div>
 		</c:forEach>
 		</div>
+	</div>
+	
+    <!-- 輪播圖區塊--------------------------->
 	</div>		
+    <div class="informationtext">
+        <p>優惠訊息<p>
+    </div>
+    <img src="../news/image/定時更新.png" class="picktwoimage">
+    <img src="../news/image/優惠比卡丘.png"  class="slideLeft pickoneimage">
 
 
        <!-- 顯示文章區塊--------------------------->
-    <div class="container articlearea">
-		<div class="row articleareatwo">
-<!--  		 <div class="downarticle">
-			<a href><img src="20200512/img/20200512-UCardu20200511175010.jpg" class="articleimg">
-			 <h5>台茂購物母親節特賣　最優贈16 (滙豐銀行)</h5></a>
-			 <p>活動日期：2020-04-23~2020-05-10
-			  活動期間內，持滙豐銀行信用卡於台茂購物中心刷卡，單店/單館當日消費(含分期消費)，累積達指定門檻，即...</p>
-		 </div>  -->
+       <div class="bottomarea container">
+		<div class="row">
 		  <c:forEach varStatus="stVar"  var="entry"  items="${newslist}" >
-		   <div class="downarticle">
+		   <div class="col-6 downarticle">
 		       <a href='<c:url  value="/news/NewsInfo?id=${entry.newsId}"/>' id="ahrefstr"><img src="${pageContext.servletContext.contextPath}/news/RetrieveNewsImg?id=${entry.newsId}" class="articleimg"><!--以第一個為例-->
 				 <h5><span id="strtitle">${entry.title}</span></h5>
 			  </a>
 		       <p><span id="strcontext">${entry.intro}</span>...</p>
 		   </div>
-
 		 </c:forEach>
-		  
 		</div>	
-	</div>
+		</div>	
 <!-- 		<img src="C:/_JSP/workspaceJDBC_s/pikachuMVC/src/main/webapp/news/20200512/img/20200512/img/20200512-UCardu20200511175010.jpg"> -->
 <!-- 		<img src="C:\_JSP\workspaceJDBC_s\pikachuMVC\src\main\webapp\news\20200512\img\20200512\img\20200512-UCardu20200511175010.jpg"> -->
 <%-- 		<img src='<c:url  value="/news/20200512/img/20200512-UCardu20200511175010.jpg"/>'> --%>
 <!-- 		<img src="20200512/img/20200512-UCardu20200511175010.jpg" > -->
-		<div class="site_footer"> <!--尾巴區塊-->
-			<div class="gotop">
-			   <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-		  </div>
-		</div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-crossorigin="anonymous"></script>
+    
+		 <!-- 底部 ------>
+    <div id="backtop" class="gotop">
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      <div class="footer">
+        <ul> 
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+              <span></span>
+              <span></span>
+              <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>  
+      </div> 
+      
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+    </div>
 </body>
 </html>
