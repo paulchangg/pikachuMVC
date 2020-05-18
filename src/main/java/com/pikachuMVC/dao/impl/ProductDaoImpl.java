@@ -273,5 +273,24 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		
 	}
 
+	@Override
+	public Map<Integer, ProductBean> getSearchProducts(String p_name) {
+		
+		Session session = factory.getCurrentSession();
+		
+		String hql = "FROM ProductBean p WHERE p.p_name like :name";
+		
+		List<ProductBean> beans = session.createQuery(hql).setParameter("name", "%" + p_name +"%").getResultList();
+		
+		Map<Integer, ProductBean> map = new HashMap<>();
+		
+		for(ProductBean bean : beans) {
+        	map.put(bean.getP_id(), bean);
+        	
+        }
+		
+		return map;
+	}
+
 
 }

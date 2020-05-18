@@ -15,6 +15,9 @@
 <title>購物商城首頁</title>
 </head>
 <body>
+	<form>
+       <input type="hidden" name="a"/>
+    </form>
  <!-- 上方標題logo列----超連結待補----->
    <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
     <div class="row">
@@ -45,7 +48,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
-               <i class="fas fa-shopping-cart"><span style="color:#FF5964">5</span> <!-- 加入購物車的商品數量 --></i>
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>
@@ -155,9 +158,9 @@
                </c:choose>
             </div>
                <div class="col-3 input-group"><!--搜尋關鍵字id-->
-                <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()">
+                <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()" onchange="b()" autocomplete="off">
                   <div class="input-group-append">
-                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;" onchange="b()">搜尋</button>
+                      <button class="btn btn-default" type="submit" style="background-color: #FF5964;"  onclick="d()">搜尋</button>
                  </div>
               </div>
               <div class="searchblock" id="searchblockone"><!--關鍵字顯示區塊.-->
@@ -174,15 +177,10 @@
                    <a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shopping_page">
                      <img class="card-img-top  imagesize" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />">
                   </a>
-                  <div class="card-body">
-                       <FORM  action="<c:url value='/shopping/buyProduct'/>" method="POST">
+                  <div class="card-body">               
                          <h5 class="card-title"><span id="shopping_producename">${entry.value.p_name}</span></h5>
                          <p class="card-text" style="font-size: 17px;">售價<span id="shopping_price">${entry.value.price}</span></p>
-                         <Input type='hidden' name='qty' value='1'>
-                           <Input type='hidden' name='productId' value='${entry.value.p_id}'>
-                         <Input type='hidden' name='pageNo' value='${pageNo}'>
-                         <Input type='button' class="btn btn-info test buyBtn" data-toggle="modal" data-target="#shoopingmodal"  value='購買'  productId='${entry.value.p_id}' qty='1'>
-                      </FORM>
+                         <Input type='button' class="btn btn-info test buyBtn" data-toggle="modal" data-target="#shoopingmodal"  value='購買'  productId='${entry.value.p_id}' qty='1'>                    
                    </div>
                </div>
              </div>  
@@ -289,24 +287,7 @@
 <!--              	</div> -->
 <!--          	</div> -->
  </div>   
-<!--     <script> -->
-//       var inputBtn=document.getElementById("shopping_keywords");//取得輸入欄位
-//       var showbtn=document.getElementById("searchblockone");//取得隱藏區塊
-//           inputBtn.addEventListener("input",function(){
 
-//             if(inputBtn.value==null || inputBtn.value =="")//如果輸入欄位為空值或空字串則隱藏表單
-//             {
-//               showbtn.style.display="none";
-//             }
-//             else{
-//               showbtn.style.display="inline";
-//             };
-            
-           
-//       });
-     
-     
-<!--    </script> -->
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>

@@ -57,7 +57,7 @@
             <a class="nav-link"  href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span>5</span> <!-- 加入購物車的商品數量 -->
+            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 -->
                <i class="fas fa-shopping-cart"></i>
             </a>
           </li>

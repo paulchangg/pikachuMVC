@@ -35,4 +35,6 @@ public interface ProductDao {
 	List<ProductBean> getCategoryProducts(String category);
 	
 	void deleteTrack(String m_id,int p_id);
+	
+	Map<Integer, ProductBean> getSearchProducts(String p_name);
 }

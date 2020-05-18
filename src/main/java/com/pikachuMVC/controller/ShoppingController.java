@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.OrderItemBean;
 import com.pikachuMVC.model.OrdersBean;
@@ -163,6 +164,16 @@ public ShoppingController() {}
 		//要展示第幾頁的商品
 //		String pageNoStr = request.getParameter("pageNo");
 		
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		
+		// 如果找不到ShoppingCart物件
+		if (cart == null) {
+			// 就新建ShoppingCart物件
+			cart = new ShoppingCart();
+			// 並將此新建ShoppingCart的物件放到session物件內，成為它的屬性物件
+			session.setAttribute("ShoppingCart", cart);   
+		}
+		
 		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
 		String mode = request.getParameter("mode");
 		
@@ -226,7 +237,7 @@ public ShoppingController() {}
 //		request.setAttribute("totalPages", service.getTotalPages());
 		
 		//用這個判斷是近 shopping/shopping_produce.jsp 或者是  shopping/shopping.jsp
-		request.setAttribute("mode", mode);
+		session.setAttribute("mode", mode);
 		
 		//此參數是判斷  商品如何排序    是價錢高到低 或者是  上市日期
 		session.setAttribute("modeState", modeState);
@@ -236,6 +247,8 @@ public ShoppingController() {}
 		
 		//這一頁的商品
 		session.setAttribute("products_DPP", productMap);
+		
+		session.setAttribute("shoppingCart", cart.getItemNumber());
 		
 		//讓標題顯示本月熱賣
 		session.setAttribute("category", null);
@@ -527,12 +540,14 @@ public ShoppingController() {}
 		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
 		// 將OrderItem物件內加入ShoppingCart的物件內
 		cart.addToCart(productId, oib);
+		
+		session.setAttribute("shoppingCart", cart.getItemNumber());
 	
 		try(
 				PrintWriter out = response.getWriter();
 		){		
 			
-			out.write("yes");
+			out.write(Integer.toString(cart.getItemNumber()));
 			out.flush();
 		}catch(Exception e) {
 			
@@ -571,5 +586,35 @@ public ShoppingController() {}
 		
 	}
 	
+	@PostMapping("/searchProductAjax")
+	@ResponseBody
+	public void searchProductAjax(HttpServletResponse response,HttpServletRequest request, HttpSession session) {
+		
+		
+		String keywords = request.getParameter("keywords");
+		
+		String category = "搜尋結果";
+		
+		Map<Integer, ProductBean> beans = service.getSearchProducts(keywords);
+		
+		session.setAttribute("products_DPP", beans);
+		
+		session.setAttribute("category", category);
+		
+		try(
+				PrintWriter out = response.getWriter();
+		){		
+			out.write("yes");
+			out.flush();
+		}catch(Exception e) {
+			
+		}
+		
+	}
+	
+	@GetMapping("/ajaxSearch")
+	public String ajaxSearch() {
+		return "shopping/shopping";
+	}
 
 }
