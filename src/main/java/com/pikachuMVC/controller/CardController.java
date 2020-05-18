@@ -21,9 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -32,11 +34,11 @@ import com.google.gson.JsonObject;
 import com.pikachuMVC.dao.CardDao;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.service.CardService;
-
 import init.ImageUtil;
 
 @Controller
 @RequestMapping("/cards")
+				
 public class CardController {
 	
 	private final String CONTENT_TYPE = "text/html; charset=utf-8";
@@ -265,7 +267,7 @@ public class CardController {
 		String cardJson = new Gson().toJson(CardMap);
 		out.write(cardJson);
 		out.flush();
-		System.out.println(cardJson);
+//		System.out.println(cardJson);
 
 	}
 
@@ -329,7 +331,27 @@ public class CardController {
 		}
 		
 		
+	}						
+//	@RequestMapping(value = "/getAll", method = RequestMethod.GET, 
+//			produces = { "application/json" })
+//	public @ResponseBody Map<Integer, CardBean> queryAllCardsForJSON(Model model) {
+//		Map<Integer, CardBean> allCards= service.getAllCards();
+//		return allCards;
+//	}
+
+	@GetMapping("/getAll")
+	@ResponseBody
+	public void queryAllCardsForJSON(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		Map<Integer, CardBean> allCards= service.getAllCards();
+
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String cardJson = gson.toJson(allCards);
+		out.write(cardJson);
+		out.flush();
+		
+		
 	}
 	
-
 }
