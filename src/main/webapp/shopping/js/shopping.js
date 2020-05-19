@@ -16,11 +16,12 @@ $(document).ready(function() {
 
 		});
 	})
+	$('#cheat').click(function(){
+		setTimeout(() => { console.log("World!"); }, 300);
+//		console.log($('#shopping_keywords').val());
+		$('#searchblockone').html("");
+	});
 })
-
-function b() {
-	$('#searchblockone').html("");
-}
 
 function a() {
 	// SELECT標籤
@@ -43,7 +44,7 @@ function a() {
 
 			for (i = 0; i < search; i++) {
 
-				query = query + "<li onclick='c()'><i class='bx bx-search' onclick='c(" + i +")'  id='search" + i + "'>" + response[i]+ "</i></li>";
+				query = query + "<li><i class='bx bx-search'  onclick='c("+ i +")'>" + response[i]+ "</i></li>";
 			}
 
 			$('#searchblockone').html(query);
@@ -52,10 +53,13 @@ function a() {
 	});
 }
 function c(e) {
-	$('#searchblockone').html("");
+	console.log('click:' +  searchBar[e]);
+	
 	$('#shopping_keywords').val(searchBar[e]);
-
+	$('#searchblockone').html("");
 }
+
+
 
 function d(){
 	$.ajax({

@@ -29,7 +29,7 @@
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href="<c:url value="/"/>">
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>
@@ -47,11 +47,12 @@
 				</c:otherwise>
 			 </c:choose>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<c:url value='/shopping/listtrackproduct' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
@@ -69,10 +70,10 @@
 
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#">關於我們</a>
-        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="#mall">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -116,7 +117,7 @@
      <!--熱賣標題-->
       <c:choose>
         <c:when test="${category == null}">
-          <div class="hottitle"><h2>本月熱賣品</h2></div>
+          <div class="hottitle" id='cheat'><h2>本月熱賣品</h2></div>
         </c:when>
         <c:otherwise>
           <div class="hottitle"><h2>${category}</h2></div>
@@ -165,7 +166,7 @@
                </c:choose>
             </div>
                <div class="col-3 input-group"><!--搜尋關鍵字id-->
-                <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()" onchange="b()" autocomplete="off">
+                <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字" onkeyup="a()"  autocomplete="off">
                   <div class="input-group-append">
                       <button class="btn btn-default" type="submit" style="background-color: #FF5964;"  onclick="d()">搜尋</button>
                  </div>
@@ -182,7 +183,7 @@
               <div  class="col-3 card"> <!--商品1-->
                <div>            
                    <a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shopping_page">
-                     <img class="card-img-top  imagesize" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />">
+                     <img class="card-img-top imagesize" src="<c:url value='/shopping/getPicture/${entry.value.p_id}' />">
                   </a>
                   <div class="card-body">               
                          <h5 class="card-title"><span id="shopping_producename">${entry.value.p_name}</span></h5>

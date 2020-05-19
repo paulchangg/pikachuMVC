@@ -43,7 +43,7 @@
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href="<c:url value="/" />">
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>
@@ -68,7 +68,7 @@
              <a class="nav-link" href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
         </ul>
       </div>
@@ -81,10 +81,10 @@
 
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#">關於我們</a>
-        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
