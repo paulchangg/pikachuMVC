@@ -15,6 +15,7 @@ pageEncoding="UTF-8"%>
       type="text/css"
     />
     <link rel="stylesheet" href="../articleForum/css/forum_pair.css" />
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -28,36 +29,66 @@ pageEncoding="UTF-8"%>
     <script src="../js/pair.js"></script>
   </head>
   <body>
-    <!-- 上方標題logo列---超連結待補---->
-    <div class="container-fluid" style="height: 190px;">
+    <!-- 上方標題logo列--->
+    <div class="container-fluid" style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
       <div class="row">
         <div class="col-sm">
           <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-          <p style="font-size: small;">
+          <p style="font-size: medium; padding-top: 10px;">
             快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
           </p>
         </div>
         <div class="row justify-content-around">
           <div class="col-sm">
             <a href='<c:url value="/" />'>
-              <img src="../articleForum/images/logo2.png" alt="logo" style="height: 230px;" />
+              <img src="../articleForum/images/logo2.png" alt="logo" style="height: 340px; width: 300px; padding:0 30px 140px 0;" />
             </a>
           </div>
         </div>
         <!-- 右上區塊 -->
         <div class="col-sm">
-          <ul class="nav justify-content-end" style="font-size: 17px;">
+          <ul
+            class="nav justify-content-end"
+            style="font-size: 18px; font-weight: bold;"
+          >
             <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/member/member_logout" />' id="member_logout">會員登出</a>
+              <c:choose>
+                <c:when test="${empty LoginOK}">
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_login" />'
+                    id="memberlogin"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登入</a
+                  >
+                </c:when>
+                <c:otherwise>
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_logout" />'
+                    id="memberlogout"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登出</a
+                  >
+                </c:otherwise>
+              </c:choose>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/member/member_center" />' id="member_center">會員中心</a>
+              <a
+                class="nav-link"
+                href='<c:url value="/member/member_center" />'
+                id="membercenter"
+                style="color: rgb(92, 41, 7);"
+                ><i class="bx bx-user-circle"></i>會員中心</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="qanda">Q & A</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart">
+              <a
+                class="nav-link"
+                href='<c:url value="/shopping/listProduct" />'
+                id="shoppingcart"
+                style="color: rgb(92, 41, 7);"
+              >
                 <i class="fas fa-shopping-cart"></i>
               </a>
             </li>
@@ -69,7 +100,7 @@ pageEncoding="UTF-8"%>
     <!-- 導覽列上slider -->
     <div class="et-hero-tabs">
       <!-- 要改放圖片的話再修正 -->
-      <!-- <img src="" style="height: 70px; width: 1367px;" /> -->
+          <div class="aa" style="height: 100px;"></div>
 
       <!-- 導覽列  超連結待補 -->
       <div class="et-hero-tabs-container">
@@ -109,12 +140,14 @@ pageEncoding="UTF-8"%>
     <!-- 分隔列---->
     <div class="second_line"></div>
 
-    <div class="container" style="padding-bottom: 25px; margin-left: 150px;">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col">
-          <img src="../articleForum/images/cellphone.jpg" style="width: 80px; height: 60px;" />
-          <span class="badge badge-warning" style="font-size: 20px;">配對</span>
-        </div>
+       <div class="col">
+       <div
+            class="d-flex flex-row bd-highlight"
+            style="padding-top: 15px;
+                   padding-bottom: 15px;"
+          >
         <a href='<c:url value="/friends/friendList" />'>
           <button type="button" class="btn btn-primary btn-sm">
             好友列表
@@ -122,27 +155,60 @@ pageEncoding="UTF-8"%>
           </button>
         </a>
 
-        <a href='<c:url value="/articleForum/listforum"/>'>
-          <button type="button" class="btn btn-info btn-sm">
-            回論壇首頁
-            <br /><i class="fas fa-home"></i>
-          </button>
-        </a>
+        <div class="col" >
+          <div style="height:20px; text-align: center;">
+          <span class="badge badge-warning" style="font-size: 20px; padding-top:8px; ">配對</span>
+        </div>
+        </div>
+        
       </div>
     </div>
 
     <!-- 左側按鈕列表 -->
     <div class="container-fluid" />
-      <div class="row" style="display: flex; padding-top: 20px;">
+      <div class="row" style="display: flex;">
         <!-- 左側button-->
         <div class="col-2">
           <div class="my-3">
-            <a class="nav-link" href="allboards.html" style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">
-                所有看板
-              </button>
-            </a>
+            <a class="nav-link" href='<c:url value="/articleForum/listforum" />' style="padding: 0px;">
+              <button type="button" class="btn btn-outline-success">所有看板</button>
+              </a>
           </div>
+          <div style="padding: 10px 0 10px 0;"></div>
+           <!-- 分類看板 -->
+                <ul class="list-group list-group-flush" style="width: 250px;">
+                  <li class="list-group-item">
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      id="creditcards"
+                    >
+                      <a
+                        href="<c:url value='/articleForum/listforum/信用卡' />"
+                        style="text-decoration: none; color: black;"
+                        >信用卡</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="food">
+                      <a
+                        href="<c:url value='/articleForum/listforum/美食' />"
+                        style="text-decoration: none; color: black;"
+                        >美食</a
+                      >
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button type="button" class="btn btn-light" id="emotion">
+                      <a
+                        href="<c:url value='/articleForum/listforum/感情' />"
+                        style="text-decoration: none; color: black;"
+                        >感情</a
+                      >
+                    </button>
+                  </li>
+                </ul>
           <div class="my-3">
             <a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />" style="padding: 0px;">
               <button type="button" class="btn btn-outline-success">
@@ -157,42 +223,61 @@ pageEncoding="UTF-8"%>
               </button>
             </a>
           </div>
-
+          <a href="<c:url value='/articleForum/listforum' />">
+                <button type="button" class="btn btn-info btn-sm">
+                  回論壇首頁
+                  <br /><i class="fas fa-home"></i>
+                </button>
+               </a>
           <!-- 左側假廣告圖 -->
-          <img
-            src="../articleForum/images/ad_photo/burgerking.jpg"
-            style="width: 200px; padding-top: 50px; padding-right: 10px;"
-          />
-          <img
-            src="../articleForum/images/ad_photo/uniqlo.jpg"
-            style="width: 200px; padding-top: 25px; padding-right: 10px;"
-          />
+         
         </div>
 
         <div style="width: 50px;"></div>
         <!-- 中央配對區 -->
-        <div class="col-7">
+        <div class="col-7" style="height: 900px;">
         <div id="preFriends"></div>
         </div>
         <div style="width: 90px;">
 
-        <!-- 右側廣告 -->
-        <div class="col-1" style="float: right;">
-          <img
-            src="../articleForum/images/ad_photo/rice.jpg"
-            style="width: 180px; height: 600px;"
-          />
-        </div>
+       
       </div>
     </div>
 
     <!-- 底部 ------>
-    <div id="backtop" class="gotop">
+     <div id="backtop" class="gotop">
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
       </h4>
+      <div class="footer">
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
+
       <br />
-      <button type="button" class="btn btn-secondary">To the top</button>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
     </div>
   </body>
 </html>
