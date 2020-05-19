@@ -33,4 +33,6 @@ public interface MemberService {
 	void addMyActivity(Launch_activityBean article_Id, String m_id);
 	List<MemberBean> getActivityPerson(int article_Id);
 	void leaveMyActivity(Launch_activityBean article_Id, String m_id);
+	List<MemberBean> getAllMember();
+	void addmember();
 }

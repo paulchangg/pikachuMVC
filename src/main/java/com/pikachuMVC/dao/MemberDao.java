@@ -50,4 +50,8 @@ public interface MemberDao {
 	List<MemberBean> getActivityPerson(int article_Id);
 
 	void addMyActivity(Launch_activityBean article_Id, String m_id);
+
+	List<MemberBean> getAllMember();
+
+	void addmember();
 }
