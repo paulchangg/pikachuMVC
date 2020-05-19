@@ -7,12 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-    <link href="css/shopping_cart2.css" rel="stylesheet" type="text/css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/wickedcss.min.css">
+     <link href="css/shopping_cart2.css" rel="stylesheet" type="text/css">
     <title>完成訂購</title>
 </head>
 <body>
@@ -94,9 +94,7 @@
       
      	<!-- 底部 ------>
 		 <div id="backtop" class="gotop">
-			<h4>
 			  © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-			</h4>
 			<div class="footer">
 			  <ul> 
 				<li>
@@ -128,6 +126,6 @@
 	  <script src="js/jquery-3.4.1.js"></script>
 		  <script src="js/popper.min.js"></script>
 		  <script src="js/bootstrap.min.js"></script>
-		  <script src="js/index.js"></script>
+		  <script src="js/inquaryindex2.js"></script>
 </body> 
 </html> 
