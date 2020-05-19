@@ -29,7 +29,7 @@
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href="<c:url value="/" />">
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>
@@ -48,14 +48,14 @@
 			 </c:choose>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center" />' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="<c:url value="/shopping/listtrackproduct" />" style="color: rgb(92, 41, 7);">追蹤商品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span>5</span> <!-- 加入購物車的商品數量 -->
-               <i class="fas fa-shopping-cart"></i>
+            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
             </a>
           </li>
         </ul>
@@ -69,10 +69,10 @@
 
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#">關於我們</a>
-        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -89,12 +89,11 @@
            <table>
                <tr>
                    <td>查詢條件:</td>
-                   <td><input type="radio" name="orderitem" value="onemonth" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
-                   <td><input type="radio" name="orderitem" value="nouse" id="Orderinquary_nouse"  class="radioBtn">三個月內訂單</td>
-                   <td><input type="radio" name="orderitem" value="use" id="Orderinquary_use"  class="radioBtn">已使用訂單</td>
-                   <td><input type="radio" name="orderitem" value="sixmonth" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
+                   <td><input type="radio" name="orderitem" value="30" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
+                   <td><input type="radio" name="orderitem" value="90" id="Orderinquary_nouse"  class="radioBtn">三個月內訂單</td>
+                   <td><input type="radio" name="orderitem" value="180" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
                </tr>
-               <p>目前僅提供六個月內的交易資料，若您欲查詢六個月前的資料，請您與<a href=""><i class='bx bx-help-circle' ></i>客服中心</a>聯繫</p>
+               <p>目前僅提供六個月內的交易資料，若您欲查詢六個月前的資料，請您與客服中心聯繫</p>
            </table>
            <input type="submit" value="查詢" id="Orderinquary_orderbutton">
        </div>

@@ -537,6 +537,12 @@ public ShoppingController() {}
 			e.printStackTrace();
 		}
 		
+		// 讓QRcode產生的圖案不一樣
+		String randomS = "";
+		
+		for(int i = 0 ; i <= 5 ; i++) {
+			randomS = randomS + Math.random();
+		}
 		
 		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
 		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
