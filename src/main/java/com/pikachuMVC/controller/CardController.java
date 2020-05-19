@@ -264,10 +264,13 @@ public class CardController {
 
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		String cardJson = new Gson().toJson(CardMap);
+		
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String cardJson = gson.toJson(CardMap);
+//		String cardJson = new Gson().toJson(CardMap);
 		out.write(cardJson);
 		out.flush();
-//		System.out.println(cardJson);
+		System.out.println(cardJson);
 
 	}
 
@@ -350,8 +353,6 @@ public class CardController {
 		String cardJson = gson.toJson(allCards);
 		out.write(cardJson);
 		out.flush();
-		
-		
 	}
 	
 }
