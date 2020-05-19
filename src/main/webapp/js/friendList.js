@@ -17,10 +17,11 @@ function doFirst() {
         let friend = document.createElement("div");
         friend.id = data[i].m_id;
         friend.className = "row";
-        friend.style = "background-color: #FDFCF6;";
+        // friend.style = "background-color: #FDFCF6;";
 
         let imgDiv = document.createElement("div");
         imgDiv.className = "col-2";
+        imgDiv.style = "margin-top: 20px;";
 
         let mImg = document.createElement("img");
         mImg.className = "memberid_img";
@@ -31,7 +32,7 @@ function doFirst() {
 
         let nameDiv = document.createElement("div");
         nameDiv.className = "col-5";
-        nameDiv.style = "margin-top: 25px;";
+        nameDiv.style = "margin-top: 42px;";
 
         let mName = document.createElement("p");
         mName.innerHTML = `${data[i].name}`;
@@ -44,7 +45,7 @@ function doFirst() {
 
         let btn = document.createElement("button");
         btn.className = "btn btn-secondary btn-sm";
-        btn.style = "margin-top: 25px; position: absolute;";
+        btn.style = "margin-top: 35px; position: absolute;";
         btn.innerHTML = "聊天";
         btn.addEventListener("click", chat);
         btnDiv.appendChild(btn);
@@ -55,7 +56,7 @@ function doFirst() {
 
         let delBtn = document.createElement("button");
         delBtn.className = "btn btn-secondary btn-sm";
-        delBtn.style = "margin-top: 25px; margin-right: -1px;";
+        delBtn.style = "margin-top: 35px; margin-right: -1px;";
         delBtn.innerHTML = "刪除好友";
         delBtn.addEventListener("click", delFriend);
         delDiv.appendChild(delBtn);
