@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-<link href="css/shopping.css" rel="stylesheet"type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="css/wickedcss.min.css"/>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<link href="css/shopping.css" rel="stylesheet"type="text/css">
 <title>購物商城首頁</title>
 </head>
 <body>
@@ -38,7 +38,14 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-            <a class="nav-link" href="/member/member_login" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
+             <c:choose>
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
+				</c:when>
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
+				</c:otherwise>
+			 </c:choose>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
@@ -243,9 +250,7 @@
 
     <!-- 底部 ------>
     <div id="backtop" class="gotop">
-      <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
       <div class="footer">
         <ul> 
           <li>
@@ -291,7 +296,7 @@
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-<!--    <script src="../js/index.js"></script> -->
+   <script src="../js/index.js"></script>
    <script src="js/shopping.js"></script>
   </body>
 </html>

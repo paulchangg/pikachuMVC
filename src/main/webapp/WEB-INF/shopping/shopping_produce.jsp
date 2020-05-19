@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
      <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link href="css/shopping_produce.css" rel="stylesheet" type="text/css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/wickedcss.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="css/shopping_produce.css" rel="stylesheet" type="text/css">
     <title>商品資訊</title>
 </head>
  <body>
@@ -37,16 +37,12 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-            <c:choose>
-				<c:when test="${empty LoginOK}">								
-					<a href="<c:url value="/member/member_login"/>"> 
-						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-					</a>								
+             <c:choose>
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
-				<c:otherwise>								
-					<a href="<c:url value="/member/member_logout"/>"> 
-					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-					</a>								
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
 			 </c:choose>
           </li>
@@ -181,9 +177,7 @@
 
     <!-- 底部 ------>
     <div id="backtop" class="gotop">
-      <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
       <div class="footer">
         <ul> 
           <li>

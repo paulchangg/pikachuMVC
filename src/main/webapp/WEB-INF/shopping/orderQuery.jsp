@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-    <link href="css/Order-inquary.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="css/wickedcss.min.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <link href="css/Order-inquary.css" rel="stylesheet" type="text/css">
     <title>訂單查詢</title>
 </head>
 <body>
@@ -38,18 +38,14 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-			<c:choose>
-				<c:when test="${empty LoginOK}">								
-					<a class="nav-link" href="<c:url value="/member/member_login"/>"> 
-						<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-					</a>								
+			 <c:choose>
+				<c:when test="${empty LoginOK}">										
+					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
-				<c:otherwise>								
-					<a class="nav-link" href="<c:url value="/member/member_logout"/>"> 
-					<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
-					</a>								
+				<c:otherwise>										
+					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
-			</c:choose>
+			 </c:choose>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
@@ -94,13 +90,9 @@
                <tr>
                    <td>查詢條件:</td>
                    <td><input type="radio" name="orderitem" value="onemonth" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
-                   <td><input type="radio" name="orderitem" value="nouse" id="Orderinquary_nouse"  class="radioBtn">未使用訂單</td>
+                   <td><input type="radio" name="orderitem" value="nouse" id="Orderinquary_nouse"  class="radioBtn">三個月內訂單</td>
                    <td><input type="radio" name="orderitem" value="use" id="Orderinquary_use"  class="radioBtn">已使用訂單</td>
                    <td><input type="radio" name="orderitem" value="sixmonth" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
-               </tr>
-               <tr>
-                   <td>訂單編號:</td>
-                   <td colspan="4"><input type="text" name="orderitem" value="ordid" class="orderinput"></td>
                </tr>
                <p>目前僅提供六個月內的交易資料，若您欲查詢六個月前的資料，請您與<a href=""><i class='bx bx-help-circle' ></i>客服中心</a>聯繫</p>
            </table>
@@ -132,7 +124,7 @@
                    ${anOrderBean.orderdate}</span>
                </td>
                 <td><span id="Orderinquary_money"> ${anOrderBean.total}</span></td>
-                <td><span id="Orderinquary_tick">已使用</span></td>
+                <td><span id="Orderinquary_tick">未使用</span></td>
                 <td><span id="Orderinquary_status">正常</span></td>
             </tr>
           </c:forEach>                                                                                                    
@@ -194,9 +186,7 @@
     
             <!-- 底部 ------>
     <div id="backtop" class="gotop">
-		<h4>
 		  © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-		</h4>
 		<div class="footer">
 		  <ul> 
 			<li>

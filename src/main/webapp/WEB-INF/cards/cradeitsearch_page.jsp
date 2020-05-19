@@ -126,7 +126,7 @@
 				<div class="dropdown-menu" id="cradeitsearchpage_btninn">
 					<!--下拉式選單-->
 
-					<a class="dropdown-item"
+					<a class="dropdown-item" id="hyper1"
 						href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=all">全部</a>
 					<a class="dropdown-item"
 						href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=cb">現金回饋</a>
@@ -306,7 +306,7 @@
 			</div>
 		</div>
 
-		<div class="col-9 contentcenter">
+		<div class="col-9 contentcenter" id="divcont">
 			<!--為中間顯示區塊-->
 
 			<c:choose>
@@ -837,6 +837,71 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/cradeitsearch_page.js"></script>
 	<script>
+		$("#hyper1").click(function()
+			{			    
+			    event.preventDefault();
+			    $("#divcont").empty();
+			    $.ajax({
+			        url: '/pikachuMVC/cards/getAll',                        // url位置
+			        type: 'get',                   // post/get	  
+			        dataType : 'json',              // 預期從server接收的資料型態	      
+			        success: function (response) {  // 成功後要執行的函數
+			        let content="";	
+			        let divct= 0;
+			        	 $.each(response, function(key, val) {
+			        		 divct++;
+			        content+='<div class="box">' +	
+			    			 '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">'+
+			                 '<line class="top" x1="0" y1="0" x2="1300" y2="0" />'+
+			                  '<line class="left" x1="4" y1="160" x2="4" y2="0" />'+
+			                  '<line class="bottom" x1="0" y1="160" x2="1300" y2="160" />'+
+			                  '<line class="right" x1="1271" y1="0" x2="1271" y2="160" />'+
+			                  '</svg>'+
+			                  '<div class="onecard" name="'+val.bank+'">'+
+			                  '<span id="">'+val.c_name+'</span>'+
+			                  '<div class="row">'+ 
+			                  '<div class="col-2 creditimg">'+
+			                  '<img src="/pikachuMVC/cards/RetrieveCardImg?id='+val.c_id+'" width="160px" height="110px">'+
+			                  '</div>'+
+			                  '<div class="col credittext">'+
+			                  '<div class="col-4 creditinner">'+
+			                  '<div>'+
+			                  '<span>'+val.annlfee+'</span>'+
+			                  '</div>'+
+			                  '<div>年費</div>'+
+			                  '</div>'+
+			                  '<div class="col-4 creditinner">'+
+			                  '<div>'+
+			                  '<span>'+val.fcb+'%</span>'+
+			                  '</div>'+
+			                  '<div>國外消費現金回饋</div>'+ 
+			                  '<div></div>'+
+			                  '</div>'+
+			                  '<div class="col-4 creditinner">'+
+			                  '<div>'+
+			                  '<span>'+val.dcb+'%</span>'+
+			                  '</div>'+
+			                  '<div>國內消費現金回饋</div>'+
+			                  '<div></div>'+     
+			                  '</div>'+
+			                  '</div>'+
+			                  '<div class="col-2 creditbtn">'+
+     						  '<a href="/pikachuMVC/cards/cradeitsearch_produce?id='+val.c_id+'" class="btn btn-primary" target="_blank" id=> 詳細資訊 </a>'+
+			                  '</div>'+
+			                  '</div>'+
+			                  '</div>'+
+			                  '</div>' ;      	      
+			        	 });   
+			        	 $("#divcont").html(content);
+			        	 let cntcard = document.getElementById('cradeitsearchpage_number');
+			 			 cntcard.innerText = divct + "項搜尋結果";
+			 			 let dropdown = document.getElementById('dropdownspan');
+			 			 dropdown.innerText = "全部";
+			 			 $(".checkbox").prop('checked', false);
+			        }
+			    });		    
+			});
+	
 		var checkValue = document.getElementsByName("bank");//上網查使用checkbox用這個方式取得
 
 		for (var i = 0; i < checkValue.length; i++) {

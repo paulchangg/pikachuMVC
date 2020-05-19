@@ -109,4 +109,12 @@ public class OrderServiceImpl implements OrderService {
 		totalPages = odao.getTotalPages(m_id);
 		return totalPages;
 	}
+
+
+
+	@Override
+	public List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo, long days) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
