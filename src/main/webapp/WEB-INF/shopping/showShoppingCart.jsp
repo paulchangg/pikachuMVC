@@ -10,8 +10,8 @@
     <title>購物清單</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/wickedcss.min.css"/>
-    <link rel="stylesheet" href="css/shopping_cart.css"/>
+  <link rel="stylesheet" href="css/wickedcss.min.css"/>
+  <link rel="stylesheet" href="css/shopping_cart.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 </head>
@@ -43,7 +43,7 @@
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href="<c:url value="/" />">
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>
@@ -68,7 +68,7 @@
              <a class="nav-link" href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
         </ul>
       </div>
@@ -81,10 +81,10 @@
 
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#">關於我們</a>
-        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -195,7 +195,7 @@
                <script src="js/jquery-3.4.1.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="../js/inquaryindex2.js"></script>
+<!--         <script src="../js/inquaryindex2.js"></script> -->
         <script src="js/shopping_cart.js"></script>
         <script type="text/javascript">
         function confirmDelete(n) {

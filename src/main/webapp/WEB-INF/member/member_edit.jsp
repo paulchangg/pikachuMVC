@@ -40,7 +40,7 @@ if (confirm("確定更新會員資料 ? ") ) {
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href='<c:url value="/" />'>
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>

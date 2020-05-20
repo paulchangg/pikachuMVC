@@ -28,7 +28,7 @@
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
-          <a href="index copy.html">
+          <a href="<c:url value="/"/>">
             <img src="../images/logo2.png" alt="logo" style="height: 140px;" />
           </a>
         </div>
@@ -53,8 +53,8 @@
             <a class="nav-link"  href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"><span id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 -->
-               <i class="fas fa-shopping-cart"></i>
+            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
             </a>
           </li>
         </ul>
@@ -68,10 +68,10 @@
 
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
-        <a class="et-hero-tab" href="#">關於我們</a>
-        <a class="et-hero-tab" href="/cards/cradeitCb?qt=main">信用卡比較</a>
-        <a class="et-hero-tab" href="#friendshipforum">論壇交友</a>
-        <a class="et-hero-tab" href="<c:url value="/shopping/listProduct" />">商城</a>
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
         <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
@@ -235,7 +235,7 @@
    <script src="js/jquery-3.4.1.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-   <script src="js/index.js"></script>
+   <script src="../js/index.js"></script>
    <script src="js/shopping_produce.js"></script>
   </body>
 </html>

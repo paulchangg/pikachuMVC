@@ -212,5 +212,16 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 	
+	@Override
+	@Transactional
+	public List<MemberBean> getAllMember() {
+		return dao.getAllMember();
+	}
+
+	@Override
+	@Transactional
+	public void addmember() {
+		dao.addmember();
+	}
 	
 }

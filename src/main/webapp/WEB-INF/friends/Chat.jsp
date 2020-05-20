@@ -5,6 +5,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHAT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="../articleForum/css/bootstrap.min.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
@@ -12,6 +13,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
       rel="stylesheet"
       type="text/css"
     />
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -24,6 +26,8 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
   </head>
 
   <style type="text/css">
+  @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap);
+
     /*set srcoll start*/
     ::-webkit-scrollbar {
       width: 10px;
@@ -114,6 +118,10 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
       flex: 1;
       padding: 10px;
       overflow: auto;
+      background-image: url(../articleForum/images/board/talk_desk.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity:0.6;
     }
 
     body .chatroom .chatroom-body .date {
@@ -172,7 +180,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
       border-top: 1px solid #ccc;
     }
 
-    body .chatroom .chatroom-bottom textarea {
+    body .chatroom .chatroom-bottom input {
       width: calc(100% - 70px);
       padding: 10px;
       border: 0;
@@ -194,10 +202,21 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
       font-size: 18px;
     }
 
-    body .chatroom .chatroom-bottom .tool-emoji {
-      right: 40px;
-      font-size: 18px;
+    
+
+    .bt_send{
+      float: right;
+      color:#b3db94;
+      font-size: 2em;
+      width:65px;
+      height:49px;
+      border: none; 
     }
+    .bt_send:hover{
+      color: #fcca46;
+      cursor: pointer;
+    }
+
   </style>
 
   <body>
@@ -215,21 +234,20 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
       <div class="chatroom-body"></div>
       <div class="chatroom-bottom">
         <div class="type">
-          <textarea
+          <input
             name=""
             id="input_msg"
             cols="30"
             rows="1"
             placeholder="請輸入訊息..."
-          ></textarea>
+          ></input>
           <button
+            class="bt_send"
             type="button"
             value="傳送"
-            class="btn btn-secondary"
             onclick="send_msg()"
-            style="float: right;"
           >
-            傳送
+          <i class="fas fa-paper-plane"></i>
           </button>
         </div>
         <!--         <div class="tools"> -->
@@ -279,7 +297,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
           //            alert("您的瀏覽器支援 WebSocket!");
           if (webSocket == null) {
             var url =
-              "ws://192.168.0.18:8080/pikachuMVC/chat/" + roomName + "/" + mId;
+              "ws://172.20.10.2:8080/pikachuMVC/chat/" + roomName + "/" + mId;
             // 開啟一個 web socket
             webSocket = new WebSocket(url);
           } else {

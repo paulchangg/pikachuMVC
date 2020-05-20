@@ -200,6 +200,7 @@ prefix="c"%>
             <li>數據收集、爬蟲</li>
             <li>資料庫設計規劃</li>
             <li>撰寫後端會員、交友並與前端整合</li>
+            <li>Android APP 開發</li>
             <li>技術指導</li>
           </ul>
         </div>
