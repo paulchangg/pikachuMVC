@@ -440,3 +440,13 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+/*轉轉動畫*/
+.loadingarea{
+  margin-left:30%;
+  margin-top:10%;
+  width:15rem;
+  height:15rem;
+  position: absolute;
+  display:none;
+}
