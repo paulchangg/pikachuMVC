@@ -47,11 +47,7 @@ public class CardController {
 	CardService service;
 
 	@Autowired
-	CardDao dao;
-
-	@Autowired
 	ServletContext context;
-
 
 	@GetMapping("/cradeitsearch_produce")
 	public String CardDetail(HttpServletRequest request) {
@@ -270,7 +266,7 @@ public class CardController {
 //		String cardJson = new Gson().toJson(CardMap);
 		out.write(cardJson);
 		out.flush();
-		System.out.println(cardJson);
+//		System.out.println(cardJson);
 
 	}
 
@@ -335,24 +331,24 @@ public class CardController {
 		
 		
 	}						
-//	@RequestMapping(value = "/getAll", method = RequestMethod.GET, 
-//			produces = { "application/json" })
-//	public @ResponseBody Map<Integer, CardBean> queryAllCardsForJSON(Model model) {
-//		Map<Integer, CardBean> allCards= service.getAllCards();
-//		return allCards;
-//	}
-
-	@GetMapping("/getAll")
-	@ResponseBody
-	public void queryAllCardsForJSON(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	@RequestMapping(value = "/getAll", method = RequestMethod.GET, 
+			produces = { "application/json" })
+	public @ResponseBody Map<Integer, CardBean> queryAllCardsForJSON(Model model) {
 		Map<Integer, CardBean> allCards= service.getAllCards();
-
-		response.setContentType("application/json; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String cardJson = gson.toJson(allCards);
-		out.write(cardJson);
-		out.flush();
+		return allCards;
 	}
+
+//	@GetMapping("/getAll")
+//	@ResponseBody
+//	public void queryAllCardsForJSON(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		Map<Integer, CardBean> allCards= service.getAllCards();
+//
+//		response.setContentType("application/json; charset=utf-8");
+//		PrintWriter out = response.getWriter();
+//		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+//		String cardJson = gson.toJson(allCards);
+//		out.write(cardJson);
+//		out.flush();
+//	}
 	
 }
