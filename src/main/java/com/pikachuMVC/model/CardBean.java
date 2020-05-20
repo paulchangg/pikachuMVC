@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
 
@@ -38,6 +39,7 @@ public class CardBean implements Serializable{
 	private	String		bank 	;		
 	@Expose
 	private	String		annlfee ;	//.	
+	@JsonIgnore	
 	private	Blob		c_img 	;		
 	@Expose
 	private	Double		fcb 	;		//.
@@ -71,6 +73,8 @@ public class CardBean implements Serializable{
 	private String		cashfb_n 		;
 	private Integer		annual_income ;
 	private String		c_type 		  ;
+	
+	@JsonIgnore	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "member_card", catalog = "pikachuDB",
 			   joinColumns ={
