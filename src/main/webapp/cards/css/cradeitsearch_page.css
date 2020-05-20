@@ -445,8 +445,8 @@ body {
 .loadingarea{
   margin-left:30%;
   margin-top:10%;
-  width:15rem;
-  height:15rem;
+  width:20rem;
   position: absolute;
   display:none;
+
 }

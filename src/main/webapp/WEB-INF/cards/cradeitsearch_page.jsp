@@ -308,7 +308,7 @@
 
 		<div class="col-9 contentcenter" >
 			<!--為中間顯示區塊-->
- 		 <img src='<c:url value="/cards/image/ajax-loader.gif"/>' class="loadingarea" id="loadingimg" alt="loadpic"/>
+ 		 <img src='<c:url value="/cards/image/loading3.gif"/>' class="loadingarea" id="loadingimg" alt="loadpic"/>
  		
 		<div id="divcont">
 			<c:choose>
