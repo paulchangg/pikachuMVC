@@ -15,6 +15,7 @@ import com.pikachuMVC.dao.ArticleDao;
 import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ArticleBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.model.OrdersBean;
 import com.pikachuMVC.model.ArticleResponserBean;
 
 @Repository
@@ -23,6 +24,8 @@ public class ArticleDaoImpl implements ArticleDao{
 	
 	@Autowired
     SessionFactory factory;
+	
+	int recordsPerPage=2;
 
 	@Override
 	public void addFourm(int fourm,ArticleBean launchActivity) {
@@ -56,10 +59,19 @@ public class ArticleDaoImpl implements ArticleDao{
 	}
 
 	@Override
-	public List<ArticleBean> listFourm() {
+	public List<ArticleBean> listFourm(int page) {
+		List<ArticleBean> list = null;
+		Session session = factory.getCurrentSession();
+		int startRecordNo = (page - 1) * recordsPerPage;
+		String hql = "FROM ArticleBean";
+		list = session.createQuery(hql)
+						.setFirstResult(startRecordNo)
+	                    .setMaxResults(recordsPerPage)
+						.getResultList();
+		return list;
 		
 		
-		return factory.getCurrentSession().createQuery("FROM ArticleBean").getResultList();
+		
 	}
 
 	@Override
@@ -230,6 +242,26 @@ public class ArticleDaoImpl implements ArticleDao{
 		session.save(bean2);
 		
 		
+	}
+
+	@Override
+	public long getRecordCounts() {
+		long count = 0; // 必須使用 long 型態
+        String hql = "SELECT count(*) FROM ArticleBean ";
+        Session session = factory.getCurrentSession();
+        List<Long> list = session.createQuery(hql)
+        						.getResultList();
+        if (list.size() > 0) {
+            count = list.get(0);
+        }
+        return count;
+	}
+
+	@Override
+	public int getTotalPages() {
+		int totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
+
+		return totalPages;
 	}
 
 	

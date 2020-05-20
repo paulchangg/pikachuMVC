@@ -647,16 +647,103 @@
 	<nav aria-label="Page navigation example"
 		style="padding-top: 20px; padding-bottom: 10px;">
 		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link" href="#" id=""
-				tabindex="-1" aria-disabled="true">Previous</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				id="forum_page1">1</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				id="forum_page2">2</a></li>
-			<li class="page-item"><a class="page-link" href="#" id="">Next</a>
-			</li>
+			<c:choose>
+				<c:when test="${ArticlepageNo == 1}">
+						<li class="page-item"><a class="page-link"  id=""
+						tabindex="-1" aria-disabled="true">&laquo;</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link" href="<c:url value='/articleForum/listforum?pageNo=1' />" id=""
+						tabindex="-1" aria-disabled="true">&laquo;</a></li>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="1" end="${ArticleTotalPages}" varStatus="vs">
+				<c:choose>
+                    		<c:when test="${ArticlepageNo == vs.index}">
+                    			<li class="page-item">
+                    				<a class="page-link"  id="shopping_pag1">${vs.count}</a>
+                    			</li>
+                    		</c:when>
+                    		<c:otherwise>
+                    			<li class="page-item">
+                    				<a class="page-link" href="<c:url value='/articleForum/listforum?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a>
+                    			</li>
+                    		</c:otherwise>
+                 </c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${ArticlepageNo != ArticleTotalPages}">
+						<li class="page-item"><a class="page-link" href="<c:url value='/articleForum/listforum?pageNo=${ArticleTotalPages}' />" id=""
+						tabindex="-1" aria-disabled="true">&raquo;</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link"  id=""
+						tabindex="-1" aria-disabled="true">&raquo;</a></li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 	</nav>
+	
+	
+	
+<!-- 			<li class="page-item"><a class="page-link" href="#" -->
+<!-- 				id="forum_page1">1</a></li> -->
+<!-- 			<li class="page-item"><a class="page-link" href="#" -->
+<!-- 				id="forum_page2">2</a></li> -->
+<!-- 			<li class="page-item"><a class="page-link" href="#" id="">Next</a> -->
+	
+	
+<!-- 	 <div class="return"> 底部分頁 -->
+<!--                  <ul class="pagination pagination-sm"> -->
+<%--                  	<c:choose> --%>
+<%--                  		<c:when test="${pageNo == 1}"> --%>
+<!--                  			  <li class="page-item">  -->
+<!--                  			  	<a class="page-link"  aria-label="Previous"> -->
+<!--                         			<span aria-hidden="true">&laquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	  </li> -->
+<%--                  		</c:when> --%>
+<%--                  		<c:otherwise> --%>
+<!--                     		<li class="page-item">  -->
+<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous"> --%>
+<!--                         			<span aria-hidden="true">&laquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:otherwise> --%>
+<%--                  	</c:choose> --%>
+<%--                     <c:forEach begin="1" end="${totalPages}" varStatus="vs"> --%>
+<%--                     	<c:choose> --%>
+<%--                     		<c:when test="${pageNo == vs.index}"> --%>
+<!--                     			<li class="page-item"> -->
+<%--                     				<a class="page-link"  id="shopping_pag1">${vs.count}</a> --%>
+<!--                     			</li> -->
+<%--                     		</c:when> --%>
+<%--                     		<c:otherwise> --%>
+<!--                     			<li class="page-item"> -->
+<%--                     				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a> --%>
+<!--                     			</li> -->
+<%--                     		</c:otherwise> --%>
+<%--                     	</c:choose> --%>
+<%--                     </c:forEach> --%>
+<%--                     <c:choose> --%>
+<%--                  		<c:when test="${pageNo != totalPages}"> --%>
+<!--                  			  <li class="page-item">  -->
+<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous"> --%>
+<!--                         			<span aria-hidden="true">&raquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:when> --%>
+<%--                  		<c:otherwise> --%>
+<!--                     		<li class="page-item">  -->
+<!--                     			<a class="page-link" aria-label="Previous"> -->
+<!--                         			<span aria-hidden="true">&raquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:otherwise> --%>
+<%--                  	</c:choose> --%>
+<!--                  </ul> -->
+<!--             </div> -->
+<!--        </div> -->
 
 	<!-- 底部 ------>
 	 <div id="backtop" class="gotop">

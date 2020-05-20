@@ -110,38 +110,38 @@ public class HomeController {
 		
 		if (fourmList.size() == 0) {
 			if (articleService.getforumBean().size() == 0) {
-				articleDao.insertFourm();;
+				articleDao.insertFourm();
 			}
 			fourmList = articleService.getforumBean();
 		}
 		
 		
-		if(forumList.size() ==0) {
-			if(foumservice.getAllfname().size() ==0) {
-				iForumDao.insertFoum();
-			}
-			forumList =foumservice.getAllfname();
-		}
-		
-if (memberList.size() == 0) {
-
-			
-			if (memberService.getAllMember().size() == 0) {
-				memberDao.addmember();
-			}
-			memberList = memberService.getAllMember();
-		}
-
-		if (activityList.size() == 0) {
-			
-			if (launch_activityService.getAllArticles().size() == 0) {
-			
-				launch_activityDao.addFirstSomeActivity();
-			}
-			
-			activityList = launch_activityService.getAllArticles();
-
-		}
+//		if(forumList.size() ==0) {
+//			if(foumservice.getAllfname().size() ==0) {
+//				iForumDao.insertFoum();
+//			}
+//			forumList =foumservice.getAllfname();
+//		}
+//		
+//		if (memberList.size() == 0) {
+//
+//			
+//			if (memberService.getAllMember().size() == 0) {
+//				memberDao.addmember();
+//			}
+//			memberList = memberService.getAllMember();
+//		}
+//
+//		if (activityList.size() == 0) {
+//			
+//			if (launch_activityService.getAllArticles().size() == 0) {
+//			
+//				launch_activityDao.addFirstSomeActivity();
+//			}
+//			
+//			activityList = launch_activityService.getAllArticles();
+//
+//		}
 		
 		return "index";
 	}
