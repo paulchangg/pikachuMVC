@@ -44,7 +44,7 @@ public class ProductBean implements Serializable{
 	private String p_img_name;
 	private String p_category;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_product", catalog = "pikachuDB",
+	@JoinTable(name = "member_product", catalog = "pikachuTestDB",
 			   joinColumns ={
 					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
 			   },
