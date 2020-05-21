@@ -10,87 +10,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>活動頁面</title>
 <link rel="stylesheet" href="./css/bootstrap.min.css" />
-<link rel="stylesheet" href="./css/activity_page.css" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css"
+	media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="<c:url value="/articleForum/css/activity_page.css"/>" />
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<script src="<c:url value="/articleForum/js/jquery-3.4.1.js"/>"></script>
+<script src=" <c:url value="/articleForum/js/popper.min.js"/>"></script>
+<script src="<c:url value="/articleForum/js/bootstrap.min.js"/>"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
-<script src="js/jquery-3.4.1.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- <script src="/js/post_article.js"></script> -->
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js"></script>
+<script src="<c:url value="/articleForum/js/forum.js"/>"></script>
 </head>
 
-
-
-
 <body>
-	<!-- logo及上方標題列---超連結待補---->
-	<div class="top-navigation">
-		<a href="#/" class="navigation__logo"> <img
-			src="./images/index_logo.jpg" alt="logo" class="navigation__logo" />
-		</a>
-		<ul class="nav justify-content-end">
-			<li class="nav-item"><c:choose>
-					<c:when test="${empty LoginOK}">
-						<a href="<c:url value='/member/member_login'/>"
-							class="nav-link active memberlogin"> <i
-							class="fa fa-user-circle" id="memberlogin">會員登入</i>
-						</a>
-					</c:when>
-					<c:otherwise>
-						<a href="<c:url value='/member/member_logout'/>"
-							class="nav-link active memberlogin"> <i
-							class="fa fa-user-circle" id="memberlogout">會員登出</i>
-						</a>
-					</c:otherwise>
-				</c:choose></li>
-
-			<li class="nav-item"><a class="nav-link cardcompare"
-				href="<c:url value='/cards/cradeitCb?qt=main'/>" id="">信用卡比較</a></li>
-			<li class="nav-item"><a class="nav-link qanda" href="#" id="">Q&A</a></li>
-			<li class="nav-item"><a class="nav-link shoppingcart"
-				href="<c:url value='/shopping/listProduct'/>" id=""> <i
-					class="fas fa-shopping-cart"></i>
-			</a></li>
-		</ul>
-	</div>
-
-	<!-- 導覽列------超連結待補------>
-	<div class="header">
-		<div class="nav-bar">
-			<a href="#" class="aboutus" id="">關於我們</a> <a
-				href="<c:url value='/member/member_center'/>" class="memberarea"
-				id="">會員中心</a> <a href="#" class="mall" id="">商城</a>
+	<!-- logo及上方標題列-->
+	<div class="container-fluid" style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
+		<div class="row">
+			<div class="col-sm">
+				<p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+				<p style="font-size: medium; padding-top: 10px;">快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
+			</div>
+			<div class="row justify-content-around">
+				<div class="col-sm">
+					<a href="<c:url value="/"/>"> <img
+						src="<c:url value="/articleForum/images/logo2.png"/>" alt="logo"
+						style="height: 340px; width: 300px;padding:0 30px 140px 0;" />
+					</a>
+				</div>
+			</div>
+			<!-- 右上區塊 -->
+			<div class="col-sm">
+				<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+					<li class="nav-item"><a class="nav-link"
+						href='<c:url value="/member/member_logout" />' id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
+							<i class="fas fa-shopping-cart"></i>
+					</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+
+ <!-- 導覽列上slider -->
+    <div class="et-hero-tabs">
+      <!-- 要改放圖片的話再修正 -->
+      <div class="aa" style="height: 100px;"></div>
+
+      <!-- 導覽列 -->
+      <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews" />'>資訊網</a>
+        <span class="et-hero-tab-slider"></span>
+      </div>
+    </div>
 
 	<!-- 看板門面圖 -->
 	<div class="card-group">
 		<div class="card">
-		
-			<img src="./images/activity/pic1.jpg" class="card-img-top" alt="..." />
-			
+			<img src="./images/activity/pic1.jpg" class="card-img-top" alt="..." style="height:378px;"/>
 		</div>
 		<div class="card">
-			<img src="./images/activity/pic2.jpg" class="card-img-top" alt="..." />
+			<img src="./images/activity/pic2.jpg" class="card-img-top" alt="..." style="height:378px;"/>
 		</div>
 		<div class="card">
-			<img src="./images/activity/pic3.jpg" class="card-img-top" alt="..."
-				style="height: 302.95px;" />
+			<img src="./images/activity/pic3.jpg" class="card-img-top" alt="..." style="height:378px;"/>
 		</div>
 	</div>
 
-	<div class="second_line"></div>
+	<!-- 分隔列---->
+		<div class="second_line"></div>
 
 	<!-- 發布活動按鈕 -->
-	<div class="d-flex flex-row-reverse bd-highlight"
-		style="padding-top: 7px; padding-right: 10px;">
+	<div class="d-flex flex-row bd-highlight"
+		style="padding-top: 20px; margin-left: 15px;">
 		<div class="btn-group btn-group-sm" role="group"
 			aria-label="Basic example" style="font-size: 20px;">
-
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" data-toggle="modal"
 				data-target="#exampleModalLong">
-				發布新活動 <br /> <i class="far fa-edit"></i>
+				發布新活動 <br /> 
+				<i class="far fa-edit"></i>
 			</button>
 
 			<!-- Modal 跳出頁面 -->
@@ -113,20 +128,14 @@
 								method="POST" enctype="multipart/form-data" id="msform">
 								<!-- 主辦人頭像 -->
 								<div class="container">
-
-
-								
 									<img
 										src='${pageContext.request.contextPath}/init/getMemberImage?id=${loginmember}'
 										alt="profile-sample5" id="memberid_img" /><br>
-										
-										
-										
 									<c:choose>
 										<c:when test="${Newsessionfname != null}">
 											<span style="font-size: 0.6em; color: #3e8bbe;">主揪人</span>
 											<span id="article_m_id" style="font-size: 0.8em;">${loginmember}</span>
-											<!-- 發文著的名子 -->
+											<!-- 發文者的名字 -->
 											<h1>發文看板:${Newsessionfname}</h1>
 											<hr />
 
@@ -175,19 +184,8 @@
 
 											<!-- 上傳圖片的按鈕 -->
 											<h1 class="fs-title">活動照片</h1>
-											<div class="input-group mb-3" style="font-size: 13px;">
-												<div class="input-group-prepend">
-													<span class="input-group-text" style="font-size: 13px;">Upload</span>
-												</div>
-												<div class="custom-file">
-
-													<input type="file" class="custom-file-input"
-														id="articleimage" name="articleimageStr"
-														aria-describedby="articleimage"> <label
-														class="custom-file-label" for="articleimage">請選擇照片</label>
-
-												</div>
-												<Input type='hidden' name='pageNo' value='${param.pageNo}'>
+											<div class="articleimage" style="padding-bottom: 5px;">
+											<input id="inputImg" name="imageFile" type="file" multiple="multiple" />
 											</div>
 
 											<!-- 底部按鈕 -->
@@ -213,66 +211,83 @@
 		</div>
 	</div>
 
-
 	<!-- 中央文章大區塊範圍----->
-	<div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
-		<!-- 左側看板列表---超連結待補-->
+		<!-- 左側看板列表-->
 		<div class="container-fluid">
-			<div class="leftNav" style="width: 100px;">
-				<div class="btn-group-vertical" id="forum_btn">
-					<a href="#" id="">
-						<button type="button" class="btn-all-board">所有看板</button>
-					</a> <br /> <a href="<c:url value="/forum/ForumHompage?pageNo=1" />" id="">
-						<button type="button" class="btn-all-board">交友活動</button>
-					</a> <br /> <a href="#" id="">
-						<button type="button" class="btn-all-board">配對</button>
-					</a> <br /> <span style="margin-top: 30px;">熱門活動</span> <br /> <a
-						<%-- 						href="<c:url value='/forum/QueryLaunchALL' />">  --%>
-							href="<c:url value='/forum/QueryLaunchALL?pageNo=1' />">
-
-						<button type="button" class="btn-all-board">所有活動頁面</button>
-					</a><br>
-
-
-					
-
-
-					<c:forEach var="listFame_listFid" items="${listFame_listFid}">
-
-
-						<a
-							href="<c:url value='/forum/ConnectionForum_launch?fname=${listFame_listFid.key}&fid=${listFame_listFid.value}'/>"
-							id="">
-							<button type="button" class="btn-all-board">${listFame_listFid.key}</button>
-						</a>
-						<br />
-					</c:forEach>
-
-
-
+			<div class="row" style="display: flex;">
+			<!-- 左側button-->
+			<div class="col-2">
+				<div class="my-3">
+					<a class="nav-link" style="padding: 0px;">
+						<button type="button" class="btn btn-outline-success "">所有看板</button>
+					</a>
+					<div style="padding: 10px 0 10px 0;"></div>
+					<!-- 分類看板 -->
+					<ul class="list-group list-group-flush" style="width: 250px;">
+						<li class="list-group-item">
+							<button type="button" class="btn btn-light" id="creditcards">
+								<a href="<c:url value='/articleForum/listforum/信用卡' />"
+									style="text-decoration: none; color: black;">信用卡</a>
+							</button>
+						</li>
+						<li class="list-group-item">
+							<button type="button" class="btn btn-light" id="food">
+								<a href="<c:url value='/articleForum/listforum/美食' />"
+									style="text-decoration: none; color: black;">美食</a>
+							</button>
+						</li>
+						<li class="list-group-item">
+							<button type="button" class="btn btn-light" id="emotion">
+								<a href="<c:url value='/articleForum/listforum/感情' />"
+									style="text-decoration: none; color: black;">感情</a>
+							</button>
+						</li>
+					</ul>
 				</div>
+				<div class="my-3">
+					<a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />"
+						style="padding: 0px;">
+						<button type="button" class="btn btn-outline-success">交友活動
+						</button>
+					</a>
+				</div>
+				<div class="my-3">
+					<a class="nav-link" href='<c:url value="/friends/pair" />'
+						style="padding: 0px;">
+						<button type="button" class="btn btn-outline-success">配對</button>
+					</a>
+				</div>
+				<br>
+				<br>
+				<div class="my-3">
+					<a href="<c:url value='/forum/QueryLaunchALL?pageNo=1' />" style="padding: 0px;">
+						<button type="button" class="btn btn-outline-info">所有活動</button>
+					</a>
+				</div>	
+				<c:forEach var="listFame_listFid" items="${listFame_listFid}">
+				<ul class="list-group list-group-flush" style="width: 250px;">
+					<li class="list-group-item">
+						<button type="button" class="btn btn-light">${listFame_listFid.key}</button>
+							<a href="<c:url value='/forum/ConnectionForum_launch?fname=${listFame_listFid.key}&fid=${listFame_listFid.value}'/>"
+							    	style="text-decoration: none; color: black;"></a>								
+						</button>
+					</li>
+				</ul>
+			</c:forEach>
+				<br>
 			</div>
-		</div>
-	</div>
-
-
-
-	<!-- --中間大區塊貼文開始	 ------------------------------------->
+<!-- 中間大區塊貼文開始 -->
 	<!-- 活動欄位 -->
 	<!-- 這裡面要放全部的活動結束(不分標籤) -->
-
+	<div class="col-9">
 	<c:choose>
 		<c:when test="${Newsessionfname == null}">
-			
 				<div class="container">
-				
 					<div class="card-deck">
 						<!-- 活動1-1 -->
 						<c:forEach var="launchAll" items="${launchAll}">
 						<div class="card">
 							<!-- 活動圖片 -->
-							
-							
 							<a href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>">
 							<img 
 								src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ launchAll.article_Id }'
@@ -284,42 +299,28 @@
 									<div class="card__social">
 										
 										<!-- 點擊進入詳細活動頁面  -->
-
-
 										<a id="share" class="share-toggle share-icon"
 											href="<c:url value='/forum/activity_info_page?article_IdStr=${ launchAll.article_Id }&mode=enterpage'/>">
-
-
-
 											<i class="fas fa-plus"></i>
 										</a>
 									</div>
 								</div>
 								<div class="card__meta" style="padding-top: 10px;">
 									<!-- 所屬的看板 -->
-
 									<a href="#" class="subject">${launchAll.foumBean.fname}</a><br>
-
 									<!-- 活動時間 -->
 									<time class="post_Time" style="font-size: medium;"> ${ launchAll.startTime }</time>
 								</div>
-
 								<p class="article_content">以下活動內文 ~ ~</p>
 							</div>
-							<div class="card__action"></div>
 						</div>
-			</c:forEach>
+						</c:forEach>
 					</div>
 				</div>
 		</c:when>
 		<c:otherwise>
-		
-		
-		
-		
-		
+		</div>
 			<!-- 		分標籤的部分 -->
-			
 					<div class="container">
 						<%-- 					<h1>文章編號${ launchAll.article_Id } 的資料</h1> --%>
 						<div class="card-deck">
@@ -332,17 +333,15 @@
 								<a href="<c:url value='/forum/activity_info_page?article_IdStr=${ pageActivitysByfame.article_Id }&mode=enterpage'/>">
 								<img 
 									src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ pageActivitysByfame.article_Id }'
-									class="articleimage" alt="..." />
+									class="articleimage" />
 									</a>
 								<div class="card-body">
 									<div class="card__share">
 										<div class="card__social">
 
-
 											<!-- 點擊進入詳細活動頁面  -->
 											<a id="share" class="share-toggle share-icon"
 												href="<c:url value='/forum/activity_info_page?article_IdStr=${ pageActivitysByfame.article_Id }&mode=enterpage'/>">
-
 
 												<i class="fas fa-plus"></i>
 											</a>
@@ -358,35 +357,29 @@
 									<p class="article_content">
 
 											以下活動內文 ~ ~
-<%-- 										${pageActivitysByfame.article_content};</p> --%>
-								</div>
-								<div class="card__action"></div>
-							</div>
+		</div>
+		<div class="card__action"></div>
+		</div>
 				</c:if>
 			</c:forEach>
 						</div>
 					</div>
-
+				</div>
 
 		</c:otherwise>
 	</c:choose>
 
 	<br />
 	<br />
-	<!-- --中間大區塊貼文結束	 ------------------------------------->
+	<!-- 中間大區塊貼文結束 -------->
 
 
+			</div>
+		</div>
+	</div>
+</div>
 
 	<!-- 下方頁碼分頁 ----超連結待補------>
-
-
-
-
-
-
-
-
-
 
 	<nav aria-label="Page navigation example" style="padding-top: 10px;">
 		<ul class="pagination justify-content-center">
@@ -402,10 +395,6 @@
 
 				</c:if>
 				</c:forEach>
-				
-				
-				
-				
 
 <c:if test="${Newsessionfname ==null }">
 				<li class="page-item"><a class="page-link"
@@ -414,11 +403,7 @@
 </c:if>
 			</c:if>
 
-
-
 			<c:if test="${  pageNo !=0  }">
-			
-			
 			
 				<c:forEach var="listFame_listFid" items="${listFame_listFid}">
 					<c:if test="${Newsessionfname ==listFame_listFid.key }">
@@ -428,10 +413,6 @@
 					</c:if>
 				</c:forEach>
 				
-				
-				
-				
-
 <c:if test="${Newsessionfname ==null }">
 
 				<li class="page-item"><a class="page-link"
@@ -439,11 +420,7 @@
 					id="">${pageNo}</a></li>
 				</c:if>	
 					
-					
 </c:if>
-
-
-
 
 				<c:if test="${  pageNo !=totalPage  }">
 
@@ -455,32 +432,23 @@
 						</c:if>
 					</c:forEach>
 
-
-
-
 			<c:if test="${Newsessionfname ==null }">
 					<li class="page-item"><a class="page-link"
 						href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo+1}' />"
 						id="">${pageNo+1}</a></li>
 				</c:if>
 
-
 			</c:if>
-
-
 			
-
 			<c:if test="${pageNo != totalPage}">
 			<c:forEach var="listFame_listFid" items="${listFame_listFid}">
 			<c:if test="${Newsessionfname ==listFame_listFid.key }">
-
 
 					<li class="page-item"><a class="page-link"
 						href="<c:url value='/forum/ConnectionForum_launch?pageNo=${totalPage}&fname=${listFame_listFid.key}&fid=${listFame_listFid.value}' />"
 						id="">End</a></li>
 				</c:if>
 </c:forEach>
-
 
 <c:if test="${Newsessionfname ==null }">
 
@@ -489,7 +457,6 @@
 					id="">End</a></li>
 			</c:if>
 </c:if>
-
 
 			<c:if test="${pageNo != totalPage}">
 <c:forEach var="listFame_listFid" items="${listFame_listFid}">
@@ -500,7 +467,6 @@
 				</c:if>
 </c:forEach>
 
-
 <c:if test="${Newsessionfname ==null }">
 				<li class="page-item"><a class="page-link"
 					href="<c:url value='/forum/QueryLaunchALL?pageNo=${pageNo+1}' />"
@@ -510,24 +476,45 @@
 		</ul>
 	</nav>
 
+	<!-- 底部 ------>
+	 <div id="backtop" class="gotop" >
+      <h4>
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      </h4>
+      <div class="footer">
+        <ul>
+          <li>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+			<span></span>
+			<span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
 
-
-
-
-	<!-- 底部 ---------------------------->
-
-
-
-	<div class="footer">
-		<div class="gotop">
-			<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-			<br /> <br /> <a href="#" class="w3-botton w3-black w3-margin">
-				<i class="fa fa-arrow-up w3-margin-right"></i> To the top
-			</a>
-		</div>
-		<br />
-	</div>
-
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div>
 
 </body>
 </html>

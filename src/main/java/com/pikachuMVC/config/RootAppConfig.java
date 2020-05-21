@@ -37,7 +37,7 @@ public class RootAppConfig {
 //		ds.setPassword("404631060");
 //		ds.setPassword("22651330");
 //		ds.setPassword("songsql");
-		ds.setPassword("ruby123");	
+		ds.setPassword("zxcvb123");	
 //		ds.setPassword("qazwsx12");	
 //		ds.setPassword("Do!ng123");
 
