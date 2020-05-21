@@ -133,7 +133,31 @@ function switchTo(stepIdx) {
             "</div>";
         }
 
+<<<<<<< HEAD
+        mm.innerHTML = content;
+      },
+    });
+  }
+}
 
+function btnEventHandler() {
+  $("#nextBtn").on("click", function () {
+    birthday = document.getElementById("bday").value;
+    let d = new Date();
+    let bdtime = new Date(birthday);
+    //算出年齡     現在年             出生年            (如果現在月份小於出生月份       或     同一個月，現在 日期 小於出生日) 若為真再-1，若否則-0
+    let age =
+      d.getFullYear() -
+      bdtime.getFullYear() -
+      (d.getMonth() < bdtime.getMonth() ||
+      (d.getMonth() == bdtime.getMonth() && d.getDate() < bdtime.getDate())
+        ? 1
+        : 0);
+
+    if (age < 20) {
+      alert("必需滿20歲才能申請信用卡，請輸入合法年齡 或 離開問卷");
+      return false;
+=======
     function switchTo(stepIdx) {
       // 處理按鈕的顯示或隱藏邏輯
       handleForBtnVisibility(stepIdx);
@@ -216,6 +240,7 @@ function switchTo(stepIdx) {
            		}
         }); 
       }
+>>>>>>> 3727b66a6177c0906e7321082a5b75056ac24ab3
     }
 
     currentStepIdx++;
