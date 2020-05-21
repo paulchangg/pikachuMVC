@@ -384,69 +384,69 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	
-	@Override
-	@Transactional
-	public void addmember() {
-		Session session = factory.getCurrentSession();
-	
-		String line = "";
-		
-		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\member.txt"); //JAMES
-
-
-
-		try (FileInputStream fis = new FileInputStream(file);
-				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
-				BufferedReader br = new BufferedReader(isr);) {
-			while ((line = br.readLine()) != null) {
-				
-				String[] token = line.split("<");
-				MemberBean mb = new MemberBean();
-				mb.setM_id(token[0]);
-				mb.setBirthday(Date.valueOf(token[1]));
-				mb.setCity(token[2]);
-				mb.setEducation(token[3]);
-				mb.setGender(token[4]);
-				mb.setIncome(token[5]);
-				
-				
-				mb.setM_mail(token[7]);
-//				mb.setM_password(token[8]);
-				String beforepassword ="Qazwsx@@12";
-				String	newpassword = GlobalService.getMD5Endocing(GlobalService.encryptString(beforepassword));
-				
-				mb.setM_password(newpassword);
-				
-				
-				
-				
-				
-				
-				mb.setName(token[9]);
-				mb.setNickname(token[10]);
-				mb.setPhone_num(token[11]);
-				
-				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\memberImgs\\" + token[6]; //JAMES
-
-				Blob m_img = GlobalService.fileToBlob(imgname);
-				
-				mb.setM_img(m_img);
-				
-				
-
-				
-				session.save(mb);
-				
-				System.out.println("新增一筆Member紀錄");
-			}
-			System.out.println("Member資料新增成功");
-		} catch (Exception e) {
-			e.getStackTrace();
-			System.err.println("新建Member表格時發生IO例外: " + e.getMessage());
-		}
-
-		
-	}
+//	@Override
+//	@Transactional
+//	public void addmember() {
+//		Session session = factory.getCurrentSession();
+//	
+//		String line = "";
+//		
+//		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\member.txt"); //JAMES
+//
+//
+//
+//		try (FileInputStream fis = new FileInputStream(file);
+//				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+//				BufferedReader br = new BufferedReader(isr);) {
+//			while ((line = br.readLine()) != null) {
+//				
+//				String[] token = line.split("<");
+//				MemberBean mb = new MemberBean();
+//				mb.setM_id(token[0]);
+//				mb.setBirthday(Date.valueOf(token[1]));
+//				mb.setCity(token[2]);
+//				mb.setEducation(token[3]);
+//				mb.setGender(token[4]);
+//				mb.setIncome(token[5]);
+//				
+//				
+//				mb.setM_mail(token[7]);
+////				mb.setM_password(token[8]);
+//				String beforepassword ="Qazwsx@@12";
+//				String	newpassword = GlobalService.getMD5Endocing(GlobalService.encryptString(beforepassword));
+//				
+//				mb.setM_password(newpassword);
+//				
+//				
+//				
+//				
+//				
+//				
+//				mb.setName(token[9]);
+//				mb.setNickname(token[10]);
+//				mb.setPhone_num(token[11]);
+//				
+//				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\memberImgs\\" + token[6]; //JAMES
+//
+//				Blob m_img = GlobalService.fileToBlob(imgname);
+//				
+//				mb.setM_img(m_img);
+//				
+//				
+//
+//				
+//				session.save(mb);
+//				
+//				System.out.println("新增一筆Member紀錄");
+//			}
+//			System.out.println("Member資料新增成功");
+//		} catch (Exception e) {
+//			e.getStackTrace();
+//			System.err.println("新建Member表格時發生IO例外: " + e.getMessage());
+//		}
+//
+//		
+//	}
 	
 	
 	

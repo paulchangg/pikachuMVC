@@ -218,10 +218,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.getAllMember();
 	}
 
-	@Override
-	@Transactional
-	public void addmember() {
-		dao.addmember();
-	}
+//	@Override
+//	@Transactional
+//	public void addmember() {
+//		dao.addmember();
+//	}
 	
 }

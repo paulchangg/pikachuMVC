@@ -39,7 +39,7 @@ public interface ILaunch_activityService {
 
 	long getRecordCountsByfname(Integer f_id);
 
-	void addFirstSomeActivity();
+//	void addFirstSomeActivity();
 
 
 }

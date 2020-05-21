@@ -53,5 +53,5 @@ public interface MemberDao {
 
 	List<MemberBean> getAllMember();
 
-	void addmember();
+//	void addmember();
 }
