@@ -19,7 +19,7 @@
   <body class="indexBody">
      <!--loading畫面----->
      <div class="hahahahaha">
-        <div ><img src="./images/logo2.gif" class="zoomer onrpickure"></div>
+        <div ><img src="./images/logo3.gif" class="zoomer onrpickure"></div>
         <div><span id="percentCount" class="percent-count"></span></div>
            </div>
     </div>
@@ -326,7 +326,7 @@
         var loadarea=document.querySelector('.hahahahaha');
         var percent=document.getElementById('percentCount');
         var counter=5;5;
-        var id=setInterval(frame,40);//動畫時間
+        var id=setInterval(frame,20);//動畫時間
         var bodyarea=document.querySelector('.indexBody');
         
 

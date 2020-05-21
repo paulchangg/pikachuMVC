@@ -87,7 +87,7 @@
                      '<line class="top" x1="0" y1="0" x2="1300" y2="0"/> '  + 
                      '<line class="left" x1="0" y1="400" x2="0" y2="-1300"/>' +
                      '<line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>' +
-                     '<line class="right" x1="1090" y1="0" x2="1090" y2="160"/>' +
+                     '<line class="right" x1="1106" y1="0" x2="1106" y2="160"/>' +
                      '</svg>' +
                      '<div class="onecard"  name="'+cb[i].bank+'">' +
                      '<span id="">' +cb[i].c_name +  '</span>' + 
