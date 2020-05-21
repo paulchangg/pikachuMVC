@@ -43,6 +43,7 @@ public class MemberBean {
 	private String city;
 	@Expose
 	private String education;
+	private Integer valid;
 	
 	@OneToMany(mappedBy = "mb",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	Set<PreFriend> preFriends;
@@ -88,7 +89,7 @@ public class MemberBean {
 	}
 	
 	public MemberBean(String m_id, String m_password, String name, String phone_num, String m_mail, String nickname,
-			Date birthday, String gender, Blob m_img, String income, String city, String education) {
+			Date birthday, String gender, Blob m_img, String income, String city, String education,Integer valid) {
 		super();
 		this.m_id = m_id;
 		this.m_password = m_password;
@@ -102,6 +103,7 @@ public class MemberBean {
 		this.income = income;
 		this.city = city;
 		this.education = education;
+		this.valid = valid;
 	}
 	
 	
@@ -266,6 +268,15 @@ public class MemberBean {
 		this.friends = friends;
 	}
 	
+	public Integer getValid() {
+		return valid;
+	}
+	
+	public void setValid(Integer valid) {
+		this.valid = valid;
+	}
+	
+	
 	
 
 	@Override
@@ -281,6 +292,8 @@ public class MemberBean {
 	public int hashCode() {
 		return m_id.hashCode();
 	}
+
+
 	
 	
 

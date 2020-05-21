@@ -16,10 +16,12 @@ public interface MemberService {
 	boolean idExists(String id);
 	MemberBean queryMember(String id);
 	MemberBean checkIdPassword(String userId, String password);
+	public void enable(MemberBean mb);
 	public int updatePassword(String email, String newPW);
 	public void changePassword(MemberBean mb);
 	public boolean emailExists(String email);
 	public void sendMail(String email, String newPW);
+	public void sendValidMail(String email,String encryptId);
 	public void updateM_img(MemberBean mb);
 	public void updateMember(MemberBean mb);
 	public void saveOrUpdate(MemberBean mb);

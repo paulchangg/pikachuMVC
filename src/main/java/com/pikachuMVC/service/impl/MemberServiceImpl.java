@@ -14,6 +14,7 @@ import com.pikachuMVC.model.PreFriend;
 import com.pikachuMVC.service.MemberService;
 
 import init.SendEmail;
+import init.SendValidMail;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -51,6 +52,12 @@ public class MemberServiceImpl implements MemberService {
 		MemberBean mb = null;
 		mb = dao.checkIdPassword(userId, password);
 		return mb;
+	}
+	
+	@Override
+	@Transactional
+	public void enable(MemberBean mb) {
+		dao.enable(mb);		
 	}
 
 	@Override
@@ -116,6 +123,13 @@ public class MemberServiceImpl implements MemberService {
 	public void sendMail(String email, String newPW) {
 		SendEmail se = new SendEmail(email, newPW);
 		se.start();
+	}
+	
+	@Override
+	public void sendValidMail(String email, String encryptId) {
+		SendValidMail svm = new SendValidMail(email, encryptId);
+		svm.start();
+		
 	}
 
 	@Override
@@ -217,6 +231,10 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberBean> getAllMember() {
 		return dao.getAllMember();
 	}
+
+
+
+	
 
 //	@Override
 //	@Transactional

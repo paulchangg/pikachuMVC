@@ -102,6 +102,14 @@ public class MemberDaoImpl implements MemberDao {
 
 		return mb;
 	}
+	
+	@Override
+	public void enable(MemberBean mb) {
+		Session session = factory.getCurrentSession();
+		MemberBean memberBean = session.get(MemberBean.class, mb.getM_id());
+		memberBean.setValid(1);
+		
+	}
 
 	//user忘記密碼時,依照他註冊時所填的email,更新其密碼
 	// 成功回傳1
@@ -382,6 +390,8 @@ public class MemberDaoImpl implements MemberDao {
 		return  reult;
 		
 	}
+
+	
 	
 	
 //	@Override
