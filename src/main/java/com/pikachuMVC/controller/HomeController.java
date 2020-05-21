@@ -104,7 +104,7 @@ public class HomeController {
 		
 		if (fourmList.size() == 0) {
 			if (articleService.getforumBean().size() == 0) {
-				articleDao.insertFourm();;
+				articleDao.insertFourm();
 			}
 			fourmList = articleService.getforumBean();
 		}
@@ -117,7 +117,7 @@ public class HomeController {
 			forumList =foumservice.getAllfname();
 		}
 		
-//if (memberList.size() == 0) {
+//		if (memberList.size() == 0) {
 //
 //			
 //			if (memberService.getAllMember().size() == 0) {

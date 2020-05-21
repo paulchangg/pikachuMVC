@@ -10,7 +10,7 @@ import com.pikachuMVC.model.ArticleResponserBean;
 public interface ArticleDao {
 	void addFourm(int fourm,ArticleBean launchActivity);
 	
-	List<ArticleBean> listFourm();
+	List<ArticleBean> listFourm(int page);
 	
 	ArticleBean getSelectLaunchActivity(int launchActivityID);
 	
@@ -31,6 +31,10 @@ public interface ArticleDao {
 	List<ArticleClassificarionBean> getforumBean();
 	
 	void insertFourm();
+	
+	public long getRecordCounts();
+	
+	public int getTotalPages();
 	
 	
 }

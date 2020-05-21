@@ -88,7 +88,7 @@
                     <line class="top" x1="0" y1="0" x2="1300" y2="0"/>
                     <line class="left" x1="4" y1="160" x2="4" y2="0"/>
                     <line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>
-                    <line class="right" x1="506" y1="0" x2="1106" y2="160"/>
+                    <line class="right" x1="506" y1="0" x2="500" y2="160"/>
                    </svg>
  
                      <div class="onecard"  name="${entry.value.bank}">

@@ -11,7 +11,7 @@ public interface ArticleService {
 	
 	void addFourm(int fourm,ArticleBean launchActivity);
 	
-	List<ArticleBean> listFourm();
+	List<ArticleBean> listFourm(int page);
 	
 	ArticleBean getSelectLaunchActivity(int launchActivityID);
 	
@@ -30,5 +30,7 @@ public interface ArticleService {
 	Set<ArticleBean> listDifFourm(String fourm);
 	
 	List<ArticleClassificarionBean> getforumBean();
+	
+	public int getTotalPages();
 	
 }

@@ -27,9 +27,9 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	@Transactional
-	public List<ArticleBean> listFourm() {
+	public List<ArticleBean> listFourm(int page) {
 		List<ArticleBean> beans = null;
-		beans = dao.listFourm();
+		beans = dao.listFourm(page);
 		return beans;
 	}
 
@@ -94,6 +94,15 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<ArticleClassificarionBean> getforumBean() {
 		return dao.getforumBean();
 	}
+
+	@Override
+	@Transactional
+	public int getTotalPages() {
+		
+		return dao.getTotalPages();
+	}
+
+	
 
 	
 	

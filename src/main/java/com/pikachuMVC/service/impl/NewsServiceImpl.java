@@ -109,6 +109,7 @@ public class NewsServiceImpl implements NewsService {
 			// 新聞標題
 			String newsTitle = newsLink.attr("title");   //該dom的title屬性
 			System.out.println(newsTitle);
+			//檢查新聞title有沒有在資料庫，若有就跳過此次迴圈，不寫入
 			if(dao.titleExists(newsTitle)){
 				continue;
 			}else {

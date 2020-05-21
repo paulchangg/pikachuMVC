@@ -60,8 +60,22 @@ public class ArticleCotroller {
 	@Autowired
 	ServletContext context ;
 	
+	int pageNo = 1;
+	
 	@GetMapping("/listforum")
 	public String listForum(HttpServletRequest request,HttpSession session) {
+		
+		String pageNoStr = request.getParameter("pageNo");
+		
+		if( pageNoStr == null ) {
+			pageNo = 1;
+		}else {
+			try {
+				pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) {
+				pageNo = 1;
+			}
+		}
 		
 		MemberBean m = (MemberBean)session.getAttribute("LoginOK");
 		
@@ -73,7 +87,7 @@ public class ArticleCotroller {
 		
 		List<String> trackArticle_content = new ArrayList<String>();
 		
-		List<ArticleBean> beans = service.listFourm();
+		List<ArticleBean> beans = service.listFourm(pageNo);
 		
 		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
@@ -100,6 +114,9 @@ public class ArticleCotroller {
 			}		
 		}
 		
+		session.setAttribute("ArticleTotalPages", service.getTotalPages());
+		
+		session.setAttribute("ArticlepageNo", pageNo);
 		
 		session.setAttribute("trackBeans", trackBeans);
 		

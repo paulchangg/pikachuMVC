@@ -306,11 +306,14 @@
 			</div>
 		</div>
 
-		<div class="col-9 contentcenter" id="divcont">
+		<div class="col-9 contentcenter" >
 			<!--為中間顯示區塊-->
-
+ 		 <img src='<c:url value="/cards/image/loading3.gif"/>' class="loadingarea" id="loadingimg" alt="loadpic"/>
+ 		
+		<div id="divcont">
 			<c:choose>
 				<c:when test="${qt == 'cb'|| qt == 'main' }">
+				
 					<!--第1種：現金回饋-->
 					<c:forEach varStatus="stVar" var="entry" items="${card_m}">
 
@@ -801,12 +804,8 @@
 						</div>
 					</c:forEach>
 				</c:when>
-
-
 			</c:choose>
-
-
-
+			</div>
 		</div>
 	</div>
 	</main>
@@ -838,14 +837,18 @@
 	<script src="js/cradeitsearch_page.js"></script>
 	<script>
 		$("#hyper1").click(function()
-			{			    
+			{			  
 			    event.preventDefault();
 			    $("#divcont").empty();
+			    
+			    $("#loadingimg").css("display", "inline");
+			    
 			    $.ajax({
 			        url: '/pikachuMVC/cards/getAll',                        // url位置
 			        type: 'get',                   // post/get	  
 			        dataType : 'json',              // 預期從server接收的資料型態	      
 			        success: function (response) {  // 成功後要執行的函數
+			        	 $("#loadingimg").css("display", "none");
 			        let content="";	
 			        let divct= 0;
 			        	 $.each(response, function(key, val) {
