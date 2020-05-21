@@ -28,7 +28,7 @@ public class RootAppConfig {
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		ds.setJdbcUrl("jdbc:mysql:///pikachuTestDB"
+		ds.setJdbcUrl("jdbc:mysql:///pikachudb"
 				+ "?useSSL=true&useUnicode=yes&characterEncoding=UTF8"
 				+ "&serverTimezone=Asia/Taipei");
 		ds.setUser("root");

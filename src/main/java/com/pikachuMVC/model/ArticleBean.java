@@ -73,7 +73,7 @@ public class ArticleBean {
 	private MemberBean memberBean;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_article", catalog = "pikachuTestDB",
+	@JoinTable(name = "member_article", catalog = "pikachudb",
 	   joinColumns ={
 			   @JoinColumn(name = "activity_id", nullable = false, updatable = false)
 	   },

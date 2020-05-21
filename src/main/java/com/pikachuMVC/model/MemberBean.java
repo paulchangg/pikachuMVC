@@ -56,7 +56,7 @@ public class MemberBean {
 	Set<CardBean> cards = new LinkedHashSet<>();
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "friends", catalog = "pikachuTestDB",
+	@JoinTable(name = "friends", catalog = "pikachudb",
 			   joinColumns ={
 					   @JoinColumn(name = "m_id", nullable = false, updatable = false)
 			   },
