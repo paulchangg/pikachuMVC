@@ -19,7 +19,7 @@
   <body class="indexBody">
      <!--loading畫面----->
      <div class="hahahahaha">
-        <div ><img src="./images/logo2.gif" class="zoomer onrpickure"></div>
+        <div ><img src="./images/logo3.gif" class="zoomer onrpickure"></div>
         <div><span id="percentCount" class="percent-count"></span></div>
            </div>
     </div>
