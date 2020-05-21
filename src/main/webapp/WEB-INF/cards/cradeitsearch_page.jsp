@@ -319,13 +319,13 @@
 
 						<div class="box">
 							<!--特效區塊需要當外層-->
-							<svg xmlns="http://www.w3.org/2000/svg" width="100%"
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%"
 								height="100%">
                     <line class="top" x1="0" y1="0" x2="1300" y2="0" />
                       <line class="left" x1="4" y1="160" x2="4" y2="0" />
                       <line class="bottom" x1="0" y1="160" x2="1300"
 									y2="160" />
-                      <line class="right" x1="1271" y1="0" x2="1271"
+                      <line class="right" x1="1260" y1="0" x2="1260"
 									y2="160" />
                   </svg>
 

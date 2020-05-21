@@ -282,41 +282,47 @@
     </main>
 
     <!-- 回到置頂------>
-    <div id="backtop" class="gotop">
+    <div id="backtop" class="gotop" >
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
       </h4>
       <div class="footer">
-        <ul> 
+        <ul>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
+            <span></span>
+			<span></span>
+			<span></span>
+            <span class="fab fa-linkedin"></span>
           </li>
-        </ul>  
-      </div> 
-      
+        </ul>
+      </div>
+
       <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
     </div>
      <div class="hahahahaha">
         <div style="text-align:center;"><img src="/images/logo2.gif" class="zoomer onrpickure"></div>
-        <div style="text-align: center;"><span id="percentCount" class="percent-count"></span></div>
+        <div style="text-align:center;"><span id="percentCount" class="percent-count"></span></div>
                  <div class="progress" id="progress"></div>
          </div>
     </div>
@@ -326,7 +332,7 @@
         var loadarea=document.querySelector('.hahahahaha');
         var percent=document.getElementById('percentCount');
         var counter=5;5;
-        var id=setInterval(frame,40);//動畫時間
+        var id=setInterval(frame,20);//動畫時間
         var bodyarea=document.querySelector('.indexBody');
         
 

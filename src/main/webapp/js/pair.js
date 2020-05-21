@@ -78,12 +78,11 @@ function doFirst() {
         preFriends.appendChild(pfriend);
       }
       let lastDiv = document.createElement('div');
-      let mImg = document.createElement("img");
-      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
-      mImg.src = `/pikachuMVC/init/getMemberImage?id=${data[i].m_id}`;
+//      let mImg = document.createElement("img");
+//      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
+//      mImg.src = `/pikachuMVC/init/getMemberImage?id=${data[i].m_id}`;
 
-
-      // lastDiv.innerHTML = '<span style="color:blue">已經沒有推薦的人選嘍～</span>';
+      lastDiv.innerHTML = '<span style="color:blue">已經沒有推薦的人選嘍～</span>';
       lastDiv.style.display = "none";
       preFriends.appendChild(lastDiv);
       

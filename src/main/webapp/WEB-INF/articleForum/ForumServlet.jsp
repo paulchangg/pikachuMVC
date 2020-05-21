@@ -85,7 +85,7 @@
 		<div class="card">
 			<img
 				src="<c:url value="/articleForum/images/slider/slide_pic1.jpg"/>"
-				class="card-img-top" alt="..." height="340px" />
+				class="card-img-top" alt="..." height="359px" />
 			<div class="card-body">
 				<h5>
 					<a href="#" class="article_title"> <!-- 文章標題 --> 最新熱門景點
@@ -745,31 +745,35 @@
 <!--             </div> -->
 <!--        </div> -->
 
-	<!-- 底部 ------>
-	 <div id="backtop" class="gotop">
+<!-- 回到置頂------>
+    <div id="backtop" class="gotop" >
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
       </h4>
       <div class="footer">
         <ul>
           <li>
-            <span></span>
+			<span></span>
+			<span></span>
             <span></span>
             <span class="fab fa-facebook"></span>
           </li>
           <li>
-            <span></span>
+			<span></span>
+			<span></span>
             <span></span>
             <span class="fab fa-twitter"></span>
           </li>
           <li>
-            <span></span>
+			<span></span>
+			<span></span>
             <span></span>
             <span class="fab fa-instagram"></span>
           </li>
           <li>
             <span></span>
-            <span></span>
+			<span></span>
+			<span></span>
             <span class="fab fa-linkedin"></span>
           </li>
         </ul>

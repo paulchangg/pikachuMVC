@@ -232,7 +232,7 @@ prefix="c"%>
         </div>
       </div>
     </div>
-    <!-- 底部 ------>
+    <!-- 回到置頂------>
     <div id="backtop" class="gotop">
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
@@ -242,9 +242,11 @@ prefix="c"%>
           <li>
             <span></span>
             <span></span>
+            <span></span>
             <span class="fab fa-facebook"></span>
           </li>
           <li>
+            <span></span>
             <span></span>
             <span></span>
             <span class="fab fa-twitter"></span>
@@ -252,9 +254,11 @@ prefix="c"%>
           <li>
             <span></span>
             <span></span>
+            <span></span>
             <span class="fab fa-instagram"></span>
           </li>
           <li>
+            <span></span>
             <span></span>
             <span></span>
             <span class="fab fa-linkedin"></span>

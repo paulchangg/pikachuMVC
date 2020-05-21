@@ -309,7 +309,7 @@
 		<div class="container_area" style="padding: 10px 0 15px 0;">
 			<span class="container_bt_area" style="display: flex;"> <!-- 左半部 -->
 				<div class="column-bt-left"
-					style="padding-left: 60px; margin-right: 60px; height:300px;">
+					style="height:400px; margin-left: 30px;">
 					<p style="font-size: 22px;">活動內容介紹</p>
 					<!-- 活動內容 -->
 					<div>
@@ -328,23 +328,23 @@
 									<img class="memberid_img"
 										src='${pageContext.servletContext.contextPath}/init/getMemberImage?id=${responAll.res_m_id }'
 										alt=""
-										style="max-width: 100%; max-height: 100%; padding-top: 10px;" />
+										style="max-width: 100%; max-height: 100%; margin-left: 2px; margin-top: 2px;" />
 								</div>
 								<div class="col-9 my-1">
 									<div class="my-3">
 										<div class="row"
-											style="background: #fcfcfc; color: rgb(177, 172, 172); display: flex; align-items: center;">
+											style="color: rgb(177, 172, 172); display: flex; align-items: center;">
 											<div class="col-3 px-1">
 												<!-- 回文者id ----->
 												<h6 class="res_m_id" style="font-size: 14px;">
 													${responAll.res_m_id}</h6>
 											</div>
 											<!-- 回覆日期------>
+											<div class="col-6">
 											<span class="postTime" style="font-size: 12px;">${responAll.postTime }</span>
-										</div>
-										<!-- icon們 -->
-													<div class="col-12 px-0"
-														style="font-weight: initial; font-size: 14px; text-align: end;">
+										  </div>
+										  <!-- icon們 -->
+										  <div style="font-weight: initial; font-size: 14px; text-align: end;">
 														<!-- 修改 -->
 														<button type="button" class="btn btn-link" 
 														data-toggle="modal" 
@@ -361,6 +361,8 @@
 																</button>
 															</form>
 													</div>
+										</div>
+													
 										<p class="res_content my-1" style="font-size: 14px;">
 											${responAll.res_content }</p>
 									</div>
