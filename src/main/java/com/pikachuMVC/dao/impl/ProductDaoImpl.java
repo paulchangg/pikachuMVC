@@ -172,7 +172,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 //		File file = new File("C:\\Users\\Rubylulu\\pikachuMVC\\data\\product.txt");
 //		File file = new File("C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\product.txt");
 //		File file = new File("D:\\spring\\pikachuMVC\\data\\product.txt");
-
+//		File file = new File("C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\product.txt"); //宋用
 
 
 		try (FileInputStream fis = new FileInputStream(file);
@@ -195,7 +195,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 //				String imgname = "D:\\ttt\\" + token[4];
 //				String imgname = "C:\\Users\\Rubylulu\\pikachuMVC\\data\\productImgs\\" + token[4];
 //				String imgname = "C:\\Users\\user-1742-4\\Desktop\\pikachuMVC\\data\\productImgs\\" + token[4];
-//				String imgname = "C:\\_JSP\\workspaceJDBC_s\\pikachuMVC\\data\\imgs\\" + token[1] + ".jpg"; //宋用
+//				String imgname = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\data\\productImgs\\" + token[4];  // 宋用
 
 				Blob c_img = GlobalService.fileToBlob(imgname);
 				cb.setP_img(c_img);
