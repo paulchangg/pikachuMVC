@@ -267,7 +267,7 @@
 											</div>
 										</c:when>
 										<c:otherwise>
-											<h1>發文看板:你還沒選擇看板喔(在左邊)</h1>
+											<h1>發文看板:你還沒選擇看板喔(在下方喔)</h1>
 										</c:otherwise>
 									</c:choose>
 								</div>
