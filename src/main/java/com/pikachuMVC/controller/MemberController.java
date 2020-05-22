@@ -56,8 +56,9 @@ public class MemberController {
 	ServletContext sc;
 
 	@GetMapping("/member/member_register")
-	public String register(Model model) {
+	public String register(Model model ,HttpServletRequest request) {
 		model.addAttribute("gender1", "checked");
+		request.setAttribute("dontSend", "dontSend");
 		return "member/member_register";
 	}
 
@@ -120,15 +121,20 @@ public class MemberController {
 	public String logout() {
 		return "member/member_logout";
 	}
-
-	@PostMapping("/member/register.do")
-	public String register(HttpServletRequest request, HttpSession session) {
+	
+	@PostMapping("/member/validRegister")
+	@ResponseBody
+	public void validRegister(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
 		final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%!^'\"]).{8,})";
 		final String EMAIL_PATTERN = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 		final String PHONE_PATTERN = "[0-9]{10}";
-
+		
 		Pattern pattern = null;
 		Matcher matcher = null;
+
 		String account = "";
 		String password = "";
 		String name = "";
@@ -144,16 +150,11 @@ public class MemberController {
 		gender = request.getParameter("gender");
 		phone_num = request.getParameter("phone_num");
 		birthday = request.getParameter("birthday");
-
+		
 		Map<String, String> errorMsg = new HashMap<String, String>();
-		// 準備存放註冊成功之訊息的Map物件
 		Map<String, String> msgOK = new HashMap<String, String>();
-		// 註冊成功後將用response.sendRedirect()導向新的畫面，所以需要
-		// session物件來存放共用資料。
-
 		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
-		session.setAttribute("MsgOK", msgOK); // 顯示正常訊息
-
+		
 		if (account == null || account.trim().length() == 0) {
 			errorMsg.put("errorIdEmpty", "帳號欄必須輸入");
 		}
@@ -175,38 +176,146 @@ public class MemberController {
 		if (birthday == null || birthday.trim().length() == 0) {
 			errorMsg.put("errorBirthdayEmpty", "生日欄必須輸入");
 		}
-
+		
 		if (errorMsg.isEmpty()) {
 			pattern = Pattern.compile(PASSWORD_PATTERN);
 			matcher = pattern.matcher(password);
 			if (!matcher.matches()) {
-				errorMsg.put("passwordError", "密碼至少含有一個大寫字母、小寫字母、數字與!@#$%!^'\"等四組資料組合而成，且長度不能小於八個字元");
+				errorMsg.put("passwordError", "密碼格式錯誤");
 			}
-
+			
 			pattern = Pattern.compile(EMAIL_PATTERN);
 			matcher = pattern.matcher(email);
 			if (!matcher.matches()) {
 				errorMsg.put("emailError", "信箱格式錯誤");
 			}
-
+			
 			pattern = Pattern.compile(PHONE_PATTERN);
 			matcher = pattern.matcher(phone_num);
 			if (!matcher.matches()) {
 				errorMsg.put("phoneError", "手機格式錯誤");
 			}
 		}
-
-		if (!errorMsg.isEmpty()) {
-
-			return "member/member_register";
+		
+		if(!errorMsg.isEmpty()) {
+			String emJson = new Gson().toJson(errorMsg);
+			System.out.println(emJson);
+			out.write(emJson);
+			out.close();			
 		}
 
+		
+		if (service.idExists(account)) {
+			errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
+		} 
+		
+		if (service.emailExists(email)) {
+			errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
+		}
+			
+		if(!errorMsg.isEmpty()) {
+			String emJson = new Gson().toJson(errorMsg);
+			System.out.println(emJson);
+			out.write(emJson);
+			out.close();			
+		}else {
+			msgOK.put("ok", "ok");
+			String okJson = new Gson().toJson(msgOK);
+			System.out.println(okJson);
+			out.write(okJson);
+			out.close();			
+		}
+		
+		
+	}
+
+	@PostMapping("/member/register.do")
+	public String register(HttpServletRequest request, HttpSession session) {
+//		final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%!^'\"]).{8,})";
+//		final String EMAIL_PATTERN = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+//		final String PHONE_PATTERN = "[0-9]{10}";
+//
+//		Pattern pattern = null;
+//		Matcher matcher = null;
+		String account = "";
+		String password = "";
+		String name = "";
+		String email = "";
+		String gender = "";
+		String phone_num = "";
+		String birthday = "";
+
+		account = request.getParameter("account");
+		password = request.getParameter("password");
+		name = request.getParameter("name");
+		email = request.getParameter("email");
+		gender = request.getParameter("gender");
+		phone_num = request.getParameter("phone_num");
+		birthday = request.getParameter("birthday");
+//
+		Map<String, String> errorMsg = new HashMap<String, String>();
+//		// 準備存放註冊成功之訊息的Map物件
+//		Map<String, String> msgOK = new HashMap<String, String>();
+//		// 註冊成功後將用response.sendRedirect()導向新的畫面，所以需要
+//		// session物件來存放共用資料。
+//
+		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
+//		session.setAttribute("MsgOK", msgOK); // 顯示正常訊息
+//
+//		if (account == null || account.trim().length() == 0) {
+//			errorMsg.put("errorIdEmpty", "帳號欄必須輸入");
+//		}
+//		if (password == null || password.trim().length() == 0) {
+//			errorMsg.put("errorPasswordEmpty", "密碼欄必須輸入");
+//		}
+//		if (name == null || name.trim().length() == 0) {
+//			errorMsg.put("errorNameEmpty", "姓名欄必須輸入");
+//		}
+//		if (email == null || email.trim().length() == 0) {
+//			errorMsg.put("errorEmailEmpty", "電子郵件欄必須輸入");
+//		}
+//		if (gender == null || gender.trim().length() == 0) {
+//			errorMsg.put("errorGenderEmpty", "性別欄必須輸入");
+//		}
+//		if (phone_num == null || phone_num.trim().length() == 0) {
+//			errorMsg.put("errorPhoneEmpty", "電話欄必須輸入");
+//		}
+//		if (birthday == null || birthday.trim().length() == 0) {
+//			errorMsg.put("errorBirthdayEmpty", "生日欄必須輸入");
+//		}
+//
+//		if (errorMsg.isEmpty()) {
+//			pattern = Pattern.compile(PASSWORD_PATTERN);
+//			matcher = pattern.matcher(password);
+//			if (!matcher.matches()) {
+//				errorMsg.put("passwordError", "密碼至少含有一個大寫字母、小寫字母、數字與!@#$%!^'\"等四組資料組合而成，且長度不能小於八個字元");
+//			}
+//
+//			pattern = Pattern.compile(EMAIL_PATTERN);
+//			matcher = pattern.matcher(email);
+//			if (!matcher.matches()) {
+//				errorMsg.put("emailError", "信箱格式錯誤");
+//			}
+//
+//			pattern = Pattern.compile(PHONE_PATTERN);
+//			matcher = pattern.matcher(phone_num);
+//			if (!matcher.matches()) {
+//				errorMsg.put("phoneError", "手機格式錯誤");
+//			}
+//		}
+//
+//		if (!errorMsg.isEmpty()) {
+//			
+//			request.setAttribute("dontSend", "dontSend");
+//			return "member/member_register";
+//		}
+//
 		try {
-			if (service.idExists(account)) {
-				errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
-			} else if (service.emailExists(email)) {
-				errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
-			} else {
+//			if (service.idExists(account)) {
+//				errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
+//			} else if (service.emailExists(email)) {
+//				errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
+//			} else {
 				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
 //				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
@@ -229,7 +338,7 @@ public class MemberController {
 					errorMsg.put("errorIdDup", "新增此筆資料有誤(RegisterServlet)");
 				}
 
-			}
+//			}
 
 			if (!errorMsg.isEmpty()) {
 				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
@@ -240,7 +349,6 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			errorMsg.put("errorIdDup", e.getMessage());
-
 			return "member/member_register";
 		}
 

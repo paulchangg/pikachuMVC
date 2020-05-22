@@ -36,29 +36,29 @@ public class HomeController {
 	@Autowired
 	NewsService newsService;
 	
-	@Autowired
-	CardService service;
-
-	@Autowired
-	CardDao dao;
-	
-	@Autowired
-	ProductDao productDao;
-	
-	@Autowired
-	ProductService productService;
-	
-	@Autowired
-	ArticleDao articleDao;
-	
-	@Autowired
-	ArticleService articleService;
-
-	@Autowired
-	IFoumService foumservice;
-	
-	@Autowired
-	IForumDao iForumDao;
+//	@Autowired
+//	CardService service;
+//
+//	@Autowired
+//	CardDao dao;
+//	
+//	@Autowired
+//	ProductDao productDao;
+//	
+//	@Autowired
+//	ProductService productService;
+//	
+//	@Autowired
+//	ArticleDao articleDao;
+//	
+//	@Autowired
+//	ArticleService articleService;
+//
+//	@Autowired
+//	IFoumService foumservice;
+//	
+//	@Autowired
+//	IForumDao iForumDao;
 	
 
 //	@Autowired
@@ -73,10 +73,10 @@ public class HomeController {
 //	@Autowired
 //	ILaunch_activityService launch_activityService;
 	
-	private List<CardBean> list = new ArrayList<CardBean>();
-	private List<ProductBean> productList = new ArrayList<ProductBean>();
-	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
-	private List<FoumBean> forumList = new ArrayList<FoumBean>();
+//	private List<CardBean> list = new ArrayList<CardBean>();
+//	private List<ProductBean> productList = new ArrayList<ProductBean>();
+//	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
+//	private List<FoumBean> forumList = new ArrayList<FoumBean>();
 //	private List<MemberBean> memberList = new ArrayList<MemberBean>();
 //	private List<Launch_activityBean> activityList = new ArrayList<>();
 	@GetMapping({ "/", "/index" })
@@ -87,35 +87,35 @@ public class HomeController {
 			newsService.newsCrawler();
 		}
 
-		
-		if (list.size() == 0) {
-			if (service.getCards().size() == 0) {
-				dao.insertCards();
-			}
-			list = service.getCards();
-		}
-		
-		if (productList.size() == 0) {
-			if (productService.getProducts().size() == 0) {
-				productDao.insertProducts();
-			}
-			productList = productService.getProducts();
-		}
-		
-		if (fourmList.size() == 0) {
-			if (articleService.getforumBean().size() == 0) {
-				articleDao.insertFourm();
-			}
-			fourmList = articleService.getforumBean();
-		}
-		
-		
-		if(forumList.size() ==0) {
-			if(foumservice.getAllfname().size() ==0) {
-				iForumDao.insertFoum();
-			}
-			forumList =foumservice.getAllfname();
-		}
+//		
+//		if (list.size() == 0) {
+//			if (service.getCards().size() == 0) {
+//				dao.insertCards();
+//			}
+//			list = service.getCards();
+//		}
+//		
+//		if (productList.size() == 0) {
+//			if (productService.getProducts().size() == 0) {
+//				productDao.insertProducts();
+//			}
+//			productList = productService.getProducts();
+//		}
+//		
+//		if (fourmList.size() == 0) {
+//			if (articleService.getforumBean().size() == 0) {
+//				articleDao.insertFourm();
+//			}
+//			fourmList = articleService.getforumBean();
+//		}
+//		
+//		
+//		if(forumList.size() ==0) {
+//			if(foumservice.getAllfname().size() ==0) {
+//				iForumDao.insertFoum();
+//			}
+//			forumList =foumservice.getAllfname();
+//		}
 		
 //		if (memberList.size() == 0) {
 //
@@ -148,8 +148,8 @@ public class HomeController {
 	private Boolean judgeNewsFolder() {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
-			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
-//			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
+//			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
+			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
 			File file = new File(txtPath);
 			return file.exists();
 	}

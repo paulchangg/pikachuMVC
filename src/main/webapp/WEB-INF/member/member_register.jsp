@@ -62,8 +62,8 @@
 	      <div class="col-4 centerarea">
 			 <div  class="formtablearea" id="formtableareafrom">
 			    <h2 class="titlemember" style="margin-bottom: 3%;">成為會員</h2>
-			       <form id="" name="frmlogin" method="post" action="register.do" onSubmit="return check()" >
-					  <input type="hidden" name="csrf_test_name"><!-----???不知道是甚麼東西?後端測試用的嗎----->
+			       <form id="registerForm" name="frmlogin" method="post" action="register.do" onSubmit="" >
+					  <input type="hidden" name="csrf_test_name">
 					  
 					  <!---------------------表格-------------------------------->
 					  <table class="table01">
@@ -72,8 +72,8 @@
 						     <td>  
 							     <input class="validate[required,custom[email]]"
 							     type="text" name="account" id="signup_id" value="${param.account}"
-							     placeholder="由英文與數字組成"  autocomplete="off"><br>
-							    <font color="red" size="-1">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
+							     placeholder="由英文與數字組成"  autocomplete="off" required="required"><br>
+							    <font color="red" size="-1" id="accountError">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
 						     </td>
 					      </tr>	  
 					       <tr>
@@ -82,18 +82,18 @@
 								  <input class="validate[required]"
 								  type="password" name="password" id="register_password"
 						          value="" placeholder="密碼長度需8位數字以上" 
-								  autocomplete="off">
+								  autocomplete="off" required="required">
 								  <input type="checkbox" onclick="myFunction()">顯示<br>
-								  <span style="font-size: 15px; color: red;">8碼以上的英文大小寫+數字特殊符號@#組成</span><br>
-								  <font color="red" size="-1">
+								  <span style="font-size: 15px; color: maroon;">8碼以上的英文大小寫+數字特殊符號@#組成</span><br>
+								  <font color="red" size="-1" id="passwordError">
 						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
 					         </td>
 						 </tr> 
 					      <tr>
 			                  <th><label class="required">姓名</label></th><!-----姓名----->
 					          <td>
-						        <input type="text" name="name" placeholder=" 請輸入中文姓名"  value="${param.name}" style="width: 15rem;"><br>
-						        <font color="red" size="-1">${MsgMap.errorNameEmpty}</font>
+						        <input type="text" name="name" placeholder=" 請輸入中文姓名"  value="${param.name}" style="width: 15rem;" required="required"><br>
+						        <font color="red" size="-1" id="nameError">${MsgMap.errorNameEmpty}</font>
 						      </td>
 					     </tr>
 					      <tr>
@@ -102,35 +102,36 @@
                                  <input
 						          class=" validate[required,custom[email]]"
 						          type="text" name="email" id="signup_mail" value="${param.email}"
-							      placeholder="請輸入電子郵件"  autocomplete="off"><br>
-						          <font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}${MsgMap.errorEmailDup}</font>
+							      placeholder="請輸入電子郵件"  autocomplete="off" required="required"><br>
+						          <font color="red" size="-1" id="emailError">${MsgMap.errorEmailEmpty}${MsgMap.emailError}${MsgMap.errorEmailDup}</font>
 						     </td>
 					     </tr> 
                           <tr>
 						      <th><label class="required">性別</label></th> <!-----性別----->
 					          <td>
-							     <input type="radio" name="gender" value="male" >&nbsp;男
+							     <input type="radio" name="gender" value="male" checked>&nbsp;男
 							     <input type="radio" name="gender" value="female" >&nbsp;女<br>
-							     <font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
+							     <font color="red" size="-1" id="genderError">${MsgMap.errorGenderEmpty}</font>
 						     </td>
 					     </tr>	  
 				         <tr>
 							  <th><label class="required">手機</label></th><!-----手機----->
 							  <td>
-						         <input type="text" name="phone_num" placeholder=" 輸入10位數字"  value="${param.phone_num}" style="width: 15rem;"><br>
-							     <font color="red" size="-1">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
+						         <input type="text" name="phone_num" placeholder=" 輸入10位數字"  value="${param.phone_num}" style="width: 15rem;" required="required"><br>
+							     <font color="red" size="-1" id="phone_numError">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
 							 </td>
 						 </tr>
                          <tr>
 							 <th><label class="required">生日</label></th><!-----生日----->
 					         <td>
-						        <input type="date" name="birthday" value="${param.birthday}"><br>
-						        <font color="red" size="-1">${MsgMap.errorBirthdayEmpty}</font>
+						        <input type="date" name="birthday" value="${param.birthday}" required><br>
+						        <font color="red" size="-1" id="birthdayError">${MsgMap.errorBirthdayEmpty}</font>
 						     </td>
 						 </tr>
 					  </table>   
-					      <input type="submit" value="確認送出" id="Button1">
-				  </form>
+					</form>
+					<input type="submit" value="確認送出" id="Button1">
+					<!-- <button type="submit" id="btnSubmit">確認送出</button> -->
 			 </div>
 		 </div>
 	

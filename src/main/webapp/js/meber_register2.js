@@ -57,9 +57,5 @@ function doFirst() {
       })
       .scroll();
   });
-
-  let Button1 = document.getElementById("Button1");
-  Button1.addEventListener("click", () => {
-    alert("驗證信已寄出，請至註冊信箱啟用帳號");
-  });
+  
 }
