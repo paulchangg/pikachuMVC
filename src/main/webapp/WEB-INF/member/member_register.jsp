@@ -73,7 +73,7 @@
 							     <input class="validate[required,custom[email]]"
 							     type="text" name="account" id="signup_id" value="${param.account}"
 							     placeholder="由英文與數字組成"  autocomplete="off" required="required"><br>
-							    <font color="red" size="-1" id="accountError">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
+							    <font color="red" size="-1" id="accountError">${MsgMap.errorIdDup}</font>
 						     </td>
 					      </tr>	  
 					       <tr>
@@ -85,15 +85,14 @@
 								  autocomplete="off" required="required">
 								  <input type="checkbox" onclick="myFunction()">顯示<br>
 								  <span style="font-size: 15px; color: maroon;">8碼以上的英文大小寫+數字特殊符號@#組成</span><br>
-								  <font color="red" size="-1" id="passwordError">
-						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
+								  <font color="red" size="-1" id="passwordError"></font>
 					         </td>
 						 </tr> 
 					      <tr>
 			                  <th><label class="required">姓名</label></th><!-----姓名----->
 					          <td>
 						        <input type="text" name="name" placeholder=" 請輸入中文姓名"  value="${param.name}" style="width: 15rem;" required="required"><br>
-						        <font color="red" size="-1" id="nameError">${MsgMap.errorNameEmpty}</font>
+						        <font color="red" size="-1" id="nameError"></font>
 						      </td>
 					     </tr>
 					      <tr>
@@ -103,7 +102,7 @@
 						          class=" validate[required,custom[email]]"
 						          type="text" name="email" id="signup_mail" value="${param.email}"
 							      placeholder="請輸入電子郵件"  autocomplete="off" required="required"><br>
-						          <font color="red" size="-1" id="emailError">${MsgMap.errorEmailEmpty}${MsgMap.emailError}${MsgMap.errorEmailDup}</font>
+						          <font color="red" size="-1" id="emailError"></font>
 						     </td>
 					     </tr> 
                           <tr>
@@ -111,27 +110,26 @@
 					          <td>
 							     <input type="radio" name="gender" value="male" checked>&nbsp;男
 							     <input type="radio" name="gender" value="female" >&nbsp;女<br>
-							     <font color="red" size="-1" id="genderError">${MsgMap.errorGenderEmpty}</font>
+							     <font color="red" size="-1" id="genderError"></font>
 						     </td>
 					     </tr>	  
 				         <tr>
 							  <th><label class="required">手機</label></th><!-----手機----->
 							  <td>
 						         <input type="text" name="phone_num" placeholder=" 輸入10位數字"  value="${param.phone_num}" style="width: 15rem;" required="required"><br>
-							     <font color="red" size="-1" id="phone_numError">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
+							     <font color="red" size="-1" id="phone_numError"></font>
 							 </td>
 						 </tr>
                          <tr>
 							 <th><label class="required">生日</label></th><!-----生日----->
 					         <td>
 						        <input type="date" name="birthday" value="${param.birthday}" required><br>
-						        <font color="red" size="-1" id="birthdayError">${MsgMap.errorBirthdayEmpty}</font>
+						        <font color="red" size="-1" id="birthdayError"></font>
 						     </td>
 						 </tr>
 					  </table>   
 					</form>
 					<input type="submit" value="確認送出" id="Button1">
-					<!-- <button type="submit" id="btnSubmit">確認送出</button> -->
 			 </div>
 		 </div>
 	
