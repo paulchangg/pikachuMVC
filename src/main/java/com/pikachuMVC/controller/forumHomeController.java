@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -78,22 +78,11 @@ public class forumHomeController {
 
 		FoumBean foumbean = null;
 
-//		List<String> listFame = new ArrayList<>();
-//		List<Integer> listFid = new ArrayList<>();
-
 		Map<String, Integer> listFame_listFid = new LinkedHashMap<String, Integer>();
 
 		for (int n = 0; n < list.size(); n++) {
 
 			foumbean = list.get(n);
-
-//			String fname = foumbean.getFname();
-//			Integer fid = foumbean.getF_id();
-//
-//			
-//			listFame.add(fname);
-//			listFid.add(fid);
-//			session.setAttribute("sessionfname", listFame);
 
 			listFame_listFid.put(foumbean.getFname(), foumbean.getF_id());
 
@@ -101,9 +90,24 @@ public class forumHomeController {
 
 		}
 
-		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);
+		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);// 有6個
 
-		session.setAttribute("launchAll", launchAll);
+		List<Launch_activityBean> subList1 = new LinkedList<Launch_activityBean>();
+		List<Launch_activityBean> subList2 = new LinkedList<Launch_activityBean>();
+
+		int articleNo = 0;
+
+		for (Launch_activityBean bean : launchAll) {
+			if (articleNo < 3) {
+				subList1.add(bean);
+			} else {
+				subList2.add(bean);
+			}
+			articleNo++;
+		}
+
+		session.setAttribute("subList1", subList1);
+		session.setAttribute("subList2", subList2);
 
 		session.setAttribute("pageNo", pageNo);
 
@@ -142,7 +146,21 @@ public class forumHomeController {
 
 		List<Launch_activityBean> pageActivitysByfame = launch_activityService.getpageActivitysByfame(pageNo, fid);
 
-		session.setAttribute("pageActivitysByfame", pageActivitysByfame);
+		List<Launch_activityBean> subList1 = new LinkedList<Launch_activityBean>();
+		List<Launch_activityBean> subList2 = new LinkedList<Launch_activityBean>();
+		int articleNo = 0;
+		for (Launch_activityBean bean : pageActivitysByfame) {
+			if (articleNo < 3) {
+				subList1.add(bean);
+			} else {
+				subList2.add(bean);
+			}
+			articleNo++;
+		}
+
+		session.setAttribute("subList1", subList1);
+		session.setAttribute("subList2", subList2);
+//				session.setAttribute("pageActivitysByfame", pageActivitysByfame);
 
 		model.addAttribute("pageNo", pageNo);
 
@@ -162,13 +180,29 @@ public class forumHomeController {
 		}
 
 //  點選 頁面activity_page的 所有活動時按鈕，並且按取 我要發文，不會遺留上一個Newsessionfname ----結束
+
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		session.setAttribute("loginmember", mb.getM_id());
 
-		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);
+		List<Launch_activityBean> launchAll = launch_activityService.getpageActivitys(pageNo);// 有6個
 
-		session.setAttribute("launchAll", launchAll);
+		List<Launch_activityBean> subList1 = new LinkedList<Launch_activityBean>();
+		List<Launch_activityBean> subList2 = new LinkedList<Launch_activityBean>();
+
+		int articleNo = 0;
+
+		for (Launch_activityBean bean : launchAll) {
+			if (articleNo < 3) {
+				subList1.add(bean);
+			} else {
+				subList2.add(bean);
+			}
+			articleNo++;
+		}
+
+		session.setAttribute("subList1", subList1);
+		session.setAttribute("subList2", subList2);
 
 		model.addAttribute("pageNo", pageNo);
 
@@ -222,7 +256,7 @@ public class forumHomeController {
 
 	@PostMapping("/forum/Launch_activityServlet")
 	public String Launch_activityServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-			Model model, @RequestParam("articleimageStr") MultipartFile imageFile,
+			Model model, @RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam("article_title") String article_title,
 			@RequestParam("article_content") String article_content, @RequestParam("subject") String subject,
 			@RequestParam("Location") String Location, @RequestParam("starteTimeStr") String starteTimeStr,
@@ -332,18 +366,21 @@ public class forumHomeController {
 		model.addAttribute("totalPage", launch_activityService.getTotalPages());
 
 		return "redirect:/forum/QueryLaunchALL?pageNo= " + pageNo;
-//		return "redirect:/forum/QueryLaunchALL";
 
 	}
 
 	@GetMapping("/forum/activity_info_page")
 	public String activity_info_page(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@RequestParam("article_IdStr") Integer article_Id,
-			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo) throws IOException, ServletException {
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+
+			@RequestParam(value = "mode", defaultValue = "null") String mode
+
+	) throws IOException, ServletException {
 
 		Launch_activityBean bean = launch_activityService.getArticle_Id(article_Id);
 		// mode無法透過@RequestParam綁定會有錯誤
-		String mode = request.getParameter("mode");
+//		String mode = request.getParameter("mode");
 
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		List<ResponserBean> responAll = new ArrayList<>();
@@ -362,7 +399,6 @@ public class forumHomeController {
 
 			session.setAttribute("totalPage", responserService.getTotalPages(article_Id));
 
-
 			return "forum/activity_info_page";
 
 		}
@@ -378,27 +414,22 @@ public class forumHomeController {
 				e.printStackTrace();
 			}
 
-			@SuppressWarnings("unused")
 			String querymemberid = null;
 
-			
 			List<String> joinmember = new ArrayList<String>();
 			for (MemberBean b : JoinPersonName) {
-				
+
 				querymemberid = b.getM_id();// 取出JoinPersonNameList集合內的會員id
 
 				joinmember.add(querymemberid);
 			}
-			
-			
+
 			session.setAttribute("gdfg", joinmember.contains(mb.getM_id()));
-			
-			
-			
+
 //			String loginmember_id = ((MemberBean) session.getAttribute("LoginOK")).getM_id();
 			// joinmember 是參加活動的會員所有id 以下做 登入的會員ID 是否有在資料庫內的參加活動人員ID
 			// 沒有的話 Popularity+1
-			
+
 			if (!joinmember.contains(mb.getM_id())) {
 				Integer Popularity = bean.getPopularity();
 				Popularity++;
@@ -415,6 +446,10 @@ public class forumHomeController {
 			// 將資料寫入 member_launch_activity table(多對多的table)
 			memberservice.addMyActivity(member_launch_activity_article_Id, mb.getM_id());// 此動作會存入文章活動的id ， 參加的人員
 
+			String enterpage ="enterpage";
+			return "redirect:/forum/activity_info_page?article_IdStr=" + article_Id + "&mode=" + enterpage;
+			
+			
 		} else if (mode.equalsIgnoreCase("enterpage")) {
 
 			session.setAttribute("activity_info_page", bean);
@@ -452,13 +487,16 @@ public class forumHomeController {
 
 			// 將資料寫入 member_launch_activity table(多對多的table) 圖片會消失
 			memberservice.leaveMyActivity(member_launch_activity_article_Id, mb.getM_id());
-
+			String enterpage ="enterpage";
+			return "redirect:/forum/activity_info_page?article_IdStr=" + article_Id + "&mode=" + enterpage;
 		}
 
 //以下是所有判斷式共用的
 
 		responAll.addAll(responserService.getAllContent(article_Id, pageNo));
 
+		
+		
 		session.setAttribute("responAll", responAll);
 
 		session.setAttribute("pageNo", pageNo);
@@ -471,23 +509,35 @@ public class forumHomeController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String querymemberid = null;
 		List<String> joinmember = new ArrayList<String>();
 		for (MemberBean b : JoinPersonName) {
-			
+
 			querymemberid = b.getM_id();// 取出JoinPersonNameList集合內的會員id
 
 			joinmember.add(querymemberid);
 		}
-		
-		
+
 		session.setAttribute("joinmember", joinmember.contains(mb.getM_id()));
-		
-		
-		System.out.println("joinmember.contains(mb.getM_id())"+joinmember.contains(mb.getM_id()));
-		
-		session.setAttribute("JoinPersonName", JoinPersonName);
+
+		List<MemberBean> FristJoinPerson = new LinkedList<MemberBean>();
+		List<MemberBean> SecondJoinPerson = new LinkedList<MemberBean>();
+
+		int articleNo = 0;
+
+		for (MemberBean bean2 : JoinPersonName) {
+			if (articleNo < 5) {
+				FristJoinPerson.add(bean2);
+			} else {
+				SecondJoinPerson.add(bean2);
+			}
+
+			articleNo++;
+		}
+
+		session.setAttribute("FristJoinPerson", FristJoinPerson);
+		session.setAttribute("SecondJoinPerson", SecondJoinPerson);
 
 		return "forum/activity_info_page";
 
@@ -534,29 +584,49 @@ public class forumHomeController {
 
 	}
 
+	@PostMapping("/forum/DeLItem.do")
+
+	public String DeLIArticleServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			@RequestParam("article_IdStr") Integer article_Id, 
+			
+//			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+			@RequestParam("mode") String mode)
+			throws IOException, ServletException {
+		if (mode.equalsIgnoreCase("DEL")) {
+			launch_activityService.DeleteArticle(article_Id);// 刪除活動的某文章
+		}
+		return "redirect:/forum/ForumHompage ";
+	}
+
 	@PostMapping("/forum/UpdateItem.do")
-	public String UpdateDelArticleServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+	public String UpdateArticleServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@RequestParam("article_IdStr") Integer article_Id,
 
-			@RequestParam("mode") String mode, @RequestParam("articleimageStr") MultipartFile imageFile,
+			@RequestParam("mode") String mode,
+
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+
+			@RequestParam("imageFile") MultipartFile imageFile,
+
 			@RequestParam("article_title") String article_title,
 			@RequestParam("article_content") String article_content, @RequestParam("subject") String subject,
-			@RequestParam("Location") String Location, @RequestParam("starteTimeStr") java.sql.Date starteTime,
-			@RequestParam("endTimeStr") java.sql.Date endTime,
+			@RequestParam("Location") String Location, @RequestParam("starteTimeStr") String starteTimeStr,
+			@RequestParam("endTimeStr") String endTimeStr,
 
 			Model model) throws IOException, ServletException {
 
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		model.addAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
 
-		if (mode.equalsIgnoreCase("DEL")) {
-			launch_activityService.DeleteArticle(article_Id);// 刪除活動的某文章
-
-			// 要用新頁面的
-
-			return "redirect:/forum/QueryLaunchMember ";
-
-		} else if (mode.equalsIgnoreCase("MOD")) {
+//		if (mode.equalsIgnoreCase("DEL")) {
+//			launch_activityService.DeleteArticle(article_Id);// 刪除活動的某文章
+//
+//			// 要用新頁面的
+//
+//			return "redirect:/forum/ForumHompage ";
+//
+//		} 
+		if (mode.equalsIgnoreCase("MOD")) {
 
 			long sizeInBytes = 0;
 			InputStream is = null;
@@ -570,7 +640,6 @@ public class forumHomeController {
 			}
 
 			Blob articleimage = null;
-
 			if (is != null) {
 				try {
 					articleimage = GlobalService.fileToBlob(is, sizeInBytes);
@@ -580,11 +649,11 @@ public class forumHomeController {
 				}
 			}
 
-			if (article_title == null || article_title.trim().length() <= 10) {
-				errorMsg.put("TitleError", "標題不能少於10個字");
+			if (article_title == null || article_title.trim().length() <= 5) {
+				errorMsg.put("TitleError", "標題不能少於5個字");
 			}
-			if (article_content == null || article_content.trim().length() <= 100) {
-				errorMsg.put("ContentError", "內容不能少於100個字");
+			if (article_content == null || article_content.trim().length() <= 50) {
+				errorMsg.put("ContentError", "內容不能少於50個字");
 			}
 
 			if (subject == null || subject.trim().length() == 0) {
@@ -595,18 +664,46 @@ public class forumHomeController {
 				errorMsg.put("locationError", "活動地點不可空白");
 			}
 
-			if (starteTime == null) {
+			if (starteTimeStr == null || starteTimeStr.trim().length() == 0) {
 				errorMsg.put("starte_TimeError", "活動開始時間不可空白");
 			}
 
-			if (endTime == null) {
+			if (endTimeStr == null || endTimeStr.trim().length() == 0) {
 
 				errorMsg.put("endTimeError", "活動結束時間不可空白");
+
 			}
+
 			if (!errorMsg.isEmpty()) {
 
 				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
 				return "forum/activity_info_page";
+			}
+
+			Date starteTime = null;
+			String newstarteTimeStr = null;
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			try {
+
+				newstarteTimeStr = starteTimeStr.replace("T", " ");
+
+				starteTime = sdf.parse(newstarteTimeStr);
+
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			Date endTime = null;
+			String newendTimeStr = null;
+			try {
+
+				newendTimeStr = endTimeStr.replace("T", " ");
+
+				endTime = sdf.parse(newendTimeStr);
+
+			} catch (Exception e) {
 			}
 
 			Timestamp updateTime = new Timestamp(System.currentTimeMillis());
@@ -623,13 +720,24 @@ public class forumHomeController {
 			article.setUpdateTime(updateTime);
 
 			article.setLocation(Location);
+			article.setSubject(subject);
 
 			launch_activityService.updateArticle(article_Id, article);
 		}
-		return "forum/activity_info_page";
+
+		String enterpage = "enterpage";
+
+		return "redirect:/forum/activity_info_page?article_IdStr=" + article_Id + "&mode=" + enterpage;
 
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	@PostMapping("/forum/ResponserServlet")
 
 	public String ResponserServlet(HttpServletRequest request, HttpServletResponse response, HttpSession session,
@@ -651,55 +759,96 @@ public class forumHomeController {
 			return "forum/activity_info_page";
 		}
 
-		Timestamp oldts = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		Date ts = new Date();
+		Date ts = new Date(System.currentTimeMillis());
 
-		try {
-			
-		String	startTime = sdf.format(oldts);
 		
-		ts=	sdf.parse(startTime);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 		Launch_activityBean launch_activityBean = launch_activityService.getArticle_Id(article_Id);
 
 		ResponserBean responser = new ResponserBean(null, mb.getM_id(), ts, null, res_contentStr, launch_activityBean);
 
 		responserService.insertRescontent(responser);
 
-
 		attr.addAttribute("article_IdStr", article_Id);
 
 		return "redirect:/forum/activity_info_page?pageNo=" + pageNo;
 	}
 
-	@PostMapping("/forum/UpdateDelResponerServlet")
-	public String UpdateDelResponerServlet(HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, @RequestParam("res_idStr ") Integer res_id, @RequestParam("mode ") String mode,
-			@RequestParam("res_content") String res_content) {
-
+	
+	
+	@GetMapping("/forum/DelResponerServlet")
+	
+	public String DelResponerServlet(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session, @RequestParam("res_idStr") Integer res_id, 
+			@RequestParam("mode") String mode,
+			@RequestParam("article_IdStr") Integer article_Id,
+			Model model) {
+		
 		if (mode.equalsIgnoreCase("DEL")) {
 
 			// 刪除活動的某文章的回覆
 			responserService.DeleteArticle(res_id);
-			return "/forum/activity_info_page ";
 		}
+		
+		
+		String enterpage = "enterpage";
+		return "redirect:/forum/activity_info_page?article_IdStr=" + article_Id + "&mode=" + enterpage;
+		
+	}
+	
+	@PostMapping("/forum/UpdateResponerServlet")
+	public String UpdateResponerServlet(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session, @RequestParam("res_idStr") Integer res_id, 
+			@RequestParam("mode") String mode,
+			@RequestParam("article_IdStr") Integer article_Id,
+			@RequestParam("res_content") String res_content,Model model) {
 
-		else if (mode.equalsIgnoreCase("MOD")) {
+//		if (mode.equalsIgnoreCase("DEL")) {
+//
+//			// 刪除活動的某文章的回覆
+//			responserService.DeleteArticle(res_id);
+//			return "/forum/activity_info_page ";
+//		}
+
+		 if (mode.equalsIgnoreCase("MOD")) {
+			
+			
+			Map<String, String> errorMsg = new HashMap<String, String>();
+			model.addAttribute("MsgMap", errorMsg);// 顯示錯誤訊息
+			
+			
+			if (res_content == null || res_content.trim().length() <= 10) {
+				errorMsg.put("res_contentError", "回復內容不能少於10個字");
+			}
+
+			if (!errorMsg.isEmpty()) {
+				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
+				return "forum/activity_info_page";
+			}
+
+	
+			
 			Timestamp updateTime = new Timestamp(System.currentTimeMillis());
+			
+			
+			
+			
+			
+			
 
-			new ResponserBean().setUpdateTime(updateTime);
-			new ResponserBean().setRes_content(res_content);
+			ResponserBean responbean = new ResponserBean();
+			responbean.setUpdateTime(updateTime);
+			responbean.setRes_content(res_content);
+			
+			
+//			model.addAttribute("updateTime",updateTime);
+			
 
-			responserService.updateArticle(res_id, new ResponserBean());
+			responserService.updateArticle(res_id, responbean);
 
 		}
-		return "/forum/activity_info_page ";
+		String enterpage = "enterpage";
+		return "redirect:/forum/activity_info_page?article_IdStr=" + article_Id + "&mode=" + enterpage;
 
 	}
 

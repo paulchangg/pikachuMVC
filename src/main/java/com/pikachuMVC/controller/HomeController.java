@@ -5,28 +5,18 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-import com.pikachuMVC.dao.ArticleDao;
-import com.pikachuMVC.dao.CardDao;
-import com.pikachuMVC.dao.IForumDao;
-import com.pikachuMVC.dao.ProductDao;
-import com.pikachuMVC.model.ArticleClassificarionBean;
-import com.pikachuMVC.model.CardBean;
-import com.pikachuMVC.model.FoumBean;
-import com.pikachuMVC.model.ProductBean;
-import com.pikachuMVC.service.ArticleService;
-import com.pikachuMVC.service.CardService;
-import com.pikachuMVC.service.IFoumService;
+import com.pikachuMVC.dao.ILaunch_activityDao;
+import com.pikachuMVC.dao.MemberDao;
+import com.pikachuMVC.service.ILaunch_activityService;
+import com.pikachuMVC.service.MemberService;
 import com.pikachuMVC.service.NewsService;
-import com.pikachuMVC.service.ProductService;
 
 @Controller
 public class HomeController {
@@ -58,8 +48,7 @@ public class HomeController {
 //	IFoumService foumservice;
 //	
 //	@Autowired
-//	IForumDao iForumDao;
-	
+//	IForumDao iForumDao;	
 
 //	@Autowired
 //	MemberDao memberDao;
@@ -116,7 +105,6 @@ public class HomeController {
 //			}
 //			forumList =foumservice.getAllfname();
 //		}
-		
 //		if (memberList.size() == 0) {
 //
 //			
@@ -136,7 +124,7 @@ public class HomeController {
 //			activityList = launch_activityService.getAllArticles();
 //
 //		}
-		
+				
 		return "index";
 	}
 	
