@@ -76,7 +76,7 @@ public class CardBean implements Serializable{
 	
 	@JsonIgnore	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_card", catalog = "pikachuDB",
+	@JoinTable(name = "member_card", catalog = "pikachudb",
 			   joinColumns ={
 					   @JoinColumn(name = "c_id", nullable = false, updatable = true)
 			   },

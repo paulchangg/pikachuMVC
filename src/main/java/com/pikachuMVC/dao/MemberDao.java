@@ -19,6 +19,8 @@ public interface MemberDao {
 
 	public MemberBean checkIdPassword(String userId, String password);
 	
+	public void enable(MemberBean mb);
+	
 	public int updatePassword(String email, String newPW);
 
 	public void changePassword(MemberBean mb);
@@ -53,5 +55,5 @@ public interface MemberDao {
 
 	List<MemberBean> getAllMember();
 
-	void addmember();
+//	void addmember();
 }

@@ -243,105 +243,105 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 		return count;
 	}
 	
-	@Override
-	@Transactional
-	public void addFirstSomeActivity() {
-		Session session = factory.getCurrentSession();
-	
-		String line = "";
-		
-		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activity.txt"); //JAMES
-
-
-
-		try (FileInputStream fis = new FileInputStream(file);
-				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
-				BufferedReader br = new BufferedReader(isr);) {
-			while ((line = br.readLine()) != null) {
-				
-				String[] token = line.split("<");
-				
-				Launch_activityBean lb = new Launch_activityBean();
-				
-				lb.setArticle_content(token[0]);
-				lb.setArticle_m_id(token[1]);
-				lb.setArticle_title(token[2]);
-				
-
-				
-				
-				lb.setLocation(token[5]);
-				Integer popularity =0;
-				lb.setPopularity(popularity);
-				
-				
-				java.util.Date today = new  java.util.Date();
-				
-				lb.setPost_Time(today);
-				
-				
-				
-				
-				lb.setSubject(token[9]);
-				Date updateTime =null;
-				lb.setUpdateTime(updateTime);
-				
-				String DecoderFname =token[11];
-				FoumBean foumBean = foumService.getF_idByfname(DecoderFname);
-				
-				
-				
-				lb.setFoumBean(foumBean);
-				
-
-				
-		
-				
-				
-				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activityImgs\\" + token[3]; //JAMES
-
-				Blob lb_img = GlobalService.fileToBlob(imgname);
-				
-				lb.setArticleimage(lb_img);
-				
-				
-				
-				Calendar calStartTime = Calendar.getInstance();
-				calStartTime.setTime(today);
-				calStartTime.add(Calendar.DATE, +3);
-				Date newStartTime =  calStartTime.getTime();
-				
-				lb.setStartTime(newStartTime);
-				
-				
-				
-				Calendar calendTime = Calendar.getInstance();
-				calendTime.setTime(newStartTime);
-				calendTime.add(Calendar.DATE, +4);
-				
-				Date newendTime =  calendTime.getTime();
-				lb.setEndTime(newendTime);
-				
-				
-				
-				
-			
-				
-				
-				
-
-				
-				session.save(lb);
-				
-				System.out.println("新增一筆Activity紀錄");
-			}
-			System.out.println("Activity資料新增成功");
-		} catch (Exception e) {
-			e.getStackTrace();
-			System.err.println("新建Activity表格時發生IO例外: " + e.getMessage());
-		}
-
-		
-	}
+//	@Override
+//	@Transactional
+//	public void addFirstSomeActivity() {
+//		Session session = factory.getCurrentSession();
+//	
+//		String line = "";
+//		
+//		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activity.txt"); //JAMES
+//
+//
+//
+//		try (FileInputStream fis = new FileInputStream(file);
+//				InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+//				BufferedReader br = new BufferedReader(isr);) {
+//			while ((line = br.readLine()) != null) {
+//				
+//				String[] token = line.split("<");
+//				
+//				Launch_activityBean lb = new Launch_activityBean();
+//				
+//				lb.setArticle_content(token[0]);
+//				lb.setArticle_m_id(token[1]);
+//				lb.setArticle_title(token[2]);
+//				
+//
+//				
+//				
+//				lb.setLocation(token[5]);
+//				Integer popularity =0;
+//				lb.setPopularity(popularity);
+//				
+//				
+//				java.util.Date today = new  java.util.Date();
+//				
+//				lb.setPost_Time(today);
+//				
+//				
+//				
+//				
+//				lb.setSubject(token[9]);
+//				Date updateTime =null;
+//				lb.setUpdateTime(updateTime);
+//				
+//				String DecoderFname =token[11];
+//				FoumBean foumBean = foumService.getF_idByfname(DecoderFname);
+//				
+//				
+//				
+//				lb.setFoumBean(foumBean);
+//				
+//
+//				
+//		
+//				
+//				
+//				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activityImgs\\" + token[3]; //JAMES
+//
+//				Blob lb_img = GlobalService.fileToBlob(imgname);
+//				
+//				lb.setArticleimage(lb_img);
+//				
+//				
+//				
+//				Calendar calStartTime = Calendar.getInstance();
+//				calStartTime.setTime(today);
+//				calStartTime.add(Calendar.DATE, +3);
+//				Date newStartTime =  calStartTime.getTime();
+//				
+//				lb.setStartTime(newStartTime);
+//				
+//				
+//				
+//				Calendar calendTime = Calendar.getInstance();
+//				calendTime.setTime(newStartTime);
+//				calendTime.add(Calendar.DATE, +4);
+//				
+//				Date newendTime =  calendTime.getTime();
+//				lb.setEndTime(newendTime);
+//				
+//				
+//				
+//				
+//			
+//				
+//				
+//				
+//
+//				
+//				session.save(lb);
+//				
+//				System.out.println("新增一筆Activity紀錄");
+//			}
+//			System.out.println("Activity資料新增成功");
+//		} catch (Exception e) {
+//			e.getStackTrace();
+//			System.err.println("新建Activity表格時發生IO例外: " + e.getMessage());
+//		}
+//
+//		
+//	}
 
 }

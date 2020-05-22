@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>比卡丘-比比看誰的信用卡功能最丘new</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/wickedcss.min.css">
     <link rel="stylesheet" href="./css/index.css" />
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="./js/jquery-3.4.1.js"></script>
@@ -15,8 +16,14 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/index.js"></script>
   </head>
-
-  <body>
+  <body class="indexBody">
+     <!--loading畫面----->
+     <div class="hahahahaha">
+        <div ><img src="./images/logo3.gif" class="zoomer onrpickure"></div>
+        <div><span id="percentCount" class="percent-count"></span></div>
+           </div>
+    </div>
+    
     <!-- 上方標題logo列----超連結待補----->
     <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
       <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
@@ -87,7 +94,7 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -216,7 +223,7 @@
       <!-- 信用卡比較 -->
       <div class="et-slide" id="cardcompare" style="background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);padding-top: 40px;">
         <div class="min-h-screen w-full ">
-          <div class="container-fluid" style="opacity:0.8; ">
+          <div class="container-fluid2" style="opacity:0.8; ">
             <h1 class="subtitle_card" style="float: right; padding-top: 50px;font-size: 60px;"><a style="text-decoration:none; color: rgb(36, 16, 36);" href='<c:url value="/cards/cradeitCb?qt=main" />'>60秒內<br>找到您的命定信用卡!</h1></a>
               </div>
           </div>
@@ -275,37 +282,78 @@
     </main>
 
     <!-- 回到置頂------>
-    <div id="backtop" class="gotop">
+    <div id="backtop" class="gotop" >
       <h4>
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
       </h4>
       <div class="footer">
-        <ul> 
+        <ul>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
+			<span></span>
+			<span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
           </li>
           <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
+            <span></span>
+			<span></span>
+			<span></span>
+            <span class="fab fa-linkedin"></span>
           </li>
-        </ul>  
-      </div> 
-      
+        </ul>
+      </div>
+
       <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
     </div>
+     <div class="hahahahaha">
+        <div style="text-align:center;"><img src="/images/logo2.gif" class="zoomer onrpickure"></div>
+        <div style="text-align:center;"><span id="percentCount" class="percent-count"></span></div>
+                 <div class="progress" id="progress"></div>
+         </div>
+    </div>
+    <script>
+    /*loading方法*/
+    function progress(){
+        var loadarea=document.querySelector('.hahahahaha');
+        var percent=document.getElementById('percentCount');
+        var counter=5;5;
+        var id=setInterval(frame,20);//動畫時間
+        var bodyarea=document.querySelector('.indexBody');
+        
+
+        function frame(){
+
+            if(counter == 100)
+            {
+                clearInterval(id);
+                bodyarea.style.background="#FFE066";
+                loadarea.style.background="#FFE066";
+                setTimeout(function(){
+                bodyarea.style.background="#FFF";
+                loadarea.style.display="none";},500)
+            }
+            else{
+                  counter  += 1;
+                  percent.innerHTML = counter+'%';
+            }
+        };
+    };
+    progress();
+    </script>
   </body>
 </html>

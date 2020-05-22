@@ -1,5 +1,4 @@
- // --------------------------------------------------------
-    // 變數定義區
+// 變數定義區
     // --------------------------------------------------------
     // 起始步驟
     var beginStepIdx = 1;
@@ -55,16 +54,16 @@
         
         var mm = document.getElementById("mm");
         while (mm.firstChild) {
-        	mm.removeChild(mm.lastChild);
+         mm.removeChild(mm.lastChild);
           }
         // 送出表單
         $.ajax({
             url: '/pikachuMVC/cards/cradeitsearch_minecredit',                        // url位置
             type: 'post',                   // post/get
             data: { opt1: $('#opt1').val() ,
-            		opt2: $('#opt2').val() ,
-            		opt3: $('#opt3').val() ,
-            		sal: $("input[name='sal']:checked").val()
+              opt2: $('#opt2').val() ,
+              opt3: $('#opt3').val() ,
+              sal: $("input[name='sal']:checked").val()
             },       // 輸入的資料
             dataType: "json",
 //            error:function (xhr, ajaxOptions, thrownError){      // 錯誤後執行的函數
@@ -74,20 +73,20 @@
 //               alert(thrownError);
 //              } ,         
             success: function (reponse) {                    // 成功後要執行的函數
-            	let content="";
-            	
-            	let cb = Object.values(reponse);
-            	
-            	console.log(cb);
-            	
-            	for(let i=0;i<cb.length;i++){
-            		
+             let content="";
+             
+             let cb = Object.values(reponse);
+             
+             console.log(cb);
+             
+             for(let i=0;i<cb.length;i++){
+              
            content +=' <div class="box">'+
-            		 '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">'+
+               '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">'+
                      '<line class="top" x1="0" y1="0" x2="1300" y2="0"/> '  + 
                      '<line class="left" x1="0" y1="400" x2="0" y2="-1300"/>' +
                      '<line class="bottom" x1="0" y1="160" x2="1300" y2="160"/>' +
-                     '<line class="right" x1="1090" y1="0" x2="1090" y2="160"/>' +
+                     '<line class="right" x1="1106" y1="0" x2="1106" y2="160"/>' +
                      '</svg>' +
                      '<div class="onecard"  name="'+cb[i].bank+'">' +
                      '<span id="">' +cb[i].c_name +  '</span>' + 
@@ -115,10 +114,10 @@
                      '</div>'+
                      '</div>'+
                      '</div>' ;            
-            		}
-            	
-            	mm.innerHTML = content;
-           		}
+              }
+             
+             mm.innerHTML = content;
+             }
         }); 
       }
     }
@@ -159,7 +158,7 @@
             alert("必需滿20歲才能申請信用卡，請重新輸入生日 或 離開問卷")
             return(false);
           }
- 	
+  
         currentStepIdx--;
         switchTo(currentStepIdx);
         // alert(currentStepIdx);
@@ -172,8 +171,8 @@
     // 當點擊按鈕時執行 ...
     var startbtn=document.getElementById('cradeitsearchmine_btn');
     startbtn.addEventListener("click",function(){
-    	currentStepIdx = 1;
-    	switchTo(currentStepIdx);
+     currentStepIdx = 1;
+     switchTo(currentStepIdx);
       $('#cradeitsearchmine_myModal').modal('show');
     },false)
 

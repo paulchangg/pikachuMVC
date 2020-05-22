@@ -107,13 +107,13 @@ prefix="c"%>
       <!-- 要改放圖片的話再修正 -->
       <div class="aa" style="height: 100px;"></div>
 
-      <!-- 導覽列  超連結待補 -->
+      <!-- 導覽列 -->
       <div class="et-hero-tabs-container">
         <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -239,8 +239,6 @@ prefix="c"%>
         <!-- 中央好友列表 -->
       <div class="listefriend d-none d-lg-block col-lg-9">  
       <div class="row chatroom">
-          <div class="pkmn-group">
-        <div class="pkmn pkmn__pikachu"></div>
        </div>
         <div class="col-8">
           <div class="listheader"></div> 
@@ -251,8 +249,17 @@ prefix="c"%>
               overflow: auto;
             "
           ></div>
-          <div class="listheader" style="padding-top:20px; padding-left:10px;"></div> 
+
+          <div class="listheader" style="padding-top:20px; padding-left:10px;">
+          </div> 
+
         </div>
+      <div container>
+         <div class="col-2">
+            <div class="row">
+          <div class="pkmn pkmn__pikachu" style="padding-left:700px;"></div>
+         </div>
+        </div>       
       </div>
     </div>
 
@@ -272,9 +279,11 @@ prefix="c"%>
           <li>
             <span></span>
             <span></span>
+            <span></span>
             <span class="fab fa-facebook"></span>
           </li>
           <li>
+            <span></span>
             <span></span>
             <span></span>
             <span class="fab fa-twitter"></span>
@@ -282,9 +291,11 @@ prefix="c"%>
           <li>
             <span></span>
             <span></span>
+            <span></span>
             <span class="fab fa-instagram"></span>
           </li>
           <li>
+            <span></span>
             <span></span>
             <span></span>
             <span class="fab fa-linkedin"></span>

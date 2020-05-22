@@ -29,11 +29,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.pikachuMVC.exception.ValidException;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.service.CardService;
@@ -216,9 +218,11 @@ public class MemberController {
 //				}
 
 				MemberBean mb = new MemberBean(account, password, name, phone_num, email, null, Date.valueOf(birthday),
-						gender, null, null, null, null);
+						gender, null, null, null, null,0);
 
 				int n = service.saveMember(mb);
+				service.sendValidMail(email, GlobalService.toHexString(account.getBytes()));
+				System.out.println("!!!!!!!!!!!!!!:"+GlobalService.toHexString(account.getBytes()));
 				if (n == 1) {
 					return "redirect:/index";
 				} else {
@@ -242,6 +246,24 @@ public class MemberController {
 
 		return "member/member_register";
 
+	}
+
+	@GetMapping("/member/validId")
+	public String validId(@RequestParam("id") String validId,HttpSession session) {
+		System.out.println("$$$$"+validId);
+		String id = GlobalService.fromHexString(validId);
+		System.out.println("!!!!!:"+id);
+		MemberBean mb = service.queryMember(id);
+		
+		if(mb != null) {
+			service.enable(mb);
+			session.setAttribute("LoginOK", mb);
+			return "redirect:/index";
+			
+		}else {
+			throw new ValidException("驗證帳號失敗");  
+		}
+		
 	}
 
 	@PostMapping("/member/login.do")
@@ -318,9 +340,13 @@ public class MemberController {
 		try {
 			// 呼叫 loginService物件的 checkIDPassword()，傳入userid與password兩個參數
 			mb = service.checkIdPassword(userId, password);
-			if (mb != null) {
-				// OK, 登入成功, 將mb物件放入Session範圍內，識別字串為"LoginOK"
-				session.setAttribute("LoginOK", mb);
+			if (mb != null) {				
+				if(mb.getValid() == 1) {
+					// OK, 登入成功, 將mb物件放入Session範圍內，識別字串為"LoginOK"
+					session.setAttribute("LoginOK", mb);					
+				}else {
+					errorMsgMap.put("LoginError", "帳號尚未啟用");
+				}
 			} else {
 				// NG, 登入失敗, userid與密碼的組合錯誤，放相關的錯誤訊息到 errorMsgMap 之內
 				errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");

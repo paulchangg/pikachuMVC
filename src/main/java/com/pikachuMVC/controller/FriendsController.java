@@ -147,7 +147,7 @@ public class FriendsController {
 		
 	}
 	
-	@PostMapping("rmFriend.do")
+	@PostMapping("/rmFriend.do")
 	@ResponseBody
 	public void rmFriend(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws IOException{
 		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();

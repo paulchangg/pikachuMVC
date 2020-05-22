@@ -81,7 +81,7 @@
 				href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a> <a
 				class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
 			<a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-			<a class="et-hero-tab" href="#infoweb">資訊網</a> <span
+			<a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a> <span
 				class="et-hero-tab-slider"></span>
 		</div>
 	</div>
@@ -308,9 +308,7 @@
 
 		<div class="col-9 contentcenter" >
 			<!--為中間顯示區塊-->
-		<div style="text-align:center"  >
- 		<img src='<c:url value="/cards/image/ajax-loader.gif"/>' id="loadingimg"  style="display:none;" alt="loadpic"  width="300" height="300"/>
-		</div>
+ 		 <img src='<c:url value="/cards/image/loading3.gif"/>' class="loadingarea" id="loadingimg" alt="loadpic"/>
  		
 		<div id="divcont">
 			<c:choose>
@@ -321,13 +319,13 @@
 
 						<div class="box">
 							<!--特效區塊需要當外層-->
-							<svg xmlns="http://www.w3.org/2000/svg" width="100%"
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%"
 								height="100%">
                     <line class="top" x1="0" y1="0" x2="1300" y2="0" />
                       <line class="left" x1="4" y1="160" x2="4" y2="0" />
                       <line class="bottom" x1="0" y1="160" x2="1300"
 									y2="160" />
-                      <line class="right" x1="1271" y1="0" x2="1271"
+                      <line class="right" x1="1260" y1="0" x2="1260"
 									y2="160" />
                   </svg>
 

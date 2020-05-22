@@ -148,11 +148,11 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	
 
 
-	@Override
-	@Transactional
-	public void addFirstSomeActivity() {
-		dao.addFirstSomeActivity();
-	}
+//	@Override
+//	@Transactional
+//	public void addFirstSomeActivity() {
+//		dao.addFirstSomeActivity();
+//	}
 	
 	
 	
