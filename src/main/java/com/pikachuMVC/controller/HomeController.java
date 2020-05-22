@@ -12,10 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-import com.pikachuMVC.dao.ILaunch_activityDao;
-import com.pikachuMVC.dao.MemberDao;
-import com.pikachuMVC.service.ILaunch_activityService;
-import com.pikachuMVC.service.MemberService;
 import com.pikachuMVC.service.NewsService;
 
 @Controller
