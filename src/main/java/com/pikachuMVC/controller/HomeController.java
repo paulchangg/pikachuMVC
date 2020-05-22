@@ -17,14 +17,20 @@ import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.pikachuMVC.dao.ArticleDao;
 import com.pikachuMVC.dao.CardDao;
 import com.pikachuMVC.dao.IForumDao;
+import com.pikachuMVC.dao.ILaunch_activityDao;
+import com.pikachuMVC.dao.MemberDao;
 import com.pikachuMVC.dao.ProductDao;
 import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.FoumBean;
+import com.pikachuMVC.model.Launch_activityBean;
+import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.ProductBean;
 import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.CardService;
 import com.pikachuMVC.service.IFoumService;
+import com.pikachuMVC.service.ILaunch_activityService;
+import com.pikachuMVC.service.MemberService;
 import com.pikachuMVC.service.NewsService;
 import com.pikachuMVC.service.ProductService;
 
@@ -61,24 +67,24 @@ public class HomeController {
 	IForumDao iForumDao;
 	
 
-//	@Autowired
-//	MemberDao memberDao;
-//
-//	@Autowired
-//	MemberService memberService;
-//
-//	@Autowired
-//	ILaunch_activityDao launch_activityDao;
-//
-//	@Autowired
-//	ILaunch_activityService launch_activityService;
+	@Autowired
+	MemberDao memberDao;
+
+	@Autowired
+	MemberService memberService;
+
+	@Autowired
+	ILaunch_activityDao launch_activityDao;
+
+	@Autowired
+	ILaunch_activityService launch_activityService;
 	
 	private List<CardBean> list = new ArrayList<CardBean>();
 	private List<ProductBean> productList = new ArrayList<ProductBean>();
 	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 	private List<FoumBean> forumList = new ArrayList<FoumBean>();
-//	private List<MemberBean> memberList = new ArrayList<MemberBean>();
-//	private List<Launch_activityBean> activityList = new ArrayList<>();
+	private List<MemberBean> memberList = new ArrayList<MemberBean>();
+	private List<Launch_activityBean> activityList = new ArrayList<>();
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
@@ -109,7 +115,7 @@ public class HomeController {
 			fourmList = articleService.getforumBean();
 		}
 		
-		
+//----------------------------------------------------------不要再刪除了，這是活動要用的 沒有這些資料，很難測試 阿------------------------------------------------------------------------------------------------------------------------		
 		if(forumList.size() ==0) {
 			if(foumservice.getAllfname().size() ==0) {
 				iForumDao.insertFoum();
@@ -117,26 +123,26 @@ public class HomeController {
 			forumList =foumservice.getAllfname();
 		}
 		
-//		if (memberList.size() == 0) {
-//
-//			
-//			if (memberService.getAllMember().size() == 0) {
-//				memberDao.addmember();
-//			}
-//			memberList = memberService.getAllMember();
-//		}
-//
-//		if (activityList.size() == 0) {
-//			
-//			if (launch_activityService.getAllArticles().size() == 0) {
-//			
-//				launch_activityDao.addFirstSomeActivity();
-//			}
-//			
-//			activityList = launch_activityService.getAllArticles();
-//
-//		}
-		
+		if (memberList.size() == 0) {
+
+			
+			if (memberService.getAllMember().size() == 0) {
+				memberDao.addmember();
+			}
+			memberList = memberService.getAllMember();
+		}
+
+		if (activityList.size() == 0) {
+			
+			if (launch_activityService.getAllArticles().size() == 0) {
+			
+				launch_activityDao.addFirstSomeActivity();
+			}
+			
+			activityList = launch_activityService.getAllArticles();
+
+		}
+		//----------------------------------------------------------不要再刪除了，這是活動要用的 沒有這些資料，很難測試 阿------------------------------------------------------------------------------------------------------------------------			
 		return "index";
 	}
 	
@@ -149,7 +155,8 @@ public class HomeController {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
 //			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;
-			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
+//			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
+			String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today;
 			File file = new File(txtPath);
 			return file.exists();
 	}

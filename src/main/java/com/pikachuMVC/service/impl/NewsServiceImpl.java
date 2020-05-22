@@ -90,7 +90,8 @@ public class NewsServiceImpl implements NewsService {
 		SimpleDateFormat sdfOfFolder = new SimpleDateFormat("yyyyMMdd");
 		Date date = new Date();
 		String today = sdfOfFolder.format(date);  //轉變今天日期的格式
-		String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today + "/content/";
+//		String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
+		String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";//james
 		File txtFolder = new File(txtPath);
 		
 		if(!txtFolder.exists()) {
@@ -133,6 +134,7 @@ public class NewsServiceImpl implements NewsService {
 			
 			String content = contentE2.text().toString().replace(p.text().toString(), "").trim();   //內容
 			String txtName = ("[" + today + "]" + newsTitle + ".txt").replaceAll("[\\/:*?><|\"]", "");
+			
 //			String txtPath = "C:\\Users\\Rubylulu\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";
 //			news.setContent("/content/"+txtName);  
 			news.setActTime(acttext);
