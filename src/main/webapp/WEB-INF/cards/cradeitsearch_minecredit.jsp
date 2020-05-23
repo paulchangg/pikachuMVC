@@ -167,8 +167,8 @@
  
                 <div class="step step4">
                 <p>Q3:比卡丘想知道您之前是否有辦過信用卡<i class='bx bxs-credit-card-front'></i>?</p>
-                <input type="radio" value="" name="" checked="true">是
-                <input type="radio" value="" name="">否</br>
+                <input type="radio" value="" name="ever" checked="true">是
+                <input type="radio" value="" name="ever">否</br>
                 <img src="../cards/image/小白對話框.png" class="modalimgone">
                <img src="../cards/image/會動的比卡丘2.gif" class="modalimgtwo">
                </div>

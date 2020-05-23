@@ -604,7 +604,7 @@
 										<div class="col-4 creditinner">
 											<!--國內消費-->
 											<div>
-												<span>${entry.value.onlinefb}</span>
+												<span>${entry.value.onlinefb}%</span>
 											</div>
 											<div>網購回饋</div>
 											<div></div>

@@ -25,16 +25,19 @@ public class SendEmail extends Thread {
 	public void run() {
 		String host = "smtp.gmail.com";
 		int port = 587;
-		String from = "ntutjava013.2@gmail.com";
+		String from = "ntutjava013.2@gmail.com";	
 		String to = email;
 		final String username = "ntutjava013.2@gmail.com";
 		final String password = "Do!ng123";
+		
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
+//		props.put("mail.smtp.ssl.trust", "*");  //宋加
 		props.put("mail.smtp.port", port);
+//		props.put("mail.smtp.user", username); //宋加
 		javax.mail.Session session = javax.mail.Session.getInstance(props, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
@@ -63,10 +66,10 @@ public class SendEmail extends Thread {
 			
 
 			Transport transport = session.getTransport("smtp");
-			transport.connect(host, port, username, password);
-
+//			transport.connect(host, port, username, password);
+			transport.connect(username, password);  //宋用
 			Transport.send(message);
-
+			
 			System.out.println("寄送email結束.");
 			
 		} catch (MessagingException e) {
