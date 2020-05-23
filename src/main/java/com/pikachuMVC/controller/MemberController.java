@@ -56,8 +56,9 @@ public class MemberController {
 	ServletContext sc;
 
 	@GetMapping("/member/member_register")
-	public String register(Model model) {
+	public String register(Model model, HttpServletRequest request) {
 		model.addAttribute("gender1", "checked");
+		request.setAttribute("dontSend", "dontSend");
 		return "member/member_register";
 	}
 
@@ -104,7 +105,6 @@ public class MemberController {
 
 		return "member/member_center";
 	}
-	
 
 	@GetMapping("/member/member_edit")
 	public String edit() {
@@ -121,14 +121,19 @@ public class MemberController {
 		return "member/member_logout";
 	}
 
-	@PostMapping("/member/register.do")
-	public String register(HttpServletRequest request, HttpSession session) {
+	@PostMapping("/member/validRegister")
+	@ResponseBody
+	public void validRegister(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+
 		final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%!^'\"]).{8,})";
 		final String EMAIL_PATTERN = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 		final String PHONE_PATTERN = "[0-9]{10}";
 
 		Pattern pattern = null;
 		Matcher matcher = null;
+
 		String account = "";
 		String password = "";
 		String name = "";
@@ -146,13 +151,8 @@ public class MemberController {
 		birthday = request.getParameter("birthday");
 
 		Map<String, String> errorMsg = new HashMap<String, String>();
-		// 準備存放註冊成功之訊息的Map物件
 		Map<String, String> msgOK = new HashMap<String, String>();
-		// 註冊成功後將用response.sendRedirect()導向新的畫面，所以需要
-		// session物件來存放共用資料。
-
 		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
-		session.setAttribute("MsgOK", msgOK); // 顯示正常訊息
 
 		if (account == null || account.trim().length() == 0) {
 			errorMsg.put("errorIdEmpty", "帳號欄必須輸入");
@@ -180,7 +180,7 @@ public class MemberController {
 			pattern = Pattern.compile(PASSWORD_PATTERN);
 			matcher = pattern.matcher(password);
 			if (!matcher.matches()) {
-				errorMsg.put("passwordError", "密碼至少含有一個大寫字母、小寫字母、數字與!@#$%!^'\"等四組資料組合而成，且長度不能小於八個字元");
+				errorMsg.put("passwordError", "密碼格式錯誤");
 			}
 
 			pattern = Pattern.compile(EMAIL_PATTERN);
@@ -197,50 +197,79 @@ public class MemberController {
 		}
 
 		if (!errorMsg.isEmpty()) {
-
-			return "member/member_register";
+			String emJson = new Gson().toJson(errorMsg);
+			System.out.println(emJson);
+			out.write(emJson);
+			out.close();
 		}
 
+		if (service.idExists(account)) {
+			errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
+		}
+
+		if (service.emailExists(email)) {
+			errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
+		}
+
+		if (!errorMsg.isEmpty()) {
+			String emJson = new Gson().toJson(errorMsg);
+			System.out.println(emJson);
+			out.write(emJson);
+			out.close();
+		} else {
+			msgOK.put("ok", "ok");
+			String okJson = new Gson().toJson(msgOK);
+			System.out.println(okJson);
+			out.write(okJson);
+			out.close();
+		}
+
+	}
+
+	@PostMapping("/member/register.do")
+	public String register(HttpServletRequest request, HttpSession session) {
+		
+		String account = "";
+		String password = "";
+		String name = "";
+		String email = "";
+		String gender = "";
+		String phone_num = "";
+		String birthday = "";
+
+		account = request.getParameter("account");
+		password = request.getParameter("password");
+		name = request.getParameter("name");
+		email = request.getParameter("email");
+		gender = request.getParameter("gender");
+		phone_num = request.getParameter("phone_num");
+		birthday = request.getParameter("birthday");
+
+		Map<String, String> errorMsg = new HashMap<String, String>();
+
+		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
+
 		try {
-			if (service.idExists(account)) {
-				errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
-			} else if (service.emailExists(email)) {
-				errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
+			password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
+
+			MemberBean mb = new MemberBean(account, password, name, phone_num, email, null, Date.valueOf(birthday),
+					gender, null, null, null, null, 0);
+
+			int n = service.saveMember(mb);
+			service.sendValidMail(email, GlobalService.toHexString(account.getBytes()));
+			if (n == 1) {
+				return "redirect:/index";
 			} else {
-				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
-//				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
-
-//				try {
-//					birthday = sdf.format(sdf1.parse(birthday));
-//				} catch (ParseException e) {
-//					e.printStackTrace();
-//				}
-
-				MemberBean mb = new MemberBean(account, password, name, phone_num, email, null, Date.valueOf(birthday),
-						gender, null, null, null, null,0);
-
-				int n = service.saveMember(mb);
-				service.sendValidMail(email, GlobalService.toHexString(account.getBytes()));
-				System.out.println("!!!!!!!!!!!!!!:"+GlobalService.toHexString(account.getBytes()));
-				if (n == 1) {
-					return "redirect:/index";
-				} else {
-					errorMsg.put("errorIdDup", "新增此筆資料有誤(RegisterServlet)");
-				}
-
+				errorMsg.put("errorIdDup", "新增此筆資料有誤(RegisterServlet)");
 			}
 
 			if (!errorMsg.isEmpty()) {
-				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
-//				System.out.println("log:errorMsg not empty!!!!!");
 				return "member/member_register";
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			errorMsg.put("errorIdDup", e.getMessage());
-
 			return "member/member_register";
 		}
 
@@ -249,21 +278,21 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/validId")
-	public String validId(@RequestParam("id") String validId,HttpSession session) {
-		System.out.println("$$$$"+validId);
+	public String validId(@RequestParam("id") String validId, HttpSession session) {
+		System.out.println("$$$$" + validId);
 		String id = GlobalService.fromHexString(validId);
-		System.out.println("!!!!!:"+id);
+		System.out.println("!!!!!:" + id);
 		MemberBean mb = service.queryMember(id);
-		
-		if(mb != null) {
+
+		if (mb != null) {
 			service.enable(mb);
 			session.setAttribute("LoginOK", mb);
 			return "redirect:/index";
-			
-		}else {
-			throw new ValidException("驗證帳號失敗");  
+
+		} else {
+			throw new ValidException("驗證帳號失敗");
 		}
-		
+
 	}
 
 	@PostMapping("/member/login.do")
@@ -340,11 +369,11 @@ public class MemberController {
 		try {
 			// 呼叫 loginService物件的 checkIDPassword()，傳入userid與password兩個參數
 			mb = service.checkIdPassword(userId, password);
-			if (mb != null) {				
-				if(mb.getValid() == 1) {
+			if (mb != null) {
+				if (mb.getValid() == 1) {
 					// OK, 登入成功, 將mb物件放入Session範圍內，識別字串為"LoginOK"
-					session.setAttribute("LoginOK", mb);					
-				}else {
+					session.setAttribute("LoginOK", mb);
+				} else {
 					errorMsgMap.put("LoginError", "帳號尚未啟用");
 				}
 			} else {
@@ -538,10 +567,10 @@ public class MemberController {
 		String bank = request.getParameter("bank");
 		List<CardBean> list = cardservice.getCardsByBank(bank);
 		List<String> cardname = new ArrayList<String>();
-		for(CardBean c : list) {
+		for (CardBean c : list) {
 			cardname.add(c.getC_name());
 		}
-		
+
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String cardJson = new Gson().toJson(cardname);
@@ -549,48 +578,45 @@ public class MemberController {
 		out.flush();
 
 	}
-	
+
 	@PostMapping("/member/addCard.do")
 	@ResponseBody
-	public void addCard(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+	public void addCard(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
 		String cardname = request.getParameter("cardname");
 		CardBean cb = cardservice.getCard(cardname);
-		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
-		
+		String mId = ((MemberBean) session.getAttribute("LoginOK")).getM_id();
+
 		service.addMyCard(cb, mId);
-		
-		
+
 		Set<CardBean> cset = service.queryMember(mId).getCards();
-		Map<Integer,String> cmap = new LinkedHashMap<Integer, String>();
-		
-		for(CardBean c : cset) {
+		Map<Integer, String> cmap = new LinkedHashMap<Integer, String>();
+
+		for (CardBean c : cset) {
 			cmap.put(c.getC_id(), c.getC_name());
 		}
-		
-		
+
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String cardJson = new Gson().toJson(cmap);
 		System.out.println(cardJson);
 		out.write(cardJson);
 		out.flush();
-		
-		
+
 	}
-	
-	//設計得不好，有空回來把addCard 跟 getMemberCards 兩個service重複的拆開
+
+	// 設計得不好，有空回來把addCard 跟 getMemberCards 兩個service重複的拆開
 	@PostMapping("/member/getMemberCards.do")
 	@ResponseBody
 	public void getMemberCards(HttpServletResponse response, HttpSession session) throws IOException {
-		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
+		String mId = ((MemberBean) session.getAttribute("LoginOK")).getM_id();
 		Set<CardBean> cset = service.queryMember(mId).getCards();
-		Map<Integer,String> cmap = new LinkedHashMap<Integer, String>();
-		
-		for(CardBean c : cset) {
+		Map<Integer, String> cmap = new LinkedHashMap<Integer, String>();
+
+		for (CardBean c : cset) {
 			cmap.put(c.getC_id(), c.getC_name());
 		}
-		
-		
+
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String cardJson = new Gson().toJson(cmap);
@@ -598,21 +624,22 @@ public class MemberController {
 		out.write(cardJson);
 		out.flush();
 	}
-	
+
 	@PostMapping("/member/delMemberCard.do")
-	public void delMemberCard(HttpServletRequest request,HttpServletResponse response, HttpSession session) throws IOException {
+	public void delMemberCard(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
 		String cardname = request.getParameter("cardname");
-		
+
 		CardBean cb = cardservice.getCard(cardname);
-		String mId = ((MemberBean)session.getAttribute("LoginOK")).getM_id();
-		
+		String mId = ((MemberBean) session.getAttribute("LoginOK")).getM_id();
+
 		service.rmMyCard(cb, mId);
-		
+
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println(true);
 		out.flush();
-		
+
 	}
 
 	@ModelAttribute("banks")

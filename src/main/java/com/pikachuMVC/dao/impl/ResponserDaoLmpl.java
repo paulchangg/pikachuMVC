@@ -22,7 +22,7 @@ public class ResponserDaoLmpl implements IResponserDao {
 	@Autowired
 	SessionFactory factory;
 	
-	private int recordsPerPage = 4; // 預設值：每頁2筆
+	private int recordsPerPage = 3; // 預設值：每頁2筆
 	
 	
 	// 1.新增某一個文章的回覆文

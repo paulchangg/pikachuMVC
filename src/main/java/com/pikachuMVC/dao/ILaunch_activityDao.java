@@ -50,6 +50,6 @@ public interface ILaunch_activityDao {
 
 	long getRecordCountsByfname(Integer f_id);
 
-//	void addFirstSomeActivity();
+	void addFirstSomeActivity();
 
 }
