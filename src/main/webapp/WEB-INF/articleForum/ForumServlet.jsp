@@ -650,7 +650,7 @@
 	<!-- 下方頁碼分頁 ----超連結待補------>
 	<nav aria-label="Page navigation example"
 		style="padding-top: 20px; padding-bottom: 10px;">
-		<ul class="pagination justify-content-center">
+		<ul class="pagination justify-content-center" id="buttonPage">
 			<c:choose>
 				<c:when test="${ArticlepageNo == 1}">
 						<li class="page-item"><a class="page-link"  id=""
@@ -687,67 +687,6 @@
 			</c:choose>
 		</ul>
 	</nav>
-	
-	
-	
-<!-- 			<li class="page-item"><a class="page-link" href="#" -->
-<!-- 				id="forum_page1">1</a></li> -->
-<!-- 			<li class="page-item"><a class="page-link" href="#" -->
-<!-- 				id="forum_page2">2</a></li> -->
-<!-- 			<li class="page-item"><a class="page-link" href="#" id="">Next</a> -->
-	
-	
-<!-- 	 <div class="return"> 底部分頁 -->
-<!--                  <ul class="pagination pagination-sm"> -->
-<%--                  	<c:choose> --%>
-<%--                  		<c:when test="${pageNo == 1}"> --%>
-<!--                  			  <li class="page-item">  -->
-<!--                  			  	<a class="page-link"  aria-label="Previous"> -->
-<!--                         			<span aria-hidden="true">&laquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	  </li> -->
-<%--                  		</c:when> --%>
-<%--                  		<c:otherwise> --%>
-<!--                     		<li class="page-item">  -->
-<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous"> --%>
-<!--                         			<span aria-hidden="true">&laquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:otherwise> --%>
-<%--                  	</c:choose> --%>
-<%--                     <c:forEach begin="1" end="${totalPages}" varStatus="vs"> --%>
-<%--                     	<c:choose> --%>
-<%--                     		<c:when test="${pageNo == vs.index}"> --%>
-<!--                     			<li class="page-item"> -->
-<%--                     				<a class="page-link"  id="shopping_pag1">${vs.count}</a> --%>
-<!--                     			</li> -->
-<%--                     		</c:when> --%>
-<%--                     		<c:otherwise> --%>
-<!--                     			<li class="page-item"> -->
-<%--                     				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a> --%>
-<!--                     			</li> -->
-<%--                     		</c:otherwise> --%>
-<%--                     	</c:choose> --%>
-<%--                     </c:forEach> --%>
-<%--                     <c:choose> --%>
-<%--                  		<c:when test="${pageNo != totalPages}"> --%>
-<!--                  			  <li class="page-item">  -->
-<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous"> --%>
-<!--                         			<span aria-hidden="true">&raquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:when> --%>
-<%--                  		<c:otherwise> --%>
-<!--                     		<li class="page-item">  -->
-<!--                     			<a class="page-link" aria-label="Previous"> -->
-<!--                         			<span aria-hidden="true">&raquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:otherwise> --%>
-<%--                  	</c:choose> --%>
-<!--                  </ul> -->
-<!--             </div> -->
-<!--        </div> -->
 
 <!-- 回到置頂------>
     <div id="backtop" class="gotop" >
@@ -794,6 +733,17 @@
 					// 在 “clicked div”顯示點擊次數
 					document.forms[2].submit();
 				});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#collection-tab').click(function(){
+			$('#buttonPage').attr('style','visibility:hidden');
+		})
+		$('#all-tab').click(function(){
+			$('#buttonPage').attr('style','');
+		})
+		
+	})
 	</script>
 </body>
 </html>

@@ -273,10 +273,17 @@ public class ArticleDaoImpl implements ArticleDao{
         List<Long> list = session.createQuery(hql)
         		                 .setParameter("m_id", m_id)
         						 .getResultList();
-        ArticleBean bean = (ArticleBean)session.createQuery(hql1)
-        						  			   .setParameter("m_id", m_id)
-        						               .setMaxResults(1)
-        						               .getSingleResult();
+        ArticleBean bean;
+        
+        try {
+        	 bean = (ArticleBean)session.createQuery(hql1)
+		  			   .setParameter("m_id", m_id)
+		               .setMaxResults(1)
+		               .getSingleResult();
+        }catch (Exception e) {
+        	bean = null;
+		}
+       
         if (list.size() > 0) {
             count = list.get(0);
         }

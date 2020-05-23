@@ -356,6 +356,15 @@ public class ArticleCotroller {
 		
 		Set<ArticleBean> beans = service.listDifFourm(fourmName);
 		
+		int count = 0;
+		
+		for(ArticleBean bean: beans) {
+			count++;
+			
+		}
+		
+		System.out.println(count);
+		
 		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
 		List<String> article_content = new ArrayList<String>();
