@@ -1,6 +1,7 @@
 package com.pikachuMVC.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.pikachuMVC.model.ArticleClassificarionBean;
@@ -33,4 +34,5 @@ public interface ArticleService {
 	
 	public int getTotalPages();
 	
+	Map<Long, ArticleBean> getMemberCenterRecord(String m_id);
 }

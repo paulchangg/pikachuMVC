@@ -38,7 +38,7 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-			 <c:choose>
+             <c:choose>
 				<c:when test="${empty LoginOK}">										
 					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
@@ -47,15 +47,16 @@
 				</c:otherwise>
 			 </c:choose>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_center" />' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<c:url value="/shopping/listtrackproduct" />" style="color: rgb(92, 41, 7);">追蹤商品</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
-               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>
@@ -85,10 +86,12 @@
       
 
         <!--這裡為輸入條件區塊-->
+       <form action="<c:url value="/shopping/orderList" />" method="get">
        <div class="col-6 orderone" id="Orderinquary_haveorder">
            <table>
                <tr>
                    <td>查詢條件:</td>
+                   <td><input type="radio" name="orderitem" value="0" id="Orderinquary_all" class="radioBtn">全部</td>
                    <td><input type="radio" name="orderitem" value="30" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
                    <td><input type="radio" name="orderitem" value="90" id="Orderinquary_nouse"  class="radioBtn">三個月內訂單</td>
                    <td><input type="radio" name="orderitem" value="180" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
@@ -97,7 +100,7 @@
            </table>
            <input type="submit" value="查詢" id="Orderinquary_orderbutton">
        </div>
-
+	   </form>
           <!--這裡為顯示搜尋結果為有訂單時的區塊-->
        <div class="ordertwo">
           <!-- <span id="Orderinquary_onemonth" style="margin: 0 auto;">一個月內訂單共7筆</span> -->
@@ -141,7 +144,7 @@
                  		</c:when>
                  		<c:otherwise>
                     		<li class="page-item"> 
-                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous">
+                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1&orderitem=${orderDays}' />" aria-label="Previous">
                         			<span aria-hidden="true">&laquo;</span> 
                         		</a>
                         	</li>
@@ -156,7 +159,7 @@
                     		</c:when>
                     		<c:otherwise>
                     			<li class="page-item">
-                    				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a>
+                    				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}&orderitem=${orderDays}' />" id="shopping_pag1">${vs.index}</a>
                     			</li>
                     		</c:otherwise>
                     	</c:choose>
@@ -164,7 +167,7 @@
                     <c:choose>
                  		<c:when test="${pageNo != totalPages}">
                  			  <li class="page-item"> 
-                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous">
+                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}&orderitem=${orderDays}' />" aria-label="Previous">
                         			<span aria-hidden="true">&raquo;</span> 
                         		</a>
                         	</li>

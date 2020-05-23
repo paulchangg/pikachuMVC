@@ -246,7 +246,7 @@ body {
   }
 
 
-  #orderitem_rqcode{
+  .orderitem_rqcode{
     border:0;
     background-color:#FF5964;
     color:#fff;
@@ -256,7 +256,7 @@ body {
     width: 4rem;
   }
   
-  #orderitem_rqcode:hover{
+  .orderitem_rqcode:hover{
     color:#FF5964;
     background-color:#fff;
     border:2px #FF5964 solid;

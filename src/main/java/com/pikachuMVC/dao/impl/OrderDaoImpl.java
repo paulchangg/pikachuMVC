@@ -1,10 +1,8 @@
 package com.pikachuMVC.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import com.pikachuMVC.dao.OrderDao;
 import com.pikachuMVC.model.OrdersBean;
+
+import init.QRcode;
 
 
 @Repository
@@ -34,17 +34,33 @@ public class OrderDaoImpl implements OrderDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<OrdersBean> getMemberOrders(String memberId, int pageNo) {
+	public List<OrdersBean> getMemberOrders(String memberId, int pageNo,int orderDays) {
 		List<OrdersBean> list = null;
+		List<OrdersBean> list1 = new ArrayList<OrdersBean>();
 		Session session = factory.getCurrentSession();
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
-		String hql = "FROM OrdersBean ob WHERE ob.m_id = :mid";
+		String hql = "FROM OrdersBean ob WHERE ob.m_id = :mid ORDER BY ordid desc";
 		list = session.createQuery(hql)
 						.setParameter("mid", memberId)
 						.setFirstResult(startRecordNo)
 	                    .setMaxResults(recordsPerPage)
 						.getResultList();
-		return list;
+		
+		if(orderDays == 0) {
+			list1 = list;
+		}else {
+			for(OrdersBean bean : list) {
+				if((int)QRcode.parseTimeString2Date(bean.getOrderdate()) < orderDays) {
+					
+					list1.add(bean);
+				}else {
+					
+				}
+			}
+		}
+		
+		
+		return list1;
 	}
 
 	@Override
@@ -58,40 +74,40 @@ public class OrderDaoImpl implements OrderDao{
 	}
 	
 	@Override
-	public long getRecordCounts(String m_id) {
+	public long getRecordCounts(String m_id,int orderDays) {
 		long count = 0; // 必須使用 long 型態
-        String hql = "SELECT count(*) FROM OrdersBean o WHERE o.m_id = :m_id";
+        String hql = "FROM OrdersBean o WHERE o.m_id = :m_id";
+        List<OrdersBean> list = new ArrayList<OrdersBean>();
+        List<OrdersBean> list2 = new ArrayList<OrdersBean>();
         Session session = factory.getCurrentSession();
-        List<Long> list = session.createQuery(hql)
-        						.setParameter("m_id", m_id)
-        						.getResultList();
-        if (list.size() > 0) {
-            count = list.get(0);
-        }
+        list = session.createQuery(hql)
+        			  .setParameter("m_id", m_id)
+        			  .getResultList();
+        if(orderDays == 0) {
+        	count = list.size();
+		}else {
+			for(OrdersBean bean : list) {
+				if((int)QRcode.parseTimeString2Date(bean.getOrderdate()) < orderDays) {
+					
+					list2.add(bean);
+				}else {
+					
+				}
+			}
+			count = list2.size();
+		}
+        
+        
         return count;
 	}
 	
 	@Override
-	public int getTotalPages(String m_id) {
+	public int getTotalPages(String m_id,int orderDays) {
 		// 注意下一列敘述的每一個型態轉換
-		totalPages = (int) (Math.ceil(getRecordCounts(m_id) / (double) recordsPerPage));
+		totalPages = (int) (Math.ceil(getRecordCounts(m_id,orderDays) / (double) recordsPerPage));
 
 		return totalPages;
 	}
 
-	@Override
-	public List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo, long days) {
-		List<OrdersBean> list = null;
-		Session session = factory.getCurrentSession();
-		int startRecordNo = (pageNo - 1) * recordsPerPage;
-		String hql = "FROM OrdersBean ob WHERE ob.m_id = :mid";
-		list = session.createQuery(hql)
-						.setParameter("mid", memberId)
-						.setFirstResult(startRecordNo)
-	                    .setMaxResults(recordsPerPage)
-						.getResultList();
-		return list;
-		
-	}
 
 }
