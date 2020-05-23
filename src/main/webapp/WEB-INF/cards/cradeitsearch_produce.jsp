@@ -189,7 +189,7 @@
 								<div>
 									<span>網購回饋</span>
 								</div>
-								<div class="test">${bean.onlinefb}</div>
+								<div class="test">${bean.onlinefb}%</div>
 								<div>${bean.onlinefb_n}</div>
 							</div>
 							<div class="col gifttext">
