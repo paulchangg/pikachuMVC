@@ -119,25 +119,26 @@ public class HomeController {
 			}
 			forumList =foumservice.getAllfname();
 		}
-//		if (memberList.size() == 0) {
-//
-//			
-//			if (memberService.getAllMember().size() == 0) {
-//				memberDao.addmember();
-//			}
-//			memberList = memberService.getAllMember();
-//		}
-//
-//		if (activityList.size() == 0) {
-//			
-//			if (launch_activityService.getAllArticles().size() == 0) {
-//			
-//				launch_activityDao.addFirstSomeActivity();
-//			}
-//			
-//			activityList = launch_activityService.getAllArticles();
-//
-//		}
+		if (memberList.size() == 0) {
+
+			
+			if (memberService.getAllMember().size() == 0) {
+				System.out.println("111111111111");
+				memberDao.addmember();
+			}
+			memberList = memberService.getAllMember();
+		}
+
+		if (activityList.size() == 0) {
+			
+			if (launch_activityService.getAllArticles().size() == 0) {
+			
+				launch_activityDao.addFirstSomeActivity();
+			}
+			
+			activityList = launch_activityService.getAllArticles();
+
+		}
 				
 		return "index";
 	}

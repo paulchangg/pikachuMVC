@@ -251,7 +251,8 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 	
 		String line = "";
 		
-		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activity.txt"); //JAMES
+//		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activity.txt"); //JAMES
+		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/activity.txt"); //JAMES
 
 
 
@@ -299,7 +300,8 @@ public class Launch_activityDaoImpl implements ILaunch_activityDao {
 		
 				
 				
-				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activityImgs\\" + token[3]; //JAMES
+//				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\activityImgs\\" + token[3]; //JAMES
+				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/activityImgs/" + token[3]; //JAMES
 
 				Blob lb_img = GlobalService.fileToBlob(imgname);
 				
