@@ -375,9 +375,9 @@
 														<c:if test="${LoginOK.m_id == entry.member_id}">
 															<form style="margin: 0px; display: inline" method="post"
 																action="<c:url value='/articleForum/delete/${entry.article_Id}' />">
-																<button type="button" class="btn btn-link"
+																<button type="button" class="btn btn-link deleteArticle"
 																	data-toggle="modal" data-target="#delete"
-																	style="color: rgb(177, 172, 172);">
+																	style="color: rgb(177, 172, 172);" article_id='${entry.article_Id}'>
 																	<i class="far fa-trash-alt"></i>
 																</button>
 															</form>
@@ -416,7 +416,7 @@
 										<div class="col-3" style="display: flex; align-items: center;">
 											<img class="articleimage"
 												src='${pageContext.request.contextPath}/articleForum/getPicture/${entry.article_Id}'
-												style="max-width: 100%; max-height: 100%;" />
+												style="max-width: 100%; max-height: 200px;" />
 										</div>
 									</div>
 								</div>
@@ -727,23 +727,5 @@
         To the top
       </button>
     </div>
-	<script type="text/javascript">
-		document.getElementById("deleteArticle1").addEventListener("click",
-				function(event) {
-					// 在 “clicked div”顯示點擊次數
-					document.forms[2].submit();
-				});
-	</script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#collection-tab').click(function(){
-			$('#buttonPage').attr('style','visibility:hidden');
-		})
-		$('#all-tab').click(function(){
-			$('#buttonPage').attr('style','');
-		})
-		
-	})
-	</script>
 </body>
 </html>

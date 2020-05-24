@@ -201,18 +201,18 @@ public class ArticleDaoImpl implements ArticleDao{
 	}
 
 	@Override
-	public Set<ArticleBean> listDifFourm(String fourm) {
+	public List<ArticleBean> listDifFourm(String fourm) {
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM ArticleClassificarionBean r WHERE r.fname = :fname ";
+		String hql = "FROM ArticleBean r WHERE r.subject = :fname ORDER BY article_id desc ";
 		
-		ArticleClassificarionBean bean = (ArticleClassificarionBean)session.createQuery(hql)
-								.setParameter("fname", fourm)
-								.getSingleResult();
+		List<ArticleBean> beans = session.createQuery(hql)
+										 .setParameter("fname", fourm)
+										 .getResultList();
 		
 		
-		return bean.getActivitys();
+		return beans;
 	}
 
 	@Override

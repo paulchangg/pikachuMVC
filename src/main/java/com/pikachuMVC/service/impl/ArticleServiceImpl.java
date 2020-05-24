@@ -85,8 +85,8 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	@Transactional
-	public Set<ArticleBean> listDifFourm(String fourm) {
-		Set<ArticleBean> beans = dao.listDifFourm(fourm);
+	public List<ArticleBean> listDifFourm(String fourm) {
+		List<ArticleBean> beans = dao.listDifFourm(fourm);
 		return beans;
 	}
 

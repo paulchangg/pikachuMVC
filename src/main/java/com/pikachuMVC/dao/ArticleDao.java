@@ -27,7 +27,7 @@ public interface ArticleDao {
 	
 	void deleteTrackActivity(int article_id,String m_id);
 	
-	Set<ArticleBean> listDifFourm(String fourm);
+	List<ArticleBean> listDifFourm(String fourm);
 	
 	List<ArticleClassificarionBean> getforumBean();
 	
