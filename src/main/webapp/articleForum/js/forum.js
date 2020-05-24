@@ -68,6 +68,22 @@ class StickyNavigation {
 
 // 發布新活動的上傳圖片
 $(document).ready(function() {
+	var article_id;
+	
+	$('#collection-tab').click(function(){
+		$('#buttonPage').attr('style','visibility:hidden');
+	})
+	$('#all-tab').click(function(){
+		$('#buttonPage').attr('style','');
+	})
+	$('.deleteArticle').click(function(){
+		article_id = $(this).attr('article_id');		
+	})
+	$('#deleteArticle1').click(function(){
+		document.forms[2].action = '/pikachuMVC/articleForum/delete/' + article_id   ;
+		document.forms[2].submit();
+	})
+	
     $("#inputImg").fileinput({
 		showClose:false,
 		showCaption:false,

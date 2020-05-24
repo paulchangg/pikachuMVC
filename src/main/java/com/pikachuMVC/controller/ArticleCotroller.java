@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -72,7 +73,7 @@ public class ArticleCotroller {
 		}else {
 			try {
 				pageNo = Integer.parseInt(pageNoStr.trim());
-			} catch (NumberFormatException e) {
+			} catch (Exception e) {
 				pageNo = 1;
 			}
 		}
@@ -343,6 +344,19 @@ public class ArticleCotroller {
 	@GetMapping("/listforum/{fourmName}")
 	public String listDifferentforum(@PathVariable String fourmName,HttpServletRequest request,HttpSession session) {
 		
+		int recordPage = 2;
+		
+		int pageNo = 1;
+		
+		String listDifFourmPage = request.getParameter("listDifFourmPage");
+		
+		
+		
+		try {
+			pageNo = Integer.parseInt(listDifFourmPage.trim());
+		} catch (Exception e) {
+			pageNo = 1;
+		}
 		
 		MemberBean m = (MemberBean)session.getAttribute("LoginOK");
 		
@@ -354,7 +368,28 @@ public class ArticleCotroller {
 		
 		List<String> trackArticle_content = new ArrayList<String>();
 		
-		Set<ArticleBean> beans = service.listDifFourm(fourmName);
+		List<ArticleBean> beans = service.listDifFourm(fourmName);
+		
+		int startRecordNo = (pageNo - 1) * recordPage;
+		int count = 0;
+		int count1 = 0;
+		
+		Set<ArticleBean> otherBeans = new LinkedHashSet<ArticleBean>();
+		
+		for(ArticleBean bean: beans) {
+			
+			if( count >= startRecordNo && count1 <=1) {
+				otherBeans.add(bean);
+				count1++;
+			}
+			
+			count++;
+			
+		}
+		
+		int totalPage = (int)(Math.ceil(beans.size()/(double)recordPage));
+		
+		
 		
 		List<Integer> responserCount1 = new ArrayList<Integer>();
 		
@@ -372,7 +407,7 @@ public class ArticleCotroller {
 		
 		
 		
-		for(ArticleBean b : beans) {
+		for(ArticleBean b : otherBeans) {
 			
 			responserCount1.add(b.getActivitys().size());
 			if(b.getArticle_content().length() < 10) {
@@ -381,6 +416,7 @@ public class ArticleCotroller {
 				article_content.add(b.getArticle_content().substring(0,10));
 			}		
 		}
+		
 		
 		
 		session.setAttribute("trackBeans", trackBeans);
@@ -393,9 +429,14 @@ public class ArticleCotroller {
 		
 		session.setAttribute("responserCount_love", responserCount1);
 		
-		session.setAttribute("LaunchActivityBean_love", beans);
+		session.setAttribute("LaunchActivityBean_love", otherBeans);
 		
 		session.setAttribute("fourmName", fourmName);
+		
+		session.setAttribute("listDifTotalPage", totalPage);
+		
+		
+		session.setAttribute("listDifPage", pageNo);
 		
 		return "redirect:/articleForum/article_board";
 	}

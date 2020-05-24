@@ -1,6 +1,7 @@
 package com.pikachuMVC.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,8 +85,8 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	@Transactional
-	public Set<ArticleBean> listDifFourm(String fourm) {
-		Set<ArticleBean> beans = dao.listDifFourm(fourm);
+	public List<ArticleBean> listDifFourm(String fourm) {
+		List<ArticleBean> beans = dao.listDifFourm(fourm);
 		return beans;
 	}
 
@@ -100,6 +101,14 @@ public class ArticleServiceImpl implements ArticleService {
 	public int getTotalPages() {
 		
 		return dao.getTotalPages();
+	}
+
+	@Override
+	@Transactional
+	public Map<Long, ArticleBean> getMemberCenterRecord(String m_id) {
+		 Map<Long, ArticleBean> map = null;
+		 map = dao.getMemberCenterRecord(m_id);
+		return map;
 	}
 
 	

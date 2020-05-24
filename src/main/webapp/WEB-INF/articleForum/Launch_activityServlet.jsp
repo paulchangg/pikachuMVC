@@ -126,6 +126,8 @@
                 font-weight: initial;
                 font-size: 14px;
                 color: rgb(177, 172, 172);
+                float: left;
+                padding-top: 2px;
               "
               >回應</span
             >
@@ -135,6 +137,8 @@
                 font-weight: initial;
                 font-size: 14px;
                 color: rgb(177, 172, 172);
+                float: left;
+                padding-top: 2px;
               "
               >${responserCount1}</span
             >
@@ -142,127 +146,13 @@
             <button
               type="button"
               class="btn btn-link"
-              style="color: rgb(177, 172, 172);"
+              style="color: rgb(177, 172, 172);float: left;
+                padding-top: 2px;"
             >
               <i class="fas fa-eye"></i>
             </button>
-            <span>${launchActivityBean.allWatch}</span>
-            <!-- 收藏 -->
-            <button
-              type="button"
-              class="btn btn-link"
-              data-toggle="modal"
-              data-target="#collect"
-              style="color: rgb(177, 172, 172);"
-            >
-              <i class="fas fa-archive"></i>
-            </button>
-            <!-- 收藏 Modal 跳出頁面 -->
-            <div
-              class="modal fade"
-              id="collect"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="collectTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5
-                      class="modal-title"
-                      id="collectTitle"
-                      style="font-size: 18px; color: rgb(78, 73, 73);"
-                    >
-                      此文章已加入收藏
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary btn-sm"
-                      data-dismiss="modal"
-                    >
-                      關閉
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      取消收藏
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 修改 -->
-            <button
-              type="button"
-              class="btn btn-link"
-              data-toggle="modal"
-              data-target="#revise"
-              style="color: rgb(177, 172, 172);"
-            >
-              <i class="fas fa-edit"></i>
-            </button>
-            <!-- 刪除 -->
-            <button
-              type="button"
-              class="btn btn-link"
-              data-toggle="modal"
-              data-target="#delete"
-              style="color: rgb(177, 172, 172);"
-            >
-              <i class="far fa-trash-alt"></i>
-            </button>
-            <!-- 刪除 Modal 跳出頁面 -->
-            <div
-              class="modal fade"
-              id="delete"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="deleteTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5
-                      class="modal-title"
-                      id="deleteTitle"
-                      style="font-size: 18px; color: rgb(78, 73, 73);"
-                    >
-                      確定要刪除此文章嗎？
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary btn-sm"
-                      data-dismiss="modal"
-                    >
-                      關閉
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      確定刪除
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <span style="float: left;
+                padding-top: 2px;">${launchActivityBean.allWatch}</span>
           </div>
         </div>
       </div>

@@ -21,6 +21,7 @@ public class OrderItemBean {
 	private Integer p_id;
 	private Double price;
 	private Integer qty;
+	private Blob QRcode;
 	
 	@ManyToOne
 	@JoinColumn(name = "ordid")
@@ -48,6 +49,16 @@ public class OrderItemBean {
 
 
 	
+
+
+	public Blob getQRcode() {
+		return QRcode;
+	}
+
+
+	public void setQRcode(Blob qRcode) {
+		QRcode = qRcode;
+	}
 
 
 	public OrdersBean getOrdersBean() {

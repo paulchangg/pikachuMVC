@@ -36,8 +36,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.pikachuMVC.exception.ValidException;
+import com.pikachuMVC.model.ArticleBean;
 import com.pikachuMVC.model.CardBean;
 import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.service.ArticleService;
 import com.pikachuMVC.service.CardService;
 import com.pikachuMVC.service.MemberService;
 
@@ -51,6 +53,9 @@ public class MemberController {
 
 	@Autowired
 	CardService cardservice;
+	
+	@Autowired
+	ArticleService articleService;
 
 	@Autowired
 	ServletContext sc;
@@ -101,8 +106,35 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/member_center")
-	public String center() {
-
+	public String center(HttpSession session) {
+				
+		//蔡承志--------------------------------------------------
+		long articleCount = 0;
+		ArticleBean bean;
+		MemberBean mb	= (MemberBean)session.getAttribute("LoginOK");
+		Map<Long, ArticleBean> map = articleService.getMemberCenterRecord(mb.getM_id());
+		try {
+			Set<Long> set = map.keySet();
+			for(Long g : set) {
+				articleCount = g;
+			} 			
+		}catch(Exception e) {
+			articleCount = 0;
+		}
+		
+		
+		
+		try{
+			bean = map.get(articleCount);
+		}catch(Exception e) {
+			bean = null;
+		}
+		
+		session.setAttribute("MemberCenterArticleCount", articleCount);
+		
+		session.setAttribute("MemberCenterArticleBean", bean);
+		//蔡承志--------------------------------------------------
+		
 		return "member/member_center";
 	}
 

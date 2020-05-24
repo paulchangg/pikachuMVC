@@ -46,15 +46,19 @@
 				</c:otherwise>
 			 </c:choose>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_center" />' style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
-               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
+            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>

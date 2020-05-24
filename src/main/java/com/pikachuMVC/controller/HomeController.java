@@ -5,14 +5,34 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.pikachuMVC.dao.ArticleDao;
+import com.pikachuMVC.dao.CardDao;
+import com.pikachuMVC.dao.IForumDao;
+import com.pikachuMVC.dao.ILaunch_activityDao;
+import com.pikachuMVC.dao.MemberDao;
+import com.pikachuMVC.dao.ProductDao;
+import com.pikachuMVC.model.ArticleClassificarionBean;
+import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.model.FoumBean;
+import com.pikachuMVC.model.Launch_activityBean;
+import com.pikachuMVC.model.MemberBean;
+import com.pikachuMVC.model.ProductBean;
+import com.pikachuMVC.service.ArticleService;
+import com.pikachuMVC.service.CardService;
+import com.pikachuMVC.service.IFoumService;
+import com.pikachuMVC.service.ILaunch_activityService;
+import com.pikachuMVC.service.MemberService;
 import com.pikachuMVC.service.NewsService;
+import com.pikachuMVC.service.ProductService;
 
 @Controller
 public class HomeController {
@@ -33,7 +53,7 @@ public class HomeController {
 //	
 //	@Autowired
 //	ProductService productService;
-//	
+	
 //	@Autowired
 //	ArticleDao articleDao;
 //	
@@ -45,7 +65,6 @@ public class HomeController {
 //	
 //	@Autowired
 //	IForumDao iForumDao;	
-
 //	@Autowired
 //	MemberDao memberDao;
 //
@@ -71,8 +90,7 @@ public class HomeController {
 		if (!judgeNewsFolder()) {
 			newsService.newsCrawler();
 		}
-
-//		
+		
 //		if (list.size() == 0) {
 //			if (service.getCards().size() == 0) {
 //				dao.insertCards();
@@ -132,8 +150,8 @@ public class HomeController {
 	private Boolean judgeNewsFolder() {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
-//			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
-			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
+			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
+//			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
 			File file = new File(txtPath);
 			return file.exists();
 	}

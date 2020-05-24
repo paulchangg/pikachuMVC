@@ -1,6 +1,7 @@
 package com.pikachuMVC.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.pikachuMVC.model.ArticleClassificarionBean;
@@ -27,10 +28,11 @@ public interface ArticleService {
 	
 	void deleteTrackActivity(int article_id,String m_id);
 	
-	Set<ArticleBean> listDifFourm(String fourm);
+	List<ArticleBean> listDifFourm(String fourm);
 	
 	List<ArticleClassificarionBean> getforumBean();
 	
 	public int getTotalPages();
 	
+	Map<Long, ArticleBean> getMemberCenterRecord(String m_id);
 }
