@@ -30,7 +30,8 @@ public class QRcode {
 	
 	public static String myCodeText = null;
 	
-	public static String filePath = "D:\\spring\\QR\\CrunchifyQR.png";
+//	public static String filePath = "D:\\spring\\QR\\CrunchifyQR.png";
+	public static String filePath = "/Users/paulchang/Desktop/CrunchifyQR.png";
  
 	public static void main(String[] args) {
 		
