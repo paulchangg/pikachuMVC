@@ -42,17 +42,17 @@ public class HomeController {
 	@Autowired
 	NewsService newsService;
 	
-	@Autowired
-	CardService service;
-
-	@Autowired
-	CardDao dao;
-	
-	@Autowired
-	ProductDao productDao;
-	
-	@Autowired
-	ProductService productService;
+//	@Autowired
+//	CardService service;
+//
+//	@Autowired
+//	CardDao dao;
+//	
+//	@Autowired
+//	ProductDao productDao;
+//	
+//	@Autowired
+//	ProductService productService;
 	
 //	@Autowired
 //	ArticleDao articleDao;
@@ -77,8 +77,8 @@ public class HomeController {
 //	@Autowired
 //	ILaunch_activityService launch_activityService;
 	
-	private List<CardBean> list = new ArrayList<CardBean>();
-	private List<ProductBean> productList = new ArrayList<ProductBean>();
+//	private List<CardBean> list = new ArrayList<CardBean>();
+//	private List<ProductBean> productList = new ArrayList<ProductBean>();
 //	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 //	private List<FoumBean> forumList = new ArrayList<FoumBean>();
 //	private List<MemberBean> memberList = new ArrayList<MemberBean>();
@@ -91,20 +91,20 @@ public class HomeController {
 			newsService.newsCrawler();
 		}
 		
-		if (list.size() == 0) {
-			if (service.getCards().size() == 0) {
-				dao.insertCards();
-			}
-			list = service.getCards();
-		}
-		
-		if (productList.size() == 0) {
-			if (productService.getProducts().size() == 0) {
-				productDao.insertProducts();
-			}
-			productList = productService.getProducts();
-		}
-		
+//		if (list.size() == 0) {
+//			if (service.getCards().size() == 0) {
+//				dao.insertCards();
+//			}
+//			list = service.getCards();
+//		}
+//		
+//		if (productList.size() == 0) {
+//			if (productService.getProducts().size() == 0) {
+//				productDao.insertProducts();
+//			}
+//			productList = productService.getProducts();
+//		}
+//		
 //		if (fourmList.size() == 0) {
 //			if (articleService.getforumBean().size() == 0) {
 //				articleDao.insertFourm();

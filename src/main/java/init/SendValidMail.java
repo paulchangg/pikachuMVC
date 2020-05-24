@@ -25,13 +25,10 @@ public class SendValidMail extends Thread {
 		System.out.println("mail:"+encryptId);
 		String host = "smtp.gmail.com";
 		int port = 587;
-//		String from = "ntutjava013.2@gmail.com";
-		String from = "apostlesong1@gmail.com";
+		String from = "ntutjava013.2@gmail.com";	
 		String to = email;
-//		final String username = "ntutjava013.2@gmail.com";
-		final String username = "apostlesong1@gmail.com";
-//		final String password = "Do!ng123";
-		final String password = "song198004";
+		final String username = "ntutjava013.2@gmail.com";
+		final String password = "Do!ng123";
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
