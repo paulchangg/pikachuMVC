@@ -34,6 +34,14 @@ public class QRcode {
  
 	public static void main(String[] args) {
 		
+		File dir = new File(filePath); 
+		
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}else {
+			 System.out.println("创建目录失败！"); 
+		}
+		
 		
 		int size = 250;
 		String fileType = "png";
