@@ -22,10 +22,10 @@
   <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
   <div class="row">
     <div class="col-sm">
-      <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-      <p style="font-size: medium; padding-top: 10px;">
-        快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-      </p>
+      <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
+        <span style="font-size: medium; padding-top: 10px;">
+          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+        </span>
     </div>
     <div class="row justify-content-around">
       <div class="col-sm">
@@ -36,9 +36,9 @@
     </div>
     <!-- 右上區塊 -->
     <div class="col-sm">
-        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
-          <li class="nav-item">
-             <c:choose>
+      <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+        <li class="nav-item">
+          <c:choose>
 				<c:when test="${empty LoginOK}">										
 					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
@@ -46,21 +46,20 @@
 					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
 			 </c:choose>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
-               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<c:url value="/member/member_center" />" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="<c:url value="/shopping/orderList" />" style="color: rgb(92, 41, 7);">查詢訂單</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+             </a>
+        </li>
+      </ul>
+    </div>
   </div>
  </div>
 
@@ -134,7 +133,7 @@
 
 
        <!--這裡為返回按鈕區塊-->
-      <div class="col-12 footerbutton">
+      <div class="col-12 footerbutton" style="padding-top: 20px;">
 <!--         <a href="../member/member_center.jsp"><input type="button" value="返回" class="backbtn"></a> 這裡為返回會員中心畫面 -->
         <a href="<c:url value="/shopping/listProduct" />"><input type="button" value="返回商城" class="backbtn"></a><!--這裡為返回購物中心畫面-->
       </div>
@@ -142,35 +141,41 @@
 
 
       <!-- 底部 ------>
-      <div id="backtop" class="gotop">
-          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-        <div class="footer">
-          <ul> 
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-facebook"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-twitter"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-instagram"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-linkedin"></span>
-            </li>
-          </ul>  
-        </div> 
-        
-        <br />
-        <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+      <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      <div id="icons" >
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div> 
+  
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
       </div>
       </div>
    <script src="js/jquery-3.4.1.js"></script>

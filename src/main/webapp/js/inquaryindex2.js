@@ -43,7 +43,7 @@ function doFirst() {
   $(function () {
     // 當點擊這個按鈕，自動捲動到網頁最上方，0.333秒完成捲動的動作
     $("#backtop").click(function () {
-      $("html,body").animate({ scrollTop: 0 }, 333);
+      $("html,body").animate({ scrollTop: 10 }, 333);
     });
 
     $(window)

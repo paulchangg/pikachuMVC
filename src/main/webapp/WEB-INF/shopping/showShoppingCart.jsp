@@ -36,10 +36,10 @@
     <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
     <div class="row">
       <div class="col-sm">
-        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-        <p style="font-size: medium; padding-top: 10px;">
+        <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
+        <span style="font-size: medium; padding-top: 10px;">
           快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </p>
+        </span>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -85,13 +85,13 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href="<c:url value="/news/lastestNews"/>">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
    
      <!--這裡為步驟購物圖檔-->
-    <div class="stepimg"><img src="../shopping/image/參考圖.png"></div>
+    <div class="stepimg"><img src="../shopping/image/參考圖.png" style="padding-top:50px;"></div>
 
     <!-- 中間區塊 -->
     <div class="wrap">
@@ -146,38 +146,44 @@
             </form>
         </div>
   </div> 
-         
+         <div></div>
 	<!-- 底部 ------>
-      <div id="backtop" class="gotop">
-          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-        <div class="footer">
-          <ul> 
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-facebook"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-twitter"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-instagram"></span>
-            </li>
-            <li>
-                <span></span>
-                <span></span>
-                <span class="fab fa-linkedin"></span>
-            </li>
-          </ul>  
-        </div> 
-        
-        <br />
-        <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
-      </div>
+  <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
+    © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+  <div id="icons" >
+    <ul>
+      <li>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="fab fa-facebook"></span>
+      </li>
+      <li>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="fab fa-twitter"></span>
+      </li>
+      <li>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="fab fa-instagram"></span>
+      </li>
+      <li>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="fab fa-linkedin"></span>
+      </li>
+    </ul>
+  </div> 
+
+  <br />
+  <button type="button" id="back_bt" class="btn btn-secondary">
+    To the top
+  </button>
+  </div>
 </div>
     
         <!--這區塊是點選結算跳出視窗-->    
@@ -195,7 +201,7 @@
                <script src="js/jquery-3.4.1.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-<!--         <script src="../js/inquaryindex2.js"></script> -->
+        <script src="../js/inquaryindex2.js"></script>
         <script src="js/shopping_cart.js"></script>
         <script type="text/javascript">
         function confirmDelete(n) {

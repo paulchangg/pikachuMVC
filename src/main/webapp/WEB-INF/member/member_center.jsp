@@ -27,10 +27,10 @@
 
     <div class="row">
       <div class="col-sm">
-        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-        <p style="font-size: medium; padding-top: 10px;">
+		<span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
+        <span style="font-size: medium; padding-top: 10px;">
           快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </p>
+        </span>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -49,8 +49,8 @@
             <a class="nav-link" href='<c:url value="/member/member_center" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
-              <i class="fas fa-shopping-cart"></i>
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>
@@ -63,12 +63,12 @@
     <div class="aa" style="height: 100px;"></div>
 
       <!-- 導覽列  -->
-      <div class="et-hero-tabs-container">
+      <div class="et-hero-tabs-container" style="z-index: 9999;">
         <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -83,22 +83,13 @@
 
 			<!-- 討論區管理 -->
 		<div class="containerbb">
-			<c:choose>
-				<c:when test="${empty MemberCenterArticleBean}">										
-					<p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
-	                 <a target="blank"><span id="membercenter_article">無</span></a><br>
+			    <p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
+	                 <a href="" target="blank"><span id="membercenter_article">信用卡好像辦不過</span></a><br>
 					 <i class='bx bx-message-square-detail'></i> 累積發表文章數:<br>
-					 <a  target="blank"><span id="membercenter_number">${MemberCenterArticleCount}</span></a>篇<br>
-					</p>										
-				</c:when>
-				<c:otherwise>										
-					<p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
-	                 <a href="<c:url value='/articleForum/reponseActivity/${MemberCenterArticleBean.article_Id}' />" target="blank"><span id="membercenter_article">${MemberCenterArticleBean.article_title}</span></a><br>
-					 <i class='bx bx-message-square-detail'></i> 累積發表文章數:<br>
-					 <a  target="blank"><span id="membercenter_number">${MemberCenterArticleCount}</span></a>篇<br>
-					</p> 											
-				</c:otherwise>
-			 </c:choose>
+					 <a href="" target="blank"><span id="membercenter_number">33</span></a>篇<br>
+			         <i class='bx bx-message-square-dots' ></i>文章發表新回應:<br>
+                     <a href="" target="blank"><span id="membercenter_answer">無</span></a><br>
+				</p>
 			<div class="coverbb">
 				<div class="frontbb"><p>討論區手札</p>
 				</div>
@@ -145,8 +136,9 @@
      	<!-- 商城 -->
 		<div class="containeree">
 			<p>   
-				<i class='bx bx-shopping-bag'></i><a href="<c:url value='/shopping/orderList' />" target="blank">訂單查詢</a><br>
-			    <i class='bx bx-search'></i><a href="<c:url value="/shopping/listtrackproduct" />" target="blank">追蹤清單</a><br>
+				<i class='bx bx-shopping-bag'></i><a href="" target="blank">訂單查詢</a><br>
+			    <i class='bx bx-search'></i><a href="" target="blank">追蹤清單</a><br>
+			    <i class='bx bx-help-circle'></i><a href="" target="blank">聯絡客服</a><br>
 		 <div class="coveree">
 			<div class="frontee"><p>商城購物<br>手札</p>
 			</div>
@@ -202,37 +194,43 @@
 	  <img src="../images/交友配對.png" class="pickuimgfour">
 	  <img src="../images/比卡丘翻轉.gif"  class="pickuimggiftwo">
 	  
-	 
+	 <div style="height:20px;"></div>
     <!-- 底部 ------>
-    <div id="backtop" class="gotop">
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      <div class="footer">
-        <ul> 
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>  
-      </div> 
-      
-      <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
-    </div>
+	<div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+		© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+	  <div id="icons" >
+		<ul>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-facebook"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-twitter"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-instagram"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-linkedin"></span>
+		  </li>
+		</ul>
+	  </div> 
+  
+	  <br />
+	  <button type="button" id="back_bt" class="btn btn-secondary">
+		To the top
+	  </button>
+	  </div>
   </body>
 </html>
