@@ -31,42 +31,78 @@
 </head>
 
 <body>
-	<!-- 上方標題logo列---超連結待補---->
-	<div class="container-fluid" style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
-		<div class="row">
-			<div class="col-sm">
-				<p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-				<p style="font-size: medium; padding-top: 10px;">快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
-			</div>
-			<div class="row justify-content-around">
-				<div class="col-sm">
-					<a href="<c:url value="/"/>"> <img
-						src="<c:url value="/articleForum/images/logo2.png"/>" alt="logo"
-						style="height: 340px; width: 300px;padding:0 30px 140px 0;" />
-					</a>
-				</div>
-			</div>
-			<!-- 右上區塊 -->
-			<div class="col-sm">
-        		<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
-          			<li class="nav-item">
-             		<c:choose>
-						<c:when test="${empty LoginOK}">										
-							<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
-						</c:when>
-						<c:otherwise>										
-							<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
-						</c:otherwise>
-			 		</c:choose>
-         			</li>
-          
-          			<li class="nav-item">
-            			<a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
-          			</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<!-- 上方標題logo列-->
+	<div
+      class="container-fluid"
+      style="
+        height: 160px;
+        background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);
+      "
+    >
+      <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
+      <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
+
+      <div class="row" style="height: 141px;">
+        <div class="col-sm" style="height: 141px;">
+          <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+          <p style="font-size: medium; padding-top: 10px;">
+            快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+          </p>
+        </div>
+        <div class="row justify-content-around">
+          <div class="col-sm" style="height: 141px;">
+            <a href='<c:url value="/" />' >
+              <img src="images/logo2.png" alt="logo" style="height: 210px;width:350px;"/>
+            </a>
+          </div>
+        </div>
+        <!-- 右上區塊 -->
+        <div class="col-sm">
+          <ul
+            class="nav justify-content-end"
+            style="font-size: 18px; font-weight: bold;"
+          >
+            <li class="nav-item">
+              <c:choose>
+                <c:when test="${empty LoginOK}">
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_login" />'
+                    id="memberlogin"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登入</a
+                  >
+                </c:when>
+                <c:otherwise>
+                  <a
+                    class="nav-link"
+                    href='<c:url value="/member/member_logout" />'
+                    id="memberlogout"
+                    style="color: rgb(92, 41, 7);"
+                    >會員登出</a
+                  >
+                </c:otherwise>
+              </c:choose>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href='<c:url value="/member/member_center" />'
+                id="membercenter"
+                style="color: rgb(92, 41, 7);"
+                ><i class="bx bx-user-circle"></i>會員中心</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+            </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
 	<!-- 導覽列上slider -->
 	<div class="et-hero-tabs">
@@ -79,7 +115,7 @@
 			<a class="et-hero-tab"
 				href='<c:url value="/articleForum/listforum"/>'>論壇交友</a> <a
 				class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-			<a class="et-hero-tab" href="#infoweb">資訊網</a> <span
+			<a class="et-hero-tab" href="<c:url value="/news/lastestNews"/>">資訊網</a> <span
 				class="et-hero-tab-slider"></span>
 		</div>
 	</div>
@@ -89,7 +125,7 @@
 		<div class="card">
 			<img
 				src="<c:url value="/articleForum/images/slider/slide_pic1.jpg"/>"
-				class="card-img-top" alt="..." height="359px" />
+				class="card-img-top" alt="..." height="355px" />
 			<div class="card-body">
 				<h5>
 					<a href="#" class="article_title"> <!-- 文章標題 --> 最新熱門景點
@@ -270,11 +306,6 @@
 				</div>
 				<div class="my-3">
 
-
-
-
-
-
 					<a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />"
 						style="padding: 0px;">
 						<button type="button" class="btn btn-outline-success">交友活動
@@ -375,9 +406,9 @@
 														<c:if test="${LoginOK.m_id == entry.member_id}">
 															<form style="margin: 0px; display: inline" method="post"
 																action="<c:url value='/articleForum/delete/${entry.article_Id}' />">
-																<button type="button" class="btn btn-link deleteArticle"
+																<button type="button" class="btn btn-link"
 																	data-toggle="modal" data-target="#delete"
-																	style="color: rgb(177, 172, 172);" article_id='${entry.article_Id}'>
+																	style="color: rgb(177, 172, 172);">
 																	<i class="far fa-trash-alt"></i>
 																</button>
 															</form>
@@ -416,7 +447,7 @@
 										<div class="col-3" style="display: flex; align-items: center;">
 											<img class="articleimage"
 												src='${pageContext.request.contextPath}/articleForum/getPicture/${entry.article_Id}'
-												style="max-width: 100%; max-height: 200px;" />
+												style="max-width: 100%; max-height: 100%;" />
 										</div>
 									</div>
 								</div>
@@ -650,7 +681,7 @@
 	<!-- 下方頁碼分頁 ----超連結待補------>
 	<nav aria-label="Page navigation example"
 		style="padding-top: 20px; padding-bottom: 10px;">
-		<ul class="pagination justify-content-center" id="buttonPage">
+		<ul class="pagination justify-content-center">
 			<c:choose>
 				<c:when test="${ArticlepageNo == 1}">
 						<li class="page-item"><a class="page-link"  id=""
@@ -687,45 +718,111 @@
 			</c:choose>
 		</ul>
 	</nav>
+	
+	
+	
+<!-- 			<li class="page-item"><a class="page-link" href="#" -->
+<!-- 				id="forum_page1">1</a></li> -->
+<!-- 			<li class="page-item"><a class="page-link" href="#" -->
+<!-- 				id="forum_page2">2</a></li> -->
+<!-- 			<li class="page-item"><a class="page-link" href="#" id="">Next</a> -->
+	
+	
+<!-- 	 <div class="return"> 底部分頁 -->
+<!--                  <ul class="pagination pagination-sm"> -->
+<%--                  	<c:choose> --%>
+<%--                  		<c:when test="${pageNo == 1}"> --%>
+<!--                  			  <li class="page-item">  -->
+<!--                  			  	<a class="page-link"  aria-label="Previous"> -->
+<!--                         			<span aria-hidden="true">&laquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	  </li> -->
+<%--                  		</c:when> --%>
+<%--                  		<c:otherwise> --%>
+<!--                     		<li class="page-item">  -->
+<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous"> --%>
+<!--                         			<span aria-hidden="true">&laquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:otherwise> --%>
+<%--                  	</c:choose> --%>
+<%--                     <c:forEach begin="1" end="${totalPages}" varStatus="vs"> --%>
+<%--                     	<c:choose> --%>
+<%--                     		<c:when test="${pageNo == vs.index}"> --%>
+<!--                     			<li class="page-item"> -->
+<%--                     				<a class="page-link"  id="shopping_pag1">${vs.count}</a> --%>
+<!--                     			</li> -->
+<%--                     		</c:when> --%>
+<%--                     		<c:otherwise> --%>
+<!--                     			<li class="page-item"> -->
+<%--                     				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a> --%>
+<!--                     			</li> -->
+<%--                     		</c:otherwise> --%>
+<%--                     	</c:choose> --%>
+<%--                     </c:forEach> --%>
+<%--                     <c:choose> --%>
+<%--                  		<c:when test="${pageNo != totalPages}"> --%>
+<!--                  			  <li class="page-item">  -->
+<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous"> --%>
+<!--                         			<span aria-hidden="true">&raquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:when> --%>
+<%--                  		<c:otherwise> --%>
+<!--                     		<li class="page-item">  -->
+<!--                     			<a class="page-link" aria-label="Previous"> -->
+<!--                         			<span aria-hidden="true">&raquo;</span>  -->
+<!--                         		</a> -->
+<!--                         	</li> -->
+<%--                  		</c:otherwise> --%>
+<%--                  	</c:choose> --%>
+<!--                  </ul> -->
+<!--             </div> -->
+<!--        </div> -->
 
 <!-- 回到置頂------>
-    <div id="backtop" class="gotop" >
-      <h4>
+<div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
+      <div id="icons" >
         <ul>
           <li>
-			<span></span>
-			<span></span>
+            <span></span>
+            <span></span>
             <span></span>
             <span class="fab fa-facebook"></span>
           </li>
           <li>
-			<span></span>
-			<span></span>
+            <span></span>
+            <span></span>
             <span></span>
             <span class="fab fa-twitter"></span>
           </li>
           <li>
-			<span></span>
-			<span></span>
+            <span></span>
+            <span></span>
             <span></span>
             <span class="fab fa-instagram"></span>
           </li>
           <li>
             <span></span>
-			<span></span>
-			<span></span>
+            <span></span>
+            <span></span>
             <span class="fab fa-linkedin"></span>
           </li>
         </ul>
-      </div>
-
+      </div> 
+  
       <br />
       <button type="button" id="back_bt" class="btn btn-secondary">
         To the top
       </button>
-    </div>
+      </div>
+	<script type="text/javascript">
+		document.getElementById("deleteArticle1").addEventListener("click",
+				function(event) {
+					// 在 “clicked div”顯示點擊次數
+					document.forms[2].submit();
+				});
+	</script>
 </body>
 </html>

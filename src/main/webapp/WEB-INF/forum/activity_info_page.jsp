@@ -102,8 +102,10 @@
 					<li class="nav-item"><a class="nav-link"
 						href='<c:url value="/member/member_logout" />' id="memberlogin"
 						style="color: rgb(92, 41, 7);">會員登出</a></li>
+						
+						
 					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare"
+						href='<c:url value="/member/member_center" />' id="cardcompare"
 						style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle'></i>會員中心</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"

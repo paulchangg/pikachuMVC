@@ -42,102 +42,103 @@ public class HomeController {
 	@Autowired
 	NewsService newsService;
 	
-//	@Autowired
-//	CardService service;
-//
-//	@Autowired
-//	CardDao dao;
-//	
-//	@Autowired
-//	ProductDao productDao;
-//	
-//	@Autowired
-//	ProductService productService;
+	@Autowired
+	CardService service;
+
+	@Autowired
+	CardDao dao;
 	
-//	@Autowired
-//	ArticleDao articleDao;
-//	
-//	@Autowired
-//	ArticleService articleService;
-//
-//	@Autowired
-//	IFoumService foumservice;
-//	
-//	@Autowired
-//	IForumDao iForumDao;	
-//	@Autowired
-//	MemberDao memberDao;
-//
-//	@Autowired
-//	MemberService memberService;
-//
-//	@Autowired
-//	ILaunch_activityDao launch_activityDao;
-//
-//	@Autowired
-//	ILaunch_activityService launch_activityService;
+	@Autowired
+	ProductDao productDao;
 	
-//	private List<CardBean> list = new ArrayList<CardBean>();
-//	private List<ProductBean> productList = new ArrayList<ProductBean>();
-//	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
-//	private List<FoumBean> forumList = new ArrayList<FoumBean>();
-//	private List<MemberBean> memberList = new ArrayList<MemberBean>();
-//	private List<Launch_activityBean> activityList = new ArrayList<>();
+	@Autowired
+	ProductService productService;
+	
+	@Autowired
+	ArticleDao articleDao;
+	
+	@Autowired
+	ArticleService articleService;
+
+	@Autowired
+	IFoumService foumservice;
+	
+	@Autowired
+	IForumDao iForumDao;	
+	@Autowired
+	MemberDao memberDao;
+
+	@Autowired
+	MemberService memberService;
+
+	@Autowired
+	ILaunch_activityDao launch_activityDao;
+
+	@Autowired
+	ILaunch_activityService launch_activityService;
+	
+	private List<CardBean> list = new ArrayList<CardBean>();
+	private List<ProductBean> productList = new ArrayList<ProductBean>();
+	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
+	private List<FoumBean> forumList = new ArrayList<FoumBean>();
+	private List<MemberBean> memberList = new ArrayList<MemberBean>();
+	private List<Launch_activityBean> activityList = new ArrayList<>();
 	@GetMapping({ "/", "/index" })
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
 
-		if (!judgeNewsFolder()) {
-			newsService.newsCrawler();
+//		if (!judgeNewsFolder()) {
+//			newsService.newsCrawler();
+//		}
+		
+		if (list.size() == 0) {
+			if (service.getCards().size() == 0) {
+				dao.insertCards();
+			}
+			list = service.getCards();
 		}
 		
-//		if (list.size() == 0) {
-//			if (service.getCards().size() == 0) {
-//				dao.insertCards();
-//			}
-//			list = service.getCards();
-//		}
-//		
-//		if (productList.size() == 0) {
-//			if (productService.getProducts().size() == 0) {
-//				productDao.insertProducts();
-//			}
-//			productList = productService.getProducts();
-//		}
-//		
-//		if (fourmList.size() == 0) {
-//			if (articleService.getforumBean().size() == 0) {
-//				articleDao.insertFourm();
-//			}
-//			fourmList = articleService.getforumBean();
-//		}
-//		
-//		
-//		if(forumList.size() ==0) {
-//			if(foumservice.getAllfname().size() ==0) {
-//				iForumDao.insertFoum();
-//			}
-//			forumList =foumservice.getAllfname();
-//		}
-//		if (memberList.size() == 0) {
-//
-//			
-//			if (memberService.getAllMember().size() == 0) {
-//				memberDao.addmember();
-//			}
-//			memberList = memberService.getAllMember();
-//		}
-//
-//		if (activityList.size() == 0) {
-//			
-//			if (launch_activityService.getAllArticles().size() == 0) {
-//			
-//				launch_activityDao.addFirstSomeActivity();
-//			}
-//			
-//			activityList = launch_activityService.getAllArticles();
-//
-//		}
+		if (productList.size() == 0) {
+			if (productService.getProducts().size() == 0) {
+				productDao.insertProducts();
+			}
+			productList = productService.getProducts();
+		}
+		
+		if (fourmList.size() == 0) {
+			if (articleService.getforumBean().size() == 0) {
+				articleDao.insertFourm();
+			}
+			fourmList = articleService.getforumBean();
+		}
+		
+		
+		if(forumList.size() ==0) {
+			if(foumservice.getAllfname().size() ==0) {
+				iForumDao.insertFoum();
+			}
+			forumList =foumservice.getAllfname();
+		}
+		if (memberList.size() == 0) {
+
+			
+			if (memberService.getAllMember().size() == 0) {
+				System.out.println("111111111111");
+				memberDao.addmember();
+			}
+			memberList = memberService.getAllMember();
+		}
+
+		if (activityList.size() == 0) {
+			
+			if (launch_activityService.getAllArticles().size() == 0) {
+			
+				launch_activityDao.addFirstSomeActivity();
+			}
+			
+			activityList = launch_activityService.getAllArticles();
+
+		}
 				
 		return "index";
 	}
@@ -150,8 +151,8 @@ public class HomeController {
 	private Boolean judgeNewsFolder() {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
-			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
-//			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
+//			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
+			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
 			File file = new File(txtPath);
 			return file.exists();
 	}

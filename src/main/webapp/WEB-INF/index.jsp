@@ -19,12 +19,12 @@
   <body class="indexBody">
      <!--loading畫面----->
      <div class="hahahahaha">
-        <div ><img src="./images/logo3.gif" class="zoomer onrpickure"></div>
-        <div><span id="percentCount" class="percent-count"></span></div>
+        <div ><img src="./images/logo2.gif" class="zoomer onrpickure" style="padding-right: 60px;"></div>
+        <div><span id="percentCount" class="percent-count" style="padding-left: 5px;"></span></div>
            </div>
     </div>
     
-    <!-- 上方標題logo列----超連結待補----->
+    <!-- 上方標題logo列 -->
     <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
       <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);"> -->
       <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
@@ -60,9 +60,9 @@
               <a class="nav-link" href='<c:url value="/member/member_center" />' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
+              <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+             </a>
             </li>
           </ul>
         </div>
@@ -94,7 +94,7 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+        <a class="et-hero-tab" href="<c:url value="/news/lastestNews"/>">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -215,7 +215,7 @@
       </div>
     </div>
   </div>
-  <button class="bt" id="aboutBtn" style="position: absolute; top:320px; left: 30px;width: 170px;height: 50px;" >前往關於我們
+  <button class="bt" id="aboutBtn" style="position: absolute; top:320px; left: 30px;width: 200px;height: 70px; font-weight: bold;font-size: 24px;" >前往關於我們
   </button>
 </div>
 </div>
@@ -224,7 +224,12 @@
       <div class="et-slide" id="cardcompare" style="background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);padding-top: 40px;">
         <div class="min-h-screen w-full ">
           <div class="container-fluid2" style="opacity:0.8; ">
-            <h1 class="subtitle_card" style="float: right; padding-top: 50px;font-size: 60px;"><a style="text-decoration:none; color: rgb(36, 16, 36);" href='<c:url value="/cards/cradeitCb?qt=main" />'>60秒內<br>找到您的命定信用卡!</h1></a>
+            <h1 class="subtitle_card" style="float: right; padding-top: 50px;font-size: 60px; padding-bottom: 20px; ">
+              <a style="text-decoration:none; color: rgb(36, 16, 36); " href='<c:url value="/cards/cradeitCb?qt=main" />'>60秒內<br>找到您的命定信用卡!
+            <br>
+            <br>
+            </h1>
+              </a>
               </div>
           </div>
       </div>
@@ -232,9 +237,9 @@
       <!-- 論壇交友 -->
       <div class="et-slide" id="friendshipforum" style="background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);	">
         <main class="grid" style="width: 1100px;">
-          <p class="subtitle"><a style="text-decoration:none; color: rgb(36, 18, 36);" href='<c:url value="/articleForum/listforum"/>'>來論壇發文揪團囉</a></p>
+          <p class="subtitle"><a style="text-decoration:none; color: rgb(36, 18, 36);left: 30px;" href='<c:url value="/articleForum/listforum"/>'>來論壇發文揪團囉</a></p>
           <div class="panels">
-             </div>
+          </div>
         </main>
       </div>
 
@@ -269,56 +274,55 @@
         </ul>
       </div>
 
+    <!-- 資訊網---->
       <div class="et-slide" id="infoweb" style="background-image: linear-gradient(to top, #b7e6bb 50%, #eff5ef 80%);">
         <div class="aaa">
           <aside><img class="info_pic" src="./images/info.jpg" style="width: 750px;height: 700px;"/>
           </aside>
           <main style="padding-right: 10px;">
             <h1 style="padding-bottom: 40px;">各種優惠看這裡 </h1>
-            <button class="bt" style="padding: 1rem 2.5rem;"><a style="text-decoration:none; color: rgb(73, 5, 73);" href='<c:url value="/news/lastestNews"/>'>前往資訊網</button></a>
+            <button class="bt" style="padding: 1rem 2.5rem; font-weight: bold;font-size: 24px;"><a style="text-decoration:none; color: rgb(73, 5, 73);" href='<c:url value="/news/lastestNews"/>'>前往資訊網</button></a>
           </main>
         </div>
       </div>
     </main>
 
     <!-- 回到置頂------>
-    <div id="backtop" class="gotop" >
-      <h4>
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
-        <ul>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-            <span></span>
-			<span></span>
-			<span></span>
-            <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>
-      </div>
+    <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
+    </div> 
 
-      <br />
-      <button type="button" id="back_bt" class="btn btn-secondary">
-        To the top
-      </button>
+    <br />
+    <button type="button" id="back_bt" class="btn btn-secondary">
+      To the top
+    </button>
     </div>
      <div class="hahahahaha">
         <div style="text-align:center;"><img src="/images/logo2.gif" class="zoomer onrpickure"></div>

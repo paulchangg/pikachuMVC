@@ -20,7 +20,7 @@ prefix="c"%>
   </head>
 
   <body>
-    <!-- 上方標題logo列----超連結待補----->
+    <!-- 上方標題logo列---->
     <div
       class="container-fluid"
       style="
@@ -83,14 +83,9 @@ prefix="c"%>
               >
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href='<c:url value="/shopping/listProduct" />'
-                id="shoppingcart"
-                style="color: rgb(92, 41, 7);"
-              >
-                <i class="fas fa-shopping-cart"></i>
-              </a>
+              <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+            </a>
             </li>
           </ul>
         </div>
@@ -104,16 +99,22 @@ prefix="c"%>
       <!-- 導覽列  -->
       <div class="et-hero-tabs-container">
         <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
-        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
-        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'
+          >信用卡比較</a
+        >
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'
+          >論壇交友</a
+        >
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'
+          >商城</a
+        >
+        <a class="et-hero-tab" href="<c:url value="/news/lastestNews"/>">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
 
     <!-- 組員介紹 -->
-    <div class="wrap">
+    <div class="wrap" style="padding-top: 60px;">
       <div class="row team-member">
         <div class="col-4 photo">
           <img src="images/about/ching.gif" />
@@ -226,12 +227,11 @@ prefix="c"%>
         </div>
       </div>
     </div>
-    <!-- 回到置頂------>
-    <div id="backtop" class="gotop">
-      <h4>
+
+      <!-- 回到置頂------>
+      <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
         © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
+      <div id="icons" >
         <ul>
           <li>
             <span></span>
@@ -258,12 +258,74 @@ prefix="c"%>
             <span class="fab fa-linkedin"></span>
           </li>
         </ul>
-      </div>
-
+      </div> 
+  
       <br />
       <button type="button" id="back_bt" class="btn btn-secondary">
         To the top
       </button>
-    </div>
+      </div>
+
+    <script>
+      // 導覽列功能設定
+class StickyNavigation {
+  constructor() {
+    this.currentId = null;
+    this.currentTab = null;
+    this.tabContainerHeight = 60;
+    let self = this;
+    $(".et-hero-tab").click(function () {
+      self.onTabClick(event, $(this));
+    });
+    $(window).scroll(() => {
+      this.onScroll();
+    });
+    // $(window).resize(() => {
+    //   this.onResize();
+    // });
+  }
+
+  onScroll() {
+    this.checkTabContainerPosition();
+  }
+
+  // 固定延展功能
+  checkTabContainerPosition() {
+    let offset =
+      $(".et-hero-tabs").offset().top +
+      $(".et-hero-tabs").height() -
+      this.tabContainerHeight;
+    if ($(window).scrollTop() > offset) {
+      $(".et-hero-tabs-container").addClass("et-hero-tabs-container--top");
+    } else {
+      $(".et-hero-tabs-container").removeClass("et-hero-tabs-container--top");
+    }
+  }
+}
+
+window.addEventListener("load", doFirst);
+
+function doFirst() {
+  new StickyNavigation();
+
+  // 置頂鈕移動時間設定
+  $(function () {
+    // 當點擊這個按鈕，自動捲動到網頁最上方，0.333秒完成捲動的動作
+    $("#backtop").click(function () {
+      $("html,body").animate({ scrollTop: 0 }, 333);
+    });
+
+    $(window)
+      .scroll(function () {
+        if ($(this).scrollTop() > 200) {
+          $("#backtop").fadeIn(222);
+        } else {
+          $("#backtop").stop().fadeOut(222);
+        }
+      })
+      .scroll();
+  });
+}
+    </script>
   </body>
 </html>

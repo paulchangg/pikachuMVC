@@ -29,13 +29,14 @@
 		style="height: 160px; background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
 		<div class="row">
 			<div class="col-sm">
-				<p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-				<p style="font-size: medium; padding-top: 10px;">
-					快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。</p>
+				<span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
+				<span style="font-size: medium; padding-top: 10px;">
+				  快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+				</span>
 			</div>
 			<div class="row justify-content-around">
 				<div class="col-sm">
-					<a href="index copy.html"> <img src="../images/logo2.png"
+					<a href='<c:url value="/" />'> <img src="../images/logo2.png"
 						alt="logo" style="height: 140px;" />
 					</a>
 				</div>
@@ -60,11 +61,11 @@
 						href='<c:url value="/member/member_center" />' id="cardcompare"
 						style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle'></i>會員中心</a>
 					</li>
-					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/shopping/listProduct" />' id="shoppingcart"
-						style="color: rgb(92, 41, 7);"> <i
-							class="fas fa-shopping-cart"></i>
-					</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+						<i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+					 </a>
+				</li>
 				</ul>
 			</div>
 		</div>
@@ -76,12 +77,12 @@
 
 		<!-- 導覽列  -->
 		<div class="et-hero-tabs-container">
-			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a> <a
-				class="et-hero-tab"
-				href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a> <a
-				class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-			<a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-			<a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a> <span
+			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+			<span
 				class="et-hero-tab-slider"></span>
 		</div>
 	</div>
@@ -811,26 +812,44 @@
 	</main>
 
 
-	<!-- 底部 ------>
-	<div id="backtop" class="gotop">
+	  <!-- 回到置頂------>
+	  <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
 		© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-		<div class="footer">
-			<ul>
-				<li><span></span> <span></span> <span class="fab fa-facebook"></span>
-				</li>
-				<li><span></span> <span></span> <span class="fab fa-twitter"></span>
-				</li>
-				<li><span></span> <span></span> <span class="fab fa-instagram"></span>
-				</li>
-				<li><span></span> <span></span> <span class="fab fa-linkedin"></span>
-				</li>
-			</ul>
-		</div>
+	  <div id="icons" >
+		<ul>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-facebook"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-twitter"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-instagram"></span>
+		  </li>
+		  <li>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span class="fab fa-linkedin"></span>
+		  </li>
+		</ul>
+	  </div> 
+  
+	  <br />
+	  <button type="button" id="back_bt" class="btn btn-secondary">
+		To the top
+	  </button>
+	  </div>
 
-		<br />
-		<button type="button" id="back_bt" class="btn btn-secondary">To
-			the top</button>
-	</div>
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

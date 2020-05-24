@@ -82,7 +82,7 @@ function doFirst() {
 //      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
 //      mImg.src = `/pikachuMVC/init/getMemberImage?id=${data[i].m_id}`;
 
-      lastDiv.innerHTML = '<span style="color:blue">已經沒有推薦的人選嘍～</span>';
+      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
       lastDiv.style.display = "none";
       preFriends.appendChild(lastDiv);
       

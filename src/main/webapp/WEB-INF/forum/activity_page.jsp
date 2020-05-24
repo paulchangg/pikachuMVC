@@ -119,7 +119,7 @@
 						href='<c:url value="/member/member_logout" />' id="memberlogin"
 						style="color: rgb(92, 41, 7);">會員登出</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare"
+						href='<c:url value="/member/member_center" />' id="cardcompare"
 						style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle'></i>會員中心</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
@@ -390,7 +390,7 @@
 											<!-- 所屬的看板 -->
 											<a href="#" class="subject">${subList1.foumBean.fname}</a><br>
 											<!-- 活動時間 -->
-											<time class="post_Time" style="font-size: medium;"> ${ subList1.startTime }</time>
+											<time class="post_Time" style="font-size: medium;"> ${ subList1.post_Time }</time>
 										</div>
 										<p class="article_content" id="Substring_article_content">${ subList1.article_content }</p>
 									</div>
@@ -428,7 +428,7 @@
 											<!-- 所屬的看板 -->
 											<a href="#" class="subject">${subList2.foumBean.fname}</a><br>
 											<!-- 活動時間 -->
-											<time class="post_Time" style="font-size: medium;"> ${ subList2.startTime }</time>
+											<time class="post_Time" style="font-size: medium;"> ${ subList2.post_Time }</time>
 										</div>
 										<p class="article_content" id="Substring_article_content">${ subList2.article_content }</p>
 									</div>
