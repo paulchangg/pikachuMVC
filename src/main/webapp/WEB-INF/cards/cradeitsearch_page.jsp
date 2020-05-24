@@ -77,12 +77,12 @@
 
 		<!-- 導覽列  -->
 		<div class="et-hero-tabs-container">
-			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a> <a
-				class="et-hero-tab"
-				href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a> <a
-				class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
-			<a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-			<a class="et-hero-tab" href="#infoweb">資訊網</a> <span
+			<a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
+        <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
+        <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
+        <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+			<span
 				class="et-hero-tab-slider"></span>
 		</div>
 	</div>

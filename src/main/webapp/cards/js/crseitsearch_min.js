@@ -127,7 +127,7 @@ function switchTo(stepIdx) {
             "</div>" +
             '<div class="col-2 creditbtn"><a href="/pikachuMVC/cards/cradeitsearch_produce?id=' +
             cb[i].c_id +
-            '"class="btn btn-primary" id=>詳細資訊</a></div>' +
+            '"class="btn btn-primary" target="a_blank">詳細資訊</a></div>' +
             "</div>" +
             "</div>" +
             "</div>";
