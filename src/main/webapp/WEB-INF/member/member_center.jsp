@@ -83,13 +83,22 @@
 
 			<!-- 討論區管理 -->
 		<div class="containerbb">
-			    <p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
-	                 <a href="" target="blank"><span id="membercenter_article">信用卡好像辦不過</span></a><br>
+			<c:choose>
+				<c:when test="${empty MemberCenterArticleBean}">										
+					<p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
+	                 <a target="blank"><span id="membercenter_article">無</span></a><br>
 					 <i class='bx bx-message-square-detail'></i> 累積發表文章數:<br>
-					 <a href="" target="blank"><span id="membercenter_number">33</span></a>篇<br>
-			         <i class='bx bx-message-square-dots' ></i>文章發表新回應:<br>
-                     <a href="" target="blank"><span id="membercenter_answer">無</span></a><br>
-				</p>
+					 <a  target="blank"><span id="membercenter_number">${MemberCenterArticleCount}</span></a>篇<br>
+					</p>										
+				</c:when>
+				<c:otherwise>										
+					<p>  <i class='bx bx-message-square-edit'></i> 最近發表文章:<br>
+	                 <a href="<c:url value='/articleForum/reponseActivity/${MemberCenterArticleBean.article_Id}' />" target="blank"><span id="membercenter_article">${MemberCenterArticleBean.article_title}</span></a><br>
+					 <i class='bx bx-message-square-detail'></i> 累積發表文章數:<br>
+					 <a  target="blank"><span id="membercenter_number">${MemberCenterArticleCount}</span></a>篇<br>
+					</p> 											
+				</c:otherwise>
+			 </c:choose>
 			<div class="coverbb">
 				<div class="frontbb"><p>討論區手札</p>
 				</div>
@@ -136,9 +145,8 @@
      	<!-- 商城 -->
 		<div class="containeree">
 			<p>   
-				<i class='bx bx-shopping-bag'></i><a href="" target="blank">訂單查詢</a><br>
-			    <i class='bx bx-search'></i><a href="" target="blank">追蹤清單</a><br>
-			    <i class='bx bx-help-circle'></i><a href="" target="blank">聯絡客服</a><br>
+				<i class='bx bx-shopping-bag'></i><a href="<c:url value='/shopping/orderList' />" target="blank">訂單查詢</a><br>
+			    <i class='bx bx-search'></i><a href="<c:url value="/shopping/listtrackproduct" />" target="blank">追蹤清單</a><br>
 		 <div class="coveree">
 			<div class="frontee"><p>商城購物<br>手札</p>
 			</div>

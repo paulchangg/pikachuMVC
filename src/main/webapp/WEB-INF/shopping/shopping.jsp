@@ -52,6 +52,9 @@
             <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">

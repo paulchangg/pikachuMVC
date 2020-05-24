@@ -36,9 +36,9 @@
     </div>
     <!-- 右上區塊 -->
     <div class="col-sm">
-      <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
-        <li class="nav-item">
-          <c:choose>
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+             <c:choose>
 				<c:when test="${empty LoginOK}">										
 					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
@@ -46,20 +46,21 @@
 					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
 			 </c:choose>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<c:url value="/member/member_center" />" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  href="<c:url value="/shopping/orderList" />" style="color: rgb(92, 41, 7);">查詢訂單</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
-             <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+            </a>
+          </li>
+        </ul>
+      </div>
   </div>
  </div>
 

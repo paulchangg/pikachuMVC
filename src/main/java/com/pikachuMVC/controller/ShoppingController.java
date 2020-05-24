@@ -37,7 +37,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.pikachuMVC.model.MemberBean;
 import com.pikachuMVC.model.OrderItemBean;
 import com.pikachuMVC.model.OrdersBean;
@@ -46,6 +45,7 @@ import com.pikachuMVC.model.ShoppingCart;
 import com.pikachuMVC.service.OrderService;
 import com.pikachuMVC.service.ProductService;
 
+import init.GlobalService;
 import init.QRcode;
 
 @Controller
@@ -304,6 +304,53 @@ public ShoppingController() {}
 		return responseEntity;
 	}
 	
+	@GetMapping("/getQRcode/{orderId}/{productId}")
+	public ResponseEntity<byte[]> getQRcode(
+			HttpServletResponse resp, 
+			@PathVariable Integer productId,
+			@PathVariable Integer orderId) {
+		String filePath = "/resources/images/NoImage.jpg";
+		byte[] media = null;
+		HttpHeaders headers = new HttpHeaders();
+		String filename = "";
+		int len = 0;
+		OrdersBean ob =  orderService.getOrder(orderId);
+		Set<OrderItemBean> beans = ob.getItems();
+		OrderItemBean bean = null;
+		for(OrderItemBean oib : beans) {
+			if(oib.getP_id() == productId) {
+				bean = oib;
+			}	
+		}
+		if (bean != null) {
+			Blob blob = bean.getQRcode();
+			System.out.println(blob != null);
+			filename = "CrunchifyQR.png";
+			if (blob != null) {
+				try {
+					len = (int) blob.length();
+					media = blob.getBytes(1, len);
+				} catch (SQLException e) {
+					throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+				}
+			} else {
+				media = toByteArray(filePath);
+				filename = filePath;
+			}
+		} else {
+			media = toByteArray(filePath);
+			filename = filePath;
+		}
+		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		String mimeType = context.getMimeType(filename);   
+		MediaType mediaType = MediaType.valueOf(mimeType);
+		
+		headers.setContentType(mediaType);
+		ResponseEntity<byte[]> responseEntity = 
+				new ResponseEntity<>(media, headers, HttpStatus.OK);
+		return responseEntity;
+	}
+	
 	private byte[] toByteArray(String filepath) {
 		byte[] b = null;
 		String realPath = context.getRealPath(filepath);
@@ -320,6 +367,7 @@ public ShoppingController() {}
 		}
 		return b;
 	}
+	
 	
 	
 	@PostMapping("/ProcessOrder")
@@ -371,6 +419,14 @@ public ShoppingController() {}
 	@GetMapping("/orderList")
 	public String orderList(HttpServletRequest request, HttpSession session){
 		String pageNoStr = request.getParameter("pageNo");
+		String dayVal = request.getParameter("orderitem");
+		int    orderDays = 0;
+		
+		try {
+			orderDays = Integer.parseInt(dayVal);
+		}catch(Exception e){
+			orderDays = 0;
+		}
 		
 		if( pageNoStr == null ) {
 			pageNo = 1;
@@ -385,9 +441,11 @@ public ShoppingController() {}
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		String m_id = mb.getM_id();
 		
-		List<OrdersBean> memberOrders = orderService.getMemberOrders(mb.getM_id(),pageNo);
+		List<OrdersBean> memberOrders = orderService.getMemberOrders(mb.getM_id(),pageNo,orderDays);
+		
+		session.setAttribute("orderDays", orderDays);
 		session.setAttribute("memberOrders", memberOrders);
-		session.setAttribute("totalPages", orderService.getTotalPages(m_id));
+		session.setAttribute("totalPages", orderService.getTotalPages(m_id, orderDays));
 		session.setAttribute("pageNo", pageNo);
 		return "/shopping/orderQuery";
 	}
@@ -499,7 +557,7 @@ public ShoppingController() {}
 	
 	@PostMapping("/buyProductAjax")
 	@ResponseBody
-	public void buyProductAjax(HttpServletResponse response,HttpServletRequest request, HttpSession session) {
+	public void buyProductAjax(HttpServletResponse response,HttpServletRequest request, HttpSession session) throws IOException, SQLException {
 		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		
@@ -538,14 +596,25 @@ public ShoppingController() {}
 		}
 		
 		// 讓QRcode產生的圖案不一樣
-		String randomS = "";
+		String randomCode = "";
 		
-		for(int i = 0 ; i <= 5 ; i++) {
-			randomS = randomS + Math.random();
+		for( int i = 1 ; i<=6 ; i++) {
+			randomCode = randomCode + Math.random();
 		}
+		
+		QRcode.myCodeText = randomCode;
+		
+		
+		
+		QRcode.main(null);
+		
+		
+		Blob QRImg = GlobalService.fileToBlob(QRcode.filePath);
+		
 		
 		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
 		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
+		oib.setQRcode(QRImg);
 		// 將OrderItem物件內加入ShoppingCart的物件內
 		cart.addToCart(productId, oib);
 		
@@ -624,28 +693,5 @@ public ShoppingController() {}
 		return "shopping/shopping";
 	}
 	
-	@PostMapping("/orderList/{orderDay}")
-	public String postOrderList(HttpServletRequest request, HttpSession session,@PathVariable long orderDay){
-		String pageNoStr = request.getParameter("pageNo");
-		
-		if( pageNoStr == null ) {
-			pageNo = 1;
-		}else {
-			try {
-				pageNo = Integer.parseInt(pageNoStr.trim());
-			} catch (NumberFormatException e) {
-				pageNo = 1;
-			}
-		}
-		
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		String m_id = mb.getM_id();
-		
-		List<OrdersBean> memberOrders = orderService.getMemberOrders(mb.getM_id(),pageNo);
-		session.setAttribute("memberOrders", memberOrders);
-		session.setAttribute("totalPages", orderService.getTotalPages(m_id));
-		session.setAttribute("pageNo", pageNo);
-		return "/shopping/orderQuery";
-	}
 
 }

@@ -28,11 +28,13 @@ public class QRcode {
  
 	// Tutorial: http://zxing.github.io/zxing/apidocs/index.html
 	
-	static String myCodeText = null;
+	public static String myCodeText = null;
+	
+	public static String filePath = "D:\\spring\\QR\\CrunchifyQR.png";
  
 	public static void main(String[] args) {
-		myCodeText = "https://crunchify.com/";
-		String filePath = "/Users/appshah/Documents/CrunchifyQR.png";
+		
+		
 		int size = 250;
 		String fileType = "png";
 		File myFile = new File(filePath);
@@ -86,7 +88,6 @@ public class QRcode {
 			date2 = new Date(dateFormat.parse(timeString).getTime());
 			day = (date.getTime()-date2.getTime())/(24*60*60*1000)>0 ? (date.getTime()-date2.getTime())/(24*60*60*1000):
 				(date2.getTime()-date.getTime())/(24*60*60*1000);
-			System.out.println(day);
 		} catch (Exception e) {
 			 e.printStackTrace();
 		}

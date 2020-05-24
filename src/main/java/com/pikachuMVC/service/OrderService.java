@@ -26,11 +26,11 @@ public interface OrderService {
 //
 //	List<OrdersBean> getAllOrders();
 //
-	List<OrdersBean> getMemberOrders(String memberId, int pageNo);
+	List<OrdersBean> getMemberOrders(String memberId, int pageNo,int orderDays);
 	
-	long getRecordCounts(String m_id);
+	long getRecordCounts(String m_id,int orderDays);
 
-	int getTotalPages(String m_id);
+	int getTotalPages(String m_id,int orderDays);
 	
-	List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo,long days);
+	
 }

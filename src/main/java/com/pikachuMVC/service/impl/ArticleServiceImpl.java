@@ -1,6 +1,7 @@
 package com.pikachuMVC.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,6 +101,14 @@ public class ArticleServiceImpl implements ArticleService {
 	public int getTotalPages() {
 		
 		return dao.getTotalPages();
+	}
+
+	@Override
+	@Transactional
+	public Map<Long, ArticleBean> getMemberCenterRecord(String m_id) {
+		 Map<Long, ArticleBean> map = null;
+		 map = dao.getMemberCenterRecord(m_id);
+		return map;
 	}
 
 	
