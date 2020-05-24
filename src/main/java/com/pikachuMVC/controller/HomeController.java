@@ -5,13 +5,18 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.pikachuMVC.dao.CardDao;
+import com.pikachuMVC.model.CardBean;
+import com.pikachuMVC.service.CardService;
 import com.pikachuMVC.service.NewsService;
 
 @Controller
@@ -22,11 +27,11 @@ public class HomeController {
 	@Autowired
 	NewsService newsService;
 	
-//	@Autowired
-//	CardService service;
+	@Autowired
+	CardService service;
 //
-//	@Autowired
-//	CardDao dao;
+	@Autowired
+	CardDao dao;
 //	
 //	@Autowired
 //	ProductDao productDao;
@@ -58,7 +63,7 @@ public class HomeController {
 //	@Autowired
 //	ILaunch_activityService launch_activityService;
 	
-//	private List<CardBean> list = new ArrayList<CardBean>();
+	private List<CardBean> list = new ArrayList<CardBean>();
 //	private List<ProductBean> productList = new ArrayList<ProductBean>();
 //	private List<ArticleClassificarionBean> fourmList = new ArrayList<ArticleClassificarionBean>();
 //	private List<FoumBean> forumList = new ArrayList<FoumBean>();
@@ -73,12 +78,12 @@ public class HomeController {
 //		}
 
 //		
-//		if (list.size() == 0) {
-//			if (service.getCards().size() == 0) {
-//				dao.insertCards();
-//			}
-//			list = service.getCards();
-//		}
+		if (list.size() == 0) {
+			if (service.getCards().size() == 0) {
+				dao.insertCards();
+			}
+			list = service.getCards();
+		}
 //		
 //		if (productList.size() == 0) {
 //			if (productService.getProducts().size() == 0) {
