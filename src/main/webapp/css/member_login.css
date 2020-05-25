@@ -13,7 +13,7 @@ body {
 }
 
 /* 導覽列上面那塊 */
-.et-hero-tabs{
+.et-hero-tabs {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,140 +66,160 @@ body {
 }
 
 @media (min-width: 800px) {
+
   .et-hero-tabs h1,
   .et-slide h1 {
     font-size: 3rem;
   }
+
   .et-hero-tabs h3,
   .et-slide h3 {
     font-size: 1rem;
   }
+
   .et-hero-tab {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 
 
 /* 底部 */
+#icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 .gotop {
   text-align: center !important;
   padding: 3rem !important;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #90be6d;
 }
 
-#back_bt{
-    position: fixed;
-    left: 1500px;
-    bottom: 30%;
-    z-index: 99;
+#back_bt {
+  position: fixed;
+  left: 95%;
+  bottom: 30%;
+  z-index: 99;
 }
 
-
-.footer{
-  padding-left: 480px;
-  padding-top: 20px;
-}
-
-.footer ul {
-  position: relative;
+/* footer */
+.gotop ul {
+  /* position: relative; */
   display: flex;
   transform-style: preserve-3d;
 }
-.footer ul li {
- position: relative;
- list-style: none;
- width: 40px;
- height: 40px;
- margin: 0px 18px;
-}
-.footer ul li:before{
- content: '';
- position: absolute;
- bottom: -10px;
- left: -5px;
- width: 100%;
- height: 10px;
- background: #3d3a3a;
- transform: skewX(-41deg);
-}
-.footer ul li:after{
- content: '';
- position: absolute;
- top:5px;
- left: -9px;
- width: 9px;
- height: 100%;
- background: #2a2a2a;
- transform: skewY(-49deg);
-}
-.footer ul li span{
- position: absolute;
- top: 0;
- width: 100%;
- height: 100%;
- display: flex !important;
- background: #2a2a2a;
- justify-content: center;
- align-items: center;
- color: #fff;
- font-size: 30px !important;
-}
-.footer ul li:hover span {
- z-index: 1000;
- transition: .3s;
- color: rgb(248, 245, 250);
-}
-/* .footer ul li:hover span:nth-child(5){
- transform: translate(40px, -40px);
- opacity: 1;
-} */
-/* .footer ul li:hover span:nth-child(4){
- transform: translate(30px, -30px);
- opacity: .8;
-} */
-.footer ul li:hover span:nth-child(3){
- transform: translate(20px, -20px);
- opacity: .6;
-}
-.footer ul li:hover span:nth-child(2){
- transform: translate(10px, -10px);
- opacity: .4;
-}
-.footer ul li:hover span:nth-child(1){
- transform: translate(0px, 0px);
- opacity: .2;
-}
-.footer ul li:nth-child(1):hover span{
- background: rgb(1, 66, 151) !important;
-}
-.footer ul li:nth-child(2):hover span{
- background: rgb(27, 38, 87) !important;
-}
-.footer ul li:nth-child(3):hover span{
- background: rgb(184, 4, 61) !important;
-}
-.footer ul li:nth-child(4):hover span{
- background: rgb(90, 5, 247) !important;
+
+.gotop ul li {
+  position: relative;
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  margin: 0px 18px;
 }
 
+.gotop ul li:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: -5px;
+  width: 100%;
+  height: 10px;
+  background: #464545;
+  transform: skewX(-41deg);
+}
+
+.gotop ul li:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -9px;
+  width: 9px;
+  height: 100%;
+  background: #464545;
+  transform: skewY(-49deg);
+}
+
+.gotop ul li span {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  background: #464545;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px !important;
+  transition: 1.5s ease-out;
+}
+
+.gotop ul li:hover span {
+  z-index: 1000;
+  transition: .3s;
+  color: rgb(248, 245, 250);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.gotop ul li:hover span:nth-child(5) {
+  transform: translate(40px, -40px);
+  opacity: 1;
+}
+
+.gotop ul li:hover span:nth-child(4) {
+  transform: translate(30px, -30px);
+  opacity: .9;
+}
+
+.gotop ul li:hover span:nth-child(3) {
+  transform: translate(20px, -20px);
+  opacity: .7;
+}
+
+.gotop ul li:hover span:nth-child(2) {
+  transform: translate(10px, -10px);
+  opacity: .5;
+}
+
+.gotop ul li:hover span:nth-child(1) {
+  transform: translate(0px, 0px);
+  opacity: .3;
+}
+
+.gotop ul li:nth-child(1):hover span {
+  background: rgb(1, 66, 151) !important;
+}
+
+.gotop ul li:nth-child(2):hover span {
+  background: rgb(83, 170, 204) !important;
+}
+
+.gotop ul li:nth-child(3):hover span {
+  background: rgb(184, 4, 61) !important;
+}
+
+.gotop ul li:nth-child(4):hover span {
+  background: rgb(141, 87, 241) !important;
+}
 
 
 /*中間區塊*/
-.centercard{
+.centercard {
   text-align: center;
   font-size: 20px;
   height: 30rem;
   margin-top: 5%;
   margin-left: 20%;
-  
+
 }
 
 
 /*迷彩比卡丘*/
-.imageone{
+.imageone {
   position: absolute;
   width: 25rem;
   margin-left: 55%;
@@ -209,15 +229,24 @@ body {
 
 
 
-@keyframes hahawoo{
-  from{ visibility:visible;
-       margin-top: 4%;};
-  to{visibility:hidden;
-      margin-top: 6%;};
+@keyframes hahawoo {
+  from {
+    visibility: visible;
+    margin-top: 4%;
+  }
+
+  ;
+
+  to {
+    visibility: hidden;
+    margin-top: 6%;
+  }
+
+  ;
 }
 
 /*忘記密碼*/
-#imagefive{
+#imagefive {
   position: absolute;
   margin-left: 50%;
   visibility: hidden;
@@ -231,76 +260,76 @@ body {
 
 
 /*整個表格*/
-.tableareatotal{
+.tableareatotal {
   margin: auto;
   border: solid;
   border-color: #FFE066;
   width: 450px;
-  
+
 }
 
 /*表格的td*/
-.tableareatotal td{
+.tableareatotal td {
   padding: 10px;
 }
 
 
 /*忘記密碼按鈕樣式*/
 
-#forgetbtn{
-  border:0;
-  background-color:#FF5964;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
+#forgetbtn {
+  border: 0;
+  background-color: #FF5964;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
   font-size: 18px;
   margin-top: 3%;
   height: 3rem;
 }
 
 
-#forgetbtn:hover{
-  color:#FF5964;
-  background-color:#fff;
-  border:2px #FF5964 solid;
+#forgetbtn:hover {
+  color: #FF5964;
+  background-color: #fff;
+  border: 2px #FF5964 solid;
 }
 
 
 /*按鈕樣式*/
 
-#Button1{
-  border:0;
-  background-color:#35A7FF;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
+#Button1 {
+  border: 0;
+  background-color: #35A7FF;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
 
-#Button1:hover{
-  color:#35A7FF;
-  background-color:#fff;
-  border:2px #35A7FF solid;
+#Button1:hover {
+  color: #35A7FF;
+  background-color: #fff;
+  border: 2px #35A7FF solid;
 }
 
 
 
 /*密碼互動視窗*/
-.modal-title{
+.modal-title {
   font-size: 30px;
- 
+
 }
 
 /*互動視窗中間區塊*/
-.modal-body{
+.modal-body {
   height: 120px;
   text-align: center;
   font-size: 20px;
 }
 
-.modal-footer{
+.modal-footer {
   height: 70px;
 }
 
@@ -308,19 +337,19 @@ body {
 
 /*按鈕樣式*/
 
-#Button2{
-  border:0;
-  background-color:#FF596A;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
+#Button2 {
+  border: 0;
+  background-color: #FF596A;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 20px;
   height: 2rem;
 }
 
 
-#Button2:hover{
-  color:#ED6E7B;
-  background-color:#fff;
-  border:2px #ED6E7B solid;
+#Button2:hover {
+  color: #ED6E7B;
+  background-color: #fff;
+  border: 2px #ED6E7B solid;
 }

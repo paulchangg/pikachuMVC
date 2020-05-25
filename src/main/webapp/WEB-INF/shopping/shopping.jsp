@@ -22,10 +22,10 @@
    <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
     <div class="row">
       <div class="col-sm">
-        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-        <p style="font-size: medium; padding-top: 10px;">
-          快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </p>
+        <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br />
+          <span style="font-size: medium; padding-top: 10px;">
+            快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
+          </span>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -77,7 +77,7 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews" />'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>

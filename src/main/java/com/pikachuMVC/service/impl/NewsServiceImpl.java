@@ -91,10 +91,9 @@ public class NewsServiceImpl implements NewsService {
 		Date date = new Date();
 		String today = sdfOfFolder.format(date);  //轉變今天日期的格式
 
-//		String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today + "/content/";
+		String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today + "/content/";
 //		String txtPath = "C:/_JSP/workspaceJDBC/pikachuMVC/src/main/webapp/news/" + today + "/content/";
-		
-		String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";//james
+//		String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";//james
 		
 		File txtFolder = new File(txtPath);
 		

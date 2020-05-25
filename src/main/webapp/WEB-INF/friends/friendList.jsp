@@ -113,7 +113,7 @@ prefix="c"%>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -235,7 +235,7 @@ prefix="c"%>
           <!-- 左側假廣告圖已刪 -->
         </div>
 
-        <div style="width:110px; height:300px;"></div>
+        <div style="width:120px; height:300px;"></div>
         <!-- 中央好友列表 -->
       <div class="listefriend d-none d-lg-block col-lg-9">  
       <div class="row chatroom">
@@ -245,7 +245,7 @@ prefix="c"%>
           <div
             id="friendList"
             style="
-              height: 500px;
+              max-height: 500px;
               overflow: auto;
             "
           ></div>
@@ -254,13 +254,7 @@ prefix="c"%>
           </div> 
 
         </div>
-      <div container>
-         <div class="col-2">
-            <div class="row">
-          <div class="pkmn pkmn__pikachu" style="padding-left:700px;"></div>
-         </div>
-        </div>       
-      </div>
+     
     </div>
 
         <div style="width: 90px;"></div>
