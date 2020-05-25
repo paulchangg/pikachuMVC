@@ -48,17 +48,21 @@
 			</div>
 			<!-- 右上區塊 -->
 			<div class="col-sm">
-				<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
-					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/member/member_logout" />' id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>
-					</li>
-					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/cards/cradeitCb?qt=main" />' id="cardcompare" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
-					</li>
-					<li class="nav-item"><a class="nav-link"
-						href='<c:url value="/shopping/listProduct" />' id="shoppingcart" style="color: rgb(92, 41, 7);">
-							<i class="fas fa-shopping-cart"></i>
-					</a></li>
+        		<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          			<li class="nav-item">
+             		<c:choose>
+						<c:when test="${empty LoginOK}">										
+							<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
+						</c:when>
+						<c:otherwise>										
+							<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
+						</c:otherwise>
+			 		</c:choose>
+         			</li>
+          
+          			<li class="nav-item">
+            			<a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          			</li>
 				</ul>
 			</div>
 		</div>
@@ -371,9 +375,9 @@
 														<c:if test="${LoginOK.m_id == entry.member_id}">
 															<form style="margin: 0px; display: inline" method="post"
 																action="<c:url value='/articleForum/delete/${entry.article_Id}' />">
-																<button type="button" class="btn btn-link"
+																<button type="button" class="btn btn-link deleteArticle"
 																	data-toggle="modal" data-target="#delete"
-																	style="color: rgb(177, 172, 172);">
+																	style="color: rgb(177, 172, 172);" article_id='${entry.article_Id}'>
 																	<i class="far fa-trash-alt"></i>
 																</button>
 															</form>
@@ -412,7 +416,7 @@
 										<div class="col-3" style="display: flex; align-items: center;">
 											<img class="articleimage"
 												src='${pageContext.request.contextPath}/articleForum/getPicture/${entry.article_Id}'
-												style="max-width: 100%; max-height: 100%;" />
+												style="max-width: 100%; max-height: 200px;" />
 										</div>
 									</div>
 								</div>
@@ -646,7 +650,7 @@
 	<!-- 下方頁碼分頁 ----超連結待補------>
 	<nav aria-label="Page navigation example"
 		style="padding-top: 20px; padding-bottom: 10px;">
-		<ul class="pagination justify-content-center">
+		<ul class="pagination justify-content-center" id="buttonPage">
 			<c:choose>
 				<c:when test="${ArticlepageNo == 1}">
 						<li class="page-item"><a class="page-link"  id=""
@@ -683,113 +687,41 @@
 			</c:choose>
 		</ul>
 	</nav>
-	
-	
-	
-<!-- 			<li class="page-item"><a class="page-link" href="#" -->
-<!-- 				id="forum_page1">1</a></li> -->
-<!-- 			<li class="page-item"><a class="page-link" href="#" -->
-<!-- 				id="forum_page2">2</a></li> -->
-<!-- 			<li class="page-item"><a class="page-link" href="#" id="">Next</a> -->
-	
-	
-<!-- 	 <div class="return"> 底部分頁 -->
-<!--                  <ul class="pagination pagination-sm"> -->
-<%--                  	<c:choose> --%>
-<%--                  		<c:when test="${pageNo == 1}"> --%>
-<!--                  			  <li class="page-item">  -->
-<!--                  			  	<a class="page-link"  aria-label="Previous"> -->
-<!--                         			<span aria-hidden="true">&laquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	  </li> -->
-<%--                  		</c:when> --%>
-<%--                  		<c:otherwise> --%>
-<!--                     		<li class="page-item">  -->
-<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous"> --%>
-<!--                         			<span aria-hidden="true">&laquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:otherwise> --%>
-<%--                  	</c:choose> --%>
-<%--                     <c:forEach begin="1" end="${totalPages}" varStatus="vs"> --%>
-<%--                     	<c:choose> --%>
-<%--                     		<c:when test="${pageNo == vs.index}"> --%>
-<!--                     			<li class="page-item"> -->
-<%--                     				<a class="page-link"  id="shopping_pag1">${vs.count}</a> --%>
-<!--                     			</li> -->
-<%--                     		</c:when> --%>
-<%--                     		<c:otherwise> --%>
-<!--                     			<li class="page-item"> -->
-<%--                     				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a> --%>
-<!--                     			</li> -->
-<%--                     		</c:otherwise> --%>
-<%--                     	</c:choose> --%>
-<%--                     </c:forEach> --%>
-<%--                     <c:choose> --%>
-<%--                  		<c:when test="${pageNo != totalPages}"> --%>
-<!--                  			  <li class="page-item">  -->
-<%--                     			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous"> --%>
-<!--                         			<span aria-hidden="true">&raquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:when> --%>
-<%--                  		<c:otherwise> --%>
-<!--                     		<li class="page-item">  -->
-<!--                     			<a class="page-link" aria-label="Previous"> -->
-<!--                         			<span aria-hidden="true">&raquo;</span>  -->
-<!--                         		</a> -->
-<!--                         	</li> -->
-<%--                  		</c:otherwise> --%>
-<%--                  	</c:choose> --%>
-<!--                  </ul> -->
-<!--             </div> -->
-<!--        </div> -->
 
 <!-- 回到置頂------>
-    <div id="backtop" class="gotop" >
-      <h4>
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
-        <ul>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-			<span></span>
-			<span></span>
-            <span></span>
-            <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-            <span></span>
-			<span></span>
-			<span></span>
-            <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>
-      </div>
-
+   <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
       <br />
       <button type="button" id="back_bt" class="btn btn-secondary">
         To the top
       </button>
-    </div>
-	<script type="text/javascript">
-		document.getElementById("deleteArticle1").addEventListener("click",
-				function(event) {
-					// 在 “clicked div”顯示點擊次數
-					document.forms[2].submit();
-				});
-	</script>
+    </div> 
 </body>
 </html>

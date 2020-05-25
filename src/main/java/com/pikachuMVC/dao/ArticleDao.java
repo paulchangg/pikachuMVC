@@ -1,10 +1,11 @@
 package com.pikachuMVC.dao;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ArticleBean;
+import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ArticleResponserBean;
 
 public interface ArticleDao {
@@ -26,7 +27,7 @@ public interface ArticleDao {
 	
 	void deleteTrackActivity(int article_id,String m_id);
 	
-	Set<ArticleBean> listDifFourm(String fourm);
+	List<ArticleBean> listDifFourm(String fourm);
 	
 	List<ArticleClassificarionBean> getforumBean();
 	
@@ -35,6 +36,8 @@ public interface ArticleDao {
 	public long getRecordCounts();
 	
 	public int getTotalPages();
+	
+	Map<Long,ArticleBean> getMemberCenterRecord(String m_id);
 	
 	
 }

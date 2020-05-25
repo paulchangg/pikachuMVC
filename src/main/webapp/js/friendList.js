@@ -104,24 +104,20 @@ function delFriend() {
   let fId = this.parentNode.parentNode.id;
   let preDelDiv = this.parentNode.parentNode.parentNode;
 
-  if (confirm("確定要刪除好友？")) {
-    let url = "rmFriend.do";
-    let data = {
-      f: fId,
-    };
+  let url = "rmFriend.do";
+  let data = {
+    f: fId,
+  };
 
-    $.post(
-      url,
-      data,
-      function (data, textStatus, jqXHR) {
-        if (data) {
-          preDelDiv.style.display = "none";
-          friendList.removeChild(preDelDiv);
-        }
-      },
-      "json"
-    );
-  } else {
-    return;
-  }
+  $.post(
+    url,
+    data,
+    function (data, textStatus, jqXHR) {
+      if (data) {
+        preDelDiv.style.display = "none";
+        friendList.removeChild(preDelDiv);
+      }
+    },
+    "json"
+  );
 }

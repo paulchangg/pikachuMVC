@@ -64,9 +64,7 @@ public class HomeController {
 	IFoumService foumservice;
 	
 	@Autowired
-	IForumDao iForumDao;
-	
-
+	IForumDao iForumDao;	
 	@Autowired
 	MemberDao memberDao;
 
@@ -89,9 +87,9 @@ public class HomeController {
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
 
-//		if (!judgeNewsFolder()) {
-//			newsService.newsCrawler();
-//		}
+		if (!judgeNewsFolder()) {
+			newsService.newsCrawler();
+		}
 
 		
 		if (list.size() == 0) {
@@ -115,14 +113,13 @@ public class HomeController {
 			fourmList = articleService.getforumBean();
 		}
 		
-//----------------------------------------------------------不要再刪除了，這是活動要用的 沒有這些資料，很難測試 阿------------------------------------------------------------------------------------------------------------------------		
+		
 		if(forumList.size() ==0) {
 			if(foumservice.getAllfname().size() ==0) {
 				iForumDao.insertFoum();
 			}
 			forumList =foumservice.getAllfname();
 		}
-		
 		if (memberList.size() == 0) {
 
 			
@@ -142,7 +139,7 @@ public class HomeController {
 			activityList = launch_activityService.getAllArticles();
 
 		}
-		//----------------------------------------------------------不要再刪除了，這是活動要用的 沒有這些資料，很難測試 阿------------------------------------------------------------------------------------------------------------------------			
+				
 		return "index";
 	}
 	
@@ -154,15 +151,9 @@ public class HomeController {
 	private Boolean judgeNewsFolder() {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
-
-//			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;
-//			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
-			String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today;//JAMES
-
 //			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
+			String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //james
 //			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
-
-
 			File file = new File(txtPath);
 			return file.exists();
 	}

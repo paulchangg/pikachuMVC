@@ -83,14 +83,9 @@ pageEncoding="UTF-8"%>
               >
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href='<c:url value="/shopping/listProduct" />'
-                id="shoppingcart"
-                style="color: rgb(92, 41, 7);"
-              >
-                <i class="fas fa-shopping-cart"></i>
-              </a>
+              <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+              <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+           </a>
             </li>
           </ul>
         </div>
@@ -108,7 +103,7 @@ pageEncoding="UTF-8"%>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -170,67 +165,47 @@ pageEncoding="UTF-8"%>
         <!-- 左側button-->
         <div class="col-2">
           <div class="my-3">
-            <a class="nav-link" href='<c:url value="/articleForum/listforum" />' style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">所有看板</button>
-              </a>
-          </div>
-          <div style="padding: 10px 0 10px 0;"></div>
-           <!-- 分類看板 -->
-                <ul class="list-group list-group-flush" style="width: 250px;">
-                  <li class="list-group-item">
-                    <button
-                      type="button"
-                      class="btn btn-light"
-                      id="creditcards"
-                    >
-                      <a
-                        href="<c:url value='/articleForum/listforum/信用卡' />"
-                        style="text-decoration: none; color: black;"
-                        >信用卡</a
-                      >
-                    </button>
-                  </li>
-                  <li class="list-group-item">
-                    <button type="button" class="btn btn-light" id="food">
-                      <a
-                        href="<c:url value='/articleForum/listforum/美食' />"
-                        style="text-decoration: none; color: black;"
-                        >美食</a
-                      >
-                    </button>
-                  </li>
-                  <li class="list-group-item">
-                    <button type="button" class="btn btn-light" id="emotion">
-                      <a
-                        href="<c:url value='/articleForum/listforum/感情' />"
-                        style="text-decoration: none; color: black;"
-                        >感情</a
-                      >
-                    </button>
-                  </li>
-                </ul>
-          <div class="my-3">
-            <a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />" style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">
-                交友活動
-              </button>
+            <a class="nav-link" style="padding: 0px;">
+              <button type="button" class="btn btn-outline-success "">所有看板</button>
             </a>
-          </div>
-          <div class="my-3">
-            <a class="nav-link" href='<c:url value="/friends/pair" />' style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">
-                配對
-              </button>
-            </a>
-          </div>
-          <a href="<c:url value='/articleForum/listforum' />">
-                <button type="button" class="btn btn-info btn-sm">
-                  回論壇首頁
-                  <br /><i class="fas fa-home"></i>
+            <div style="padding: 10px 0 10px 0;"></div>
+            <!-- 分類看板 -->
+            <ul class="list-group list-group-flush" style="width: 250px;">
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="creditcards">
+                  <a href="<c:url value='/articleForum/listforum/信用卡' />"
+                    style="text-decoration: none; color: black;">信用卡</a>
                 </button>
-               </a>
-          <!-- 左側假廣告圖 -->
-         
+              </li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="food">
+                  <a href="<c:url value='/articleForum/listforum/美食' />"
+                    style="text-decoration: none; color: black;">美食</a>
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" class="btn btn-light" id="emotion">
+                  <a href="<c:url value='/articleForum/listforum/感情' />"
+                    style="text-decoration: none; color: black;">感情</a>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="my-3">
+  
+            <a class="nav-link" href="<c:url value="/forum/ForumHompage?pageNo=1" />"
+              style="padding: 0px;">
+              <button type="button" class="btn btn-outline-success">交友活動
+              </button>
+            </a>
+          </div>
+          <div class="my-3">
+            <a class="nav-link" href='<c:url value="/friends/pair" />'
+              style="padding: 0px;">
+              <button type="button" class="btn btn-outline-success">配對</button>
+            </a>
+          </div>
+          <!-- 假廣告圖刪除 -->
         </div>
 
         <div style="width: 50px;"></div>
@@ -245,39 +220,41 @@ pageEncoding="UTF-8"%>
     </div>
 
     <!-- 底部 ------>
-     <div id="backtop" class="gotop">
-      <h4>
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
-        <ul>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>
-      </div>
+    <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
+    </div> 
 
-      <br />
-      <button type="button" id="back_bt" class="btn btn-secondary">
-        To the top
-      </button>
+    <br />
+    <button type="button" id="back_bt" class="btn btn-secondary">
+      To the top
+    </button>
     </div>
   </body>
 </html>

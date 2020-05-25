@@ -21,10 +21,10 @@
     <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
     <div class="row">
       <div class="col-sm">
-        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
-        <p style="font-size: medium; padding-top: 10px;">
+        <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
+        <span style="font-size: medium; padding-top: 10px;">
           快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </p>
+        </span>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -46,15 +46,19 @@
 				</c:otherwise>
 			 </c:choose>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_center" />' style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href='<c:url value="/shopping/orderList" />' style="color: rgb(92, 41, 7);">查詢訂單</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shopping/listProduct" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
-               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
+            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
             </a>
           </li>
         </ul>
@@ -67,7 +71,7 @@
     <div class="aa" style="height: 100px;"></div>
 
       <!-- 導覽列  -->
-      <div class="et-hero-tabs-container">
+      <div class="et-hero-tabs-container" style="z-index: 999;">
         <a class="et-hero-tab" href='<c:url value="/about_us" />'>關於我們</a>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
@@ -127,10 +131,10 @@
 
          <div class="col-10 totalarea">
           <div class="row justify-content-center">
-              <div class="col-5 produceimg"><!--商品圖片-->
+              <div class="col-6 produceimg"><!--商品圖片-->
                 <img  src="<c:url value='/shopping/getPicture/${product_INFO.p_id}' />"   class="imagepone"  id="shoppingproduce_img">
              </div>
-              <div class="col-4 produceitem"><!--中間商品--><!--這裡5個id是要連資料庫商品一切資料-->
+              <div class="col-5 produceitem"><!--中間商品--><!--這裡5個id是要連資料庫商品一切資料-->
                   <p style="text-align:left;">商品名稱:<span id="shoppingproduce_name">${product_INFO.p_name}</span></p>
                   <p style="text-align:left;">價格:<span id="shoppingproduce_price">${product_INFO.price}元</span></p>
                   <p style="text-align:left;">剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
@@ -145,14 +149,14 @@
               </FORM>
               <FORM  action="<c:url value='/shopping/addtrackproduct' />" method="POST" style="text-align:left">    
                   <!-- <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
-                  <label class="labelway" ><Input type='button'  id="addTrack" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤清單'  productId='${product_INFO.p_id}'> 
+                  <label class="labelway"><Input type='button'  id="addTrack" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤清單'  productId='${product_INFO.p_id}'> 
                   </label> 
                  <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
                   <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->
               </FORM>
              </div>
           </div>
-          <div class="col-8 navtotal"> <!--優惠卷使用詳細說明-->
+          <div class="col-10 navtotal" style="padding-top: 40px;margin-left: 20px;"> <!--優惠卷使用詳細說明-->
              <ul class="nav nav-tabs">                     
                 <li class="nav-item"><a class="nav-link active" href="#shoppingproduce_about" data-toggle="tab">商品資訊</a></li>
                 <li class="nav-item"><a class="nav-link" href="#shoppingproduce_rul" data-toggle="tab">使用須知</a></li>
@@ -176,35 +180,45 @@
     </div>
 
     <!-- 底部 ------>
-    <div id="backtop" class="gotop">
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      <div class="footer">
-        <ul> 
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>  
-      </div> 
-      
+      <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
       <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div> 
+
+    <br />
+    <button type="button" id="back_bt" class="btn btn-secondary">
+      To the top
+    </button>
     </div>
    
      <!--這區塊是跳出視窗加入追蹤視窗-->    

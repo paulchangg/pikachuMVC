@@ -74,119 +74,138 @@ body {
     font-size: 1rem;
   }
   .et-hero-tab {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 
-
-/* 底部 */
-.gotop {
-  text-align: center !important;
-  padding: 3rem !important;
-  margin-top: 10px;
-  font-size: 14px;
-  background-color: #90be6d;
-}
-
-#back_bt{
-  float: right;
-}
-
-
-.footer{
-  padding-left: 480px;
-  padding-top: 20px;
-}
-
-.footer ul {
-  position: relative;
-  display: flex;
-  transform-style: preserve-3d;
-}
-.footer ul li {
- position: relative;
- list-style: none;
- width: 40px;
- height: 40px;
- margin: 0px 18px;
-}
-.footer ul li:before{
- content: '';
- position: absolute;
- bottom: -10px;
- left: -5px;
- width: 100%;
- height: 10px;
- background: #3d3a3a;
- transform: skewX(-41deg);
-}
-.footer ul li:after{
- content: '';
- position: absolute;
- top:5px;
- left: -9px;
- width: 9px;
- height: 100%;
- background: #2a2a2a;
- transform: skewY(-49deg);
-}
-.footer ul li span{
- position: absolute;
- top: 0;
- width: 100%;
- height: 100%;
- display: flex !important;
- background: #2a2a2a;
- justify-content: center;
- align-items: center;
- color: #fff;
- font-size: 30px !important;
-}
-.footer ul li:hover span {
- z-index: 1000;
- transition: .3s;
- color: rgb(248, 245, 250);
-}
-/* .footer ul li:hover span:nth-child(5){
- transform: translate(40px, -40px);
- opacity: 1;
-} */
-/* .footer ul li:hover span:nth-child(4){
- transform: translate(30px, -30px);
- opacity: .8;
-} */
-.footer ul li:hover span:nth-child(3){
- transform: translate(20px, -20px);
- opacity: .6;
-}
-.footer ul li:hover span:nth-child(2){
- transform: translate(10px, -10px);
- opacity: .4;
-}
-.footer ul li:hover span:nth-child(1){
- transform: translate(0px, 0px);
- opacity: .2;
-}
-.footer ul li:nth-child(1):hover span{
- background: rgb(1, 66, 151) !important;
-}
-.footer ul li:nth-child(2):hover span{
- background: rgb(27, 38, 87) !important;
-}
-.footer ul li:nth-child(3):hover span{
- background: rgb(184, 4, 61) !important;
-}
-.footer ul li:nth-child(4):hover span{
- background: rgb(90, 5, 247) !important;
-}
+  /* 底部 */
+  #icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .gotop {
+    text-align: center !important;
+    padding: 3rem !important;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #90be6d;
+  }
+  
+  #back_bt {
+    position: fixed;
+    left: 95%;
+    bottom: 30%;
+    z-index: 99;
+  }
+  
+  /* footer */
+  .gotop ul {
+    /* position: relative; */
+    display: flex;
+    transform-style: preserve-3d;
+  }
+  
+  .gotop ul li {
+    position: relative;
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    margin: 0px 18px;
+  }
+  
+  .gotop ul li:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -5px;
+    width: 100%;
+    height: 10px;
+    background: #464545;
+    transform: skewX(-41deg);
+  }
+  
+  .gotop ul li:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -9px;
+    width: 9px;
+    height: 100%;
+    background: #464545;
+    transform: skewY(-49deg);
+  }
+  
+  .gotop ul li span {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    background: #464545;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px !important;
+    transition: 1.5s ease-out;
+  }
+  
+  .gotop ul li:hover span {
+    z-index: 1000;
+    transition: .3s;
+    color: rgb(248, 245, 250);
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, .5);
+  }
+  
+  .gotop ul li:hover span:nth-child(5) {
+    transform: translate(40px, -40px);
+    opacity: 1;
+  }
+  
+  .gotop ul li:hover span:nth-child(4) {
+    transform: translate(30px, -30px);
+    opacity: .9;
+  }
+  
+  .gotop ul li:hover span:nth-child(3) {
+    transform: translate(20px, -20px);
+    opacity: .7;
+  }
+  
+  .gotop ul li:hover span:nth-child(2) {
+    transform: translate(10px, -10px);
+    opacity: .5;
+  }
+  
+  .gotop ul li:hover span:nth-child(1) {
+    transform: translate(0px, 0px);
+    opacity: .3;
+  }
+  
+  .gotop ul li:nth-child(1):hover span {
+    background: rgb(1, 66, 151) !important;
+  }
+  
+  .gotop ul li:nth-child(2):hover span {
+    background: rgb(83, 170, 204) !important;
+  }
+  
+  .gotop ul li:nth-child(3):hover span {
+    background: rgb(184, 4, 61) !important;
+  }
+  
+  .gotop ul li:nth-child(4):hover span {
+    background: rgb(141, 87, 241) !important;
+  }
 
 /*購物商城標題區塊*/
 .ordertitle{
     margin-top: 2%;
     text-align: center;
 }
-
 
 /*這裡為訂單詳細狀態區*/
 .ordertable{

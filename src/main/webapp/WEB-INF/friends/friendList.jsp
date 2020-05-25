@@ -113,7 +113,7 @@ prefix="c"%>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
+        <a class="et-hero-tab" href="#infoweb">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -270,43 +270,41 @@ prefix="c"%>
     </div>
 
     <!-- 底部 ------>
-    <div id="backtop" class="gotop">
-      <h4>
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
-        <ul>
-          <li>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>
-      </div>
+    <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
+    </div> 
 
-      <br />
-      <button type="button" id="back_bt" class="btn btn-secondary">
-        To the top
-      </button>
+    <br />
+    <button type="button" id="back_bt" class="btn btn-secondary">
+      To the top
+    </button>
     </div>
   </body>
 </html>

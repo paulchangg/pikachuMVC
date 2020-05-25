@@ -48,18 +48,17 @@ function doFirst() {
     });
 
     $(window)
-      .scroll(function () {
-        if ($(this).scrollTop() >= 0) {
-          $("#backtop").fadeIn(222);
-        } else {
-          $("#backtop").stop().fadeOut(222);
-        }
-      })
-      .scroll();
-  });
-
-  let Button1 = document.getElementById("Button1");
-  Button1.addEventListener("click", () => {
-    alert("驗證信已寄出，請至註冊信箱啟用帳號");
+    .scroll(function () {
+      if ($(this).scrollTop() >=0) {
+        $("#backtop").fadeIn(222);
+      } else {
+        $("#backtop").stop().fadeOut(222);
+      }
+    })
+    .scroll();
   });
 }
+
+
+
+

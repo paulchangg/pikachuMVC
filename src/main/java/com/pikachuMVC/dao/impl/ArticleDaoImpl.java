@@ -1,22 +1,22 @@
 package com.pikachuMVC.dao.impl;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pikachuMVC.dao.ArticleDao;
-import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ArticleBean;
-import com.pikachuMVC.model.MemberBean;
-import com.pikachuMVC.model.OrdersBean;
+import com.pikachuMVC.model.ArticleClassificarionBean;
 import com.pikachuMVC.model.ArticleResponserBean;
+import com.pikachuMVC.model.MemberBean;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao{
@@ -25,7 +25,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	@Autowired
     SessionFactory factory;
 	
-	int recordsPerPage=2;
+	int recordsPerPage=10;
 
 	@Override
 	public void addFourm(int fourm,ArticleBean launchActivity) {
@@ -63,7 +63,7 @@ public class ArticleDaoImpl implements ArticleDao{
 		List<ArticleBean> list = null;
 		Session session = factory.getCurrentSession();
 		int startRecordNo = (page - 1) * recordsPerPage;
-		String hql = "FROM ArticleBean";
+		String hql = "FROM ArticleBean ORDER BY article_id desc";
 		list = session.createQuery(hql)
 						.setFirstResult(startRecordNo)
 	                    .setMaxResults(recordsPerPage)
@@ -201,18 +201,18 @@ public class ArticleDaoImpl implements ArticleDao{
 	}
 
 	@Override
-	public Set<ArticleBean> listDifFourm(String fourm) {
+	public List<ArticleBean> listDifFourm(String fourm) {
 		
 		Session session = factory.getCurrentSession();
 		
-		String hql = "FROM ArticleClassificarionBean r WHERE r.fname = :fname ";
+		String hql = "FROM ArticleBean r WHERE r.subject = :fname ORDER BY article_id desc ";
 		
-		ArticleClassificarionBean bean = (ArticleClassificarionBean)session.createQuery(hql)
-								.setParameter("fname", fourm)
-								.getSingleResult();
+		List<ArticleBean> beans = session.createQuery(hql)
+										 .setParameter("fname", fourm)
+										 .getResultList();
 		
 		
-		return bean.getActivitys();
+		return beans;
 	}
 
 	@Override
@@ -262,6 +262,39 @@ public class ArticleDaoImpl implements ArticleDao{
 		int totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
 
 		return totalPages;
+	}
+
+	@Override
+	public Map<Long, ArticleBean> getMemberCenterRecord(String m_id) {
+		long count = 0; // 必須使用 long 型態
+        String hql = "SELECT count(*) FROM ArticleBean a WHERE a.member_id = :m_id ";
+        String hql1 = "FROM ArticleBean a WHERE a.member_id = :m_id ORDER BY article_id desc";
+        Session session = factory.getCurrentSession();
+        List<Long> list = session.createQuery(hql)
+        		                 .setParameter("m_id", m_id)
+        						 .getResultList();
+        ArticleBean bean;
+        
+        try {
+        	 bean = (ArticleBean)session.createQuery(hql1)
+		  			   .setParameter("m_id", m_id)
+		               .setMaxResults(1)
+		               .getSingleResult();
+        }catch (Exception e) {
+        	bean = null;
+		}
+       
+        if (list.size() > 0) {
+            count = list.get(0);
+        }
+        
+        
+        
+        Map<Long, ArticleBean> map = new LinkedHashMap<Long, ArticleBean>();
+        
+        map.put(count, bean);
+        
+		return map;
 	}
 
 	

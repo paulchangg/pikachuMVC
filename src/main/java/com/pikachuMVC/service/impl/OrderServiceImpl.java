@@ -88,33 +88,29 @@ public class OrderServiceImpl implements OrderService {
 //
 	@Override
 	@Transactional
-	public List<OrdersBean> getMemberOrders(String memberId, int pageNo) {
+	public List<OrdersBean> getMemberOrders(String memberId, int pageNo,int orderDays) {
 		List<OrdersBean> list = null;
-		list = odao.getMemberOrders(memberId, pageNo);
+		list = odao.getMemberOrders(memberId, pageNo,orderDays);
 		return list;
 	}
 
 	@Override
 	@Transactional
-	public long getRecordCounts(String m_id) {
+	public long getRecordCounts(String m_id,int orderDays) {
 		long recordCounts = 0;
-		recordCounts = odao.getRecordCounts(m_id);
+		recordCounts = odao.getRecordCounts(m_id,orderDays);
 		return recordCounts;
 	}
 
 	@Override
 	@Transactional
-	public int getTotalPages(String m_id) {
+	public int getTotalPages(String m_id,int orderDays) {
 		int totalPages = 1;
-		totalPages = odao.getTotalPages(m_id);
+		totalPages = odao.getTotalPages(m_id,orderDays);
 		return totalPages;
 	}
 
 
 
-	@Override
-	public List<OrdersBean> getMemberSearchOrders(String memberId, int pageNo, long days) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

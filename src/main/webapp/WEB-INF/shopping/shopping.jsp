@@ -52,6 +52,9 @@
             <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
           </li>
           <li class="nav-item">
@@ -250,36 +253,41 @@
 
 
     <!-- 底部 ------>
-    <div id="backtop" class="gotop">
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      <div class="footer">
-        <ul> 
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>  
-      </div> 
-      
+   <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
       <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
-    </div>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div> 
+
     	 
         <!--這區塊是跳出視窗加入購物車視窗-->    
 <!--             <div class="modal fade" id="shoopingmodal"> -->

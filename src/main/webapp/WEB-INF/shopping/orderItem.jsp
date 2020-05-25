@@ -33,9 +33,9 @@
      </div>
      <!-- 右上區塊 -->
      <div class="col-sm">
-       <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
-         <li class="nav-item">
-            <c:choose>
+        <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          <li class="nav-item">
+             <c:choose>
 				<c:when test="${empty LoginOK}">										
 					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
@@ -43,20 +43,24 @@
 					<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
 				</c:otherwise>
 			 </c:choose>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="/member/member_center" id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="<c:url value="/shopping/listtrackproduct" />"  style="color: rgb(92, 41, 7);">追蹤商品</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link"  href="<c:url value="/shopping/listProduct" />" id="shoppingcart" style="color: rgb(92, 41, 7);"> <!-- 加入購物車的商品數量 -->
-              <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span></i>
-           </a>
-         </li>
-       </ul>
-     </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+            </a>
+          </li>
+        </ul>
+      </div>
    </div>
   </div>
 
@@ -90,8 +94,8 @@
              </tr>
              <tr><!--這裡為訂單商品標題-->
                  <td style="display:none"></td>  
+                 <td>商品編號</td>
                  <td>商品名稱</td>
-                 <td>單價</td>
                  <td>數量</td>
                  <td>商品總額</td>
                  <td>使用狀態</td>
@@ -105,7 +109,7 @@
                 <td><span id="orderitem_qty">${aBean.price}</span></td>
                 <td><span id="orderitem_totalmomey">未使用</span></td>
      
-                <td><input type="button" id="orderitem_rqcode" value="查看"></td>
+                <td><input type="button" class="orderitem_rqcode" value="查看" produtId="${aBean.p_id}" ordid="${OrderBean.ordid}"></td>
              </tr>
                 </c:forEach>
              <tr>
@@ -129,36 +133,40 @@
             </div>
     
            <!-- 底部 ------>
-    <div id="backtop" class="gotop">
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      <div class="footer">
-        <ul> 
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-              <span></span>
-              <span></span>
-              <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>  
-      </div> 
-      
+       <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
       <br />
-      <button type="button" id="back_bt" class="btn btn-secondary" >To the top</button>
-    </div>
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div> 
 
         <!--這裡為查看電子票卷跳出視窗-->
         <div class="modal fade" id="orderitem_myModal" tabindex="-1" role="dialog" aria-labelledby="orderitem_myModalLabel">

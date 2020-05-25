@@ -47,54 +47,24 @@
           </div>
         </div>
         <!-- 右上區塊 -->
-         <div class="col-sm">
-          <ul
-            class="nav justify-content-end"
-            style="font-size: 18px; font-weight: bold;"
-          >
-            <li class="nav-item">
-              <c:choose>
-                <c:when test="${empty LoginOK}">
-                  <a
-                    class="nav-link"
-                    href='<c:url value="/member/member_login" />'
-                    id="memberlogin"
-                    style="color: rgb(92, 41, 7);"
-                    >會員登入</a
-                  >
-                </c:when>
-                <c:otherwise>
-                  <a
-                    class="nav-link"
-                    href='<c:url value="/member/member_logout" />'
-                    id="memberlogout"
-                    style="color: rgb(92, 41, 7);"
-                    >會員登出</a
-                  >
-                </c:otherwise>
-              </c:choose>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href='<c:url value="/member/member_center" />'
-                id="membercenter"
-                style="color: rgb(92, 41, 7);"
-                ><i class="bx bx-user-circle"></i>會員中心</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href='<c:url value="/shopping/listProduct" />'
-                id="shoppingcart"
-                style="color: rgb(92, 41, 7);"
-              >
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+		<div class="col-sm">
+        		<ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
+          			<li class="nav-item">
+             		<c:choose>
+						<c:when test="${empty LoginOK}">										
+							<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
+						</c:when>
+						<c:otherwise>										
+							<a class="nav-link" href="<c:url value="/member/member_logout"/>" id="memberlogout" style="color: rgb(92, 41, 7);">會員登出</a> 											
+						</c:otherwise>
+			 		</c:choose>
+         			</li>
+          
+          			<li class="nav-item">
+            			<a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          			</li>
+				</ul>
+		 </div>
       </div>
     </div>
 
@@ -415,7 +385,7 @@
                         class="memberid_img"
                         src="${pageContext.request.contextPath}/init/getMemberImage?id=${entry.member_id}"
                         alt=""
-                        style="max-width: 100%; max-height: 100%;"
+                        style="max-width: 100%; max-height: 200px;"
                       />
                     </div>
                     <!-- 中間論壇 -->
@@ -476,29 +446,21 @@
                              	 <i class="fas fa-archive"></i>
                             	 </button>
                             </form>
-                            <!-- 修改 -->
-                            <c:if test="${LoginOK.m_id == entry.member_id}">
-                            	 <button
-                              		type="button"
-                              		class="btn btn-link"
-                              		data-toggle="modal"
-                              		data-target="#revise"
-                              		style="color: rgb(177, 172, 172);"
-                            		>
-                              		<i class="fas fa-edit"></i>
-                            	 </button>
-                            </c:if>
                             <!-- 刪除 -->
                             <c:if test="${LoginOK.m_id == entry.member_id}">
+                            <form style="margin:0px; display:inline" method="post"    action="<c:url value='/articleForum/track/${entry.article_Id}/${LoginOK.m_id}' />">
                             	<button
                               		type="button"
-                              		class="btn btn-link"
+                              		class="btn btn-link deleteArticle"
                               		data-toggle="modal"
                               		data-target="#delete"
                               		style="color: rgb(177, 172, 172);"
+                              		article_id='${entry.article_Id}'
+                              		
                             	>
                               	<i class="far fa-trash-alt"></i>
                             	</button>
+                            </form>
                             </c:if>
                           </div>
                         </div>
@@ -744,132 +706,7 @@
               </div>
             </div>
 
-            <!-- 跳出修改頁面 revise Modal  -->
-            <div
-              class="modal fade"
-              id="revise"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="reviseTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <!-- 叉叉按鈕 -->
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
 
-                  <div class="modal-body">
-                    <!-- 內容 -->
-                    <form id="msform">
-                      <!-- 發文者頭像 -->
-                      <div class="container">
-                        <img
-                          src="images/id_photo/memberphoto_6.png"
-                          alt="profile-sample5"
-                          id="memberid_img"
-                        />
-                        <span style="font-size: 12px; color: #3e8bbe;"
-                          >發文者</span
-                        ><span id="article_m_id" style="font-size: 16px;"
-                          >豬血糕不要香菜</span
-                        >
-                      </div>
-                      <hr />
-
-                      <div class="bd-highlight" style="font-size: small;">
-                        發文看板
-                        <!-- 發文看板選擇 -->
-                        <select id="select_area">
-                          <option value="請選擇">請選擇</option>
-                          <option value="creditcards">信用卡</option>
-                          <option value="food">美食</option>
-                          <option value="emotion">感情</option>
-                        </select>
-                      </div>
-
-                      <h1 class="fs-title">文章標題</h1>
-                      <input
-                        type="text"
-                        name="article_title"
-                        placeholder="標題"
-                      />
-                      <!-- 輸入內文 -->
-                      <h1 class="fs-title">文章內文</h1>
-                      <p class="text">
-                        <textarea
-                          name="text"
-                          class="validate[required,length[6,300]] feedback-input"
-                          id="article_content"
-                          placeholder="內文"
-                          style="height: 300px;"
-                        ></textarea>
-                      </p>
-
-                      <!-- 上傳圖片的按鈕 -->
-                      <h1 class="fs-title">文章照片</h1>
-                      <div class="articleimage" style="padding-bottom: 5px;">
-                        <input
-                          id="input-b7"
-                          name="input-b7[]"
-                          type="file"
-                          multiple
-                        />
-                      </div>
-
-                      <!-- 文章標籤選擇 標籤意思跟主題一樣-->
-                      <legend
-                        style="
-                          font-size: 13px;
-                          padding-bottom: 7px;
-                          padding-top: 15px;
-                        "
-                      >
-                        標籤選擇
-                      </legend>
-                      <div id="checkline">
-                        <ul id="labels" class="center">
-                          <li>
-                            <input class="subject" type="checkbox" />信用卡
-                          </li>
-                          <li><input class="subject" type="checkbox" />美食</li>
-                          <li><input class="subject" type="checkbox" />感情</li>
-                          <li><input class="subject" type="checkbox" />讚</li>
-                          <li>
-                            <input class="subject" type="checkbox" />我就爛
-                          </li>
-                          <li>
-                            <input class="subject" type="checkbox" />口袋空空
-                          </li>
-                        </ul>
-                      </div>
-                    </form>
-                  </div>
-
-                  <!-- 底部按鈕 -->
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary btn-sm"
-                      data-dismiss="modal"
-                    >
-                      返回
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      送出
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- 跳出刪除頁面 delete Modal -->
             <div
@@ -907,7 +744,7 @@
                     >
                       關閉
                     </button>
-                    <button type="button" class="btn btn-primary btn-sm">
+                    <button type="button" class="btn btn-primary btn-sm" id="deleteArticle1">
                       確定刪除
                     </button>
                   </div>
@@ -920,62 +757,98 @@
     </div>
 
     <!-- 下方頁碼分頁 ----超連結待補------>
-<!--     <nav -->
-<!--       aria-label="Page navigation example" -->
-<!--       style="padding-top: 20px; padding-bottom: 10px;" -->
-<!--     > -->
-<!--       <ul class="pagination justify-content-center"> -->
-<!--         <li class="page-item"> -->
-<!--           <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true" -->
-<!--             >Previous</a -->
-<!--           > -->
-<!--         </li> -->
-<!--         <li class="page-item"> -->
-<!--           <a class="page-link" href="#" id="forum_page1">1</a> -->
-<!--         </li> -->
-<!--         <li class="page-item"> -->
-<!--           <a class="page-link" href="#" id="forum_page2">2</a> -->
-<!--         </li> -->
-<!--         <li class="page-item"> -->
-<!--           <a class="page-link" href="#" id="">Next</a> -->
-<!--         </li> -->
-<!--       </ul> -->
-<!--     </nav> -->
+<nav aria-label="Page navigation example"
+		style="padding-top: 20px; padding-bottom: 10px;">
+		<ul class="pagination justify-content-center" id="buttonPage">
+			<c:choose>
+				<c:when test="${listDifPage == 1}">
+						<li class="page-item"><a class="page-link"  id=""
+						tabindex="-1" aria-disabled="true">&laquo;</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link" href="<c:url value='/articleForum/listforum/${fourmName}?listDifFourmPage=1' />" id=""
+						tabindex="-1" aria-disabled="true">&laquo;</a></li>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="1" end="${listDifTotalPage}" varStatus="vs">
+				<c:choose>
+                    		<c:when test="${listDifPage == vs.index}">
+                    			<li class="page-item">
+                    				<a class="page-link"  id="shopping_pag1">${vs.count}</a>
+                    			</li>
+                    		</c:when>
+                    		<c:otherwise>
+                    			<li class="page-item">
+                    				<a class="page-link" href="<c:url value='/articleForum/listforum/${fourmName}?listDifFourmPage=${vs.index}' />" id="shopping_pag1">${vs.index}</a>
+                    			</li>
+                    		</c:otherwise>
+                 </c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${listDifPage != listDifTotalPage}">
+						<li class="page-item"><a class="page-link" href="<c:url value='/articleForum/listforum/${fourmName}?listDifFourmPage=${listDifTotalPage}' />" id=""
+						tabindex="-1" aria-disabled="true">&raquo;</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link"  id=""
+						tabindex="-1" aria-disabled="true">&raquo;</a></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</nav>
 
     <!-- 底部 ---------------------------->
-    <div id="backtop" class="gotop">
-      <h4>
-        © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-      </h4>
-      <div class="footer">
-        <ul>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-facebook"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-twitter"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-instagram"></span>
-          </li>
-          <li>
-            <span></span>
-            <span></span>
-            <span class="fab fa-linkedin"></span>
-          </li>
-        </ul>
-      </div>
-
+       <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
       <br />
       <button type="button" id="back_bt" class="btn btn-secondary">
         To the top
       </button>
-    </div>
+    </div> 
+    <script type="text/javascript">
+		var article_id;
+	
+	$('#collection-tab').click(function(){
+		$('#buttonPage').attr('style','visibility:hidden');
+	})
+	$('#all-tab').click(function(){
+		$('#buttonPage').attr('style','');
+	})
+	$('.deleteArticle').click(function(){
+		article_id = $(this).attr('article_id');		
+	})
+	$('#deleteArticle1').click(function(){
+		document.forms[2].action = '/pikachuMVC/articleForum/delete/' + article_id   ;
+		document.forms[2].submit();
+	})
+    
+    </script>
   </body>
 </html>
