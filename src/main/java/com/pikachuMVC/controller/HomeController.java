@@ -89,9 +89,9 @@ public class HomeController {
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
 
-		if (!judgeNewsFolder()) {
-			newsService.newsCrawler();
-		}
+//		if (!judgeNewsFolder()) {
+//			newsService.newsCrawler();
+//		}
 
 		
 		if (list.size() == 0) {
