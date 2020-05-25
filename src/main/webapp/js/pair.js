@@ -78,11 +78,7 @@ function doFirst() {
         preFriends.appendChild(pfriend);
       }
       let lastDiv = document.createElement('div');
-//      let mImg = document.createElement("img");
-//      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
-//      mImg.src = `/pikachuMVC/init/getMemberImage?id=${data[i].m_id}`;
-
-      lastDiv.innerHTML = '<img src="../articleForum/images/board/couples3.jpg" />';
+      lastDiv.innerHTML = '<img src="../images/pair_no.png" />';
       lastDiv.style.display = "none";
       preFriends.appendChild(lastDiv);
       
