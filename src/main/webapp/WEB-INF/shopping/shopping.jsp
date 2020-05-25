@@ -18,14 +18,14 @@
 	<form>
        <input type="hidden" name="a"/>
     </form>
- <!-- 上方標題logo列-->
+ <!-- 上方標題logo列----超連結待補----->
    <div class="container-fluid" style="height: 160px;background-image: linear-gradient(-225deg, #b3db94 50%, #ffe066 50%);">
     <div class="row">
       <div class="col-sm">
-        <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
-        <span style="font-size: medium; padding-top: 10px;">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
           快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </span>
+        </p>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -50,6 +50,9 @@
           
           <li class="nav-item">
             <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="<c:url value='/shopping/orderList' />"id="memberlogin" style="color: rgb(92, 41, 7);">查詢訂單</a>
@@ -250,7 +253,7 @@
 
 
     <!-- 底部 ------>
-    <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+   <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
       © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
     <div id="icons" >
       <ul>
@@ -279,13 +282,12 @@
           <span class="fab fa-linkedin"></span>
         </li>
       </ul>
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
     </div> 
 
-    <br />
-    <button type="button" id="back_bt" class="btn btn-secondary">
-      To the top
-    </button>
-    </div>
     	 
         <!--這區塊是跳出視窗加入購物車視窗-->    
 <!--             <div class="modal fade" id="shoopingmodal"> -->

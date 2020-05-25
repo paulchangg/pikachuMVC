@@ -344,7 +344,7 @@ public class ArticleCotroller {
 	@GetMapping("/listforum/{fourmName}")
 	public String listDifferentforum(@PathVariable String fourmName,HttpServletRequest request,HttpSession session) {
 		
-		int recordPage = 2;
+		int recordPage = 10;
 		
 		int pageNo = 1;
 		
@@ -378,7 +378,7 @@ public class ArticleCotroller {
 		
 		for(ArticleBean bean: beans) {
 			
-			if( count >= startRecordNo && count1 <=1) {
+			if( count >= startRecordNo && count1 <=9) {
 				otherBeans.add(bean);
 				count1++;
 			}

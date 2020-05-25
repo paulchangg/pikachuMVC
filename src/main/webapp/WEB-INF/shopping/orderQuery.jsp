@@ -22,10 +22,10 @@
     <!-- <div class="container-fluid" style="height: 160px;background-image: linear-gradient(to top, #f0f18f 25%, #f7a773 75%);"> -->
     <div class="row">
       <div class="col-sm">
-        <span style="font-size: xx-large;">哪家的信用卡功能最丘？</span><br>
-        <span style="font-size: medium; padding-top: 10px;">
+        <p style="font-size: xx-large;">哪家的信用卡功能最丘？</p>
+        <p style="font-size: medium; padding-top: 10px;">
           快速了解最適合自己的信用卡，同時找到與自己財力匹配的對象。
-        </span>
+        </p>
       </div>
       <div class="row justify-content-around">
         <div class="col-sm">
@@ -38,7 +38,7 @@
       <div class="col-sm">
         <ul class="nav justify-content-end" style="font-size: 18px; font-weight: bold;">
           <li class="nav-item">
-			 <c:choose>
+             <c:choose>
 				<c:when test="${empty LoginOK}">										
 					<a class="nav-link" href="<c:url value="/member/member_login"/>" id="memberlogin" style="color: rgb(92, 41, 7);">會員登出</a>										
 				</c:when>
@@ -47,16 +47,17 @@
 				</c:otherwise>
 			 </c:choose>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href='<c:url value="/member/member_center" />' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
+            <a class="nav-link" href='<c:url value="/member/member_center"/>' id="membercenter" style="color: rgb(92, 41, 7);"><i class='bx bx-user-circle' ></i>會員中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<c:url value="/shopping/listtrackproduct" />" style="color: rgb(92, 41, 7);">追蹤商品</a>
+                <a class="nav-link"  style="color: rgb(92, 41, 7);" href="<c:url value="/shopping/listtrackproduct" />">追蹤商品</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<c:url value='/shopping/ShoppingCart' />" id="shoppingcart" style="color: rgb(92, 41, 7);">
-              <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
-             </a>
+               <i class="fas fa-shopping-cart"><span style="color:#FF5964" id="shoppingCartItem">${shoppingCart}</span> <!-- 加入購物車的商品數量 --></i>
+            </a>
           </li>
         </ul>
       </div>
@@ -73,7 +74,7 @@
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="<c:url value="/news/lastestNews"/>">資訊網</a>
+        <a class="et-hero-tab" href="">資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -85,10 +86,12 @@
       
 
         <!--這裡為輸入條件區塊-->
+       <form action="<c:url value="/shopping/orderList" />" method="get">
        <div class="col-6 orderone" id="Orderinquary_haveorder">
            <table>
                <tr>
                    <td>查詢條件:</td>
+                   <td><input type="radio" name="orderitem" value="0" id="Orderinquary_all" class="radioBtn">全部</td>
                    <td><input type="radio" name="orderitem" value="30" id="Orderinquary_onemonth" class="radioBtn">一個月內訂單</td>
                    <td><input type="radio" name="orderitem" value="90" id="Orderinquary_nouse"  class="radioBtn">三個月內訂單</td>
                    <td><input type="radio" name="orderitem" value="180" id="Orderinquary_sixmonth"  class="radioBtn">六個月內訂單</td>
@@ -97,7 +100,7 @@
            </table>
            <input type="submit" value="查詢" id="Orderinquary_orderbutton">
        </div>
-
+	   </form>
           <!--這裡為顯示搜尋結果為有訂單時的區塊-->
        <div class="ordertwo">
           <!-- <span id="Orderinquary_onemonth" style="margin: 0 auto;">一個月內訂單共7筆</span> -->
@@ -130,7 +133,7 @@
           </table>
 
           <div class="return"> <!--底部分頁-->
-                 <ul class="pagination pagination-sm" style="justify-content: center;">
+                 <ul class="pagination pagination-sm">
                  	<c:choose>
                  		<c:when test="${pageNo == 1}">
                  			  <li class="page-item"> 
@@ -141,7 +144,7 @@
                  		</c:when>
                  		<c:otherwise>
                     		<li class="page-item"> 
-                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1' />" aria-label="Previous">
+                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=1&orderitem=${orderDays}' />" aria-label="Previous">
                         			<span aria-hidden="true">&laquo;</span> 
                         		</a>
                         	</li>
@@ -156,7 +159,7 @@
                     		</c:when>
                     		<c:otherwise>
                     			<li class="page-item">
-                    				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}' />" id="shopping_pag1">${vs.index}</a>
+                    				<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${vs.index}&orderitem=${orderDays}' />" id="shopping_pag1">${vs.index}</a>
                     			</li>
                     		</c:otherwise>
                     	</c:choose>
@@ -164,7 +167,7 @@
                     <c:choose>
                  		<c:when test="${pageNo != totalPages}">
                  			  <li class="page-item"> 
-                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}' />" aria-label="Previous">
+                    			<a class="page-link" href="<c:url value='/shopping/orderList?pageNo=${totalPages}&orderitem=${orderDays}' />" aria-label="Previous">
                         			<span aria-hidden="true">&raquo;</span> 
                         		</a>
                         	</li>
@@ -184,42 +187,41 @@
             
     
             <!-- 底部 ------>
-            <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 120px;">
-              © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
-              <div id="icons" >
-              <ul>
-                <li>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="fab fa-facebook"></span>
-                </li>
-                <li>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="fab fa-twitter"></span>
-                </li>
-                <li>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="fab fa-instagram"></span>
-                </li>
-                <li>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="fab fa-linkedin"></span>
-                </li>
-              </ul>
-              </div> 
-            
-              <br />
-              <button type="button" id="back_bt" class="btn btn-secondary">
-              To the top
-              </button>
-              </div>
+       <div id="backtop" class="gotop" style="text-align: center !important; margin-top: 50px;">
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+    <div id="icons" >
+      <ul>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-facebook"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="fab fa-linkedin"></span>
+        </li>
+      </ul>
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div> 
+
    	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
