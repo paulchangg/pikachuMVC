@@ -329,7 +329,7 @@
 													style="background: #fcfcfc; color: rgb(177, 172, 172); display: flex; align-items: center;">
 													<div class="col-2 px-0">
 														<!--文章主題類別----->
-														<a href="article_board_credit card.html">${entry.subject}</a>
+														<a >${entry.subject}</a>
 													</div>
 													<div class="col-2 px-1">
 														<!-- 發文者id ----->
@@ -448,7 +448,7 @@
 													style="background: #fcfcfc; color: rgb(177, 172, 172); display: flex; align-items: center;">
 													<div class="col-2 px-0">
 														<!--文章主題類別----->
-														<a href="article_board_credit card.html">${entry10.subject}</a>
+														<a >${entry10.subject}</a>
 													</div>
 													<div class="col-2 px-1">
 														<!-- 發文者id ----->

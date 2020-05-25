@@ -1,18 +1,27 @@
-$(function(){
-	var t = $("#shoppingcart_quantity");
-	$("#shoppingcart_add").click(function(){
-		t.val(parseInt(t.val())+1);
-		$("#shoppingcart_min").removeAttr("disabled");                 //當按加1時，解除$("#min")不可讀狀態
-	})
-	$("#shoppingcart_min").click(function(){
-               if (parseInt(t.val())>1) {                     //判斷數量值大於1時才可以減少
-                t.val(parseInt(t.val())-1)
-                }else{
-                $("#shoppingcart_min").attr("disabled","disabled")        //當$("#min")為1時，$("#min")不可讀狀態
-      }
-	})
-});
+ $(document).ready(function(){
+        	$('#shopping_addButton').click(function(){
+        		$.ajax({
+        			url: '/pikachuMVC/shopping/checkData',
+        			type: 'post',
+        			data: { 
+        			},
+        			dataType:"text",
+        			success:function(response){
+        				var flag = response ==="false" ? false : true;
+        				console.log("yes");
+        				if(flag){
+        					console.log("submit");
+        					document.forms[1].submit();			
+        				}else{
+        					console.log("Nosubmit");
+        					$('#errorCheck').html("購物清單<br><Font color='green' size='-1'>購物車沒商品</Font>");
+        			
+        				}
+        			}
 
+        		}); 	
+        	})
+        })
 
 function isNumberKey(evt)
 {

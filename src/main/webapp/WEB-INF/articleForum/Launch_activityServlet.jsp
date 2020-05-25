@@ -71,6 +71,7 @@
         <div class="content_block_b">
           <div class="article_content_block" >
             <span class="article_content">${launchActivityBean.article_content}</span>
+            <div style="margin-top: 40px;"></div>
             <!-- 照片區塊 -->
             <div class="photo_block">
               <!-- 照片 -->
@@ -85,7 +86,7 @@
           <div class="label_box" style="padding-bottom: 16px;">
             <ul class="label_line">
               <li class="subject_block">
-                <a href="article_board_credit card.html">
+                <a href="#">
                   <!-- 主題分類  -->
                   <div class="subject" style="height: 25px;">
                     <div>信用卡</div>
@@ -160,7 +161,7 @@
       <div class="advertising">
         <img
           src="images/ad_photo/kebuke.jpg"
-          style="width: 100%; height: 150px;"
+          style="width: 100%; height: 150px;margin-top: 10px;"
         />
       </div>
       <!-- 回文區塊-------->

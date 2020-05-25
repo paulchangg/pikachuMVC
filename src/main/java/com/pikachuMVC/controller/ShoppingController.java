@@ -406,7 +406,7 @@ public ShoppingController() {}
 			orderService.persistOrder(ob);
 			session.setAttribute("Orders", ob);
 			session.removeAttribute("ShoppingCart");
-			return "shopping/showShoppingCart2";
+			return "redirect:/shopping/showShoppingCart2";
 		} catch(RuntimeException ex){
 			String message = ex.getMessage();
 			
@@ -414,6 +414,11 @@ public ShoppingController() {}
 			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + message  + "，請調正訂單內容" );
 			return "shopping/showShoppingCart";
 		}
+	}
+	
+	@GetMapping("/showShoppingCart2")
+	public String showShoppingCart2() {
+		return "shopping/showShoppingCart2";
 	}
 	
 	@GetMapping("/orderList")
@@ -693,5 +698,36 @@ public ShoppingController() {}
 		return "shopping/shopping";
 	}
 	
+	@PostMapping("/checkData")
+	public void checkData( HttpServletResponse response ,HttpSession session) {
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		String check = "true";
+		System.out.println("77777777777777777777");
+		try(PrintWriter out = response.getWriter()){
+
+			if (cart == null) {
+				// 就新建ShoppingCart物件
+				cart = new ShoppingCart();
+				session.setAttribute("ShoppingCart", cart);
+			}else if(cart.getItemNumber() == 0){
+				check = "false";
+				System.out.println("false");
+				out.write(check);
+				out.flush();
+			}else {
+				System.out.println("true");
+				out.write(check);
+				out.flush();
+			}
+			
+			
+			
+		}catch (Exception e) {
+			System.out.println("shoppingCheckFalse");
+		}
+		
+		
+		
+	}
 
 }

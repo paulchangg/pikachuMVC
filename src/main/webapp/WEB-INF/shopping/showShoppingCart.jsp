@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購物清單</title>
+    <title >購物清單</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/wickedcss.min.css"/>
@@ -97,7 +97,7 @@
     <div class="wrap">
         <!--這裡為購物清單-->
         <div class="col-10 tablearea">
-            <h4>購物清單</h4>
+            <h4 id='errorCheck'>購物清單</h4>
                 <table class="table table-hover ">
                    <thead><!--購物清單表格標題-->
                       <tr>
@@ -142,7 +142,7 @@
             <form action="<c:url value='/shopping/ProcessOrder' />" method="POST" >
                <Input type='hidden' name='finalDecision' value='Order'>
                 <a href="<c:url value='/shopping/listProduct' />"><button type="button" class="returnBtn">繼續購物</button></a>
-                <Input type='submit' class="returnBtn" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
+                <Input type='button' class="returnBtn" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
             </form>
         </div>
   </div> 

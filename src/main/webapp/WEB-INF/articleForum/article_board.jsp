@@ -403,7 +403,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">${entry.subject}</a>
+                            <a >${entry.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->
@@ -504,7 +504,7 @@
                       <img
                         class="articleimage"
                         src='${pageContext.request.contextPath}/articleForum/getPicture/${entry.article_Id}'
-                        style="max-width: 100%; max-height: 100%;"
+                        style="max-width: 100%; max-height: 200px;"
                       />
                     </div>
                   </div>
@@ -558,7 +558,7 @@
                         >
                           <div class="col-2 px-0">
                             <!--文章主題類別----->
-                            <a href="article_board_credit card.html">${entry10.subject}</a>
+                            <a >${entry10.subject}</a>
                           </div>
                           <div class="col-2 px-1">
                             <!-- 發文者id ----->
