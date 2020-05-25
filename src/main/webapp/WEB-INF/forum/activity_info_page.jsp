@@ -848,24 +848,45 @@
 
 
 			<!-- 底部 ------>
-			<div id="backtop" class="gotop">
-				<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-				<div class="footer">
-					<ul>
-						<li><span></span> <span></span> <span></span> <span
-							class="fab fa-facebook"></span></li>
-						<li><span></span> <span></span> <span></span> <span
-							class="fab fa-twitter"></span></li>
-						<li><span></span> <span></span> <span></span> <span
-							class="fab fa-instagram"></span></li>
-						<li><span></span> <span></span> <span></span> <span
-							class="fab fa-linkedin"></span></li>
-					</ul>
-				</div>
+	<div
+      id="backtop"
+      class="gotop"
+      style="text-align: center !important; margin-top: 50px;"
+    >
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      <div id="icons">
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
 
-				<br />
-				<button type="button" id="back_bt" class="btn btn-secondary">
-					To the top</button>
-			</div>
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div>
 </body>
 </html>

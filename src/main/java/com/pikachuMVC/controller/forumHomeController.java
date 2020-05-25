@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -307,6 +308,15 @@ public class forumHomeController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
+		Date today = new Date();
+		sdf.format(today);
+		if(starteTime.before(today)) {
+			starteTime = today;
+			
+		}
+		
 
 		Date endTime = null;
 		String newendTimeStr = null;
@@ -318,6 +328,23 @@ public class forumHomeController {
 
 		} catch (Exception e) {
 		}
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		
+		cal.add(Calendar.DATE, +7);
+		Date newendTime = cal.getTime();
+		
+		
+		if (endTime.before(starteTime)) {
+
+			endTime = newendTime;
+
+		}
+		
+		
+		
+		
 
 //		 如果有錯誤
 		if (!errorMsg.isEmpty()) {
@@ -694,6 +721,15 @@ public class forumHomeController {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
+			Date today = new Date();
+			sdf.format(today);
+			if(starteTime.before(today)) {
+				starteTime = today;
+				
+			}
+			
+			
 
 			Date endTime = null;
 			String newendTimeStr = null;
@@ -706,6 +742,24 @@ public class forumHomeController {
 			} catch (Exception e) {
 			}
 
+			
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(today);
+			
+			cal.add(Calendar.DATE, +7);
+			Date newendTime = cal.getTime();
+			
+			
+			if (endTime.before(starteTime)) {
+
+				endTime = newendTime;
+
+			}
+			
+			
+			
+			
 			Timestamp updateTime = new Timestamp(System.currentTimeMillis());
 
 			Launch_activityBean article = new Launch_activityBean();

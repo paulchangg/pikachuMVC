@@ -66,14 +66,17 @@ body {
 }
 
 @media (min-width: 800px) {
+
   .et-hero-tabs h1,
   .et-slide h1 {
     font-size: 3rem;
   }
+
   .et-hero-tabs h3,
   .et-slide h3 {
     font-size: 1rem;
   }
+
   .et-hero-tab {
     font-size: 1.2rem;
   }
@@ -91,6 +94,7 @@ body {
   margin: 0.15em 0 3em;
   font-weight: bold;
 }
+
 /* 配對區塊 */
 #preFriends {
   /* background-color: burlywood; */
@@ -110,7 +114,7 @@ body {
   padding-top: 30px;
 }
 
-.position_a{
+.position_a {
   padding-top: 30px;
   text-align: center;
 }
@@ -134,14 +138,14 @@ body {
 }
 
 
-.pair_name{
+.pair_name {
   padding-top: 5px;
 }
 
 
 
 /* 底部 */
-#icons{
+#icons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,23 +272,22 @@ body {
   border-bottom-left-radius: 7px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  height: 500px;
-  overflow: auto;
+  /* height: 500px; */
+  /* overflow: auto; */
 }
 
 .listheader {
   background-color: #faa56c;
   height: 30px;
-  width:653px;
+  width: 653px;
 }
 
-#friendList > div:nth-child(odd){
-	background-color: #ffdab9 !important;
-	/* color: white; */
-}
-#friendList > div:nth-child(even){
-	background-color: #e4be9e !important;
-	/* color: red; */
+#friendList>div:nth-child(odd) {
+  background-color: #ffdab9 !important;
+  /* color: white; */
 }
 
-
+#friendList>div:nth-child(even) {
+  background-color: #e4be9e !important;
+  /* color: red; */
+}

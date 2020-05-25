@@ -87,9 +87,10 @@ public class HomeController {
 	public String home() throws FailingHttpStatusCodeException, MalformedURLException, IOException, ParseException {
 		
 
-//		if (!judgeNewsFolder()) {
-//			newsService.newsCrawler();
-//		}
+		if (!judgeNewsFolder()) {
+			newsService.newsCrawler();
+		}
+
 		
 		if (list.size() == 0) {
 			if (service.getCards().size() == 0) {
@@ -123,7 +124,6 @@ public class HomeController {
 
 			
 			if (memberService.getAllMember().size() == 0) {
-				System.out.println("111111111111");
 				memberDao.addmember();
 			}
 			memberList = memberService.getAllMember();
@@ -152,6 +152,7 @@ public class HomeController {
 	    	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 			String today = sdFormat.format(new Date());
 //			String txtPath = "C:\\_JSP\\workspaceJDBC\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //song
+//			String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today;  //james
 			String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today;
 			File file = new File(txtPath);
 			return file.exists();

@@ -401,8 +401,8 @@ public class MemberDaoImpl implements MemberDao {
 	
 		String line = "";
 		
-//		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\member.txt"); //JAMES
-		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/member.txt"); //JAMES
+		File file = new File("C:\\_JSP\\workspace2020\\pikachuMVC\\data\\member.txt"); //JAMES
+//		File file = new File("/Users/paulchang/jsp_workspace/pikachuMVC/data/member.txt"); //JAMES
 
 
 
@@ -438,8 +438,8 @@ public class MemberDaoImpl implements MemberDao {
 				mb.setPhone_num(token[11]);
 				mb.setValid(Integer.valueOf(token[12]));
 				
-//				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\memberImgs\\" + token[6]; //JAMES
-				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/memberImgs/" + token[6]; //JAMES
+				String imgname = "C:\\_JSP\\workspace2020\\pikachuMVC\\data\\memberImgs\\" + token[6]; //JAMES
+//				String imgname = "/Users/paulchang/jsp_workspace/pikachuMVC/data/memberImgs/" + token[6]; //JAMES
 
 				Blob m_img = GlobalService.fileToBlob(imgname);
 				

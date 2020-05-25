@@ -93,6 +93,7 @@ public class NewsServiceImpl implements NewsService {
 
 		String txtPath = "/Users/paulchang/jsp_workspace/pikachuMVC/src/main/webapp/news/" + today + "/content/";
 //		String txtPath = "C:/_JSP/workspaceJDBC/pikachuMVC/src/main/webapp/news/" + today + "/content/";
+//		String txtPath = "C:\\_JSP\\workspace2020\\pikachuMVC\\src\\main\\webapp\\news\\" + today + "\\content\\";//james
 		
 		File txtFolder = new File(txtPath);
 		

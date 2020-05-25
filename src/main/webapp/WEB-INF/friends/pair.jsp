@@ -103,7 +103,7 @@ pageEncoding="UTF-8"%>
         <a class="et-hero-tab" href='<c:url value="/cards/cradeitCb?qt=main" />'>信用卡比較</a>
         <a class="et-hero-tab" href='<c:url value="/articleForum/listforum"/>'>論壇交友</a>
         <a class="et-hero-tab" href='<c:url value="/shopping/listProduct" />'>商城</a>
-        <a class="et-hero-tab" href="#infoweb">資訊網</a>
+        <a class="et-hero-tab" href='<c:url value="/news/lastestNews"/>'>資訊網</a>
         <span class="et-hero-tab-slider"></span>
       </div>
     </div>
@@ -150,7 +150,7 @@ pageEncoding="UTF-8"%>
           </button>
         </a>
 
-        <div class="col" >
+        <div class="col-11" >
           <div style="height:20px; text-align: center;">
           <span class="badge badge-warning" style="font-size: 20px; padding-top:8px; ">配對</span>
         </div>
@@ -202,19 +202,19 @@ pageEncoding="UTF-8"%>
           <div class="my-3">
             <a class="nav-link" href='<c:url value="/friends/pair" />'
               style="padding: 0px;">
-              <button type="button" class="btn btn-outline-success">配對</button>
+              <button type="button" class="btn btn-outline-success" style="margin-left: 10px;">配對</button>
             </a>
           </div>
           <!-- 假廣告圖刪除 -->
         </div>
 
-        <div style="width: 50px;"></div>
+        <div style="width:20px;"></div>
+
         <!-- 中央配對區 -->
-        <div class="col-7" style="height: 900px;">
+        <div class="col-8" style="height: 600px; align-items: center; ">
         <div id="preFriends"></div>
         </div>
-        <div style="width: 90px;">
-
+        <div class="col-4">
        
       </div>
     </div>

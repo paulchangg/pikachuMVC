@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +20,7 @@
 	href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
 	rel='stylesheet'>
 <script src="<c:url value="/articleForum/js/jquery-3.4.1.js"/>"></script>
-<script src=" <c:url value="/articleForum/js/popper.min.js"/>"></script>
+<script src="<c:url value="/articleForum/js/popper.min.js"/>"></script>
 <script src="<c:url value="/articleForum/js/bootstrap.min.js"/>"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js"
@@ -50,41 +51,20 @@
 
 			article_content[i].innerHTML = shortarticle_content;
 		}
-
-		
-		
-		
-		
-		
 		
 		var post_Time = document.getElementsByClassName("post_Time");
 		
 		for(let i = 0;i<post_Time.length; i++){
 			
-			
 			let qqq = post_Time[i].innerHTML;
 			
 			let ddd =  qqq .substring(0, 17);
 			
-			
-			
-			console.log("ddd"+ddd)
-			
+			console.log("ddd"+ddd)	
 			
 			post_Time[i].innerHTML = ddd;
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
 </script>
@@ -401,16 +381,17 @@
 <!-- 				-------------------------------------------------- -->
 
 				<div class="container">
-					<div class="card-deck">
+					<div class="card-deck" >
 						<!-- 活動1-2 -->
-						<c:forEach var="subList2" items="${subList2}">
-								<div class="card">
+						<c:forEach var="subList1" items="${subList2}">
+<div class="card">
 									<!-- 活動圖片 -->
 									<a
-										href="<c:url value='/forum/activity_info_page?article_IdStr=${ subList2.article_Id }&mode=enterpage'/>">
+										href="<c:url value='/forum/activity_info_page?article_IdStr=${ subList1.article_Id }&mode=enterpage'/>">
 										<img
-										src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ subList2.article_Id }'
-										class="articleimage" alt="..." />
+										src='${pageContext.servletContext.contextPath}/forum/RetrieveLaunchImageServlet?article_IdStr=${ subList1.article_Id }'
+										class="articleimage" alt="..." 
+										/>
 									</a>
 
 									<div class="card-body">
@@ -419,30 +400,24 @@
 
 												<!-- 點擊進入詳細活動頁面  -->
 												<a id="share" class="share-toggle share-icon"
-													href="<c:url value='/forum/activity_info_page?article_IdStr=${ subList2.article_Id }&mode=enterpage'/>">
+													href="<c:url value='/forum/activity_info_page?article_IdStr=${ subList1.article_Id }&mode=enterpage'/>">
 													<i class="fas fa-plus"></i>
 												</a>
 											</div>
 										</div>
 										<div class="card__meta" style="padding-top: 10px;">
 											<!-- 所屬的看板 -->
-											<a href="#" class="subject">${subList2.foumBean.fname}</a><br>
+											<a href="#" class="subject">${subList1.foumBean.fname}</a><br>
 											<!-- 活動時間 -->
-											<time class="post_Time" style="font-size: medium;"> ${ subList2.post_Time }</time>
+											<time class="post_Time" style="font-size: medium;"> ${ subList1.post_Time }</time>
 										</div>
-										<p class="article_content" id="Substring_article_content">${ subList2.article_content }</p>
+										<p class="article_content" id="Substring_article_content">${ subList1.article_content }</p>
 									</div>
 								</div>
-							</c:forEach>
+						</c:forEach>
 					</div>
 				</div>
 <!-- 				-------------------------------------------------- -->
-
-
-
-
-
-
 			</div>
 		</div>
 
@@ -614,25 +589,46 @@
 	</nav>
 
 	<!-- 底部 ------>
-	<div id="backtop" class="gotop">
-		<h4>© Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-		<div class="footer">
-			<ul>
-				<li><span></span> <span></span> <span></span> <span
-					class="fab fa-facebook"></span></li>
-				<li><span></span> <span></span> <span></span> <span
-					class="fab fa-twitter"></span></li>
-				<li><span></span> <span></span> <span></span> <span
-					class="fab fa-instagram"></span></li>
-				<li><span></span> <span></span> <span></span> <span
-					class="fab fa-linkedin"></span></li>
-			</ul>
-		</div>
+	<div
+      id="backtop"
+      class="gotop"
+      style="text-align: center !important; margin-top: 50px;"
+    >
+      © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+      <div id="icons">
+        <ul>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-facebook"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-twitter"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-instagram"></span>
+          </li>
+          <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="fab fa-linkedin"></span>
+          </li>
+        </ul>
+      </div>
 
-		<br />
-		<button type="button" id="back_bt" class="btn btn-secondary">
-			To the top</button>
-	</div>
+      <br />
+      <button type="button" id="back_bt" class="btn btn-secondary">
+        To the top
+      </button>
+    </div>
 
 </body>
 </html>

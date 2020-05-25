@@ -297,7 +297,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
           //            alert("您的瀏覽器支援 WebSocket!");
           if (webSocket == null) {
             var url =
-              "ws://192.168.43.212:8080/pikachuMVC/chat/" + roomName + "/" + mId;
+              "ws://172.20.10.2:8080/pikachuMVC/chat/" + roomName + "/" + mId;
             // 開啟一個 web socket
             webSocket = new WebSocket(url);
           } else {
