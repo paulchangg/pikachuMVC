@@ -484,7 +484,7 @@
 														<%--                             </c:if> --%>
 														<!-- 刪除 -->
 														<form style="margin: 0px; display: inline" method="post"
-															action="<c:url value='/articleForum/deleteTrack/${entry10.article_Id}/${entry10.member_id}' />">
+															action="<c:url value='/articleForum/deleteTrack/${entry10.article_Id}/${LoginOK.m_id}' />">
 															<button type="submit" class="btn btn-link"
 																style="color: rgb(177, 172, 172);">
 																<i class="far fa-trash-alt"></i>

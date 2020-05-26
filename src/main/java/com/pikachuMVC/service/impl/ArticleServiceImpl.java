@@ -81,6 +81,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public void deleteTrackActivity(int article_id, String m_id) {
 		dao.deleteTrackActivity(article_id, m_id);
 		
+		
 	}
 
 	@Override

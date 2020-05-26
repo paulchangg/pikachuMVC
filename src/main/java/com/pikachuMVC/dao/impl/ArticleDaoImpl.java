@@ -194,6 +194,8 @@ public class ArticleDaoImpl implements ArticleDao{
 		
 		MemberBean memberBean = session.get(MemberBean.class, m_id);
 		
+		System.out.println("article_id" + article_id + "m_id" + m_id);
+		
 		articleBean.getMemberBeans().remove(memberBean);
 		
 		memberBean.getLaunchActivity().remove(articleBean);

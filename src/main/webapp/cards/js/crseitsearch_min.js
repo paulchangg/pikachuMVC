@@ -213,7 +213,7 @@ $("#prevBtn").css({ display: "none" });
 
 var seop = document.getElementsByClassName("se");
 for (var i = 0; i < seop.length; i++) {
-  seop[i].addEventListener("click", changelist);
+  seop[i].addEventListener("mousedown", changelist);
 }
 
 function changelist() {

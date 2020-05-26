@@ -235,7 +235,7 @@ prefix="c"%>
           <!-- 左側假廣告圖已刪 -->
         </div>
 
-        <div style="width:120px; height:300px;"></div>
+        <div style="width:110px; height:300px;"></div>
         <!-- 中央好友列表 -->
       <div class="listefriend d-none d-lg-block col-lg-9">  
       <div class="row chatroom">
