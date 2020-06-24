@@ -103,7 +103,7 @@ page[size="A4"] {
   font-size: 14px;
   line-height: 1.4;
   overflow-wrap: break-word;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .label_line {

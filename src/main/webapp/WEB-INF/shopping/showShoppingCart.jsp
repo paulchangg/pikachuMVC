@@ -112,8 +112,8 @@
                     <tbody><!--表格內呈現資料-->
                     <c:forEach varStatus="vs" var="anEntry" items="${ShoppingCart.content}">
                       <tr>
-                          <td><a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page">
-                              <img src="<c:url value='/shopping/getPicture/${anEntry.value.p_id}' />"  id="shoppingcart_img">
+                          <td><a href="<c:url value='/shopping/listProduct?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page">
+                              <img  src="<c:url value='/shopping/getPicture/${anEntry.value.p_id}'/>"  id="shoppingcart_img">
                              ${anEntry.value.p_name} </a>
                           </td>
                           <td>NT<sapn id="shoppingcart_orp">${anEntry.value.price}</sapn>元
